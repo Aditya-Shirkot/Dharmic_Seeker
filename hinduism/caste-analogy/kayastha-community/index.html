@@ -1,0 +1,1516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kayastha: Civilizational Scribes of India — A Historical & Scholarly Archive</title>
+<meta name="description" content="A comprehensive, academically rigorous educational platform on the Kayastha community — their scriptural origins, historical evolution, genetic research, Varna debates, and civilizational contributions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=IM+Fell+English:ital@0;1&family=Noto+Serif+Devanagari:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1208;
+    --parchment: #f5ead6;
+    --parchment-dark: #e8d5b0;
+    --gold: #c9922a;
+    --gold-light: #e4b84a;
+    --gold-dim: #8a6420;
+    --rust: #8b3a1e;
+    --sepia: #5c3d1e;
+    --cream: #fdf6e8;
+    --sienna: #a0522d;
+    --deep-brown: #2a1a08;
+    --mid-brown: #4a2e0e;
+    --border-gold: rgba(201,146,42,0.35);
+    --shadow-gold: rgba(201,146,42,0.15);
+    --text-body: #3a2510;
+    --text-muted: #7a5c3a;
+    --accent-teal: #2d6b6e;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--text-body);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    line-height: 1.75;
+    overflow-x: hidden;
+  }
+
+  /* ─── Noise texture overlay ─────────────────── */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 9999;
+    opacity: 0.6;
+  }
+
+  /* ─── Nav ────────────────────────────────────── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(26,18,8,0.96);
+    border-bottom: 1px solid var(--border-gold);
+    backdrop-filter: blur(12px);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 60px;
+  }
+
+  .nav-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; color: var(--gold-light);
+    letter-spacing: 0.05em; font-style: italic;
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex; gap: 0.1rem; list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.82rem; color: var(--parchment-dark);
+    text-decoration: none; padding: 0.4rem 0.8rem;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold-light); }
+
+  /* ─── Hero ───────────────────────────────────── */
+  #hero {
+    min-height: 100vh;
+    background:
+      radial-gradient(ellipse at 30% 60%, rgba(139,58,30,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse at 75% 30%, rgba(201,146,42,0.12) 0%, transparent 55%),
+      linear-gradient(160deg, #0e0a04 0%, #1e1208 40%, #2a1a08 70%, #1a0e05 100%);
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; padding: 6rem 2rem 4rem;
+    position: relative; overflow: hidden;
+  }
+
+  /* Decorative mandala rings */
+  #hero::before {
+    content: '';
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(900px, 95vw); height: min(900px, 95vw);
+    border: 1px solid rgba(201,146,42,0.08);
+    border-radius: 50%;
+    box-shadow: 0 0 0 60px rgba(201,146,42,0.04), 0 0 0 120px rgba(201,146,42,0.025);
+  }
+
+  #hero::after {
+    content: '꩜';
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 480px; color: rgba(201,146,42,0.025);
+    line-height: 1; pointer-events: none;
+    animation: slowspin 120s linear infinite;
+  }
+
+  @keyframes slowspin { to { transform: translate(-50%, -50%) rotate(360deg); } }
+
+  .hero-content { position: relative; z-index: 2; max-width: 860px; }
+
+  .hero-sanskrit {
+    font-family: 'Noto Serif Devanagari', serif;
+    font-size: 1.1rem; color: var(--gold-dim);
+    letter-spacing: 0.15em; margin-bottom: 1.5rem;
+    opacity: 0; animation: fadeUp 1s 0.3s forwards;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 6vw, 5.2rem);
+    font-weight: 800; line-height: 1.08;
+    color: var(--parchment);
+    text-shadow: 0 2px 40px rgba(201,146,42,0.3);
+    margin-bottom: 0.5rem;
+    opacity: 0; animation: fadeUp 1s 0.5s forwards;
+  }
+
+  .hero-title em {
+    color: var(--gold-light);
+    font-style: italic;
+  }
+
+  .hero-subtitle {
+    font-family: 'IM Fell English', serif;
+    font-size: clamp(1rem, 2.2vw, 1.35rem);
+    color: rgba(245,234,214,0.65);
+    font-style: italic; margin: 1.2rem 0 2.4rem;
+    opacity: 0; animation: fadeUp 1s 0.7s forwards;
+    line-height: 1.6;
+  }
+
+  .hero-divider {
+    width: 220px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 0 auto 2rem;
+    opacity: 0; animation: fadeUp 1s 0.9s forwards;
+  }
+
+  .hero-ctas {
+    display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;
+    opacity: 0; animation: fadeUp 1s 1.1s forwards;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--gold) 0%, #b07820 100%);
+    color: var(--deep-brown); font-family: 'Cormorant Garamond', serif;
+    font-size: 0.95rem; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; padding: 0.85rem 2rem;
+    border: none; cursor: pointer; text-decoration: none;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+    transition: all 0.3s; display: inline-block;
+  }
+
+  .btn-primary:hover {
+    background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(201,146,42,0.4);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--gold-light); font-family: 'Cormorant Garamond', serif;
+    font-size: 0.95rem; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; padding: 0.83rem 2rem;
+    border: 1px solid var(--gold-dim); cursor: pointer; text-decoration: none;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+    transition: all 0.3s; display: inline-block;
+  }
+
+  .btn-outline:hover {
+    background: rgba(201,146,42,0.1);
+    border-color: var(--gold-light);
+    transform: translateY(-2px);
+  }
+
+  .hero-scroll-cue {
+    position: absolute; bottom: 2.5rem; left: 50%;
+    transform: translateX(-50%);
+    color: rgba(201,146,42,0.5); font-size: 0.75rem;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+    animation: bounce 2.5s ease-in-out infinite;
+  }
+
+  @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(-8px)} }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(22px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─── Section Architecture ───────────────────── */
+  section { padding: 5rem 2rem; }
+
+  .container { max-width: 1100px; margin: 0 auto; }
+  .container-wide { max-width: 1280px; margin: 0 auto; }
+
+  .section-tag {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.72rem; letter-spacing: 0.35em; text-transform: uppercase;
+    color: var(--gold-dim); margin-bottom: 0.6rem;
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+
+  .section-tag::before, .section-tag::after {
+    content: ''; flex: 0 0 30px; height: 1px;
+    background: var(--gold-dim); opacity: 0.6;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.9rem, 3.5vw, 2.9rem);
+    font-weight: 700; color: var(--deep-brown);
+    line-height: 1.15; margin-bottom: 0.8rem;
+  }
+
+  .section-title em { color: var(--gold); font-style: italic; }
+
+  .section-lead {
+    font-family: 'IM Fell English', serif;
+    font-size: 1.15rem; color: var(--text-muted);
+    font-style: italic; max-width: 680px;
+    line-height: 1.65; margin-bottom: 2.5rem;
+  }
+
+  .divider-ornament {
+    text-align: center; color: var(--gold);
+    font-size: 1.3rem; margin: 3rem 0;
+    letter-spacing: 0.5em; opacity: 0.5;
+  }
+
+  /* ─── Alternating Section BGs ─────────────────── */
+  .bg-parchment { background: var(--parchment); }
+  .bg-dark {
+    background: linear-gradient(160deg, #14100a 0%, #1e1408 100%);
+    color: var(--parchment);
+  }
+  .bg-dark .section-title { color: var(--parchment); }
+  .bg-dark .section-lead { color: rgba(245,234,214,0.6); }
+  .bg-dark p { color: rgba(245,234,214,0.82); }
+  .bg-dark .section-tag { color: var(--gold-dim); }
+
+  .bg-sienna {
+    background: linear-gradient(160deg, #3a1a08 0%, #2a1205 100%);
+    color: var(--parchment);
+  }
+  .bg-sienna .section-title { color: var(--gold-light); }
+  .bg-sienna .section-lead { color: rgba(245,234,214,0.65); }
+  .bg-sienna p { color: rgba(245,234,214,0.8); }
+
+  /* ─── Cards ──────────────────────────────────── */
+  .card {
+    background: rgba(255,255,255,0.55);
+    border: 1px solid var(--border-gold);
+    padding: 2rem;
+    position: relative;
+    backdrop-filter: blur(4px);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px var(--shadow-gold);
+  }
+
+  .card::before {
+    content: '';
+    position: absolute; top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: linear-gradient(180deg, var(--gold), transparent);
+  }
+
+  .card-dark {
+    background: rgba(42,26,8,0.6);
+    border-color: rgba(201,146,42,0.25);
+  }
+
+  .card-dark .card-title { color: var(--gold-light); }
+  .card-dark p { color: rgba(245,234,214,0.78); }
+
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem; font-weight: 600;
+    color: var(--deep-brown); margin-bottom: 0.8rem;
+  }
+
+  .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.5rem; }
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+  .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.2rem; }
+
+  /* ─── Quote Blocks ───────────────────────────── */
+  .scripture-block {
+    border-left: 3px solid var(--gold);
+    padding: 1.5rem 2rem;
+    background: rgba(201,146,42,0.06);
+    margin: 2rem 0;
+    position: relative;
+  }
+
+  .scripture-block::before {
+    content: '❝';
+    position: absolute; top: -0.5rem; left: 1.5rem;
+    font-size: 2.5rem; color: var(--gold-dim); opacity: 0.5;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .scripture-text {
+    font-family: 'IM Fell English', serif;
+    font-style: italic; font-size: 1.1rem;
+    color: var(--sepia); line-height: 1.7;
+  }
+
+  .scripture-source {
+    font-size: 0.82rem; color: var(--text-muted);
+    letter-spacing: 0.12em; text-transform: uppercase;
+    margin-top: 0.75rem;
+  }
+
+  .devanagari {
+    font-family: 'Noto Serif Devanagari', serif;
+    font-size: 1rem; color: var(--gold-dim);
+    display: block; margin-bottom: 0.5rem;
+  }
+
+  /* ─── Timeline ───────────────────────────────── */
+  .timeline { position: relative; padding-left: 2.5rem; }
+
+  .timeline::before {
+    content: '';
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, var(--gold), transparent);
+  }
+
+  .timeline-item {
+    position: relative; margin-bottom: 2.5rem;
+    opacity: 0; transform: translateX(-15px);
+    transition: all 0.5s;
+  }
+
+  .timeline-item.visible {
+    opacity: 1; transform: translateX(0);
+  }
+
+  .timeline-dot {
+    position: absolute; left: -2.9rem; top: 0.35rem;
+    width: 14px; height: 14px;
+    background: var(--gold); border-radius: 50%;
+    border: 2px solid var(--cream);
+    box-shadow: 0 0 0 3px rgba(201,146,42,0.3);
+  }
+
+  .timeline-era {
+    font-size: 0.72rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--gold-dim); margin-bottom: 0.3rem;
+  }
+
+  .timeline-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; font-weight: 600;
+    color: var(--deep-brown); margin-bottom: 0.5rem;
+  }
+
+  .bg-dark .timeline-heading { color: var(--parchment); }
+  .bg-dark .timeline-era { color: var(--gold-dim); }
+
+  /* ─── Debate Matrix ──────────────────────────── */
+  .debate-table {
+    width: 100%; border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+
+  .debate-table th {
+    background: var(--deep-brown); color: var(--gold-light);
+    font-family: 'Playfair Display', serif;
+    font-size: 0.85rem; letter-spacing: 0.08em;
+    padding: 0.9rem 1.2rem; text-align: left;
+    border: 1px solid rgba(201,146,42,0.2);
+  }
+
+  .debate-table td {
+    padding: 0.85rem 1.2rem;
+    border: 1px solid rgba(201,146,42,0.15);
+    vertical-align: top; line-height: 1.55;
+  }
+
+  .debate-table tr:nth-child(even) td { background: rgba(201,146,42,0.05); }
+
+  .badge {
+    display: inline-block; padding: 0.2rem 0.7rem;
+    font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+    border: 1px solid; border-radius: 2px; margin-bottom: 0.3rem;
+  }
+
+  .badge-scripture { color: var(--rust); border-color: var(--rust); background: rgba(139,58,30,0.06); }
+  .badge-historical { color: var(--accent-teal); border-color: var(--accent-teal); background: rgba(45,107,110,0.06); }
+  .badge-colonial { color: var(--gold-dim); border-color: var(--gold-dim); background: rgba(138,100,32,0.06); }
+  .badge-genetic { color: #5a7a2e; border-color: #5a7a2e; background: rgba(90,122,46,0.06); }
+  .badge-myth { color: #7a4a8e; border-color: #7a4a8e; background: rgba(122,74,142,0.06); }
+
+  /* ─── Accordion ──────────────────────────────── */
+  .accordion-item {
+    border: 1px solid var(--border-gold);
+    margin-bottom: 0.6rem;
+    overflow: hidden;
+  }
+
+  .accordion-header {
+    width: 100%; background: transparent;
+    padding: 1.1rem 1.5rem;
+    display: flex; justify-content: space-between; align-items: center;
+    cursor: pointer; border: none;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem; color: var(--deep-brown);
+    text-align: left; transition: background 0.2s;
+  }
+
+  .accordion-header:hover { background: rgba(201,146,42,0.06); }
+
+  .accordion-icon {
+    width: 22px; height: 22px; flex-shrink: 0;
+    border: 1px solid var(--gold-dim); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.9rem; color: var(--gold);
+    transition: transform 0.3s;
+  }
+
+  .accordion-item.open .accordion-icon { transform: rotate(45deg); }
+
+  .accordion-body {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.4s ease;
+    padding: 0 1.5rem;
+  }
+
+  .accordion-item.open .accordion-body {
+    max-height: 800px;
+    padding: 0 1.5rem 1.5rem;
+  }
+
+  /* ─── Regional Cards ─────────────────────────── */
+  .region-card {
+    border: 1px solid var(--border-gold);
+    overflow: hidden; transition: all 0.3s;
+    background: var(--cream);
+  }
+
+  .region-card:hover { box-shadow: 0 8px 30px var(--shadow-gold); }
+
+  .region-header {
+    background: linear-gradient(135deg, var(--deep-brown) 0%, var(--mid-brown) 100%);
+    padding: 1.4rem 1.5rem;
+    border-bottom: 2px solid var(--gold-dim);
+  }
+
+  .region-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; color: var(--gold-light);
+    margin-bottom: 0.2rem;
+  }
+
+  .region-sub {
+    font-size: 0.8rem; color: rgba(245,234,214,0.55);
+    letter-spacing: 0.1em; text-transform: uppercase;
+  }
+
+  .region-body { padding: 1.5rem; }
+
+  .region-detail {
+    display: flex; gap: 0.5rem; margin-bottom: 0.6rem;
+    font-size: 0.9rem;
+  }
+
+  .region-detail-label {
+    color: var(--gold-dim); font-weight: 600;
+    min-width: 90px; flex-shrink: 0;
+    font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase;
+  }
+
+  /* ─── Genetic Section ────────────────────────── */
+  .genetic-stat {
+    text-align: center; padding: 1.5rem;
+    border: 1px solid var(--border-gold);
+    background: rgba(201,146,42,0.04);
+  }
+
+  .genetic-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem; color: var(--gold);
+    line-height: 1; display: block; margin-bottom: 0.4rem;
+  }
+
+  .genetic-stat-label {
+    font-size: 0.82rem; color: var(--text-muted);
+    letter-spacing: 0.1em; text-transform: uppercase;
+  }
+
+  /* ─── Myth Clarification ─────────────────────── */
+  .myth-card {
+    display: grid; grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border-gold); overflow: hidden;
+    margin-bottom: 1rem;
+  }
+
+  .myth-side {
+    padding: 1.3rem 1.5rem;
+    font-size: 0.92rem; line-height: 1.6;
+  }
+
+  .myth-claim {
+    background: rgba(139,58,30,0.08);
+    border-right: 1px solid var(--border-gold);
+  }
+
+  .myth-fact { background: rgba(45,107,110,0.06); }
+
+  .myth-label {
+    font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+    margin-bottom: 0.5rem; font-weight: 700;
+  }
+
+  .myth-claim .myth-label { color: var(--rust); }
+  .myth-fact .myth-label { color: var(--accent-teal); }
+
+  /* ─── Glossary ───────────────────────────────── */
+  .glossary-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+
+  .glossary-item {
+    padding: 1.2rem;
+    border: 1px solid var(--border-gold);
+    background: rgba(201,146,42,0.03);
+  }
+
+  .glossary-term {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; color: var(--deep-brown);
+    margin-bottom: 0.3rem;
+  }
+
+  .glossary-devanagari {
+    font-family: 'Noto Serif Devanagari', serif;
+    font-size: 0.9rem; color: var(--gold-dim);
+    margin-bottom: 0.4rem; display: block;
+  }
+
+  /* ─── Reference cards ────────────────────────── */
+  .ref-card {
+    padding: 1.2rem 1.5rem;
+    border: 1px solid var(--border-gold);
+    border-left: 3px solid var(--gold);
+    margin-bottom: 0.8rem; font-size: 0.88rem;
+    background: rgba(255,255,255,0.4);
+  }
+
+  .ref-author {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600; color: var(--deep-brown);
+  }
+
+  .ref-title { color: var(--text-muted); font-style: italic; }
+
+  /* ─── Summary / Conclusion ───────────────────── */
+  .conclusion-block {
+    background: linear-gradient(135deg, var(--deep-brown) 0%, #0e0804 100%);
+    border: 1px solid rgba(201,146,42,0.3);
+    padding: 2.5rem 3rem;
+    position: relative; overflow: hidden;
+  }
+
+  .conclusion-block::before {
+    content: 'क'; /* Devanagari Ka */
+    position: absolute; right: 2rem; top: -1rem;
+    font-family: 'Noto Serif Devanagari', serif;
+    font-size: 12rem; color: rgba(201,146,42,0.04);
+    line-height: 1;
+  }
+
+  /* ─── Scroll animation trigger ───────────────── */
+  .reveal {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.6s, transform 0.6s;
+  }
+
+  .reveal.visible {
+    opacity: 1; transform: translateY(0);
+  }
+
+  /* ─── Footer ─────────────────────────────────── */
+  footer {
+    background: var(--ink);
+    border-top: 1px solid rgba(201,146,42,0.2);
+    padding: 3rem 2rem;
+    text-align: center; color: rgba(245,234,214,0.4);
+    font-size: 0.85rem; line-height: 1.8;
+  }
+
+  footer strong { color: var(--gold-dim); }
+
+  /* ─── Utility ────────────────────────────────── */
+  p { margin-bottom: 1rem; }
+  strong { color: var(--deep-brown); font-weight: 600; }
+  .bg-dark strong { color: var(--gold-light); }
+  .bg-sienna strong { color: var(--gold-light); }
+
+  .text-gold { color: var(--gold); }
+  .text-center { text-align: center; }
+  .mb-0 { margin-bottom: 0 !important; }
+
+  .ornament { color: var(--gold-dim); opacity: 0.7; }
+
+  .notice {
+    padding: 1rem 1.5rem;
+    background: rgba(45,107,110,0.08);
+    border: 1px solid rgba(45,107,110,0.25);
+    font-size: 0.88rem; color: #2d6b6e;
+    margin: 1.5rem 0;
+  }
+
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .myth-card { grid-template-columns: 1fr; }
+    .myth-claim { border-right: none; border-bottom: 1px solid var(--border-gold); }
+    .debate-table { font-size: 0.8rem; }
+    .hero-ctas { flex-direction: column; align-items: center; }
+    section { padding: 3.5rem 1.2rem; }
+    .conclusion-block { padding: 2rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-brand">Kayastha Archive</a>
+  <ul class="nav-links">
+    <li><a href="#intro">Introduction</a></li>
+    <li><a href="#scripture">Scriptures</a></li>
+    <li><a href="#varna">Varna Debate</a></li>
+    <li><a href="#history">History</a></li>
+    <li><a href="#regions">Communities</a></li>
+    <li><a href="#genetics">Genetics</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#summary">Summary</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-content">
+    <p class="hero-sanskrit">चित्रगुप्तं महाप्राज्ञं लेखनीधर्मरक्षकम्</p>
+    <h1 class="hero-title">
+      Guardians of the <em>Written Word</em><br>
+      Scribes of Indian Civilization
+    </h1>
+    <p class="hero-subtitle">
+      A comprehensive scholarly archive exploring the history, scriptural tradition,<br>
+      genetic background, and civilizational role of the Kayastha community of India
+    </p>
+    <div class="hero-divider"></div>
+    <div class="hero-ctas">
+      <a href="#intro" class="btn-primary">Explore the History of Kayasthas</a>
+      <a href="#history" class="btn-outline">Understand the Kayastha Legacy</a>
+      <a href="#regions" class="btn-outline">Journey Through Administration</a>
+    </div>
+  </div>
+  <div class="hero-scroll-cue">
+    <span>Scroll to Explore</span>
+    <svg width="16" height="20" viewBox="0 0 16 20" fill="currentColor"><path d="M8 0v16M1 9l7 8 7-8"/></svg>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section id="intro" class="bg-parchment">
+  <div class="container">
+    <div class="section-tag">Foundation</div>
+    <h2 class="section-title">Who are the <em>Kayasthas</em>?</h2>
+    <p class="section-lead">An introduction to the term, the tradition, and the social function of one of India's most intellectually consequential communities.</p>
+
+    <div class="grid-2 reveal">
+      <div>
+        <p>The word <strong>Kayastha</strong> (Sanskrit: कायस्थ) derives from <em>kāya</em> (body/physical form) and <em>stha</em> (one who stands/dwells). Most scholars interpret this as "one established in a bodily/earthly role" — pointing to a community rooted in the material administration of kingdoms: record-keepers, accountants, scribes, legal clerks, and administrative officers.</p>
+
+        <p>A second interpretation links the name to Chitragupta, the divine recorder of Brahma's "body" (kāya), lending the community a cosmic scribal identity. This theological etymology is widely accepted within community tradition but remains contested as an origin myth by academic historians.</p>
+
+        <p>Kayasthas as a social category are distinct from simple <strong>Varna</strong> categories. Indian social structure operated on at least three levels:</p>
+        <ul style="margin:0.5rem 0 1rem 1.5rem; line-height:2;">
+          <li><strong>Varna</strong> — the four broad ritual-cosmological categories (Brahmin, Kshatriya, Vaishya, Shudra)</li>
+          <li><strong>Jati</strong> — the actual endogamous marriage group with occupational identity</li>
+          <li><strong>Functional/Administrative caste</strong> — communities defined by their hereditary role in governance</li>
+        </ul>
+        <p>Kayasthas largely inhabit the third category — an <em>administrative jati</em> that cut across strict Varna boundaries and whose precise Varna placement was actively debated for centuries.</p>
+      </div>
+      <div>
+        <div class="card">
+          <div class="card-title">Key Terms at a Glance</div>
+          <div class="region-detail"><span class="region-detail-label">Kayastha</span><span>कायस्थ — "Dwelling in the body/earth"; scribal and administrative community</span></div>
+          <div class="region-detail"><span class="region-detail-label">Chitragupta</span><span>चित्रगुप्त — Divine recorder of karmic deeds; mythological ancestor</span></div>
+          <div class="region-detail"><span class="region-detail-label">Varna</span><span>वर्ण — Cosmological four-fold classification system</span></div>
+          <div class="region-detail"><span class="region-detail-label">Jati</span><span>जाति — Endogamous birth-community; actual social unit</span></div>
+          <div class="region-detail"><span class="region-detail-label">Dharmashastra</span><span>धर्मशास्त्र — Legal-ritual Sanskrit texts regulating social conduct</span></div>
+          <div class="region-detail"><span class="region-detail-label">Lekhaka</span><span>लेखक — Scribe; one of the occupational synonyms for Kayasthas</span></div>
+          <div class="region-detail"><span class="region-detail-label">Kayastha Lipi</span><span>कायस्थ लिपि — Administrative scripts associated with Kayastha clerical tradition</span></div>
+        </div>
+
+        <div class="notice" style="margin-top:1rem;">
+          <strong>Scholarly Note:</strong> This platform clearly distinguishes <span class="badge badge-myth">Mythology</span> <span class="badge badge-scripture">Scripture</span> <span class="badge badge-historical">History</span> <span class="badge badge-genetic">Genetics</span> <span class="badge badge-colonial">Colonial interpretation</span> — each claim is labeled for epistemological clarity.
+        </div>
+      </div>
+    </div>
+
+    <div class="divider-ornament">✦ ✦ ✦</div>
+
+    <div class="reveal">
+      <h3 style="font-family:'Playfair Display',serif; font-size:1.5rem; margin-bottom:1rem; color:var(--deep-brown);">Why Kayasthas are Historically Significant</h3>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-title">Administrative Backbone</div>
+          <p>For over 1,500 years, from Gupta-era chancelleries to Mughal <em>diwans</em> to British district offices, Kayasthas maintained the paper infrastructure of Indian governance. Their literacy, command of multiple scripts, and accounting traditions made them indispensable to successive rulers.</p>
+        </div>
+        <div class="card">
+          <div class="card-title">Literary & Cultural Legacy</div>
+          <p>Kayasthas produced major figures in Hindi, Bengali, Urdu, Persian and Sanskrit literature — from Munshi Premchand (Srivastava Kayastha) to Rabindranath Tagore's social world (Bengali Kayastha milieu). They were patrons and practitioners of the arts across multiple regional traditions.</p>
+        </div>
+        <div class="card">
+          <div class="card-title">Custodians of Scripts & Records</div>
+          <p>The <em>Kaithi</em> script, used extensively for legal and land records in UP and Bihar, is historically linked to Kayastha clerical practice. Their command of Persian calligraphy during the Sultanate and Mughal periods represented a seamless bilingual intellectual tradition.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCRIPTURE -->
+<section id="scripture" class="bg-dark">
+  <div class="container">
+    <div class="section-tag">Sacred Tradition</div>
+    <h2 class="section-title">Scriptural Origins &amp; <em>Chitragupta</em> Tradition</h2>
+    <p class="section-lead">How do Hindu scriptures frame the Kayastha identity? What do the Puranas, Dharmashastra texts, and medieval genealogies actually say?</p>
+
+    <div class="grid-2 reveal" style="margin-bottom:2rem;">
+      <div>
+        <h3 style="font-family:'Playfair Display',serif; font-size:1.4rem; color:var(--gold-light); margin-bottom:1rem;">The Chitragupta Tradition <span class="badge badge-myth" style="font-size:0.65rem; vertical-align:middle;">Mythology</span></h3>
+        <p>The foundational mythological narrative of Kayastha origin is the <strong>Chitragupta Purana</strong> and accounts in the <strong>Garuda Purana</strong>, <strong>Skanda Purana</strong>, and <strong>Padma Purana</strong>. According to these texts:</p>
+
+        <div class="scripture-block" style="border-left-color: var(--gold-light); background:rgba(201,146,42,0.08);">
+          <span class="devanagari">ब्रह्मणः कायतः जातः चित्रगुप्तः प्रतापवान् ।</span>
+          <p class="scripture-text">"Chitragupta, the illustrious one, was born from the body (kāya) of Brahma" — after Brahma meditated for 11,000 years seeking an entity to maintain the accounts of all beings' deeds.</p>
+          <div class="scripture-source">— Chitragupta Purana (traditional attribution); cf. Garuda Purana 2.3</div>
+        </div>
+
+        <p>Chitragupta thus becomes the cosmic accountant of karma — recording every deed of every being for Yama (the god of death) to adjudicate at the time of reckoning. His scribal function is inherently cosmic: <em>the pen as the instrument of dharmic order</em>.</p>
+
+        <p>The Kayastha community claims descent from the twelve sons of Chitragupta — each son becoming the progenitor of one of the twelve Kayastha sub-clans (the <em>dvadasha vansha</em> tradition).</p>
+      </div>
+      <div>
+        <div class="card-dark card" style="margin-bottom:1.2rem;">
+          <div class="card-title">The Twelve Sons of Chitragupta</div>
+          <p style="font-size:0.88rem; margin-bottom:0.8rem;">According to the Chitragupta Purana tradition, his two wives — Iravati (daughter of a Naga king) and Sudakshina (daughter of rishi Shardavan) — bore him twelve sons who became the progenitors of the twelve Kayastha sub-castes:</p>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.4rem; font-size:0.85rem;">
+            <span>1. Shrivastava (Srivastava)</span><span>2. Mathura / Mathur</span>
+            <span>3. Bhatnagar</span><span>4. Saxena</span>
+            <span>5. Ambashtha</span><span>6. Nigam</span>
+            <span>7. Karana (Odisha)</span><span>8. Asthana</span>
+            <span>9. Karna</span><span>10. Kulshreshtha</span>
+            <span>11. Gaur</span><span>12. Suryadwaja</span>
+          </div>
+          <div class="notice" style="margin-top:1rem; color:var(--accent-teal);">
+            <strong>Note:</strong> These genealogical lists vary considerably across regional texts. <span class="badge badge-myth">Mythology</span> — not to be confused with historical or genetic lineage.
+          </div>
+        </div>
+
+        <div class="card-dark card">
+          <div class="card-title">Chitragupta Puja</div>
+          <p style="font-size:0.88rem;">Chitragupta Puja (Chitra Chaturdashi) is celebrated on the fourteenth day of the bright fortnight of Kartika (after Diwali). Kayasthas worship the pen, ink, and account books alongside Chitragupta — a living ritual enactment of their scribal identity. The festival uniquely celebrates literacy itself as a sacred act.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <h3 style="font-family:'Playfair Display',serif; font-size:1.4rem; color:var(--gold-light); margin-bottom:1rem;">Dharmashastra and Textual References <span class="badge badge-scripture" style="font-size:0.65rem; vertical-align:middle;">Scripture</span></h3>
+      <div class="grid-2">
+        <div>
+          <div class="scripture-block">
+            <p class="scripture-text">"The king should appoint a learned and well-born scribe (lekhaka) to record royal decrees, boundary disputes, and land grants — he who is skilled in writing shall be honoured."</p>
+            <div class="scripture-source">— Arthashastra of Kautilya (2.10) — references scribal functionaries in royal administration (c. 3rd century BCE, compiled later)</div>
+          </div>
+          <p>While the term <em>Kayastha</em> does not appear in the earliest Vedic literature (Rig Veda, Atharva Veda, Brahmanas), it emerges clearly in <strong>post-Gupta administrative and legal texts</strong>. The term appears in:</p>
+          <ul style="margin:0.5rem 0 1rem 1.5rem; line-height:2; font-size:0.92rem;">
+            <li><strong>Yajnavalkya Smriti</strong> (c. 3rd–5th century CE) — references royal scribal officers</li>
+            <li><strong>Narada Smriti</strong> — mentions legal-document custodians</li>
+            <li><strong>Vishnu Smriti</strong> — notes land-record keepers</li>
+            <li><strong>Inscriptional evidence</strong> from Gupta period (4th–6th CE) — donor/officer designations</li>
+          </ul>
+        </div>
+        <div>
+          <div class="scripture-block">
+            <p class="scripture-text">"He who is skilled in letters, in accountancy, and in the knowledge of legal documents — such a one is fit to be a royal scribe and keeper of records."</p>
+            <div class="scripture-source">— Yajnavalkya Smriti (1.320–323), references to rajalekhaka (royal scribes)</div>
+          </div>
+
+          <div class="notice">
+            <strong>Historical Note <span class="badge badge-historical">History</span>:</strong> The earliest clear epigraphic use of "Kayastha" as a professional title appears in Gupta-era copper-plate grants (4th–6th century CE), where <em>kayastha</em> designates the official who drafted and authenticated the grant document. This is a functional title, not yet a hereditary caste designation — the crystallization into a hereditary jati likely occurred through the 7th–12th centuries CE.
+          </div>
+
+          <p style="font-size:0.9rem; color:rgba(245,234,214,0.7);">Historian <strong>R.S. Sharma</strong> notes in <em>Indian Feudalism</em> (1965) that the administrative scribal class consolidated into hereditary occupational groups during the post-Gupta "feudal" reorganization of Indian states, as land grants proliferated and record-keeping became a more formalized hereditary profession.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VARNA DEBATE -->
+<section id="varna" class="bg-parchment">
+  <div class="container-wide">
+    <div class="container">
+      <div class="section-tag">Social Theology</div>
+      <h2 class="section-title">The <em>Varna Status</em> Debate</h2>
+      <p class="section-lead">One of the most historically contested questions in Indian social history: Where do Kayasthas fit within the classical Varna framework — and does that question even have a single answer?</p>
+    </div>
+
+    <div class="reveal" style="overflow-x:auto; padding: 0 2rem;">
+      <table class="debate-table">
+        <thead>
+          <tr>
+            <th>Position</th>
+            <th>Source / Basis</th>
+            <th>Arguments For</th>
+            <th>Arguments Against</th>
+            <th>Label</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Kshatriya Status</strong><br><small>Kayasthas as warrior-administrative nobility</small></td>
+            <td>Chitragupta Purana; some Rajput genealogies; UP Kayastha community tradition; some Dharmashastra readings</td>
+            <td>Chitragupta is said to have been created for <em>kshatriya-like</em> roles; many Kayasthas bore weapons and served as military officers; the 12-son genealogy includes warrior symbolism</td>
+            <td>Chitragupta's function is scribal, not martial; Dharmashastras rarely classify Kayasthas as Kshatriya; they are not typically associated with <em>upanayana</em> rites identical to Kshatriyas</td>
+            <td><span class="badge badge-myth">Tradition</span> <span class="badge badge-scripture">Debated</span></td>
+          </tr>
+          <tr>
+            <td><strong>Brahma-Kshatra / Mixed Varna</strong><br><small>Kayasthas as born from both Brahmin and Kshatriya lineages</small></td>
+            <td>Parasara Smriti; Brahma Purana passages; some medieval genealogical texts</td>
+            <td>Scribal work requires learning (Brahmin quality) plus administrative authority (Kshatriya quality); mixed origin explains ambiguous status; some gotras are shared with Brahmin groups</td>
+            <td>Mixed-varna status was considered degraded in orthodox Dharmashastra; many Kayastha gotras do not correspond to Brahmin traditions; the theory may be a later apologetic</td>
+            <td><span class="badge badge-scripture">Medieval</span></td>
+          </tr>
+          <tr>
+            <td><strong>Shudra Classification (Orthodox Brahmanical)</strong><br><small>Some Dharmashastra texts deny sacred-thread status</small></td>
+            <td>Manusmriti 10.47–10.52 on mixed-caste origins; some Brahmin-authored 18th–19th century texts used in colonial court cases</td>
+            <td>Manu's list of mixed-caste occupational groups could encompass scribes; colonial courts in the 1870s–1880s sometimes questioned Kayastha sacred-thread claims</td>
+            <td>Manu's text does not mention Kayasthas by name; Kayasthas performed <em>upanayana</em> across most of India for centuries; this position was largely a colonial-era legal dispute weaponized by rivals</td>
+            <td><span class="badge badge-colonial">Colonial</span> <span class="badge badge-historical">Contested</span></td>
+          </tr>
+          <tr>
+            <td><strong>Administrative/Functional Caste</strong><br><small>Kayasthas as a professional class that transcended Varna</small></td>
+            <td>R.S. Sharma, Romila Thapar, Susan Bayly; sociological analysis of Indian caste</td>
+            <td>Indian social organization functioned through <em>jati</em> (occupation-based endogamy), not pure Varna; the Kayastha category emerged from function, not from any single mythological source; Varna assignment was secondary and regionally variable</td>
+            <td>Does not satisfy the question of ritual status (right to sacred thread, access to Vedic learning), which remained contested</td>
+            <td><span class="badge badge-historical">Academic</span></td>
+          </tr>
+          <tr>
+            <td><strong>Regional Variation (No Single Answer)</strong><br><small>Status differed by region, kingdom, and period</small></td>
+            <td>Ethnographic studies; colonial census reports; court records</td>
+            <td>Bengali Kayasthas were considered Sat-Shudra or high-Varna depending on sub-group; UP Kayasthas claimed dvija (twice-born) status; Bihar Kayasthas had different claims; Odisha Karanas held distinct positions</td>
+            <td>Regional variation is the most historically accurate position but makes generalization impossible</td>
+            <td><span class="badge badge-historical">Consensus</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="container reveal" style="margin-top:2rem;">
+      <div class="notice">
+        <strong>Scholarly Consensus:</strong> Most contemporary historians (Romila Thapar, Susan Bayly, Nicholas Dirks, D.D. Kosambi) emphasize that Varna status was not a fixed biological or scriptural reality but a <em>negotiated social position</em> that changed across time, region, and political context. Kayastha Varna claims intensified particularly under British colonial rule, when census categorization and legal disputes about ritual rights gave these questions unprecedented administrative stakes.
+      </div>
+
+      <h3 style="font-family:'Playfair Display',serif; font-size:1.4rem; color:var(--deep-brown); margin:1.5rem 0 1rem;">The Sacred Thread Controversy <span class="badge badge-colonial">Colonial-era</span></h3>
+      <div class="grid-2">
+        <div>
+          <p>The most historically significant episode in Kayastha Varna debates was a series of <strong>legal cases in British India (1870s–1890s)</strong> in which Brahmin-authored texts were used to challenge Kayastha rights to the <em>upanayana</em> (sacred thread / yajnopavita) ceremony — the mark of "twice-born" (dvija) status.</p>
+          <p>Kayastha communities across UP and Bihar strenuously defended their sacred-thread traditions, citing centuries of practice, patronage of Brahmin priests, and their own genealogical texts. The <strong>Allahabad High Court</strong> and subsequent rulings generally recognized Kayastha claims to dvija status in practice.</p>
+        </div>
+        <div>
+          <div class="scripture-block">
+            <p class="scripture-text">Nicholas Dirks (Castes of Mind, 2001) argues persuasively that British colonialism "hardened" caste identities in India — transforming fluid, negotiated social hierarchies into legally fixed, census-enumerable categories. The Kayastha Varna debates of the 1870s–1890s are a textbook illustration of this process: what had been locally negotiated became a matter of colonial courts and fixed textual authority.</p>
+            <div class="scripture-source">— cf. Nicholas Dirks, <em>Castes of Mind</em> (Princeton University Press, 2001)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HISTORY -->
+<section id="history" class="bg-sienna">
+  <div class="container">
+    <div class="section-tag">Historical Evolution</div>
+    <h2 class="section-title">From <em>Royal Scribes</em> to National Leadership</h2>
+    <p class="section-lead" style="color:rgba(245,234,214,0.65);">A 2,000-year administrative history — from Gupta copper-plate recorders to Mughal diwans to the architects of modern India.</p>
+
+    <div class="timeline reveal">
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-era">c. 4th–6th Century CE</div>
+        <h4 class="timeline-heading">Gupta Period: Emergence of Kayastha as Administrative Title</h4>
+        <p style="font-size:0.92rem; color:rgba(245,234,214,0.78);">Copper-plate land grants of the Gupta Empire (320–550 CE) feature <em>kayastha</em> as a title for the royal official who drafted and authenticated documents. This is the earliest firm epigraphic evidence. The Gupta administrative machinery required literate, numerically competent officials — a class whose hereditary specialization in document-handling gradually crystallized into what would become the Kayastha jati.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-era">7th–12th Century CE</div>
+        <h4 class="timeline-heading">Medieval Kingdoms: Kayasthas as Hereditary Administrative Aristocracy</h4>
+        <p style="font-size:0.92rem; color:rgba(245,234,214,0.78);">Regional kingdoms — Palas of Bengal, Chandellas of Bundelkhand, Paramaras of Malwa, Chahamanas of Rajasthan — relied on Kayastha scribal families for land revenue administration, diplomatic correspondence, and legal documentation. Historian Irfan Habib notes that by the 11th century, Kayastha families in North India had accumulated significant landholdings and social prestige through their administrative roles, constituting a quasi-gentry class.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-era">13th–16th Century CE</div>
+        <h4 class="timeline-heading">Delhi Sultanate: Persian Bureaucracy and Bilingual Adaptation</h4>
+        <p style="font-size:0.92rem; color:rgba(245,234,214,0.78);">The arrival of Persian as the language of administration under the Sultanates did not displace Kayasthas — instead, they adapted with remarkable speed. Kayastha families learned Persian and Arabic scripts, becoming the essential interface between the Muslim ruling class and Hindu revenue systems. This bilingual capacity — Sanskrit-Persian — became their greatest social asset. Many Kayastha families served as <em>munshis</em> (secretaries), <em>diwans</em> (revenue ministers), and <em>qanungos</em> (hereditary record-keepers) under Sultanate rulers.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-era">16th–18th Century CE</div>
+        <h4 class="timeline-heading">Mughal Empire: The Golden Age of Kayastha Administration</h4>
+        <p style="font-size:0.92rem; color:rgba(245,234,214,0.78);">The Mughal Empire's sophisticated revenue administration under Akbar (the <em>Ain-i-Akbari</em> system) created unprecedented demand for trained revenue officials. Kayastha families from UP, Bihar, Bengal, and Rajasthan filled the <em>mansabdari</em> system's civilian apparatus. Todar Mal (Raja Todar Mal, Khatri — though himself not Kayastha, he worked alongside them), and numerous Kayastha <em>diwans</em> maintained the Empire's revenue machine. By Aurangzeb's reign, Kayastha officials were deeply embedded in provincial administration.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-era">19th–20th Century CE</div>
+        <h4 class="timeline-heading">British Colonial Period: Education, Law, and Nationalism</h4>
+        <p style="font-size:0.92rem; color:rgba(245,234,214,0.78);">The introduction of English education under British rule saw Kayastha families among the earliest and most enthusiastic adopters — their centuries-old tradition of scribal literacy mapped perfectly onto colonial bureaucratic demand. Bengal's Kayastha families were prominent in the <em>bhadralok</em> class; UP Kayasthas dominated the Indian Civil Service (ICS) among Hindu communities. Simultaneously, Kayastha intellectuals — Munshi Premchand in Hindi literature, Subhas Chandra Bose (Bengali Kayastha) in politics, Lal Bahadur Shastri (Srivastava Kayastha) in national leadership — contributed enormously to India's independence movement and nation-building.</p>
+      </div>
+
+    </div>
+
+    <div class="reveal" style="margin-top:3rem;">
+      <h3 style="font-family:'Playfair Display',serif; font-size:1.4rem; color:var(--gold-light); margin-bottom:1.2rem;">Notable Kayastha Contributions <span class="badge badge-historical">Historical Record</span></h3>
+      <div class="grid-4">
+        <div class="card card-dark">
+          <div class="card-title">Munshi Premchand</div>
+          <p style="font-size:0.85rem;">Dhanpat Rai Srivastava — greatest Hindi-Urdu novelist; Srivastava Kayastha; transformed Indian literary realism</p>
+        </div>
+        <div class="card card-dark">
+          <div class="card-title">Subhas Chandra Bose</div>
+          <p style="font-size:0.85rem;">Netaji — Bengali Kayastha (Bose family); INA commander; architect of revolutionary Indian nationalism</p>
+        </div>
+        <div class="card card-dark">
+          <div class="card-title">Lal Bahadur Shastri</div>
+          <p style="font-size:0.85rem;">Second Prime Minister of India; Srivastava Kayastha; embodied Gandhian simplicity in high office</p>
+        </div>
+        <div class="card card-dark">
+          <div class="card-title">Harivansh Rai Bachchan</div>
+          <p style="font-size:0.85rem;">Poet of <em>Madhushala</em>; Srivastava Kayastha; Hindi poetry's most beloved voice of the 20th century</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REGIONAL -->
+<section id="regions" class="bg-parchment">
+  <div class="container">
+    <div class="section-tag">Community Diversity</div>
+    <h2 class="section-title">Regional <em>Kayastha</em> Communities</h2>
+    <p class="section-lead">The Kayastha identity encompasses numerous distinct regional sub-communities with their own histories, traditions, gotras, and cultural practices. Generalizations about "the Kayasthas" frequently obscure this rich internal diversity.</p>
+
+    <div class="grid-2 reveal">
+
+      <div class="region-card">
+        <div class="region-header">
+          <div class="region-name">Bengali Kayasthas</div>
+          <div class="region-sub">Bengal (West Bengal, Bangladesh)</div>
+        </div>
+        <div class="region-body">
+          <div class="region-detail"><span class="region-detail-label">Status</span><span>Categorized under "Sat-Shudra" in Bengal's unique social hierarchy — yet considered highly educated, upper-class elites</span></div>
+          <div class="region-detail"><span class="region-detail-label">Surnames</span><span>Bose, Ghosh, Mitra, Datta/Dutta, Guha, Sen, Sinha, Ganguly, Bhaduri (among others)</span></div>
+          <div class="region-detail"><span class="region-detail-label">Prominence</span><span>Dominated Bengal's bhadralok class; leading role in Bengal Renaissance; nationalism (Subhas Chandra Bose, Sarat Chandra); literature, judiciary, ICS</span></div>
+          <div class="region-detail"><span class="region-detail-label">Religion</span><span>Predominantly Shakta tradition; also Vaishnava influence; strong Durga Puja traditions</span></div>
+          <div class="region-detail"><span class="region-detail-label">Note</span><span>Bengali Kayasthas do NOT claim Chitragupta descent — a key distinction from North Indian Kayasthas. Their Kayastha identity is occupational-hereditary, not tied to the Chitragupta Purana mythology.</span></div>
+        </div>
+      </div>
+
+      <div class="region-card">
+        <div class="region-header">
+          <div class="region-name">UP / Chitrangsha Kayasthas</div>
+          <div class="region-sub">Uttar Pradesh — the "canonical" Chitragupta lineage claimants</div>
+        </div>
+        <div class="region-body">
+          <div class="region-detail"><span class="region-detail-label">Sub-clans</span><span>Srivastava, Mathur/Mathura, Bhatnagar, Saxena, Nigam, Asthana, Ambashtha, Kulshreshtha, Gaur, Karna, Suryadwaja</span></div>
+          <div class="region-detail"><span class="region-detail-label">Gotras</span><span>Kashyap, Bharadwaj, Vats, Garg, Shandilya (shared with Brahmin traditions — a point of debate)</span></div>
+          <div class="region-detail"><span class="region-detail-label">Scripts</span><span>Kaithi (historically); Devanagari, Persian/Urdu (Mughal era)</span></div>
+          <div class="region-detail"><span class="region-detail-label">Prominence</span><span>Revenue administration in Awadh, Agra; Mughal mansabdars; UP civil services; Hindi literary culture</span></div>
+          <div class="region-detail"><span class="region-detail-label">Upanayana</span><span>Strongly maintained sacred-thread tradition; claim dvija (twice-born) status</span></div>
+        </div>
+      </div>
+
+      <div class="region-card">
+        <div class="region-header">
+          <div class="region-name">Bihar Kayasthas</div>
+          <div class="region-sub">Bihar, Jharkhand</div>
+        </div>
+        <div class="region-body">
+          <div class="region-detail"><span class="region-detail-label">Sub-groups</span><span>Srivastava, Mathur, Bhatnagar dominant; some unique Bihar lineages</span></div>
+          <div class="region-detail"><span class="region-detail-label">Scripts</span><span>Kaithi script — a defining Bihar Kayastha contribution; used for all revenue and legal records pre-British</span></div>
+          <div class="region-detail"><span class="region-detail-label">Prominence</span><span>Revenue and law under Mughals and British; Bihar's legal tradition; political leadership (including in post-independence Bihar)</span></div>
+          <div class="region-detail"><span class="region-detail-label">Culture</span><span>Strong chhath puja traditions; Sanskrit learning; Persian-Urdu literary culture</span></div>
+        </div>
+      </div>
+
+      <div class="region-card">
+        <div class="region-header">
+          <div class="region-name">Mathur Kayasthas</div>
+          <div class="region-sub">Mathura / Braj region, UP, Rajasthan</div>
+        </div>
+        <div class="region-body">
+          <div class="region-detail"><span class="region-detail-label">Etymology</span><span>Named for Mathura — traditional stronghold; considered one of the oldest UP Kayastha sub-groups</span></div>
+          <div class="region-detail"><span class="region-detail-label">Gotras</span><span>Vats, Kashyap, Shandilya, Bharadwaj among principal gotras</span></div>
+          <div class="region-detail"><span class="region-detail-label">Tradition</span><span>Strong Vaishnava (Krishnaite) devotional tradition given Mathura connection; Sanskrit and Braj Bhasha literary output</span></div>
+          <div class="region-detail"><span class="region-detail-label">Administration</span><span>Revenue officials under Mughal subah of Agra; prominent in Rajput court administration of Rajasthan</span></div>
+        </div>
+      </div>
+
+      <div class="region-card">
+        <div class="region-header">
+          <div class="region-name">Saxena / Saksena Kayasthas</div>
+          <div class="region-sub">Awadh (Lucknow), Central UP</div>
+        </div>
+        <div class="region-body">
+          <div class="region-detail"><span class="region-detail-label">Etymology</span><span>Possibly derived from <em>Saketa</em> (ancient name for Ayodhya region); or from a root meaning "witness" or "expert"</span></div>
+          <div class="region-detail"><span class="region-detail-label">Prominence</span><span>Strongly associated with Awadh's Nawabi culture; Persian and Urdu literary tradition; law and administration</span></div>
+          <div class="region-detail"><span class="region-detail-label">Culture</span><span>Lucknow's tehzeeb (refined culture) owes much to Saxena Kayastha family traditions; prominent in Urdu poetry circles</span></div>
+          <div class="region-detail"><span class="region-detail-label">Notable</span><span>Babu Ram Saksena — Urdu scholar; Bhagwati Charan Verma (novelist); significant presence in Lucknow judiciary</span></div>
+        </div>
+      </div>
+
+      <div class="region-card">
+        <div class="region-header">
+          <div class="region-name">Srivastava Kayasthas</div>
+          <div class="region-sub">Eastern UP, Bihar, Madhya Pradesh — most numerous sub-group</div>
+        </div>
+        <div class="region-body">
+          <div class="region-detail"><span class="region-detail-label">Etymology</span><span>From <em>Shri Vasta</em> or <em>Shrivasta</em> — "abode of Shri/Lakshmi"; or named for the Shravasti region (ancient Buddhist/Hindu city)</span></div>
+          <div class="region-detail"><span class="region-detail-label">Distribution</span><span>Largest Kayastha sub-group numerically; spread across UP, Bihar, MP, Maharashtra and diaspora</span></div>
+          <div class="region-detail"><span class="region-detail-label">Gotras</span><span>Kashyap dominant; also Bharadwaj, Vats</span></div>
+          <div class="region-detail"><span class="region-detail-label">Notable</span><span>Munshi Premchand; Lal Bahadur Shastri; Harivansh Rai Bachchan; Amitabh Bachchan (actor, Srivastava family)</span></div>
+        </div>
+      </div>
+
+      <div class="region-card">
+        <div class="region-header">
+          <div class="region-name">Karana Kayasthas (Odisha)</div>
+          <div class="region-sub">Odisha — a distinct regional identity</div>
+        </div>
+        <div class="region-body">
+          <div class="region-detail"><span class="region-detail-label">Distinct from</span><span>North Indian Kayastha tradition — Odisha Karanas have a separate origin tradition and social history</span></div>
+          <div class="region-detail"><span class="region-detail-label">Script</span><span>Odia script mastery; revenue and legal records in Odia and Sanskrit</span></div>
+          <div class="region-detail"><span class="region-detail-label">Status</span><span>Considered high-status administrative community in Odisha's social hierarchy; served Gajapati and later Maratha rulers</span></div>
+          <div class="region-detail"><span class="region-detail-label">Culture</span><span>Strong Shakta tradition; temple administration roles; Odia literature patrons</span></div>
+        </div>
+      </div>
+
+      <div class="region-card">
+        <div class="region-header">
+          <div class="region-name">Bhatnagar & Nigam Kayasthas</div>
+          <div class="region-sub">Northwest UP, Delhi, Haryana</div>
+        </div>
+        <div class="region-body">
+          <div class="region-detail"><span class="region-detail-label">Bhatnagar</span><span>Associated with Bhatner (Hanumangarh, Rajasthan); prominent in Delhi and UP administrative circles; distinct gotra traditions</span></div>
+          <div class="region-detail"><span class="region-detail-label">Nigam</span><span>Name possibly derived from <em>nigama</em> (sacred text/Vedic knowledge); associated with learning and record-keeping; strong Delhi presence</span></div>
+          <div class="region-detail"><span class="region-detail-label">Shared traits</span><span>Both claim Chitragupta lineage; both performed upanayana; both served in Mughal and British administration; shared cultural ties to Delhi's Urdu literary world</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="reveal" style="margin-top:2rem;">
+      <div class="notice">
+        <strong>Important Distinction:</strong> Bengali Kayasthas (Bose, Ghosh, Mitra etc.) and North Indian Chitrangsha Kayasthas (Srivastava, Saxena etc.) share an occupational-administrative identity but have <em>distinct mythological traditions, social histories, and ritual practices</em>. The Bengali Kayastha identity does NOT center on the Chitragupta Purana. Treating these as a single unified community flattens important historical distinctions. <span class="badge badge-historical">Academic consensus</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GENETICS -->
+<section id="genetics" class="bg-dark">
+  <div class="container">
+    <div class="section-tag">Population Science</div>
+    <h2 class="section-title">Genetics &amp; <em>Anthropological</em> Research</h2>
+    <p class="section-lead">What does modern population genetics actually tell us about the Kayastha community? A careful, evidence-based review — clearly separated from myth and colonial theories.</p>
+
+    <div class="notice reveal" style="background:rgba(45,107,110,0.15); border-color:rgba(45,107,110,0.4); color:#a8d4d6; margin-bottom:2rem;">
+      <strong>Critical Framing:</strong> Population genetics reveals ancestral migration patterns and genetic relatedness. It does NOT determine caste status, Varna identity, cultural legitimacy, or social hierarchy. Genetics ≠ caste. Haplogroups ≠ race. Any use of genetics to claim one community's superiority over another is a misuse of science.
+    </div>
+
+    <div class="grid-4 reveal" style="margin-bottom:2.5rem;">
+      <div class="genetic-stat" style="background:rgba(201,146,42,0.08);">
+        <span class="genetic-stat-num">~60–70%</span>
+        <span class="genetic-stat-label">ANI (Ancestral North Indian) ancestry estimated in North Indian upper-caste groups including Kayasthas</span>
+      </div>
+      <div class="genetic-stat" style="background:rgba(201,146,42,0.08);">
+        <span class="genetic-stat-num">R1a</span>
+        <span class="genetic-stat-label">Dominant Y-haplogroup in many North Indian upper-caste populations; shared broadly across Brahmin, Kshatriya, and Kayastha communities</span>
+      </div>
+      <div class="genetic-stat" style="background:rgba(201,146,42,0.08);">
+        <span class="genetic-stat-num">~3000 BCE</span>
+        <span class="genetic-stat-label">Approximate period of Steppe ancestry inflow (associated with R1a) into South Asia per Narasimhan et al. 2019</span>
+      </div>
+      <div class="genetic-stat" style="background:rgba(201,146,42,0.08);">
+        <span class="genetic-stat-num">No</span>
+        <span class="genetic-stat-label">Genetic studies do NOT identify Kayasthas as genetically distinct from surrounding North Indian upper-caste populations</span>
+      </div>
+    </div>
+
+    <div class="grid-2 reveal">
+      <div>
+        <h3 style="font-family:'Playfair Display',serif; font-size:1.4rem; color:var(--gold-light); margin-bottom:1rem;">Key Genetic Findings <span class="badge badge-genetic">Peer-reviewed</span></h3>
+
+        <p>The most comprehensive genomic study of South Asian populations, <strong>Narasimhan et al. (2019)</strong> in <em>Science</em>, establishes that virtually all present-day South Asians carry ancestry from three major ancestral groups:</p>
+        <ul style="margin:0.5rem 0 1rem 1.5rem; line-height:2; font-size:0.9rem; color:rgba(245,234,214,0.8);">
+          <li><strong>AASI</strong> (Ancient Ancestral South Indian) — hunter-gatherer populations</li>
+          <li><strong>Iranian farmer-related ancestry</strong> — Indus Valley Civilization-associated</li>
+          <li><strong>Steppe pastoralist ancestry</strong> — associated with Bronze Age migration, R1a haplogroup</li>
+        </ul>
+
+        <p>North Indian upper-caste groups — including Kayasthas — cluster with other North Indian upper-caste Hindu communities (Brahmin, Rajput, Bania) in having <strong>higher Steppe + Iranian farmer ancestry</strong> and somewhat lower AASI ancestry compared to South Indian lower-caste groups. However, the difference between any two North Indian upper-caste communities is generally <em>far smaller</em> than the difference between North and South Indian populations.</p>
+
+        <div class="scripture-block" style="border-left-color:var(--gold-light); background:rgba(201,146,42,0.07);">
+          <p class="scripture-text" style="color:rgba(245,234,214,0.85);">David Reich (Who We Are and How We Got Here, 2018) notes that Indian populations are characterized by deep endogamy creating "caste-like" genetic structure — but this endogamy began relatively recently (within the last 1,500–2,000 years), and does not correspond neatly to mythological origin claims of any community.</p>
+          <div class="scripture-source" style="color:rgba(245,234,214,0.5);">— David Reich, <em>Who We Are and How We Got Here</em>, Pantheon Books, 2018</div>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-family:'Playfair Display',serif; font-size:1.4rem; color:var(--gold-light); margin-bottom:1rem;">Are Kayasthas "Genetically Distinct"? <span class="badge badge-genetic">Evidence</span></h3>
+
+        <p>No published peer-reviewed genetic study identifies Kayasthas as a genetically distinct cluster from other North Indian upper-caste communities. Available evidence suggests:</p>
+
+        <div class="card card-dark" style="margin-bottom:1rem;">
+          <div class="card-title" style="font-size:1rem;">Genetic Overlap</div>
+          <p style="font-size:0.88rem;">Kayasthas cluster with nearby Brahmin, Rajput, and Bania populations in North India — sharing haplogroup profiles and genome-wide ancestry proportions consistent with the broader North Indian upper-caste genetic cluster.</p>
+        </div>
+
+        <div class="card card-dark" style="margin-bottom:1rem;">
+          <div class="card-title" style="font-size:1rem;">No "Foreign" or "Tribal" Signature</div>
+          <p style="font-size:0.88rem;">Claims that Kayasthas are of "foreign" (Central Asian, Scythian, or other non-Indian) origin, or that they were originally a tribal community incorporated into Hindu society, have <strong>no support in population genetics</strong>. Their genetic profile is consistent with long-standing residence in the North Indian subcontinent.</p>
+        </div>
+
+        <div class="card card-dark">
+          <div class="card-title" style="font-size:1rem;">R1a Distribution</div>
+          <p style="font-size:0.88rem;">The R1a haplogroup (Z93 subclade), most common in North Indian upper-caste populations, is shared broadly across Brahmin, Rajput, Kayastha, and other upper-caste communities — it cannot be used to distinguish one community from another within this cluster.</p>
+        </div>
+
+        <div class="notice" style="margin-top:1rem; color:#a8d4d6; background:rgba(45,107,110,0.1); border-color:rgba(45,107,110,0.3);">
+          <strong>Important:</strong> Due to endogamy, all Indian jati communities (including Kayasthas) show some degree of genetic drift over centuries. This <em>does not</em> mean they are racially distinct — it is a mathematical consequence of small effective population size within endogamous groups.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COLONIAL & MISCONCEPTIONS -->
+<section id="colonial" class="bg-parchment">
+  <div class="container">
+    <div class="section-tag">Critical Analysis</div>
+    <h2 class="section-title">Colonial Interpretations &amp; <em>Misconceptions</em></h2>
+    <p class="section-lead">British colonial ethnography significantly shaped — and often distorted — how caste communities understood themselves. A critical analysis of what colonial scholarship got right, what it got wrong, and what persists as myth today.</p>
+
+    <div class="grid-2 reveal" style="margin-bottom:2rem;">
+      <div>
+        <h3 style="font-family:'Playfair Display',serif; font-size:1.3rem; color:var(--deep-brown); margin-bottom:1rem;">The Colonial Caste-Fixing Project <span class="badge badge-colonial">Colonial</span></h3>
+        <p>The British colonial administration — particularly through the <strong>Decennial Census</strong> (from 1871 onward) and ethnographic surveys like Herbert Risley's <em>Tribes and Castes of Bengal</em> (1891) — attempted to enumerate, classify, and fix Hindu caste identities into rigid, legible categories.</p>
+        <p>This project had profound unintended consequences:</p>
+        <ul style="margin:0.5rem 0 1rem 1.5rem; line-height:2; font-size:0.9rem;">
+          <li>Fluid, locally negotiated status became <strong>legally recorded and fixed</strong></li>
+          <li>Communities that had previously occupied multiple status positions were assigned a single census rank</li>
+          <li>Competing claims to higher status became <strong>court disputes</strong></li>
+          <li>Racial science (of Risley, particularly) was applied to create biometric racial hierarchies that had no basis in Indian tradition</li>
+        </ul>
+        <p>For Kayasthas, the 1870s–1890s sacred-thread controversies were partly a product of this colonial environment — disputes that may never have reached their particular intensity without the colonial legal framework around caste rights.</p>
+      </div>
+      <div>
+        <div class="scripture-block">
+          <p class="scripture-text">Susan Bayly argues in <em>Caste, Society and Politics in India from the Eighteenth Century to the Modern Age</em> (1999) that the colonial period did not simply record a pre-existing caste system but actively reshaped it — transforming regional, contextual status claims into a single all-India hierarchy mapped onto government records.</p>
+          <div class="scripture-source">— Susan Bayly, Cambridge University Press, 1999</div>
+        </div>
+
+        <div class="scripture-block" style="margin-top:1rem;">
+          <p class="scripture-text">Romila Thapar's analysis of pre-colonial Indian society emphasizes that Varna and jati operated as distinct, sometimes contradictory systems — and that the sharp caste divisions familiar from colonial-era records were in many cases <em>produced</em> by colonial administration rather than inherited from ancient India.</p>
+          <div class="scripture-source">— Romila Thapar, <em>Early India: From the Origins to AD 1300</em>, Penguin, 2002</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <h3 style="font-family:'Playfair Display',serif; font-size:1.4rem; color:var(--deep-brown); margin-bottom:1.2rem;">Common Misconceptions — Claim vs. Evidence</h3>
+
+      <div class="myth-card">
+        <div class="myth-side myth-claim">
+          <div class="myth-label">❌ Common Claim</div>
+          <strong>"Kayasthas were originally a tribal or forest community absorbed into Hindu civilization"</strong>
+          <p>This claim appeared in some colonial ethnographic literature and has been repeated in popular discourse.</p>
+        </div>
+        <div class="myth-side myth-fact">
+          <div class="myth-label">✓ Evidence</div>
+          <p>No epigraphic, textual, or genetic evidence supports this. The earliest references to Kayasthas are as <em>royal administrative officials</em> in Gupta copper plates — not as tribal outsiders. <span class="badge badge-genetic">Genetics</span> shows no tribal genetic signature distinct from North Indian upper-caste groups.</p>
+        </div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-side myth-claim">
+          <div class="myth-label">❌ Common Claim</div>
+          <strong>"Kayasthas are Shudras and have no right to the sacred thread"</strong>
+          <p>Used in colonial-era court disputes and occasionally repeated today.</p>
+        </div>
+        <div class="myth-side myth-fact">
+          <div class="myth-label">✓ Evidence</div>
+          <p>Kayasthas performed the upanayana ceremony for centuries across North India — this is documented in medieval texts, colonial ethnographies, and living tradition. The "Shudra" classification was advanced by Brahmin rivals in specific legal contexts and reflects competitive status-claiming, not settled textual authority. <span class="badge badge-historical">History</span></p>
+        </div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-side myth-claim">
+          <div class="myth-label">❌ Common Claim</div>
+          <strong>"All Kayasthas are a single unified community descending from Chitragupta"</strong>
+          <p>A popular claim within Kayastha community organizations.</p>
+        </div>
+        <div class="myth-side myth-fact">
+          <div class="myth-label">✓ Evidence</div>
+          <p>Bengali Kayasthas do not claim Chitragupta descent. Odia Karanas have a distinct tradition. Kayastha is a <em>functional category</em> that encompasses multiple historically distinct regional communities who came to share an occupational-administrative identity over centuries. <span class="badge badge-historical">Academic</span></p>
+        </div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-side myth-claim">
+          <div class="myth-label">❌ Common Claim</div>
+          <strong>"Kayasthas assimilated foreign (Scythian/Parthian) warriors into Hindu society"</strong>
+          <p>A theory occasionally advanced to explain their intermediate status.</p>
+        </div>
+        <div class="myth-side myth-fact">
+          <div class="myth-label">✓ Evidence</div>
+          <p>This theory has no substantive historical or genetic evidence. While some scholars (following D.D. Kosambi's broader framework) noted that Hindu society absorbed foreign groups over centuries, there is no specific evidence linking the Kayastha category to any foreign warrior influx. <span class="badge badge-genetic">Genetics refutes</span> <span class="badge badge-historical">No epigraphic support</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="bg-dark">
+  <div class="container" style="max-width:780px;">
+    <div class="section-tag">Clarifications</div>
+    <h2 class="section-title">Frequently Asked <em>Questions</em></h2>
+    <p class="section-lead">Concise, evidence-based answers to the most common questions about Kayastha history, identity, and scholarship.</p>
+
+    <div class="reveal" id="faq-container">
+
+      <div class="accordion-item" style="background:rgba(42,26,8,0.4); border-color:rgba(201,146,42,0.25);">
+        <button class="accordion-header" style="color:var(--parchment);" onclick="toggleAccordion(this)">
+          Were Kayasthas Kshatriyas?
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          <p style="color:rgba(245,234,214,0.8); font-size:0.92rem;">This is the most contested question in Kayastha social history. The honest answer is: <strong>it depends on region, period, and which texts you privilege.</strong> North Indian Chitrangsha Kayasthas have historically claimed Kshatriya descent (through Chitragupta as a son of Brahma, with warrior symbolism). Some Dharmashastras support this; others do not. Bengali Kayasthas held a "Sat-Shudra" status within Bengal's unique social hierarchy while being effectively upper-class. The colonial sacred-thread controversy of the 1870s–1890s produced the most intense legal debate. Ultimately, Kayastha Varna status was <em>regionally variable and historically negotiated</em> — there is no single definitive answer from pre-colonial textual authority.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item" style="background:rgba(42,26,8,0.4); border-color:rgba(201,146,42,0.25);">
+        <button class="accordion-header" style="color:var(--parchment);" onclick="toggleAccordion(this)">
+          Are Kayasthas mentioned in the Vedas?
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          <p style="color:rgba(245,234,214,0.8); font-size:0.92rem;">No. The term "Kayastha" does not appear in the Rig Veda, Atharva Veda, Sama Veda, Yajur Veda, or early Upanishads. The Chitragupta origin mythology is found in Puranic literature (post-200 CE, with most relevant texts compiled 600–1200 CE). The earliest firm historical evidence for Kayastha as an administrative title comes from <strong>Gupta-era copper plate inscriptions</strong> (4th–6th century CE). The scribal/record-keeping role they filled is, of course, much older — the <em>function</em> predates the <em>community name</em>.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item" style="background:rgba(42,26,8,0.4); border-color:rgba(201,146,42,0.25);">
+        <button class="accordion-header" style="color:var(--parchment);" onclick="toggleAccordion(this)">
+          Do genetics tell us anything definitive about Kayastha origins?
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          <p style="color:rgba(245,234,214,0.8); font-size:0.92rem;">Genetics tells us that Kayasthas share the genetic profile of North Indian upper-caste populations — with a combination of Ancestral North Indian (ANI), Iranian farmer-related, and Steppe pastoralist ancestry. They do NOT cluster as a genetically distinct group. No study has found a genetic signature identifying Kayasthas as "foreign," "tribal," or uniquely different from neighboring Hindu communities. Genetics <em>cannot</em> determine Varna status, divine origin, or cultural identity — it only maps ancestral migration patterns and demographic history.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item" style="background:rgba(42,26,8,0.4); border-color:rgba(201,146,42,0.25);">
+        <button class="accordion-header" style="color:var(--parchment);" onclick="toggleAccordion(this)">
+          Are Bengali Kayasthas and North Indian Kayasthas the same?
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          <p style="color:rgba(245,234,214,0.8); font-size:0.92rem;">They share the same <em>functional identity</em> (scribal/administrative heritage) but are distinct communities with different mythological traditions, social hierarchies, and cultural practices. Bengali Kayasthas (Bose, Ghosh, Mitra, Datta etc.) do not claim Chitragupta descent and held "Sat-Shudra" status in Bengal's unique varna-like system while being socially elite. North Indian Chitrangsha Kayasthas (Srivastava, Saxena etc.) claim Chitragupta lineage and assert dvija (twice-born) status. These distinctions matter for accurate historical understanding.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item" style="background:rgba(42,26,8,0.4); border-color:rgba(201,146,42,0.25);">
+        <button class="accordion-header" style="color:var(--parchment);" onclick="toggleAccordion(this)">
+          What role did Kayasthas play in the Mughal Empire?
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          <p style="color:rgba(245,234,214,0.8); font-size:0.92rem;">Kayasthas were central to the Mughal Empire's revenue administration. Their pre-existing command of administrative traditions, combined with their rapid acquisition of Persian language and calligraphy skills, made them ideal <em>qanungos</em> (hereditary revenue record-keepers), <em>munshis</em> (secretaries), and <em>diwans</em> (revenue ministers) at provincial and district levels. The Mughal administrative system under Akbar (particularly the <em>Ain-i-Akbari</em> revenue survey) relied heavily on literate Kayastha officials to translate Akbar's Persian imperial apparatus into the local revenue realities of Hindi-speaking provinces. This bilingual Persian-Hindi/Kaithi scribal role was a defining Kayastha contribution to the Mughal state.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item" style="background:rgba(42,26,8,0.4); border-color:rgba(201,146,42,0.25);">
+        <button class="accordion-header" style="color:var(--parchment);" onclick="toggleAccordion(this)">
+          What is the Kaithi script and what is its connection to Kayasthas?
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          <p style="color:rgba(245,234,214,0.8); font-size:0.92rem;"><strong>Kaithi</strong> (कैथी) is a writing system historically used in eastern UP, Bihar, and adjoining areas for administrative records, legal documents, and correspondence. The name itself is often said to derive from "Kayastha" — the scribal community associated with its development and use. Kaithi was used for revenue records, court documents, personal letters, and literary works before being displaced by Devanagari and Roman scripts under British standardization. It is now a largely historical script but represents a tangible, material legacy of Kayastha scribal culture. Kaithi is listed in Unicode as a recognized script.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GLOSSARY -->
+<section id="glossary" class="bg-parchment">
+  <div class="container">
+    <div class="section-tag">Reference</div>
+    <h2 class="section-title">Quick-Reference <em>Glossary</em></h2>
+    <p class="section-lead">Essential terms for understanding Kayastha history in their proper scholarly context.</p>
+
+    <div class="glossary-grid reveal">
+      <div class="glossary-item">
+        <div class="glossary-term">Kayastha</div>
+        <span class="glossary-devanagari">कायस्थ</span>
+        "One established in (physical) form"; scribal-administrative community of India; derives from <em>kāya</em> (body) + <em>stha</em> (dweller)
+      </div>
+      <div class="glossary-item">
+        <div class="glossary-term">Chitragupta</div>
+        <span class="glossary-devanagari">चित्रगुप्त</span>
+        Mythological divine recorder of karma; son of Brahma according to Puranic tradition; patron deity and mythological ancestor of Chitrangsha Kayasthas
+      </div>
+      <div class="glossary-item">
+        <div class="glossary-term">Varna</div>
+        <span class="glossary-devanagari">वर्ण</span>
+        The four cosmological categories: Brahmin, Kshatriya, Vaishya, Shudra. A ritual-ideological framework, not a sociological description of actual caste structure
+      </div>
+      <div class="glossary-item">
+        <div class="glossary-term">Jati</div>
+        <span class="glossary-devanagari">जाति</span>
+        Endogamous birth-community; the actual unit of caste in practice; hundreds of jatis exist across India, each with occupational, regional, and kinship identity
+      </div>
+      <div class="glossary-item">
+        <div class="glossary-term">Dvija</div>
+        <span class="glossary-devanagari">द्विज</span>
+        "Twice-born" — the three upper Varnas entitled to the upanayana (sacred thread) initiation; Kayasthas' dvija status has been historically contested and regionally variable
+      </div>
+      <div class="glossary-item">
+        <div class="glossary-term">Kaithi</div>
+        <span class="glossary-devanagari">कैथी</span>
+        Writing system associated with Kayastha scribal tradition; historically used in UP, Bihar for revenue and legal records; derives name from "Kayastha" (Kayathi → Kaithi)
+      </div>
+      <div class="glossary-item">
+        <div class="glossary-term">ANI/ASI</div>
+        <span class="glossary-devanagari" style="font-family:serif; font-size:0.8rem;">Genetic terminology</span>
+        Ancestral North Indian / Ancestral South Indian — genetic ancestry components in modern South Asians per population genetics research (Reich lab et al.)
+      </div>
+      <div class="glossary-item">
+        <div class="glossary-term">Dharmashastra</div>
+        <span class="glossary-devanagari">धर्मशास्त्र</span>
+        Corpus of Sanskrit legal-ritual texts prescribing social conduct, ritual duties, and caste rules; includes Manusmriti, Yajnavalkya Smriti, Narada Smriti
+      </div>
+      <div class="glossary-item">
+        <div class="glossary-term">Gotra</div>
+        <span class="glossary-devanagari">गोत्र</span>
+        Patrilineal clan; exogamous unit named after a Vedic rishi (sage); Kayastha gotras (Kashyap, Bharadwaj, Vats etc.) are shared with Brahmin communities — source of both status claims and debate
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section id="summary" class="bg-sienna">
+  <div class="container">
+    <div class="section-tag">Academic Synthesis</div>
+    <h2 class="section-title">Final Academic <em>Summary</em></h2>
+    <p class="section-lead" style="color:rgba(245,234,214,0.65);">Key conclusions from historical research, scriptural analysis, and genetic science.</p>
+
+    <div class="conclusion-block reveal" style="margin-bottom:1.5rem;">
+      <h3 style="font-family:'Playfair Display',serif; font-size:1.3rem; color:var(--gold-light); margin-bottom:1rem;">From History</h3>
+      <p style="color:rgba(245,234,214,0.85); font-size:0.95rem;">The Kayastha identity emerged historically from the administrative specialization of literate families in post-Gupta India. The earliest epigraphic evidence (4th–6th century CE copper plates) shows "kayastha" as a functional title for royal document-drafters. Through the medieval period, this functional role crystallized into a hereditary jati with distinct occupational, gotra, and cultural practices. The community's extraordinary adaptability — from Sanskrit to Persian to English, from Gupta chancelleries to Mughal diwans to British district offices — explains both their historical prominence and their continued elite status into the modern period.</p>
+    </div>
+
+    <div class="conclusion-block reveal" style="margin-bottom:1.5rem;">
+      <h3 style="font-family:'Playfair Display',serif; font-size:1.3rem; color:var(--gold-light); margin-bottom:1rem;">From Scripture and Tradition</h3>
+      <p style="color:rgba(245,234,214,0.85); font-size:0.95rem;">The Chitragupta Purana tradition provides the foundational mythological charter for Chitrangsha Kayasthas — connecting scribal identity to cosmic function (the recording of karma). This is <em>mythology</em>, not history, and should be understood as a community's meaningful cosmological self-narrative rather than a literal genealogical claim. The Varna status of Kayasthas was never definitively settled in pre-colonial Dharmashastra — different texts, regions, and periods yielded different classifications. This ambiguity is not a defect; it reflects the genuine complexity of Indian social organization.</p>
+    </div>
+
+    <div class="conclusion-block reveal" style="margin-bottom:1.5rem;">
+      <h3 style="font-family:'Playfair Display',serif; font-size:1.3rem; color:var(--gold-light); margin-bottom:1rem;">From Genetics and Anthropology</h3>
+      <p style="color:rgba(245,234,214,0.85); font-size:0.95rem;">Modern population genetics finds no evidence for Kayastha uniqueness relative to other North Indian upper-caste communities. Claims of foreign, tribal, or exotic origins have no genetic support. Like all North Indian upper-caste groups, Kayasthas carry a mixture of AASI, Iranian farmer-related, and Steppe pastoralist ancestry. The genetic endogamy characteristic of Indian jati communities produces some drift but does not constitute racial distinctiveness. Genetics cannot resolve questions of Varna status, cultural legitimacy, or social hierarchy — and should not be misused in service of such claims.</p>
+    </div>
+
+    <div class="conclude-block reveal" style="margin-bottom:1.5rem;">
+      <h3 style="font-family:'Playfair Display',serif; font-size:1.3rem; color:var(--gold-light); margin-bottom:1rem;">Key Scholarly Positions</h3>
+      <div class="grid-3">
+        <div class="ref-card">
+          <div class="ref-author">R.S. Sharma</div>
+          <div class="ref-title">Indian Feudalism (1965); Aspects of Political Ideas and Institutions in Ancient India (1968)</div>
+          <p style="margin-top:0.5rem; font-size:0.85rem; color:var(--text-muted);">Kayastha crystallization as hereditary administrative class during post-Gupta period of land-grant proliferation.</p>
+        </div>
+        <div class="ref-card">
+          <div class="ref-author">Romila Thapar</div>
+          <div class="ref-title">Early India: From the Origins to AD 1300 (2002)</div>
+          <p style="margin-top:0.5rem; font-size:0.85rem; color:var(--text-muted);">Importance of distinguishing Varna ideology from jati social reality; fluidity of pre-colonial caste identities.</p>
+        </div>
+        <div class="ref-card">
+          <div class="ref-author">Nicholas Dirks</div>
+          <div class="ref-title">Castes of Mind (2001)</div>
+          <p style="margin-top:0.5rem; font-size:0.85rem; color:var(--text-muted);">Colonial role in hardening caste identities; Kayastha Varna debates as colonial-era legal product.</p>
+        </div>
+        <div class="ref-card">
+          <div class="ref-author">Susan Bayly</div>
+          <div class="ref-title">Caste, Society and Politics in India (1999)</div>
+          <p style="margin-top:0.5rem; font-size:0.85rem; color:var(--text-muted);">Administrative communities as "status entrepreneurs"; colonial census and the reshaping of caste.</p>
+        </div>
+        <div class="ref-card">
+          <div class="ref-author">Vagheesh Narasimhan et al.</div>
+          <div class="ref-title">Science, 2019: "The formation of human populations in South and Central Asia"</div>
+          <p style="margin-top:0.5rem; font-size:0.85rem; color:var(--text-muted);">Definitive genetic evidence for three-ancestry model of South Asian populations; Steppe migration timeline.</p>
+        </div>
+        <div class="ref-card">
+          <div class="ref-author">David Reich</div>
+          <div class="ref-title">Who We Are and How We Got Here (2018)</div>
+          <p style="margin-top:0.5rem; font-size:0.85rem; color:var(--text-muted);">Population genetics of South Asian caste structure; endogamy's genetic effects; ANI/ASI framework.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider-ornament" style="color:var(--gold-dim);">✦ ✦ ✦</div>
+
+    <div class="reveal" style="text-align:center;">
+      <p style="font-family:'IM Fell English',serif; font-style:italic; font-size:1.2rem; color:rgba(245,234,214,0.65); max-width:640px; margin:0 auto;">
+        The Kayastha story is ultimately the story of how literate, administrative expertise became a civilizational force — sustaining kingdoms, recording law, preserving culture, and adapting to each new era of Indian history with the same tool their mythological ancestor wielded: <em>the pen.</em>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p><strong>Kayastha: A Civilizational Archive</strong> — An independent educational platform for historical and scholarly inquiry.</p>
+  <p style="margin-top:0.5rem;">All claims are labeled by epistemological category: <span style="color:#c9922a;">Mythology · Scripture · History · Genetics · Colonial Interpretation</span></p>
+  <p style="margin-top:0.5rem; font-size:0.78rem; opacity:0.6;">This platform is designed for educational purposes. It does not advocate caste superiority of any community. All Hindu traditions are treated with equal respect. Scholarly disagreements are presented honestly.</p>
+  <p style="margin-top:1rem; font-size:0.75rem; opacity:0.5;">Built as a premium academic frontend — expandable to include genealogy explorer, gotra database, historical document archive, and AI history assistant.</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal, .timeline-item');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  revealEls.forEach(el => observer.observe(el));
+
+  // Accordion
+  function toggleAccordion(btn) {
+    const item = btn.closest('.accordion-item');
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.accordion-item.open').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  }
+
+  // Nav highlight on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 100) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current
+        ? 'var(--gold-light)' : '';
+    });
+  });
+</script>
+</body>
+</html>

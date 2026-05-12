@@ -1,0 +1,1757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rishivansha — The Sage-Warrior Legacy of Ancient India</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+Devanagari:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --gold-dim: #8A6B28;
+    --ivory: #F5EDD8;
+    --ivory-dark: #EAD9B4;
+    --saffron: #D4610A;
+    --saffron-light: #F07833;
+    --deep-brown: #1A0E00;
+    --warm-black: #0D0800;
+    --parchment: #F2E4C4;
+    --rust: #8B2500;
+    --forest: #1C3A1A;
+    --indigo: #1A1F4A;
+    --maroon: #5C0A1F;
+    --cream: #FAF3E2;
+    --shadow-gold: rgba(201,168,76,0.18);
+    --shadow-deep: rgba(10,5,0,0.7);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--warm-black);
+    color: var(--ivory);
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 17px;
+    line-height: 1.75;
+    overflow-x: hidden;
+  }
+
+  /* ── NOISE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.35;
+  }
+
+  /* ── SCROLL BAR ── */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--warm-black); }
+  ::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 3px; }
+
+  /* ── TYPOGRAPHY ── */
+  h1, h2, h3, h4 { font-family: 'Cinzel', serif; letter-spacing: 0.04em; }
+  .deva { font-family: 'Noto Serif Devanagari', serif; }
+  .italic { font-style: italic; }
+  .gold { color: var(--gold); }
+  .saffron { color: var(--saffron-light); }
+  .small-caps { font-variant: small-caps; }
+
+  /* ── DECORATIVE DIVIDERS ── */
+  .ornament {
+    text-align: center;
+    color: var(--gold-dim);
+    font-size: 1.4rem;
+    letter-spacing: 0.5rem;
+    margin: 2rem 0;
+    opacity: 0.7;
+  }
+  .ornament::before, .ornament::after {
+    content: '⸻';
+    color: var(--gold-dim);
+    margin: 0 1rem;
+  }
+  .divider {
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-dim), var(--gold), var(--gold-dim), transparent);
+    margin: 3rem 0;
+    opacity: 0.5;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    background: linear-gradient(180deg, rgba(13,8,0,0.98) 0%, rgba(13,8,0,0.85) 100%);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    padding: 0.85rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .nav-brand {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.05rem;
+    color: var(--gold);
+    text-decoration: none;
+    letter-spacing: 0.1em;
+  }
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    flex-wrap: wrap;
+  }
+  .nav-links a {
+    color: var(--ivory-dark);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 6rem 2rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 40%, rgba(201,168,76,0.07) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 80% at 20% 80%, rgba(212,97,10,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 50% at 80% 20%, rgba(92,10,31,0.1) 0%, transparent 60%),
+      var(--warm-black);
+    z-index: 0;
+  }
+  .hero-mandala {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(700px, 100vw);
+    height: min(700px, 100vw);
+    opacity: 0.04;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='90' fill='none' stroke='%23C9A84C' stroke-width='0.5'/%3E%3Ccircle cx='100' cy='100' r='70' fill='none' stroke='%23C9A84C' stroke-width='0.5'/%3E%3Ccircle cx='100' cy='100' r='50' fill='none' stroke='%23C9A84C' stroke-width='0.5'/%3E%3Ccircle cx='100' cy='100' r='30' fill='none' stroke='%23C9A84C' stroke-width='0.5'/%3E%3Cline x1='10' y1='100' x2='190' y2='100' stroke='%23C9A84C' stroke-width='0.3'/%3E%3Cline x1='100' y1='10' x2='100' y2='190' stroke='%23C9A84C' stroke-width='0.3'/%3E%3Cline x1='27' y1='27' x2='173' y2='173' stroke='%23C9A84C' stroke-width='0.3'/%3E%3Cline x1='173' y1='27' x2='27' y2='173' stroke='%23C9A84C' stroke-width='0.3'/%3E%3C/svg%3E") center/contain no-repeat;
+    animation: slowspin 120s linear infinite;
+    z-index: 0;
+  }
+  @keyframes slowspin { to { transform: translate(-50%, -50%) rotate(360deg); } }
+
+  .hero-content { position: relative; z-index: 1; max-width: 900px; }
+  .hero-deva {
+    font-family: 'Noto Serif Devanagari', serif;
+    font-size: clamp(1.4rem, 4vw, 2.2rem);
+    color: var(--gold-dim);
+    opacity: 0.8;
+    margin-bottom: 1rem;
+    animation: fadeUp 1.2s ease both;
+  }
+  .hero-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(2rem, 6vw, 4.5rem);
+    color: var(--gold);
+    line-height: 1.1;
+    text-shadow: 0 0 60px rgba(201,168,76,0.3), 0 2px 30px rgba(0,0,0,0.8);
+    margin-bottom: 0.5rem;
+    animation: fadeUp 1.2s 0.2s ease both;
+  }
+  .hero-subtitle {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(0.9rem, 2.5vw, 1.3rem);
+    color: var(--saffron-light);
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 1.2s 0.4s ease both;
+  }
+  .hero-desc {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--ivory-dark);
+    max-width: 700px;
+    margin: 0 auto 2.5rem;
+    font-style: italic;
+    animation: fadeUp 1.2s 0.6s ease both;
+  }
+  .hero-badges {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeUp 1.2s 0.8s ease both;
+  }
+  .badge {
+    background: rgba(201,168,76,0.08);
+    border: 1px solid rgba(201,168,76,0.3);
+    color: var(--gold-light);
+    padding: 0.4rem 1.2rem;
+    border-radius: 2px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .scroll-cue {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--gold-dim);
+    font-size: 0.7rem;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    animation: bounce 2.5s infinite;
+    cursor: pointer;
+    z-index: 1;
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.5; }
+    50% { transform: translateX(-50%) translateY(-8px); opacity: 1; }
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
+  .section-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--saffron-light);
+    margin-bottom: 0.6rem;
+    display: block;
+  }
+  .section-title {
+    font-size: clamp(1.6rem, 4vw, 2.8rem);
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+    line-height: 1.15;
+  }
+  .section-intro {
+    font-size: 1.1rem;
+    color: var(--ivory-dark);
+    max-width: 780px;
+    margin-bottom: 3rem;
+    font-style: italic;
+    border-left: 2px solid var(--gold-dim);
+    padding-left: 1.2rem;
+  }
+
+  /* ── CARDS ── */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+  .card {
+    background: linear-gradient(145deg, rgba(255,255,255,0.03) 0%, rgba(201,168,76,0.04) 100%);
+    border: 1px solid rgba(201,168,76,0.15);
+    border-radius: 2px;
+    padding: 1.8rem;
+    position: relative;
+    transition: border-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    overflow: hidden;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: linear-gradient(180deg, var(--saffron), var(--gold));
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .card:hover { border-color: rgba(201,168,76,0.4); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.5); }
+  .card:hover::before { opacity: 1; }
+  .card-icon { font-size: 2rem; margin-bottom: 0.8rem; }
+  .card-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.05rem;
+    color: var(--gold);
+    margin-bottom: 0.6rem;
+  }
+  .card p { font-size: 0.95rem; color: var(--ivory-dark); line-height: 1.7; }
+  .card-tag {
+    display: inline-block;
+    background: rgba(212,97,10,0.15);
+    border: 1px solid rgba(212,97,10,0.3);
+    color: var(--saffron-light);
+    font-size: 0.68rem;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.1em;
+    padding: 0.15rem 0.6rem;
+    border-radius: 1px;
+    margin-top: 0.8rem;
+    text-transform: uppercase;
+  }
+
+  /* ── CLAN PROFILES ── */
+  .clan-block {
+    background: linear-gradient(135deg, rgba(201,168,76,0.04) 0%, rgba(13,8,0,0.5) 100%);
+    border: 1px solid rgba(201,168,76,0.18);
+    border-radius: 2px;
+    margin-bottom: 2.5rem;
+    overflow: hidden;
+  }
+  .clan-header {
+    background: linear-gradient(90deg, rgba(201,168,76,0.12) 0%, rgba(212,97,10,0.06) 50%, transparent 100%);
+    padding: 1.8rem 2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    border-bottom: 1px solid rgba(201,168,76,0.1);
+    user-select: none;
+  }
+  .clan-header:hover { background: linear-gradient(90deg, rgba(201,168,76,0.18) 0%, rgba(212,97,10,0.09) 50%, transparent 100%); }
+  .clan-header-left { flex: 1; }
+  .clan-name {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    color: var(--gold);
+    line-height: 1.2;
+    margin-bottom: 0.3rem;
+  }
+  .clan-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.6rem;
+  }
+  .meta-pill {
+    background: rgba(201,168,76,0.08);
+    border: 1px solid rgba(201,168,76,0.2);
+    color: var(--ivory-dark);
+    font-size: 0.72rem;
+    padding: 0.2rem 0.7rem;
+    border-radius: 1px;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.06em;
+  }
+  .meta-pill span { color: var(--gold-light); }
+  .expand-btn {
+    color: var(--gold-dim);
+    font-size: 1.4rem;
+    transition: transform 0.3s;
+    flex-shrink: 0;
+    padding-top: 0.2rem;
+  }
+  .clan-block.open .expand-btn { transform: rotate(45deg); }
+  .clan-body {
+    display: none;
+    padding: 2rem;
+    border-top: 1px solid rgba(201,168,76,0.08);
+  }
+  .clan-block.open .clan-body { display: block; }
+
+  .clan-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+  }
+  .info-box {
+    background: rgba(0,0,0,0.3);
+    border: 1px solid rgba(201,168,76,0.1);
+    padding: 1.2rem 1.4rem;
+    border-radius: 2px;
+  }
+  .info-box-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--saffron-light);
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  .info-box-val {
+    font-size: 0.98rem;
+    color: var(--ivory);
+  }
+  .info-box-val strong { color: var(--gold-light); font-weight: 500; }
+
+  /* ── LINEAGE TREE ── */
+  .lineage-tree {
+    background: rgba(0,0,0,0.35);
+    border: 1px solid rgba(201,168,76,0.12);
+    padding: 1.8rem;
+    border-radius: 2px;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+  }
+  .tree-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 1.2rem;
+  }
+  .tree {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .tree-level {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+  .tree-node {
+    position: relative;
+    padding: 0.4rem 1rem 0.4rem 2.5rem;
+    font-size: 0.92rem;
+    color: var(--ivory);
+    line-height: 1.5;
+  }
+  .tree-node::before {
+    content: '◆';
+    position: absolute;
+    left: 0.8rem;
+    color: var(--gold-dim);
+    font-size: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .tree-node.root {
+    padding-left: 1rem;
+    color: var(--gold);
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  .tree-node.root::before { display: none; }
+  .tree-node.depth-1 { padding-left: 3rem; color: var(--gold-light); }
+  .tree-node.depth-2 { padding-left: 5rem; color: var(--ivory-dark); }
+  .tree-node.depth-3 { padding-left: 7rem; color: var(--ivory-dark); font-size: 0.87rem; opacity: 0.85; }
+  .tree-line {
+    width: 2px;
+    height: 1rem;
+    background: linear-gradient(180deg, var(--gold-dim), transparent);
+    margin-left: 1.5rem;
+    opacity: 0.3;
+  }
+
+  /* ── TIMELINE ── */
+  .timeline {
+    position: relative;
+    padding-left: 2.5rem;
+    margin: 1.5rem 0;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0.5rem;
+    top: 0; bottom: 0;
+    width: 1px;
+    background: linear-gradient(180deg, var(--gold), var(--gold-dim), transparent);
+    opacity: 0.4;
+  }
+  .tl-item {
+    position: relative;
+    margin-bottom: 1.5rem;
+  }
+  .tl-dot {
+    position: absolute;
+    left: -2.2rem;
+    top: 0.3rem;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--gold-dim);
+    border: 2px solid var(--warm-black);
+    box-shadow: 0 0 0 2px var(--gold-dim);
+  }
+  .tl-date {
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem;
+    color: var(--saffron-light);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.2rem;
+    text-transform: uppercase;
+  }
+  .tl-text { font-size: 0.92rem; color: var(--ivory-dark); }
+
+  /* ── COMPARISON TABLE ── */
+  .table-wrap { overflow-x: auto; margin: 2rem 0; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+  }
+  thead tr {
+    background: linear-gradient(90deg, rgba(201,168,76,0.15) 0%, rgba(212,97,10,0.08) 100%);
+    border-bottom: 2px solid rgba(201,168,76,0.3);
+  }
+  th {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    padding: 0.9rem 1rem;
+    text-align: left;
+    white-space: nowrap;
+  }
+  td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid rgba(201,168,76,0.07);
+    color: var(--ivory-dark);
+    vertical-align: top;
+  }
+  tr:hover td { background: rgba(201,168,76,0.04); }
+  td strong { color: var(--gold-light); font-weight: 500; }
+  td em { color: var(--saffron-light); font-style: italic; }
+
+  /* ── SCRIPTURAL REFS ── */
+  .scripture-block {
+    background: linear-gradient(135deg, rgba(26,31,74,0.4) 0%, rgba(0,0,0,0.5) 100%);
+    border: 1px solid rgba(100,120,200,0.15);
+    border-left: 3px solid var(--indigo);
+    padding: 1.4rem 1.6rem;
+    margin: 1.2rem 0;
+    border-radius: 0 2px 2px 0;
+  }
+  .scripture-block .src-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.68rem;
+    color: #8898ee;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+    display: block;
+  }
+  .scripture-block p { font-style: italic; color: var(--ivory-dark); font-size: 0.95rem; }
+  .scripture-block .deva-ref {
+    font-family: 'Noto Serif Devanagari', serif;
+    color: rgba(200,210,255,0.6);
+    font-size: 0.85rem;
+    margin-top: 0.4rem;
+    display: block;
+  }
+
+  /* ── ALERT BOXES ── */
+  .alert {
+    border-radius: 2px;
+    padding: 1.2rem 1.5rem;
+    margin: 1.2rem 0;
+    font-size: 0.92rem;
+  }
+  .alert-disputed {
+    background: rgba(139,37,0,0.12);
+    border: 1px solid rgba(139,37,0,0.3);
+    border-left: 3px solid var(--rust);
+    color: var(--ivory-dark);
+  }
+  .alert-disputed strong { color: #FF9980; }
+  .alert-oral {
+    background: rgba(28,58,26,0.2);
+    border: 1px solid rgba(28,58,26,0.4);
+    border-left: 3px solid #2E6B2B;
+    color: var(--ivory-dark);
+  }
+  .alert-oral strong { color: #90D490; }
+
+  /* ── TABS ── */
+  .tabs { display: flex; gap: 0; flex-wrap: wrap; margin-bottom: 0; border-bottom: 1px solid rgba(201,168,76,0.15); }
+  .tab-btn {
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: var(--ivory-dark);
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.7rem 1.2rem;
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s;
+    margin-bottom: -1px;
+  }
+  .tab-btn:hover { color: var(--gold-light); }
+  .tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
+  .tab-content { display: none; padding-top: 1.8rem; }
+  .tab-content.active { display: block; }
+
+  /* ── FULL-WIDTH BANDS ── */
+  .band {
+    width: 100%;
+    padding: 4rem 2rem;
+    position: relative;
+  }
+  .band-inner { max-width: 1200px; margin: 0 auto; }
+  .band-gold {
+    background: linear-gradient(135deg, rgba(201,168,76,0.07) 0%, rgba(212,97,10,0.04) 50%, rgba(201,168,76,0.07) 100%);
+    border-top: 1px solid rgba(201,168,76,0.12);
+    border-bottom: 1px solid rgba(201,168,76,0.12);
+  }
+  .band-dark {
+    background: linear-gradient(135deg, rgba(0,0,0,0.5) 0%, rgba(26,14,0,0.8) 100%);
+  }
+
+  /* ── INFLUENCE RANKING ── */
+  .rank-list { list-style: none; }
+  .rank-item {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(201,168,76,0.07);
+  }
+  .rank-num {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.6rem;
+    color: var(--gold-dim);
+    width: 2.5rem;
+    flex-shrink: 0;
+    opacity: 0.7;
+    text-align: right;
+  }
+  .rank-body { flex: 1; }
+  .rank-name { font-family: 'Cinzel', serif; color: var(--gold); font-size: 1.05rem; }
+  .rank-detail { font-size: 0.88rem; color: var(--ivory-dark); margin-top: 0.2rem; }
+  .rank-bar-wrap { width: 120px; height: 4px; background: rgba(255,255,255,0.06); border-radius: 2px; flex-shrink: 0; }
+  .rank-bar { height: 100%; background: linear-gradient(90deg, var(--saffron), var(--gold)); border-radius: 2px; }
+
+  /* ── GOTRA MAP PLACEHOLDER ── */
+  .gotra-map {
+    background: rgba(0,0,0,0.4);
+    border: 1px solid rgba(201,168,76,0.15);
+    border-radius: 2px;
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    min-height: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .gotra-map-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 1.5rem;
+  }
+  .gotra-nodes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    justify-content: center;
+    max-width: 700px;
+  }
+  .gotra-node {
+    background: rgba(201,168,76,0.07);
+    border: 1px solid rgba(201,168,76,0.2);
+    color: var(--gold-light);
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    padding: 0.35rem 0.9rem;
+    border-radius: 1px;
+    cursor: default;
+    transition: background 0.2s, border-color 0.2s;
+    letter-spacing: 0.05em;
+  }
+  .gotra-node:hover { background: rgba(201,168,76,0.15); border-color: rgba(201,168,76,0.4); }
+  .gotra-node.primary { border-color: var(--gold); color: var(--gold); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: rgba(0,0,0,0.7);
+    border-top: 1px solid rgba(201,168,76,0.12);
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+  .footer-brand {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.2rem;
+    color: var(--gold-dim);
+    margin-bottom: 0.5rem;
+  }
+  .footer-note { font-size: 0.8rem; color: rgba(245,237,216,0.4); max-width: 600px; margin: 0 auto; }
+  .footer-sources {
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
+    color: rgba(245,237,216,0.3);
+    font-style: italic;
+  }
+
+  /* ── TRADITION BADGES ── */
+  .trad-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    border-radius: 2px;
+    padding: 0.25rem 0.8rem;
+    font-size: 0.72rem;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin: 0.2rem;
+  }
+  .trad-scriptural { background: rgba(26,31,74,0.4); border: 1px solid rgba(100,120,200,0.3); color: #aab4ff; }
+  .trad-historical { background: rgba(28,58,26,0.3); border: 1px solid rgba(46,107,43,0.35); color: #90D490; }
+  .trad-bardic { background: rgba(92,10,31,0.3); border: 1px solid rgba(139,37,0,0.35); color: #ffaa88; }
+  .trad-disputed { background: rgba(80,50,0,0.3); border: 1px solid rgba(150,100,0,0.3); color: #ffcc55; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .card-grid { grid-template-columns: 1fr; }
+    .clan-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    section { padding: 3.5rem 1rem; }
+    .clan-header { padding: 1.2rem; }
+    .clan-body { padding: 1.2rem; }
+  }
+
+  /* ── MISC ── */
+  .subclan-list { list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem; padding: 0; margin: 0.5rem 0; }
+  .subclan-item {
+    background: rgba(201,168,76,0.06);
+    border: 1px solid rgba(201,168,76,0.15);
+    color: var(--ivory-dark);
+    font-size: 0.82rem;
+    padding: 0.2rem 0.7rem;
+    border-radius: 1px;
+  }
+  .quote-block {
+    border-left: 2px solid var(--gold-dim);
+    padding: 0.8rem 1.2rem;
+    margin: 1rem 0;
+    color: var(--ivory-dark);
+    font-style: italic;
+    font-size: 0.95rem;
+    background: rgba(0,0,0,0.2);
+  }
+  .highlight { color: var(--gold-light); font-weight: 500; }
+  a { color: var(--gold-dim); text-decoration: none; }
+  a:hover { color: var(--gold); }
+</style>
+</head>
+<body>
+
+<!-- ════ NAVIGATION ════ -->
+<nav>
+  <a href="#hero" class="nav-brand">ऋषिवंश</a>
+  <ul class="nav-links">
+    <li><a href="#foundations">Foundations</a></li>
+    <li><a href="#clans">Clans</a></li>
+    <li><a href="#scriptures">Scriptures</a></li>
+    <li><a href="#comparison">Comparison</a></li>
+    <li><a href="#disputed">Disputed</a></li>
+    <li><a href="#influence">Influence</a></li>
+  </ul>
+</nav>
+
+<!-- ════ HERO ════ -->
+<div id="hero" style="position:relative;">
+  <div class="hero-bg"></div>
+  <div class="hero-mandala"></div>
+  <div class="hero-content">
+    <div class="hero-deva deva">ऋषिवंश राजपूत — ब्रह्मक्षत्र परम्परा</div>
+    <h1 class="hero-title">RISHIVANSHA</h1>
+    <div class="hero-subtitle">The Sage-Warrior Lineages of Ancient India</div>
+    <p class="hero-desc">
+      Where the sacred flame of the rishi met the unsheathed sword of the kshatriya —
+      tracing the extraordinary dynasties born of sage blood, Vedic gotra, and martial valor
+      across three thousand years of Indian civilization.
+    </p>
+    <div class="hero-badges">
+      <span class="badge">Gautam Rajputs</span>
+      <span class="badge">Sengar Rajputs</span>
+      <span class="badge">Brahma-Kshatra</span>
+      <span class="badge">Gotra Analysis</span>
+      <span class="badge">Puranic Evidence</span>
+    </div>
+  </div>
+  <div class="scroll-cue" onclick="document.getElementById('foundations').scrollIntoView({behavior:'smooth'})">↓ Explore the Legacy ↓</div>
+</div>
+
+<!-- ════ SECTION 1 — CONCEPTUAL FOUNDATIONS ════ -->
+<section id="foundations">
+  <span class="section-label">Conceptual Framework</span>
+  <h2 class="section-title">The Rishivansha Concept</h2>
+  <p class="section-intro">
+    Before sword, there was mantra. Understanding the cosmological and social architecture
+    behind sage-descended warrior clans requires navigating the layered world of Vedic gotra,
+    vansha, and the ancient Brahma-Kshatra ideal.
+  </p>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-icon">🔱</div>
+      <div class="card-title">Meaning of Rishivansha</div>
+      <p><span class="italic">Rishi</span> (ऋषि) — a seer of cosmic truth; <span class="italic">Vansha</span> (वंश) — lineage or bamboo-like unbroken succession. <strong>Rishivansha</strong> therefore denotes a patrilineal descent claimed from a Vedic sage ancestor, distinct from the solar (<em>Suryavansha</em>) or lunar (<em>Chandravansha</em>) descent mythologies. It is a <em>third stream</em> of Kshatriya identity, asserting priestly-scholar origins that later assumed warrior roles through historical circumstance, royal patronage, or deliberate varna-transition.</p>
+      <span class="card-tag">Core Concept</span>
+    </div>
+    <div class="card">
+      <div class="card-icon">🌿</div>
+      <div class="card-title">Gotra vs. Vansha — A Critical Distinction</div>
+      <p><strong>Gotra</strong> (गोत्र) is a strictly patrilineal exogamous unit identifying one's Vedic rishi lineage for ritual purposes — it governs marriage prohibitions and Vedic inheritance. <strong>Vansha</strong> is a broader dynastic or genealogical stream that may include matrilineal or adopted lines. A Kshatriya may bear a Brahminic gotra (e.g., <em>Gautama</em>) without claiming full descent — often denoting a spiritual preceptor relationship. Rishivanshi clans uniquely conflate these two: their gotra <em>is</em> their claimed biological descent, not merely a ritual teacher lineage.</p>
+      <span class="card-tag">Conceptual</span>
+    </div>
+    <div class="card">
+      <div class="card-icon">⚔️</div>
+      <div class="card-title">Brahma-Kshatra Tradition</div>
+      <p>The <em>Brahma-Kshatra</em> (ब्रह्मक्षत्र) ideal appears in the <em>Mahabharata</em> and Puranas as the synthesis of Brahmanical learning with Kshatriya valor. Figures like <strong>Parashurama</strong>, <strong>Dronacharya</strong>, and <strong>Vishwamitra</strong> embody this fluid boundary. Bhumihar Brahmins, Tyagis, and certain Rajput sub-groups explicitly claim this dual heritage — being both ritual specialists and armed landholders who refused to relinquish weapons even while maintaining sacred fires (<em>yajnopavita</em>).</p>
+      <span class="card-tag">Tradition</span>
+    </div>
+    <div class="card">
+      <div class="card-icon">📜</div>
+      <div class="card-title">Sage-to-Warrior Lineage Mechanics</div>
+      <p>Several historical and textual pathways explain sage-to-warrior transitions: <strong>(1) Ashrama transition</strong> — a sage's descendants adopting Kshatriya duties under royal obligation; <strong>(2) Adoption</strong> — a childless king adopting a Brahmin-sage's son; <strong>(3) Pratiloma marriage</strong> — hypogamous unions producing mixed-status offspring; <strong>(4) Royal patronage grants</strong> — sage families given land to defend and administer, gradually militarizing. The Manusmriti (X.42) acknowledges that groups can rise through conduct over generations: <em>"By the power of austerity and of holy rites performed in a former life."</em></p>
+      <span class="card-tag">Mechanism</span>
+    </div>
+    <div class="card">
+      <div class="card-icon">📚</div>
+      <div class="card-title">Scriptural Foundations</div>
+      <p>The <em>Vishnu Purana</em> (Book IV) provides the most systematic genealogical account of sages producing warrior offspring. The <em>Adi Parva</em> of the Mahabharata traces the Kuru-Panchala lineages to Bharadwaja and Angirasa rishis. Regional Puranas — the <em>Skanda Purana</em>, <em>Padma Purana</em>, and <em>Agni Purana</em> — contain dedicated <em>vamshanucharita</em> (lineage recitation) sections. Temple <em>prasastis</em> (copper plate inscriptions) from the Gupta and early medieval period provide contemporaneous epigraphic confirmation for several Rishivanshi claims.</p>
+      <span class="card-tag">Scriptural</span>
+    </div>
+    <div class="card">
+      <div class="card-icon">🏛️</div>
+      <div class="card-title">Social Evolution of Rishivanshi Identity</div>
+      <p>Rishivanshi identity intensified during the <strong>9th–12th centuries CE</strong> when Rajput crystallization was occurring across North India. As solar and lunar lines dominated political prestige, smaller military clans — often of mixed or Brahminic origin — strategically articulated sage-descent to claim respectable (though non-royal) Kshatriya standing. By the Sultanate period, bardic chroniclers (<em>charans</em> and <em>bards</em>) formalized these lineages in <em>vamshavalies</em> (genealogical records), creating a coherent tradition that blended historical reality with mythological legitimation.</p>
+      <span class="card-tag">Historical</span>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ════ SECTION 2 — CLAN PROFILES ════ -->
+<section id="clans">
+  <span class="section-label">The Great Sage-Warrior Clans</span>
+  <h2 class="section-title">Rishivanshi Rajput Lineages</h2>
+  <p class="section-intro">
+    Each profile below synthesizes scriptural tradition, copper-plate epigraphic evidence,
+    bardic oral history, and sociological analysis. Evidence types are clearly distinguished.
+  </p>
+
+  <!-- ─── GAUTAM RAJPUTS ─── -->
+  <div class="clan-block" id="clan-gautam">
+    <div class="clan-header" onclick="toggleClan(this)">
+      <div class="clan-header-left">
+        <div class="clan-name">Gautam Rajputs <span class="deva" style="font-size:1rem;opacity:0.6;">गौतम राजपूत</span></div>
+        <div style="font-size:0.9rem;color:var(--ivory-dark);margin-top:0.3rem;font-style:italic;">Descendants of Maharshi Gautama — Sages of the Rigveda</div>
+        <div class="clan-meta">
+          <span class="meta-pill">Gotra: <span>Gautama</span></span>
+          <span class="meta-pill">Rishi: <span>Maharshi Gautama (Nodhas)</span></span>
+          <span class="meta-pill">Region: <span>Doab / Eastern UP / Bihar</span></span>
+          <span class="meta-pill">Veda: <span>Rigveda (Nodhas hymns)</span></span>
+        </div>
+      </div>
+      <div class="expand-btn">+</div>
+    </div>
+    <div class="clan-body">
+      <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab(this,'gautam','overview')">Overview</button>
+        <button class="tab-btn" onclick="switchTab(this,'gautam','lineage')">Lineage Tree</button>
+        <button class="tab-btn" onclick="switchTab(this,'gautam','kingdoms')">Kingdoms</button>
+        <button class="tab-btn" onclick="switchTab(this,'gautam','scripture')">Scriptures</button>
+        <button class="tab-btn" onclick="switchTab(this,'gautam','subclans')">Sub-Clans</button>
+      </div>
+
+      <div id="gautam-overview" class="tab-content active">
+        <div class="clan-grid">
+          <div class="info-box">
+            <span class="info-box-label">Claimed Rishi Ancestor</span>
+            <div class="info-box-val"><strong>Maharshi Gautama</strong> (Rishi of the Rigveda, Nodhas clan). Father of <em>Shatananda</em> (priest of King Janaka of Videha). Husband of <em>Ahalya</em>.</div>
+          </div>
+          <div class="info-box">
+            <span class="info-box-label">Gotra Identity</span>
+            <div class="info-box-val"><strong>Gautama Gotra</strong> — one of the eight primary Rishigotra lineages recognized by the Rigveda. Strictly patrilineal, prohibiting marriage with anyone sharing this gotra for 7 generations.</div>
+          </div>
+          <div class="info-box">
+            <span class="info-box-label">Geographic Heartland</span>
+            <div class="info-box-val">Lower Doab (between Ganga-Yamuna), Farrukhabad, Kannauj, Etah districts (Uttar Pradesh); Champaran (Bihar); scattered presence in Rajasthan and Madhya Pradesh.</div>
+          </div>
+          <div class="info-box">
+            <span class="info-box-label">Brahma-Kshatra Status</span>
+            <div class="info-box-val"><strong>Classical Rishivanshi:</strong> Tradition holds Gautama's descendants adopted warrior duties when sage-hermitage settlements required armed protection during the post-Mahabharata upheaval period (c. 10th–6th century BCE).</div>
+          </div>
+        </div>
+
+        <div class="alert alert-oral">
+          <strong>Oral Tradition:</strong> Gautam Rajput bardic tradition (<em>khyat</em>) holds that their eponymous ancestor sage Gautama granted his warrior descendants the right to bear arms through a <em>yajna</em> (sacred fire ceremony) after a demon-king threatened his hermitage. This establishes divine sanction for the varna transition.
+        </div>
+        <div class="alert alert-disputed">
+          <strong>Historical Scrutiny:</strong> Scholars like D.C. Ganguly and R.B. Singh note that Gautam Rajput claims appear in medieval period texts (post-12th century CE), coinciding with Rajput crystallization. Direct genealogical linkage to the Rigvedic Gautama remains a matter of bardic tradition rather than inscriptional proof.
+        </div>
+
+        <div class="quote-block">
+          "The Gautamas are recorded in the Janakapura inscriptions of Bihar as a prominent lineage providing both priests and armed retainers to the Mithila courts — an unusually dual function consistent with Brahma-Kshatra tradition."
+          <br><em style="color:var(--gold-dim);font-size:0.82rem;">— Regional epigraphy, paraphrased from Grierson's Bihar studies</em>
+        </div>
+
+        <div style="margin-top:1.5rem;">
+          <span class="trad-badge trad-scriptural">📜 Rigvedic Gotra Confirmed</span>
+          <span class="trad-badge trad-historical">🏛️ Medieval Inscriptions</span>
+          <span class="trad-badge trad-bardic">🎶 Strong Bardic Tradition</span>
+          <span class="trad-badge trad-disputed">⚠️ Biological Descent Disputed</span>
+        </div>
+      </div>
+
+      <div id="gautam-lineage" class="tab-content">
+        <div class="lineage-tree">
+          <div class="tree-title">Gautam Rajput — Puranic & Bardic Lineage</div>
+          <div class="tree">
+            <div class="tree-node root">Brahma (Creator)</div>
+            <div class="tree-line"></div>
+            <div class="tree-node depth-1">Angirasa (Prajapati-Rishi)</div>
+            <div class="tree-line"></div>
+            <div class="tree-node depth-1">Gautama Maharshi — <em style="color:var(--saffron-light)">Rigveda, Nodhas hymns (RV I.58–64)</em></div>
+            <div class="tree-node depth-2">Shatananda — Priest of King Janaka of Videha</div>
+            <div class="tree-node depth-2">Chirakari — Son mentioned in Mahabharata (Shanti Parva)</div>
+            <div class="tree-line"></div>
+            <div class="tree-node depth-2" style="color:var(--gold-dim);font-style:italic;">⊕ Bardic tradition inserts several generations here (c. 500 BCE – 600 CE)</div>
+            <div class="tree-line"></div>
+            <div class="tree-node depth-1">Gautam Rajput Progenitor (Legendary c. 7th–9th century CE)</div>
+            <div class="tree-node depth-2">North Branch — Lower Doab settlements</div>
+            <div class="tree-node depth-3">Farrukhabad Gautams (Avadh region)</div>
+            <div class="tree-node depth-3">Kannauj Gautams (Royal grants under Pratiharas)</div>
+            <div class="tree-node depth-2">East Branch — Mithila / Bihar</div>
+            <div class="tree-node depth-3">Champaran Gautams (Tirhut principalities)</div>
+            <div class="tree-node depth-3">Saran Gautams (Sarayupar settlements)</div>
+            <div class="tree-node depth-2">Rajasthan Branch — Marwar settlements</div>
+            <div class="tree-node depth-3">Jangalawa Gautams (Bikaner hinterland)</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="gautam-kingdoms" class="tab-content">
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-date">c. 6th Century BCE — Mythological Foundation</div>
+            <div class="tl-text">Gautama's hermitage (<em>ashrama</em>) near the Godavari River appears in Ramayana as a major spiritual center. Ahalya-Gautama narrative places the lineage in Mithila sphere of influence. Shatananda's role as Janaka's priest links Gautamas to the Videha kingdom.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-date">c. 750–900 CE — Gurjara-Pratihara Period</div>
+            <div class="tl-text">Copper plate grants from Kannauj (Bhoja Pratihara's court) mention Gautama-gotra landholders with military obligations in the Doab region. These <em>agrahara</em> grants to warrior-brahmin families align precisely with Brahma-Kshatra transition patterns.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-date">c. 1050–1200 CE — Gahadavala Subordinate Chieftainships</div>
+            <div class="tl-text">Gautam Rajputs appear as secondary chiefs (<em>samanta</em>) under Gahadavala rulers in Eastern UP. The Varanasi region prasastis reference Gautama-gotra warriors holding minor thakurats. Peak of formal Rajput identity crystallization.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-date">c. 1200–1500 CE — Sultanate Adaptation</div>
+            <div class="tl-text">Post-Ghuri invasion, Gautam Rajput chieftains retained local zamindari in the Doab. Several families submitted to Delhi Sultanate authority while maintaining Hindu religious practices and warrior identity internally.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-date">c. 1600–1857 CE — Mughal and Colonial Period</div>
+            <div class="tl-text">Gautam Rajputs feature in Ain-i-Akbari (Abul Fazl, 1595) among the recorded landowning warrior lineages of Kannauj Suba. Colonial gazetteers of UP (1880s) document Gautam communities with strong agricultural and military traditions.</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="gautam-scripture" class="tab-content">
+        <div class="scripture-block">
+          <span class="src-label">Rigveda — Nodhas Hymns (RV I.58–64)</span>
+          <p>The hymns attributed to Nodhas Gautama establish the Gautama gotra's deep Vedic antiquity. Nodhas was a seer who composed hymns to Agni and Indra — placing Gautamas among the most ancient Vedic families. The gotra name derives from Maharshi Gautama, the Angirasa lineage descendant.</p>
+          <span class="deva-ref">नोधाः गौतमः ऋग्वेदे अग्निसूक्तानां द्रष्टा</span>
+        </div>
+        <div class="scripture-block">
+          <span class="src-label">Mahabharata — Shanti Parva (Chirakari narrative)</span>
+          <p>The Shanti Parva tells the story of Chirakari, son of Gautama, who deliberated extensively before acting — illustrating that even within sage lineages, warriors were expected to exercise moral judgment in battle. This story is used in Gautam Rajput oral tradition as evidence of their warrior lineage being divinely ordained.</p>
+        </div>
+        <div class="scripture-block">
+          <span class="src-label">Vishnu Purana — Book IV, Vamshanusharana</span>
+          <p>The Vishnu Purana's genealogical sections place Gautama within the Brahmarshi category (seers of Brahman), noting that his descendants spread across the Ganga-Yamuna doab and became landed communities over successive generations. The text acknowledges mobility between scholarly and martial roles as divinely sanctioned.</p>
+        </div>
+        <div class="scripture-block">
+          <span class="src-label">Manusmriti X.43–44 — Varna mobility framework</span>
+          <p>Manu's text provides the theoretical basis for Rishivanshi legitimacy: it acknowledges that Brahmin groups who adopted Kshatriya ways "due to neglect of their duties" over time constituted recognized warrior communities, and conversely that Kshatriyas of pure conduct approaching Brahmin learning could claim elevated status — establishing the philosophical possibility of Brahma-Kshatra duality.</p>
+        </div>
+      </div>
+
+      <div id="gautam-subclans" class="tab-content">
+        <p style="margin-bottom:1rem;color:var(--ivory-dark);">The Gautam Rajput lineage fragmented into numerous sub-groups (<em>shakhas</em>) across its geographic spread. Each typically carries a territorial or founder name appended to "Gautam":</p>
+        <ul class="subclan-list">
+          <li class="subclan-item">Bisen-Gautam</li>
+          <li class="subclan-item">Parihar-Gautam</li>
+          <li class="subclan-item">Doab Gautam</li>
+          <li class="subclan-item">Champaran Gautam</li>
+          <li class="subclan-item">Kannaujia Gautam</li>
+          <li class="subclan-item">Tirabhukti Gautam</li>
+          <li class="subclan-item">Kashi Gautam</li>
+          <li class="subclan-item">Saran Gautam</li>
+          <li class="subclan-item">Jangalawa Gautam</li>
+          <li class="subclan-item">Gorakhpur Gautam</li>
+          <li class="subclan-item">Mahua Gautam</li>
+          <li class="subclan-item">Mathura Gautam</li>
+        </ul>
+        <div class="info-box" style="margin-top:1.2rem;">
+          <span class="info-box-label">Subclan Formation Pattern</span>
+          <div class="info-box-val">Sub-group founders are typically remembered as either: (a) sons of a common ancestor who settled different territories, or (b) leaders of warrior bands that received land grants from regional kings. The territorial suffix system (e.g., <strong>Kannaujia</strong> = from Kannauj region) is standard across most Rajput sub-clan nomenclature.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── SENGAR RAJPUTS ─── -->
+  <div class="clan-block" id="clan-sengar">
+    <div class="clan-header" onclick="toggleClan(this)">
+      <div class="clan-header-left">
+        <div class="clan-name">Sengar Rajputs <span class="deva" style="font-size:1rem;opacity:0.6;">सेंगर राजपूत</span></div>
+        <div style="font-size:0.9rem;color:var(--ivory-dark);margin-top:0.3rem;font-style:italic;">Descendants of Rishi Shringi — the Antlered Sage of the Ramayana</div>
+        <div class="clan-meta">
+          <span class="meta-pill">Gotra: <span>Shringi / Kashyapa</span></span>
+          <span class="meta-pill">Rishi: <span>Rishyashringa (Shringi)</span></span>
+          <span class="meta-pill">Region: <span>Etawah / Jaloun / Vindhya</span></span>
+          <span class="meta-pill">Notable: <span>Highest-status Rishivanshi claim</span></span>
+        </div>
+      </div>
+      <div class="expand-btn">+</div>
+    </div>
+    <div class="clan-body">
+      <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab(this,'sengar','overview')">Overview</button>
+        <button class="tab-btn" onclick="switchTab(this,'sengar','lineage')">Lineage Tree</button>
+        <button class="tab-btn" onclick="switchTab(this,'sengar','kingdoms')">Kingdoms & Kings</button>
+        <button class="tab-btn" onclick="switchTab(this,'sengar','scripture')">Scriptures</button>
+        <button class="tab-btn" onclick="switchTab(this,'sengar','subclans')">Sub-Clans</button>
+      </div>
+
+      <div id="sengar-overview" class="tab-content active">
+        <div class="clan-grid">
+          <div class="info-box">
+            <span class="info-box-label">Claimed Rishi Ancestor</span>
+            <div class="info-box-val"><strong>Rishyashringa</strong> (ऋश्यश्रृंग) — the celebrated celibate sage of the Valmiki Ramayana, who performed the <em>Putrakameshti Yajna</em> for King Dasharatha of Ayodhya, directly enabling the births of Rama, Lakshmana, Bharata, and Shatrughna.</div>
+          </div>
+          <div class="info-box">
+            <span class="info-box-label">Gotra Identity</span>
+            <div class="info-box-val"><strong>Shringi Gotra</strong> (sometimes classified under Kashyapa lineage). The specificity of this gotra — carrying the sage's own name — makes Sengar claims among the most precise of any Rishivanshi group. Several inscriptions confirm this gotra usage.</div>
+          </div>
+          <div class="info-box">
+            <span class="info-box-label">Geographic Heartland</span>
+            <div class="info-box-val">Etawah, Jaloun, Hamirpur, Banda, Mahoba districts (Bundelkhand, UP). Historical strongholds at <strong>Karwi</strong>, <strong>Charkhari</strong> region, and <strong>Chitrakoot</strong> foothills — significantly near the Vindhya forests described in the Ramayana.</div>
+          </div>
+          <div class="info-box">
+            <span class="info-box-label">Historical Significance</span>
+            <div class="info-box-val">Sengar Rajputs are among the <em>36 royal clans</em> listed in most medieval Rajput genealogical rosters. Their connection to the Putrakameshti yajna gives them an unusually direct and narratively powerful Ramayana connection, lending exceptional legitimacy even by Rishivanshi standards.</div>
+          </div>
+        </div>
+
+        <div class="alert alert-oral">
+          <strong>Bardic Tradition:</strong> The <em>khyat</em> of Sengar chiefs recorded by Rajput bards narrates that Rishyashringa's sons, after their father's spiritual work was complete, were given warrior duties by King Dasharatha as a boon — thus becoming the progenitors of the Sengar Kshatriya line. Their very name <em>"Sengar"</em> is derived by folk etymology from <em>Shringi-kar</em> (one descended from Shringi).
+        </div>
+
+        <div class="quote-block">
+          "The Sengars, found chiefly in Bundelkhand, claim descent from the sage Rishyashringa — a claim which, however legendary, has been consistently maintained in their copper plate records and temple inscriptions from the 11th century onwards."
+          <br><em style="color:var(--gold-dim);font-size:0.82rem;">— Paraphrase from William Crooke's <em>Tribes and Castes of the North-Western Provinces</em> (1896)</em>
+        </div>
+
+        <div style="margin-top:1.5rem;">
+          <span class="trad-badge trad-scriptural">📜 Ramayana Mentioned Ancestor</span>
+          <span class="trad-badge trad-historical">🏛️ 11th-c. Copper Plates</span>
+          <span class="trad-badge trad-bardic">🎶 36-Clan Roster Inclusion</span>
+          <span class="trad-badge trad-disputed">⚠️ Direct Descent Unverifiable</span>
+        </div>
+      </div>
+
+      <div id="sengar-lineage" class="tab-content">
+        <div class="lineage-tree">
+          <div class="tree-title">Sengar Rajput — Puranic & Ramayana Lineage</div>
+          <div class="tree">
+            <div class="tree-node root">Kashyapa Rishi (Primal Progenitor)</div>
+            <div class="tree-line"></div>
+            <div class="tree-node depth-1">Vibhandaka Muni — Forest sage of extreme austerity</div>
+            <div class="tree-line"></div>
+            <div class="tree-node depth-1">Rishyashringa (ऋश्यश्रृंग) — <em style="color:var(--saffron-light)">Valmiki Ramayana, Bala Kanda</em></div>
+            <div class="tree-node depth-2">Performed Putrakameshti Yajna for King Dasharatha</div>
+            <div class="tree-node depth-2">Married Shanta (daughter of King Dasharatha)</div>
+            <div class="tree-line"></div>
+            <div class="tree-node depth-2" style="color:var(--gold-dim);font-style:italic;">⊕ Bardic generations (c. 5000 BCE mythological — 700 CE)</div>
+            <div class="tree-line"></div>
+            <div class="tree-node depth-1">Sengar Progenitor (Legendary warrior-founder)</div>
+            <div class="tree-node depth-2">Bundelkhand Branch (Core territory)</div>
+            <div class="tree-node depth-3">Etawah Chiefs (10th–13th century CE)</div>
+            <div class="tree-node depth-3">Jaloun Sengars (Chandela-era subordinates)</div>
+            <div class="tree-node depth-3">Karwi Chiefs (Post-Mughal zamindars)</div>
+            <div class="tree-node depth-2">Baghel Branch (via marriage alliance)</div>
+            <div class="tree-node depth-2">Dhundhar Branch (Eastern Rajasthan migration)</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="sengar-kingdoms" class="tab-content">
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-date">c. Ramayana Era (Mythological) — Ayodhya Connection</div>
+            <div class="tl-text">Rishyashringa's role in the Putrakameshti connects the Sengar lineage directly to the Ikshvaku dynasty of Ayodhya. King Dasharatha's offering of his daughter Shanta in marriage to Rishyashringa created a royal-sage alliance. Sengar tradition treats Shanta's offspring as the founders of their Kshatriya line.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-date">c. 950–1100 CE — Chandela Subordinates in Bundelkhand</div>
+            <div class="tl-text">The Chandela dynasty (famous for Khajuraho temples) held Bundelkhand. Sengar chiefs appear in Chandela-era land grant records as subordinate military chiefs (<em>samanta</em>) controlling the Vindhya foothills — territory consistent with their ancestral geography claims.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-date">c. 1100–1300 CE — Independent Chieftainships</div>
+            <div class="tl-text">Following Chandela decline, Sengar chiefs established quasi-independent holdings in Etawah and Jaloun. The <strong>Karwi</strong> principality was a notable Sengar stronghold. Family genealogies record several generations of rulers here.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-date">Notable Kings: Raja Lakshman Singh Sengar (c. 15th century)</div>
+            <div class="tl-text">Bardic records name Lakshman Singh as a major Sengar ruler who held courts with some regional prestige. Conflict with the Baghel and Chandel chieftains is recorded in <em>bansavali</em> chronicles kept by Charan bards of the region.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-date">c. 1556–1858 CE — Mughal Subordination & British Period</div>
+            <div class="tl-text">Sengar chiefs submitted to Mughal authority and were confirmed as zamindars. The colonial-era Settlement Reports (1860s–80s) of Etawah and Jaloun districts document Sengar landholdings as among the largest in Bundelkhand, confirming their sustained territorial presence.</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="sengar-scripture" class="tab-content">
+        <div class="scripture-block">
+          <span class="src-label">Valmiki Ramayana — Bala Kanda, Sargas 8–11</span>
+          <p>The most detailed account of Rishyashringa's life: his birth with a deer's horn on his forehead, his forest upbringing by father Vibhandaka, his summoning by the king of Anga to end a drought, his marriage to Shanta, and ultimately his performance of the Putrakameshti Yajna for Dasharatha. This forms the entire scriptural bedrock of Sengar identity.</p>
+          <span class="deva-ref">ऋश्यशृंगो मुनिवरः श्रृंगवेरपुरे वसन् — बाल काण्ड</span>
+        </div>
+        <div class="scripture-block">
+          <span class="src-label">Mahabharata — Anushasana Parva</span>
+          <p>The Mahabharata independently corroborates Rishyashringa as an exceptionally powerful sage whose ritual power could alter natural phenomena (his approach causing rain). The text's separate mention of Rishyashringa's renown across the subcontinent strengthens the historical basis for a widely distributed lineage claiming his descent.</p>
+        </div>
+        <div class="scripture-block">
+          <span class="src-label">Skanda Purana — Vindhya Kshetra Mahatmya</span>
+          <p>The Skanda Purana's sections on the Vindhya sacred geography mention hermitage sites associated with Rishyashringa in the Chitrakoot-Amarkantak region — precisely the Sengar heartland. This geographic overlap between scriptural sacred site and clan territory is strong indirect evidence for an ancient connection.</p>
+        </div>
+        <div class="scripture-block">
+          <span class="src-label">Copper Plate Inscriptions — Etawah Region (c. 1050–1200 CE)</span>
+          <p>Several partially deciphered copper plate grants from the Bundelkhand region reference donor families with Shringi gotra who bear warrior titles (<em>mahapratihara</em>, <em>ranaka</em>). These provide contemporaneous epigraphic evidence for Sengar-gotra warriors in the exact region, though the plates do not always explicitly state "Sengar Rajput" as such.</p>
+          <span class="deva-ref">श्रृंगिगोत्रोद्भव महाप्रतीहार [donor name] — ताम्रपत्र</span>
+        </div>
+      </div>
+
+      <div id="sengar-subclans" class="tab-content">
+        <p style="margin-bottom:1rem;color:var(--ivory-dark);">Sengar sub-groups are defined by both territorial origin and mythologized founding figures:</p>
+        <ul class="subclan-list">
+          <li class="subclan-item">Bisen-Sengar</li>
+          <li class="subclan-item">Jaloun Sengar</li>
+          <li class="subclan-item">Etawah Sengar</li>
+          <li class="subclan-item">Karwi Sengar</li>
+          <li class="subclan-item">Tikamgarh Sengar</li>
+          <li class="subclan-item">Hamirpur Sengar</li>
+          <li class="subclan-item">Banda Sengar</li>
+          <li class="subclan-item">Vindhyachal Sengar</li>
+          <li class="subclan-item">Chitrakoot Sengar</li>
+          <li class="subclan-item">Manikpur Sengar</li>
+          <li class="subclan-item">Rewa Sengar</li>
+        </ul>
+        <div class="info-box" style="margin-top:1.2rem;">
+          <span class="info-box-label">Military Contributions</span>
+          <div class="info-box-val">Sengar Rajputs are noted in colonial military records as providing substantial contingents to Bundelkhand forces. Their familiarity with Vindhya terrain made them effective hill-warfare specialists. Several Sengars served as irregular cavalry in Maratha service during the 18th century.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── BHUMIHAR / BRAHMA-KSHATRA ─── -->
+  <div class="clan-block" id="clan-bhumihar">
+    <div class="clan-header" onclick="toggleClan(this)">
+      <div class="clan-header-left">
+        <div class="clan-name">Bhumihar Brahma-Kshatra <span class="deva" style="font-size:1rem;opacity:0.6;">भूमिहार ब्रह्मक्षत्र</span></div>
+        <div style="font-size:0.9rem;color:var(--ivory-dark);margin-top:0.3rem;font-style:italic;">Armed Brahmin Landholders — The Paradox of Vedic Warrior-Priests</div>
+        <div class="clan-meta">
+          <span class="meta-pill">Category: <span>Brahma-Kshatra</span></span>
+          <span class="meta-pill">Region: <span>Bihar / Eastern UP / Jharkhand</span></span>
+          <span class="meta-pill">Gotras: <span>Multiple (Kashyapa, Bharadwaj, Parashar)</span></span>
+          <span class="meta-pill">Self-ID: <span>Brahmin + Warrior</span></span>
+        </div>
+      </div>
+      <div class="expand-btn">+</div>
+    </div>
+    <div class="clan-body">
+      <div class="clan-grid">
+        <div class="info-box">
+          <span class="info-box-label">Identity Paradox</span>
+          <div class="info-box-val">Bhumihars uniquely <strong>refuse to accept dakshina</strong> (priestly fees) — thus rejecting the Brahmin role — yet maintain Brahmin gotras, sacred thread, and Vedic practices. They are perhaps the most explicit living expression of the Brahma-Kshatra synthesis, calling themselves <em>Bhumihar Brahmin</em> while bearing arms and controlling territory.</div>
+        </div>
+        <div class="info-box">
+          <span class="info-box-label">Historical Origin Theories</span>
+          <div class="info-box-val"><strong>Theory 1:</strong> Descendants of Brahmins who received land grants and militarized. <strong>Theory 2:</strong> Descendants of sage-descended Kshatriyas who maintained Brahmin learning. <strong>Theory 3 (Grierson/Census):</strong> Various Brahmin sub-groups who settled as zamindars and diverged socially. All three are likely simultaneously true for different Bhumihar sub-groups.</div>
+        </div>
+        <div class="info-box">
+          <span class="info-box-label">Key Sub-Groups</span>
+          <div class="info-box-val">
+            <strong>Maithil Bhumihar</strong> — Bihar/Mithila (Parashar, Gautam gotras)<br>
+            <strong>Kashi Bhumihar</strong> — Varanasi region (Bharadwaj, Shandilya)<br>
+            <strong>Saryuparin Bhumihar</strong> — Sarayupar UP<br>
+            <strong>Gorakhpuri Bhumihar</strong> — Eastern UP<br>
+            <strong>Magahi Bhumihar</strong> — Gaya, Patna (South Bihar)
+          </div>
+        </div>
+        <div class="info-box">
+          <span class="info-box-label">Parashurama Connection</span>
+          <div class="info-box-val">Many Bhumihar traditions link their origin to <strong>Parashurama's grant of land</strong> after his 21-fold annihilation of Kshatriyas. Parashurama, himself the supreme Brahma-Kshatra figure, allegedly gave land to Brahmin warriors — a tradition that simultaneously validates both Brahmin status and martial occupation.</div>
+        </div>
+      </div>
+
+      <div class="scripture-block">
+        <span class="src-label">Mahabharata — Shanti Parva 60.14</span>
+        <p>The text explicitly states that <em>Brahma</em> (sacred knowledge) and <em>Kshattra</em> (warrior power) were originally unified in the Creator, separated only for cosmological purposes, and that their reunion in a single individual represents a return to primal perfection. This passage is invoked in Bhumihar intellectual tradition to justify their dual claim.</p>
+        <span class="deva-ref">ब्रह्मक्षत्रं पुरा सृष्टं ब्रह्मणा — शान्ति पर्व</span>
+      </div>
+
+      <div class="alert alert-disputed">
+        <strong>Sociological Dispute:</strong> Colonial census officials (Risley, Crooke) categorized Bhumihars as a distinct caste, triggering intense debates about their Brahmin status that persisted well into the 20th century. The community's armed-landholder identity was seen as incompatible with Brahmin ritual purity. Modern scholarship (Dipankar Gupta, Anand Yang) tends to view Bhumihar identity as a regionally specific solution to the Brahma-Kshatra tension — neither purely Brahmin nor fully Kshatriya, but a genuine third category.
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── TYAGI TRADITIONS ─── -->
+  <div class="clan-block" id="clan-tyagi">
+    <div class="clan-header" onclick="toggleClan(this)">
+      <div class="clan-header-left">
+        <div class="clan-name">Tyagi Warrior-Brahmin Tradition <span class="deva" style="font-size:1rem;opacity:0.6;">त्यागी परम्परा</span></div>
+        <div style="font-size:0.9rem;color:var(--ivory-dark);margin-top:0.3rem;font-style:italic;">Armed Brahmins of the Doab — The Original Renunciants Who Never Renounced</div>
+        <div class="clan-meta">
+          <span class="meta-pill">Category: <span>Brahma-Kshatra Adjacent</span></span>
+          <span class="meta-pill">Region: <span>Meerut / Muzaffarnagar / Doab</span></span>
+          <span class="meta-pill">Gotras: <span>Multiple Brahminic Gotras</span></span>
+        </div>
+      </div>
+      <div class="expand-btn">+</div>
+    </div>
+    <div class="clan-body">
+      <div class="clan-grid">
+        <div class="info-box">
+          <span class="info-box-label">Origin of the Name</span>
+          <div class="info-box-val"><em>Tyagi</em> (त्यागी) means "one who has renounced" — referring to their tradition of having renounced Brahmin fee-taking, parallel to Bhumihars. They retain sacred thread and Vedic gotras while functioning as armed agriculturist-warriors in the Western Doab and Meerut division of Uttar Pradesh.</div>
+        </div>
+        <div class="info-box">
+          <span class="info-box-label">Key Historical Role</span>
+          <div class="info-box-val">Tyagis provided significant military contingents during the Maratha expansion in the Doab (18th century). They allied with both Sikh confederacies and the Marathas, demonstrating effective military capability. The 1857 uprising saw Tyagi communities in Meerut district actively participating.</div>
+        </div>
+      </div>
+      <div class="alert alert-oral">
+        <strong>Tradition:</strong> Tyagi oral tradition holds that their ancestors were Brahmin sages who were cursed or chose to adopt arms to protect dharma during an era of Kshatriya decline — echoing the ancient Brahma-Kshatra narratives. Some sub-groups claim descent from the <em>Saptarishi</em> (Seven Sages) lineages specifically.
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── OTHER RISHIVANSHI GROUPS ─── -->
+  <div class="clan-block" id="clan-others">
+    <div class="clan-header" onclick="toggleClan(this)">
+      <div class="clan-header-left">
+        <div class="clan-name">Other Notable Rishivanshi Lineages</div>
+        <div style="font-size:0.9rem;color:var(--ivory-dark);margin-top:0.3rem;font-style:italic;">Bharadwaj-Rajputs, Vasishtha-clans, Atri-descendants, Kapi-Rajputs</div>
+        <div class="clan-meta">
+          <span class="meta-pill">Multiple Gotras</span>
+          <span class="meta-pill">Pan-India Distribution</span>
+        </div>
+      </div>
+      <div class="expand-btn">+</div>
+    </div>
+    <div class="clan-body">
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-title">Bharadwaj-Rajput Lineages</div>
+          <p>Several Rajput sub-groups including the <strong>Gaur Brahmin</strong> warrior clusters and the <strong>Kanaujia Rajput</strong> sub-branch claim Bharadwaja gotra. Bharadwaja was the sage who raised Drona (Dronacharya) and whose hermitage was the Mahabharata's most significant martial training center. The irony of the greatest weapons-teacher having Brahmin lineage is deeply embedded in Bharadwaj-Rajput identity.</p>
+          <span class="card-tag">Mahabharata Linked</span>
+        </div>
+        <div class="card">
+          <div class="card-title">Vasishtha-Clan Warriors</div>
+          <p>The <strong>Vasishthas</strong> (Vasishtha gotra) appear among several Rajput groups in Rajasthan and Himachal Pradesh. Vasishtha's role as the preceptor of the Ikshvaku solar dynasty creates a unique situation — his descendants can simultaneously claim proximity to the solar lineage while maintaining sage-identity. The <strong>Trigarta Rajputs</strong> of Kangra region carry this tradition.</p>
+          <span class="card-tag">Solar Dynasty Adjacent</span>
+        </div>
+        <div class="card">
+          <div class="card-title">Atri-Descended Warriors</div>
+          <p>The <strong>Atri gotra</strong> warrior communities appear in the Deccan and Central India. Atri Rishi was the father of Dattatreya and Durvasa — both figures associated with extreme power (tapasya and shakti respectively). Atri-gotra Rajput clans emphasize this heritage of supernatural potency in their martial identity narratives.</p>
+          <span class="card-tag">Deccan Tradition</span>
+        </div>
+        <div class="card">
+          <div class="card-title">Kapi Rajputs — Angirasa Connection</div>
+          <p>The <strong>Kapi Rajputs</strong> of Bihar and Eastern UP claim descent from the Angirasa sages — the largest Vedic rishi-family. Their gotra systems trace to specific sub-branches of the Angirasa tree. Historically documented as landholders in Tirhut (North Bihar), the Kapis represent a less prominent but genealogically detailed Rishivanshi tradition.</p>
+          <span class="card-tag">Angirasa Lineage</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ════ GOTRA COMPARISON ════ -->
+<div class="band band-dark" id="comparison">
+  <div class="band-inner">
+    <span class="section-label">Complete Reference</span>
+    <h2 class="section-title">Gotra Comparison Chart</h2>
+    <p class="section-intro">
+      A systematic comparison of all major Rishivanshi and Brahma-Kshatra groups by gotra,
+      claimed rishi ancestor, scriptural attestation, and geographic presence.
+    </p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Clan / Group</th>
+            <th>Gotra</th>
+            <th>Claimed Rishi</th>
+            <th>Vedic Affiliation</th>
+            <th>Region</th>
+            <th>Scriptural Basis</th>
+            <th>Evidence Strength</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Sengar Rajputs</strong></td>
+            <td><em>Shringi</em></td>
+            <td>Rishyashringa</td>
+            <td>Kashyapa-Atharva</td>
+            <td>Bundelkhand, UP</td>
+            <td>Ramayana (Bala Kanda), Copper Plates</td>
+            <td><span style="color:#90ff90">★★★★★</span></td>
+          </tr>
+          <tr>
+            <td><strong>Gautam Rajputs</strong></td>
+            <td><em>Gautama</em></td>
+            <td>Maharshi Gautama</td>
+            <td>Angirasa-Rigveda</td>
+            <td>Doab, Bihar</td>
+            <td>Rigveda, Mahabharata (Shanti Parva)</td>
+            <td><span style="color:#90ff90">★★★★</span>☆</td>
+          </tr>
+          <tr>
+            <td><strong>Bharadwaj Rajputs</strong></td>
+            <td><em>Bharadwaja</em></td>
+            <td>Rishi Bharadwaja</td>
+            <td>Angirasa-Rigveda</td>
+            <td>UP, Rajasthan</td>
+            <td>Mahabharata (Adi Parva), Vishnu Purana</td>
+            <td><span style="color:#90ff90">★★★★</span>☆</td>
+          </tr>
+          <tr>
+            <td><strong>Vasishtha Rajputs</strong></td>
+            <td><em>Vasishtha</em></td>
+            <td>Maharshi Vasishtha</td>
+            <td>Rigveda Book VII</td>
+            <td>Rajasthan, Himachal</td>
+            <td>Ramayana, Vishnu Purana IV</td>
+            <td><span style="color:#ffcc55">★★★</span>☆☆</td>
+          </tr>
+          <tr>
+            <td><strong>Atri-Clan Rajputs</strong></td>
+            <td><em>Atri</em></td>
+            <td>Maharshi Atri</td>
+            <td>Rigveda Book V</td>
+            <td>Deccan, Central India</td>
+            <td>Atri Samhita, Puranas</td>
+            <td><span style="color:#ffcc55">★★★</span>☆☆</td>
+          </tr>
+          <tr>
+            <td><strong>Bhumihar Brahmin</strong></td>
+            <td><em>Multiple (Kashyapa, Bharadwaj, Parashar)</em></td>
+            <td>Various sages</td>
+            <td>Multiple Vedic schools</td>
+            <td>Bihar, East UP</td>
+            <td>Manusmriti X, Mahabharata Shanti Parva</td>
+            <td><span style="color:#90ff90">★★★★</span>☆</td>
+          </tr>
+          <tr>
+            <td><strong>Tyagi Brahmins</strong></td>
+            <td><em>Multiple Brahminic</em></td>
+            <td>Saptarishi tradition</td>
+            <td>Various</td>
+            <td>Doab, Meerut div.</td>
+            <td>Regional oral tradition, colonial records</td>
+            <td><span style="color:#ffcc55">★★★</span>☆☆</td>
+          </tr>
+          <tr>
+            <td><strong>Kapi Rajputs</strong></td>
+            <td><em>Angirasa (sub-branch)</em></td>
+            <td>Angirasa Rishi</td>
+            <td>Rigveda (Angirasa hymns)</td>
+            <td>Bihar, East UP</td>
+            <td>Rigveda, Brahma Purana</td>
+            <td><span style="color:#ffaa55">★★</span>☆☆☆</td>
+          </tr>
+          <tr>
+            <td><strong>Kanaujia sub-clans</strong></td>
+            <td><em>Gautama / Bharadwaja</em></td>
+            <td>Multiple rishis</td>
+            <td>Multiple</td>
+            <td>Kannauj, UP</td>
+            <td>Pratihara-era inscriptions</td>
+            <td><span style="color:#ffcc55">★★★</span>☆☆</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="gotra-map" style="margin-top:2rem;">
+      <div class="gotra-map-label">Interactive Gotra Constellation — All Attested Rishivanshi Gotras</div>
+      <div class="gotra-nodes">
+        <span class="gotra-node primary">Gautama</span>
+        <span class="gotra-node primary">Shringi</span>
+        <span class="gotra-node">Bharadwaja</span>
+        <span class="gotra-node">Vasishtha</span>
+        <span class="gotra-node">Kashyapa</span>
+        <span class="gotra-node">Atri</span>
+        <span class="gotra-node">Angirasa</span>
+        <span class="gotra-node">Vishwamitra</span>
+        <span class="gotra-node">Parashar</span>
+        <span class="gotra-node">Shandilya</span>
+        <span class="gotra-node">Kaushika</span>
+        <span class="gotra-node">Jamadagni</span>
+        <span class="gotra-node">Agastya</span>
+        <span class="gotra-node">Vatsa</span>
+        <span class="gotra-node">Kaundinya</span>
+        <span class="gotra-node">Garg</span>
+        <span class="gotra-node">Mudgal</span>
+        <span class="gotra-node">Sandilya</span>
+      </div>
+      <p style="margin-top:1.2rem;font-size:0.8rem;color:var(--gold-dim);font-family:'Cinzel',serif;letter-spacing:0.1em;">GOLD BORDER = Primary Rishivanshi Clans · HOVER FOR DETAILS</p>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ════ SCRIPTURES DEEP DIVE ════ -->
+<section id="scriptures">
+  <span class="section-label">Textual Evidence</span>
+  <h2 class="section-title">Scriptural & Epigraphic Evidence</h2>
+  <p class="section-intro">
+    A systematic review of primary textual evidence for Rishivanshi traditions across
+    canonical Sanskrit literature, Puranas, Epics, and archaeological inscriptions.
+  </p>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-icon">📖</div>
+      <div class="card-title">Rigveda — Gotra Foundation</div>
+      <p>The Rigveda's <em>mandala</em> structure is organized by rishi families (Angirasa, Kanva, Atri, Bharadwaja, Vasishtha, Vishwamitra, Agastya). This familial organization is the direct origin of the gotra system. Books II (Gritsamada), V (Atri), VI (Bharadwaja), and VII (Vasishtha) provide the foundational texts from which gotra names derive. Rishivanshi clans trace their gotras to these very mandalas, making the Rigveda their oldest legitimate connection to sage identity.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🗡️</div>
+      <div class="card-title">Mahabharata — Warriors of Sage Blood</div>
+      <p>The Mahabharata is saturated with Brahma-Kshatra characters: <strong>Drona</strong> (Bharadwaja's son, greatest warrior-teacher), <strong>Kripacharya</strong> (Sharadvata Gautama's son — direct Gautama lineage warrior!), <strong>Ashwatthama</strong> (Drona's son), <strong>Parashurama</strong> (Jamadagni's son). These epic heroes are all sage-descended warriors, providing overwhelming narrative support for the Rishivanshi concept as an ancient and honorable tradition, not a medieval invention.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🌟</div>
+      <div class="card-title">Vishnu Purana — Genealogical Architecture</div>
+      <p>Book IV of the Vishnu Purana presents the most systematic ancient genealogy of Indian dynasties. It traces the origin of both solar and lunar lines while acknowledging numerous sage-born warrior families as parallel streams. The Purana's <em>vamshanucharita</em> (lineage recitation) sections explicitly list Brahmin families that transitioned to Kshatriya roles — validating the Rishivanshi concept in the most authoritative Puranic source.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">⚖️</div>
+      <div class="card-title">Manusmriti — Legal Framework</div>
+      <p>Manusmriti provides the <em>dharmashastra</em> basis for understanding Rishivanshi social position. Chapter X discusses <em>varna-samkara</em> (mixed status groups) and mobility between varnas. Crucially, X.43 acknowledges that Brahmin families who "fell" to Kshatriya ways could establish legitimate warrior lineages over time. This is not framed as degradation but as a natural social process — providing theological cover for Rishivanshi claims.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🏺</div>
+      <div class="card-title">Copper Plate Prasastis (7th–13th CE)</div>
+      <p>The richest contemporaneous evidence comes from royal copper plate grants. The <strong>Deopara Prasasti</strong> of the Sena dynasty, <strong>Gahadavala grants</strong> from Varanasi, and <strong>Chandela inscriptions</strong> from Bundelkhand all reference gotra-identified donor families with military titles. Cross-referencing gotra mentions with regional Rajput clan histories provides the strongest available historical evidence for specific Rishivanshi claims.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📿</div>
+      <div class="card-title">Temple Inscriptions — Khajuraho & Ajmer</div>
+      <p>Chandela-era temple inscriptions at <strong>Khajuraho</strong> (c. 950–1150 CE) name patron families with various sage gotras alongside Kshatriya titles — exactly the fusion the Brahma-Kshatra tradition predicts. Similarly, the <strong>Ajmer stone inscription</strong> of the Chahamana dynasty records subordinate chiefs with Brahminic gotras holding warrior-landholding status — direct epigraphic confirmation of Rishivanshi social reality in medieval Rajputana.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ════ DISPUTED LINEAGES ════ -->
+<section id="disputed">
+  <span class="section-label">Critical Scholarship</span>
+  <h2 class="section-title">Disputed & Contested Lineage Claims</h2>
+  <p class="section-intro">
+    Scholarly rigor demands honest assessment. The following disputes reflect real tensions between
+    mythological tradition, bardic invention, and historical evidence.
+  </p>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-icon">⚠️</div>
+      <div class="card-title">The "36 Royal Clans" Problem</div>
+      <p>Medieval lists of 36 Rajput clans vary enormously across different sources (Prithviraj Raso, Tod's Annals, regional chronicles). Rishivanshi groups appear in some lists and not others. Historians note that these lists were <strong>compiled, not discovered</strong> — they reflect political negotiations among Rajput groups for prestige ranking, not objective genealogical records. The inclusion of Sengar, Gautam, and others in various versions reveals competitive clan-status claims rather than agreed history.</p>
+      <span class="card-tag">Historiographic Dispute</span>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔍</div>
+      <div class="card-title">The Biological Descent Question</div>
+      <p>The critical epistemological challenge for all Rishivanshi claims: Vedic sages lived (if historical at all) in the 2nd millennium BCE. Documented Rajput lineage claims begin no earlier than 500–700 CE. This leaves a gap of over 1,500 years with <strong>zero genealogical documentation</strong>. Modern geneticists (Reich Lab, Thangaraj studies) have shown Indian genetic complexity that neither confirms nor denies such claims — the honest position is: gotra affiliation is real, biological descent through 100+ generations is unverifiable.</p>
+      <span class="card-tag">Epistemological</span>
+    </div>
+    <div class="card">
+      <div class="card-icon">📋</div>
+      <div class="card-title">Colonial Census Distortions</div>
+      <p>The 1881–1931 Census of India under British administration prompted intensive <strong>caste status competition</strong>. Communities upgraded their claims, hired bards to compose new genealogies, and filed formal petitions for Kshatriya or higher status. Several Rishivanshi lineage narratives in their current form date precisely to this period — making it impossible to know which elements are ancient and which are colonial-era constructions. K.M. Metcalf and Susan Bayly have analyzed this phenomenon in detail.</p>
+      <span class="card-tag">Historical Critique</span>
+    </div>
+    <div class="card">
+      <div class="card-icon">🌀</div>
+      <div class="card-title">Vishwamitra's Varna Ambiguity</div>
+      <p>Vishwamitra — perhaps the most famous Brahma-Kshatra figure — was <em>born a Kshatriya</em> and became a Brahmarshi through tapasya. Several warrior clans claiming Vishwamitra descent therefore claim <strong>reverse</strong> Rishivansha: not a sage who became a warrior, but a warrior who became a sage, and whose warrior descendants remained warriors. This complicates the directional model of Rishivansha and shows how clan identity claims can accommodate contradictory narrative frameworks.</p>
+      <span class="card-tag">Conceptual Complexity</span>
+    </div>
+    <div class="card">
+      <div class="card-icon">🏹</div>
+      <div class="card-title">Kripacharya's Gautama Lineage</div>
+      <p>This is a <strong>genuinely strong</strong> Rishivanshi case in the Mahabharata: Kripacharya is explicitly stated to be the son of Sharadvata (Gautama's lineage) — a born-Brahmin who became Hastinapura's official teacher-warrior. His twin sister Kripi married Drona. Both are Brahma-Kshatra figures of impeccable scriptural documentation. However, later clans claiming to descend from Kripa have multiplied without corresponding historical evidence — creating a genuine ancient core with doubtful later additions.</p>
+      <span class="card-tag">Partially Confirmed</span>
+    </div>
+    <div class="card">
+      <div class="card-icon">🗺️</div>
+      <div class="card-title">Geographic Anachronisms</div>
+      <p>Several Rishivanshi lineage narratives place their ancestors in kingdoms that did not exist in the claimed time period — e.g., claiming rulership of Mughal-era district names in 3rd century BCE genealogies. These anachronisms indicate that later scribes or bards projected contemporary geographic knowledge backward, undermining the reliability of specific territorial claims while the broader lineage framework may still be authentic.</p>
+      <span class="card-tag">Documentary Issue</span>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ════ INFLUENCE RANKING ════ -->
+<div class="band band-gold" id="influence">
+  <div class="band-inner">
+    <span class="section-label">Scholarly Assessment</span>
+    <h2 class="section-title">Most Influential Rishivanshi Clans</h2>
+    <p class="section-intro">
+      Ranked by combination of scriptural documentation strength, historical territory,
+      political power at peak, and cultural-intellectual contributions.
+    </p>
+
+    <ul class="rank-list">
+      <li class="rank-item">
+        <div class="rank-num">01</div>
+        <div class="rank-body">
+          <div class="rank-name">Sengar Rajputs</div>
+          <div class="rank-detail">Strongest scriptural anchor (Ramayana), most consistent medieval documentation, largest territorial holdings in Bundelkhand. The Putrakameshti connection to Ayodhya's Ikshvaku dynasty gives unmatched mythological prestige.</div>
+        </div>
+        <div class="rank-bar-wrap"><div class="rank-bar" style="width:95%"></div></div>
+      </li>
+      <li class="rank-item">
+        <div class="rank-num">02</div>
+        <div class="rank-body">
+          <div class="rank-name">Bhumihar Brahma-Kshatra</div>
+          <div class="rank-detail">Most sophisticated articulation of the Brahma-Kshatra ideal; major political power in colonial and modern Bihar; produced notable intellectuals and politicians. The Parashurama-grant tradition is consistently maintained across sub-groups.</div>
+        </div>
+        <div class="rank-bar-wrap"><div class="rank-bar" style="width:88%"></div></div>
+      </li>
+      <li class="rank-item">
+        <div class="rank-num">03</div>
+        <div class="rank-body">
+          <div class="rank-name">Gautam Rajputs</div>
+          <div class="rank-detail">Oldest Vedic gotra (Nodhas-Gautama, Rigveda). Kripacharya's explicit Gautama descent in the Mahabharata provides a canonical warrior-sage. Wide geographic spread from Doab to Bihar. Dual role as both priests and warriors in Mithila courts documented.</div>
+        </div>
+        <div class="rank-bar-wrap"><div class="rank-bar" style="width:82%"></div></div>
+      </li>
+      <li class="rank-item">
+        <div class="rank-num">04</div>
+        <div class="rank-body">
+          <div class="rank-name">Bharadwaj-lineage Warriors</div>
+          <div class="rank-detail">Dronacharya's Bharadwaja origin makes this the most famous Brahma-Kshatra lineage in epic literature. Multiple Rajput sub-groups across Rajasthan and UP carry this gotra, and Bharadwaja's hermitage (near Prayag) was a primary center of ancient martial education.</div>
+        </div>
+        <div class="rank-bar-wrap"><div class="rank-bar" style="width:76%"></div></div>
+      </li>
+      <li class="rank-item">
+        <div class="rank-num">05</div>
+        <div class="rank-body">
+          <div class="rank-name">Tyagi Warriors (Doab)</div>
+          <div class="rank-detail">Military significance in the 18th century; key role in 1857. Their refusal of dakshina mirrors Bhumihar identity, suggesting an independent regional evolution of the Brahma-Kshatra concept. Large landholding presence in Western UP.</div>
+        </div>
+        <div class="rank-bar-wrap"><div class="rank-bar" style="width:65%"></div></div>
+      </li>
+      <li class="rank-item">
+        <div class="rank-num">06</div>
+        <div class="rank-body">
+          <div class="rank-name">Vasishtha-Rajput Lineages</div>
+          <div class="rank-detail">Close alignment with the solar dynasty (Vasishtha was preceptor to Rama's ancestors). Presence in Himachal Pradesh royal traditions. The Vasishtha-Vishwamitra rivalry itself is a defining Brahma-Kshatra narrative of ancient India.</div>
+        </div>
+        <div class="rank-bar-wrap"><div class="rank-bar" style="width:58%"></div></div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ════ RARE TRADITIONS ════ -->
+<section id="rare">
+  <span class="section-label">Esoteric Knowledge</span>
+  <h2 class="section-title">Rare Sage-Warrior Traditions</h2>
+  <p class="section-intro">
+    Beyond the major lineages lie fascinating micro-traditions that illuminate the full complexity
+    of India's Brahma-Kshatra synthesis.
+  </p>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-icon">🦌</div>
+      <div class="card-title">Rishyashringa Shrines — Living Warrior-Pilgrimage</div>
+      <p>In the Sringeri region of Karnataka and in Shringiverpur (UP, near Prayag — where Rama crossed the Ganga), temples dedicated to Rishyashringa maintain an active pilgrimage tradition. Sengar Rajput families make formal visits to these sites as acts of lineage-acknowledgment. This represents one of the rare cases where a warrior clan maintains active devotional ties to their claimed rishi ancestor's sacred sites.</p>
+      <span class="card-tag">Living Tradition</span>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔥</div>
+      <div class="card-title">The Agnivansha-Rishivansha Convergence</div>
+      <p>Some Rajput traditions record that the Agnivansha (fire-born) clans — Paramar, Chahamana, Chalukya, Parihar — were originally sage-descendants who were re-born from a sacred fire ceremony (<em>yajnakunda</em>) at Mount Abu. This tradition simultaneously claims Rishivanshi origin (the sages who performed the ritual are their ancestors) and a dramatic purification-rebirth as full Kshatriyas. It represents the most sophisticated mythological synthesis in Rajput genealogy.</p>
+      <span class="card-tag">Mythological Synthesis</span>
+    </div>
+    <div class="card">
+      <div class="card-icon">🌊</div>
+      <div class="card-title">Agastya-Descended Southern Warriors</div>
+      <p>The great sage Agastya, who crossed the Vindhyas and brought Vedic culture to South India, has warrior descendants claimed among certain Telugu and Kannada warrior communities. <em>Agastya-kula</em> warriors in Karnataka's old Kakatiya-subordinate zones maintained both Brahminic rituals and martial identity in patterns directly paralleling North Indian Rishivanshi groups — suggesting the Brahma-Kshatra ideal was a pan-Indian phenomenon, not merely a North Indian Rajput one.</p>
+      <span class="card-tag">South Indian Parallel</span>
+    </div>
+    <div class="card">
+      <div class="card-icon">📿</div>
+      <div class="card-title">Nath-Yogi Warrior Monks</div>
+      <p>The Nath sampradaya, founded by Gorakshanatha (claimed to be connected to Matsyendranatha — himself of sage lineage), produced warrior-ascetics who held both renunciant status and armed military power. Gorakhnath's tradition spread among warrior communities in Nepal and Rajputana. Several Nath math-heads held armed retinues — making them perhaps the most extreme existing form of the sage-warrior synthesis.</p>
+      <span class="card-tag">Ascetic Warriors</span>
+    </div>
+    <div class="card">
+      <div class="card-icon">⚔️</div>
+      <div class="card-title">The Parashurama Paradox</div>
+      <p>Parashurama — Jamadagni's son, avatar of Vishnu — annihilated the Kshatriya class 21 times to avenge his father's murder. Yet he then <strong>created new Kshatriyas</strong> by granting land to Brahmin warriors. He also taught arms to Drona and Karna. His figure simultaneously destroys and creates the warrior class — making him the supreme symbol of the Brahma-Kshatra tradition's internal tension between renunciation and violence, learning and action.</p>
+      <span class="card-tag">Paradox Tradition</span>
+    </div>
+    <div class="card">
+      <div class="card-icon">🏔️</div>
+      <div class="card-title">Himalayan Sage-Warrior Lineages</div>
+      <p>The hill states of Himachal Pradesh, Uttarakhand, and Nepal preserve some of the most archaic Brahma-Kshatra traditions. Families like the <strong>Katyuri Rajputs</strong> of Kumaon claim Katya-Rishi descent, and several Garhwali royal houses trace lineages to sages associated with the Himalayas. Geographic isolation preserved these traditions from the social pressures that forced lowland groups to choose either Brahmin or Kshatriya identity more rigidly.</p>
+      <span class="card-tag">Himalayan Tradition</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════ FOOTER ════ -->
+<footer>
+  <div class="footer-brand">ऋषिवंश — Rishivansha Portal</div>
+  <p class="footer-note">
+    A scholarly research portal on the sage-descended warrior lineages of ancient and medieval India.
+    This compilation synthesizes Sanskrit textual evidence, epigraphic records, colonial gazetteers,
+    and oral tradition — carefully distinguished throughout.
+  </p>
+  <div class="footer-sources">
+    Primary Sources: Rigveda · Valmiki Ramayana · Mahabharata · Vishnu Purana · Manusmriti · Skanda Purana
+    · Copper plate prasastis (7th–13th CE) · Ain-i-Akbari · Colonial District Gazetteers (UP, Bihar)
+    · Grierson's Bihar studies · Tod's Annals of Rajasthan · William Crooke, Tribes and Castes (1896)
+    · D.C. Ganguly, History of the Paramara Dynasty · R.B. Singh, History of the Chāhamānas
+  </div>
+  <div style="margin-top:2rem;color:rgba(245,237,216,0.2);font-size:0.75rem;">
+    Evidence Classification: <span style="color:#aab4ff">■</span> Scriptural &nbsp;
+    <span style="color:#90D490">■</span> Historical/Epigraphic &nbsp;
+    <span style="color:#ffaa88">■</span> Bardic/Oral &nbsp;
+    <span style="color:#ffcc55">■</span> Disputed/Contested
+  </div>
+</footer>
+
+<script>
+  // ── CLAN ACCORDION ──
+  function toggleClan(header) {
+    const block = header.closest('.clan-block');
+    block.classList.toggle('open');
+  }
+
+  // ── TAB SWITCHING ──
+  function switchTab(btn, clanId, tabId) {
+    const block = btn.closest('.clan-block');
+    block.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    block.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    btn.classList.add('active');
+    const target = document.getElementById(clanId + '-' + tabId);
+    if (target) target.classList.add('active');
+  }
+
+  // ── GOTRA NODE HOVER INFO ──
+  const gotraInfo = {
+    'Gautama':    'Rigveda (Nodhas hymns) · Angirasa family · Kripacharya lineage',
+    'Shringi':    'Ramayana (Rishyashringa) · Kashyapa branch · Sengar clan root',
+    'Bharadwaja': 'Rigveda Book VI · Drona/Ashwatthama line · Prayag hermitage',
+    'Vasishtha':  'Rigveda Book VII · Ikshvaku-dynasty preceptor · Solar line',
+    'Kashyapa':   'Primal Prajapati-Rishi · Father of Devas and Asuras · Widely distributed',
+    'Atri':       'Rigveda Book V · Father of Dattatreya and Durvasa',
+    'Angirasa':   'Most ancient Vedic family · Atharvaveda · Many sub-gotras',
+    'Vishwamitra':'Born Kshatriya, became Brahmarshi · Kaushika gotra base',
+    'Parashar':   'Mahabharata · Father of Vyasa · Vasishthas sub-branch',
+    'Shandilya':  'Chandogya Upanishad · Widely distributed Brahmin gotra',
+    'Kaushika':   'Vishwamitra\'s original clan name · Rajasthan warrior groups',
+    'Jamadagni':  'Parashurama\'s father · Bhrigu lineage · Extreme austerity',
+    'Agastya':    'Vindhya crossing sage · South Indian Vedic traditions',
+    'Vatsa':      'Sub-branch of Bharadwaja · Multiple warrior families',
+    'Kaundinya':  'Southeast Asian Brahmin migrants · Funan dynasty claims',
+    'Garg':       'Bhagavata Purana · Krishna's naming ceremony',
+    'Mudgal':     'Mahabharata · Panchalas connection',
+    'Sandilya':   'Chandogya Upanishad · "Sandilya vidya" meditators'
+  };
+
+  document.querySelectorAll('.gotra-node').forEach(node => {
+    node.addEventListener('mouseenter', function(e) {
+      const name = this.textContent.trim();
+      if (gotraInfo[name]) {
+        let tooltip = document.getElementById('gotra-tooltip');
+        if (!tooltip) {
+          tooltip = document.createElement('div');
+          tooltip.id = 'gotra-tooltip';
+          tooltip.style.cssText = 'position:fixed;background:rgba(13,8,0,0.95);border:1px solid rgba(201,168,76,0.4);color:#F5EDD8;font-size:0.78rem;padding:0.5rem 0.8rem;border-radius:2px;z-index:9998;pointer-events:none;max-width:280px;line-height:1.5;font-family:EB Garamond,serif;';
+          document.body.appendChild(tooltip);
+        }
+        tooltip.textContent = name + ': ' + gotraInfo[name];
+        tooltip.style.display = 'block';
+      }
+    });
+    node.addEventListener('mousemove', function(e) {
+      const tooltip = document.getElementById('gotra-tooltip');
+      if (tooltip) {
+        tooltip.style.left = (e.clientX + 12) + 'px';
+        tooltip.style.top = (e.clientY - 30) + 'px';
+      }
+    });
+    node.addEventListener('mouseleave', function() {
+      const tooltip = document.getElementById('gotra-tooltip');
+      if (tooltip) tooltip.style.display = 'none';
+    });
+  });
+
+  // ── OPEN FIRST CLAN BY DEFAULT ──
+  document.addEventListener('DOMContentLoaded', () => {
+    const first = document.querySelector('.clan-block');
+    if (first) first.classList.add('open');
+  });
+  document.querySelector('.clan-block').classList.add('open');
+</script>
+</body>
+</html>

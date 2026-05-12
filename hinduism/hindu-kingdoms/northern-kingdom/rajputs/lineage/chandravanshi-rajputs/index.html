@@ -1,0 +1,2210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chandravansha — The Lunar Dynasty</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Cinzel:wght@400;500;600;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #C9A84C;
+  --gold-light: #E8C97A;
+  --gold-dim: #8B6914;
+  --gold-pale: #F5E6B8;
+  --midnight: #060810;
+  --deep: #0A0E1A;
+  --panel: #0E1422;
+  --panel-2: #131926;
+  --border: rgba(201,168,76,0.2);
+  --border-bright: rgba(201,168,76,0.5);
+  --text: #D4C5A0;
+  --text-dim: #7A6E5A;
+  --text-bright: #F0E4C0;
+  --silver: #B8C4D0;
+  --moon: #E8EEF5;
+  --accent: #1A4A6E;
+  --accent-bright: #2A6A9E;
+  --crimson: #8B1A1A;
+  --ruby: #C0392B;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Crimson Pro', Georgia, serif;
+  background: var(--midnight);
+  color: var(--text);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--deep); }
+::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 3px; }
+
+/* ===== STAR FIELD ===== */
+.starfield {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  pointer-events: none; z-index: 0; overflow: hidden;
+}
+.star {
+  position: absolute; background: white; border-radius: 50%;
+  animation: twinkle linear infinite;
+}
+@keyframes twinkle {
+  0%,100% { opacity: 0.1; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.3); }
+}
+
+/* ===== NAV ===== */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: linear-gradient(180deg, rgba(6,8,16,0.98) 0%, rgba(6,8,16,0.85) 100%);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  padding: 0 2rem;
+  height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-brand {
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+  text-decoration: none;
+}
+.nav-brand span { color: var(--gold-pale); }
+.nav-links { display: flex; gap: 1.8rem; list-style: none; }
+.nav-links a {
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  color: var(--text-dim);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--gold-light); }
+.moon-icon { font-size: 1.4rem; }
+
+/* ===== HERO ===== */
+.hero {
+  position: relative; z-index: 10;
+  min-height: 100vh;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center;
+  padding: 6rem 2rem 4rem;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 20%, rgba(201,168,76,0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 80% 60% at 50% 100%, rgba(10,14,26,0.9) 0%, transparent 100%);
+  pointer-events: none;
+}
+.moon-glyph {
+  width: 180px; height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #F5F0E8 0%, #D4C5A0 30%, #8B7340 70%, #3A2A10 100%);
+  box-shadow:
+    0 0 60px rgba(201,168,76,0.3),
+    0 0 120px rgba(201,168,76,0.15),
+    0 0 200px rgba(201,168,76,0.08),
+    inset -20px -20px 40px rgba(0,0,0,0.4);
+  margin-bottom: 2.5rem;
+  position: relative;
+  animation: moonFloat 6s ease-in-out infinite;
+}
+.moon-glyph::after {
+  content: '';
+  position: absolute; top: 15px; right: 20px; width: 40px; height: 40px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.15);
+  box-shadow: 20px 30px 0 rgba(0,0,0,0.1), -5px 50px 0 rgba(0,0,0,0.08);
+}
+@keyframes moonFloat {
+  0%,100% { transform: translateY(0) rotate(-2deg); box-shadow: 0 0 60px rgba(201,168,76,0.3),0 0 120px rgba(201,168,76,0.15); }
+  50% { transform: translateY(-15px) rotate(2deg); box-shadow: 0 0 80px rgba(201,168,76,0.45),0 0 160px rgba(201,168,76,0.25); }
+}
+.hero-eyebrow {
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.35em;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+  animation: fadeUp 1s ease 0.3s both;
+}
+.hero-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(2.8rem, 8vw, 6.5rem);
+  font-weight: 900;
+  line-height: 1;
+  color: transparent;
+  background: linear-gradient(135deg, var(--gold-pale) 0%, var(--gold) 40%, var(--gold-dim) 70%, var(--gold-light) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.5rem;
+  animation: fadeUp 1s ease 0.5s both;
+}
+.hero-subtitle {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1rem, 3vw, 1.8rem);
+  font-weight: 400;
+  color: var(--silver);
+  letter-spacing: 0.18em;
+  margin-bottom: 1.8rem;
+  animation: fadeUp 1s ease 0.7s both;
+}
+.hero-divider {
+  width: 200px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 0 auto 2rem;
+  animation: fadeUp 1s ease 0.9s both;
+}
+.hero-desc {
+  max-width: 700px;
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--text-dim);
+  line-height: 1.9;
+  animation: fadeUp 1s ease 1.1s both;
+}
+.hero-sanskrit {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-style: italic;
+  color: var(--gold);
+  margin-top: 2rem;
+  opacity: 0.7;
+  animation: fadeUp 1s ease 1.3s both;
+}
+.scroll-hint {
+  position: absolute; bottom: 2rem;
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+  animation: fadeUp 1s ease 1.8s both;
+}
+.scroll-hint span {
+  font-family: 'Cinzel', serif; font-size: 0.6rem;
+  letter-spacing: 0.3em; color: var(--text-dim); text-transform: uppercase;
+}
+.scroll-arrow {
+  width: 1px; height: 40px;
+  background: linear-gradient(180deg, var(--gold), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+@keyframes scrollPulse { 0%,100% { opacity: 0.3; } 50% { opacity: 1; } }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(25px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ===== SECTIONS ===== */
+section { position: relative; z-index: 10; }
+.section-container { max-width: 1280px; margin: 0 auto; padding: 5rem 2rem; }
+.section-header { text-align: center; margin-bottom: 4rem; }
+.section-eyebrow {
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem; letter-spacing: 0.4em; text-transform: uppercase;
+  color: var(--gold-dim); margin-bottom: 1rem;
+  display: flex; align-items: center; justify-content: center; gap: 1rem;
+}
+.section-eyebrow::before, .section-eyebrow::after {
+  content: ''; flex: 1; max-width: 80px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-dim));
+}
+.section-eyebrow::after { background: linear-gradient(270deg, transparent, var(--gold-dim)); }
+.section-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.6rem, 4vw, 2.8rem);
+  font-weight: 700;
+  color: var(--gold-light);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+.section-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-dim);
+  font-style: italic;
+  max-width: 600px; margin: 0 auto;
+}
+
+/* ===== ORIGIN SECTION ===== */
+.origin-bg {
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(26,74,110,0.15) 0%, transparent 70%),
+    var(--deep);
+}
+.origin-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+.origin-text h3 {
+  font-family: 'Cinzel', serif; font-size: 1.3rem; color: var(--gold); margin-bottom: 1rem;
+}
+.origin-text p { margin-bottom: 1.2rem; font-size: 1.05rem; color: var(--text); }
+.origin-text p strong { color: var(--gold-light); }
+.scripture-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--gold);
+  border-radius: 4px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+.scripture-card::before {
+  content: '"';
+  font-family: 'Cinzel', serif; font-size: 4rem;
+  color: var(--gold-dim); opacity: 0.3;
+  position: absolute; top: -0.5rem; left: 1rem;
+  line-height: 1;
+}
+.scripture-label {
+  font-family: 'Cinzel', serif; font-size: 0.65rem;
+  letter-spacing: 0.25em; color: var(--gold-dim); text-transform: uppercase;
+  margin-bottom: 0.7rem;
+}
+.scripture-quote { font-style: italic; color: var(--text-bright); font-size: 1rem; line-height: 1.7; }
+.scripture-ref { font-size: 0.85rem; color: var(--text-dim); margin-top: 0.5rem; }
+
+/* ===== LINEAGE CHAIN ===== */
+.lineage-chain {
+  display: flex; flex-direction: column; align-items: center; gap: 0;
+}
+.lineage-node {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem 2rem;
+  text-align: center;
+  min-width: 240px;
+  position: relative;
+  transition: border-color 0.3s, transform 0.3s;
+  cursor: default;
+}
+.lineage-node:hover {
+  border-color: var(--gold);
+  transform: scale(1.03);
+}
+.lineage-node .node-name {
+  font-family: 'Cinzel', serif; font-size: 1rem; color: var(--gold-light);
+  font-weight: 600;
+}
+.lineage-node .node-role {
+  font-size: 0.82rem; color: var(--text-dim); margin-top: 0.2rem; font-style: italic;
+}
+.lineage-connector {
+  width: 2px; height: 30px;
+  background: linear-gradient(180deg, var(--gold), var(--gold-dim));
+  position: relative;
+}
+.lineage-connector::after {
+  content: '▼';
+  position: absolute; bottom: -4px; left: 50%;
+  transform: translateX(-50%);
+  color: var(--gold-dim); font-size: 0.6rem;
+}
+.lineage-split {
+  display: flex; gap: 3rem; position: relative; margin-top: 30px;
+}
+.lineage-split::before {
+  content: '';
+  position: absolute; top: -30px; left: 50%; transform: translateX(-50%);
+  width: 2px; height: 30px;
+  background: linear-gradient(180deg, var(--gold), var(--gold-dim));
+}
+.lineage-split::after {
+  content: '';
+  position: absolute; top: -1px; left: calc(50% - 1.5rem - 120px); 
+  width: calc(3rem + 240px); height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold-dim), var(--gold), var(--gold-dim), transparent);
+}
+.split-branch { display: flex; flex-direction: column; align-items: center; }
+.branch-line {
+  width: 2px; height: 20px;
+  background: var(--gold-dim);
+}
+
+/* ===== CLAN CARDS ===== */
+.clans-bg {
+  background: var(--panel);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.clan-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 2rem; }
+.clan-card {
+  background: var(--deep);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.4s, box-shadow 0.4s, border-color 0.4s;
+  cursor: pointer;
+}
+.clan-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(201,168,76,0.12);
+  border-color: var(--gold);
+}
+.clan-card-header {
+  background: linear-gradient(135deg, var(--panel-2), var(--accent) 150%);
+  padding: 1.5rem 1.5rem 1rem;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+.clan-card-header::before {
+  content: '';
+  position: absolute; top: -20px; right: -20px;
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  border: 2px solid rgba(201,168,76,0.15);
+}
+.clan-card-header::after {
+  content: '';
+  position: absolute; top: -10px; right: -10px;
+  width: 50px; height: 50px;
+  border-radius: 50%;
+  border: 1px solid rgba(201,168,76,0.1);
+}
+.clan-badge {
+  font-size: 2rem; margin-bottom: 0.5rem;
+}
+.clan-name {
+  font-family: 'Cinzel', serif; font-size: 1.3rem; font-weight: 700;
+  color: var(--gold-light);
+}
+.clan-alt { font-size: 0.85rem; color: var(--text-dim); margin-top: 0.2rem; font-style: italic; }
+.clan-body { padding: 1.5rem; }
+.clan-meta {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-bottom: 1.2rem;
+}
+.meta-item { }
+.meta-label {
+  font-family: 'Cinzel', serif; font-size: 0.62rem; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--gold-dim); margin-bottom: 0.2rem;
+}
+.meta-value { font-size: 0.92rem; color: var(--text-bright); }
+.clan-desc { font-size: 0.95rem; color: var(--text); line-height: 1.7; margin-bottom: 1.2rem; }
+.clan-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.tag {
+  font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.12em;
+  padding: 0.2rem 0.6rem; border-radius: 20px;
+  border: 1px solid var(--border);
+  color: var(--text-dim); text-transform: uppercase;
+  background: rgba(201,168,76,0.04);
+}
+.tag.highlight { border-color: var(--gold-dim); color: var(--gold); background: rgba(201,168,76,0.08); }
+.clan-expand-btn {
+  width: 100%; margin-top: 1.2rem;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.6rem;
+  font-family: 'Cinzel', serif; font-size: 0.7rem;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold-dim); cursor: pointer;
+  transition: all 0.3s;
+}
+.clan-expand-btn:hover {
+  background: rgba(201,168,76,0.08); border-color: var(--gold); color: var(--gold);
+}
+.clan-expanded {
+  display: none; padding: 0 1.5rem 1.5rem;
+  border-top: 1px solid var(--border);
+  margin-top: 1rem; padding-top: 1.2rem;
+}
+.clan-expanded.open { display: block; }
+.expanded-section { margin-bottom: 1.2rem; }
+.expanded-section h4 {
+  font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--gold-dim); margin-bottom: 0.6rem;
+}
+.expanded-section ul { list-style: none; }
+.expanded-section ul li {
+  font-size: 0.9rem; color: var(--text);
+  padding: 0.25rem 0; padding-left: 1rem; position: relative;
+}
+.expanded-section ul li::before {
+  content: '◆'; position: absolute; left: 0;
+  color: var(--gold-dim); font-size: 0.5rem; top: 0.45rem;
+}
+.rulers-list { display: flex; flex-direction: column; gap: 0.4rem; }
+.ruler-item {
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-size: 0.88rem; padding: 0.3rem 0;
+  border-bottom: 1px solid rgba(201,168,76,0.08);
+}
+.ruler-name { color: var(--text-bright); }
+.ruler-period { color: var(--text-dim); font-size: 0.8rem; font-style: italic; }
+
+/* ===== TIMELINE ===== */
+.timeline-bg {
+  background: linear-gradient(180deg, var(--midnight) 0%, var(--deep) 50%, var(--midnight) 100%);
+}
+.timeline-wrapper { position: relative; padding: 2rem 0; }
+.timeline-track {
+  position: absolute; left: 50%; transform: translateX(-50%);
+  width: 2px; top: 0; bottom: 0;
+  background: linear-gradient(180deg, transparent, var(--gold-dim) 5%, var(--gold-dim) 95%, transparent);
+}
+.timeline-item {
+  display: grid; grid-template-columns: 1fr 60px 1fr; gap: 1.5rem;
+  margin-bottom: 2.5rem; align-items: center;
+}
+.timeline-item:nth-child(odd) .tl-content { grid-column: 3; }
+.timeline-item:nth-child(odd) .tl-spacer { grid-column: 1; }
+.timeline-item:nth-child(even) .tl-content { grid-column: 1; text-align: right; }
+.timeline-item:nth-child(even) .tl-spacer { grid-column: 3; }
+.timeline-dot {
+  grid-column: 2;
+  display: flex; flex-direction: column; align-items: center; gap: 0.3rem;
+}
+.dot {
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--gold); border: 2px solid var(--midnight);
+  box-shadow: 0 0 12px rgba(201,168,76,0.5);
+  flex-shrink: 0;
+}
+.dot.major {
+  width: 20px; height: 20px;
+  background: radial-gradient(circle, var(--gold-pale), var(--gold));
+  box-shadow: 0 0 20px rgba(201,168,76,0.7);
+}
+.tl-period {
+  font-family: 'Cinzel', serif; font-size: 0.68rem; letter-spacing: 0.15em;
+  color: var(--gold-dim); text-align: center; white-space: nowrap;
+}
+.tl-content {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px; padding: 1.2rem 1.5rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.tl-content:hover {
+  border-color: var(--gold-dim);
+  box-shadow: 0 4px 20px rgba(201,168,76,0.08);
+}
+.tl-era {
+  font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.25em;
+  color: var(--gold-dim); text-transform: uppercase; margin-bottom: 0.4rem;
+}
+.tl-event { font-size: 1.05rem; font-weight: 500; color: var(--text-bright); margin-bottom: 0.4rem; }
+.tl-desc { font-size: 0.88rem; color: var(--text-dim); line-height: 1.6; }
+
+/* ===== KINGS TABLE ===== */
+.kings-bg {
+  background: var(--panel);
+  border-top: 1px solid var(--border);
+}
+.kings-table-wrap { overflow-x: auto; }
+table.kings-table {
+  width: 100%; border-collapse: collapse;
+  font-size: 0.92rem;
+}
+table.kings-table thead tr {
+  border-bottom: 2px solid var(--gold-dim);
+}
+table.kings-table th {
+  font-family: 'Cinzel', serif; font-size: 0.68rem;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold); padding: 1rem 1.2rem; text-align: left;
+  background: var(--deep);
+}
+table.kings-table tbody tr {
+  border-bottom: 1px solid rgba(201,168,76,0.08);
+  transition: background 0.2s;
+}
+table.kings-table tbody tr:hover { background: rgba(201,168,76,0.04); }
+table.kings-table td {
+  padding: 0.9rem 1.2rem; color: var(--text);
+  vertical-align: top;
+}
+table.kings-table td:first-child { color: var(--text-bright); font-weight: 500; }
+table.kings-table td.dynasty { color: var(--gold-light); font-style: italic; font-size: 0.88rem; }
+table.kings-table td.period { color: var(--text-dim); font-size: 0.85rem; white-space: nowrap; }
+.rank-badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 26px; height: 26px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold-dim), var(--gold));
+  color: var(--midnight); font-family: 'Cinzel', serif;
+  font-size: 0.7rem; font-weight: 700;
+}
+
+/* ===== COMPARISON SECTION ===== */
+.compare-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+.compare-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px; overflow: hidden;
+}
+.compare-header {
+  background: linear-gradient(135deg, rgba(26,74,110,0.4), rgba(139,26,26,0.2));
+  padding: 1.2rem;
+  border-bottom: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: start;
+}
+.compare-clan { font-family: 'Cinzel', serif; font-size: 1rem; color: var(--gold-light); }
+.compare-branch { font-size: 0.8rem; color: var(--text-dim); font-style: italic; margin-top: 0.2rem; }
+.compare-power {
+  display: flex; flex-direction: column; align-items: flex-end;
+}
+.power-label { font-family: 'Cinzel', serif; font-size: 0.55rem; letter-spacing: 0.2em; color: var(--text-dim); }
+.power-stars { color: var(--gold); font-size: 0.75rem; letter-spacing: 0.1em; }
+.compare-body { padding: 1.2rem; }
+.compare-stat { display: flex; justify-content: space-between; margin-bottom: 0.6rem; }
+.compare-stat-label { font-size: 0.82rem; color: var(--text-dim); }
+.compare-stat-val { font-size: 0.82rem; color: var(--text-bright); text-align: right; max-width: 55%; }
+.compare-bar-wrap { margin: 0.8rem 0; }
+.compare-bar-label {
+  display: flex; justify-content: space-between;
+  font-size: 0.75rem; color: var(--text-dim); margin-bottom: 0.3rem;
+}
+.compare-bar {
+  height: 4px; background: rgba(255,255,255,0.06);
+  border-radius: 2px; overflow: hidden;
+}
+.compare-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold-dim), var(--gold));
+  border-radius: 2px;
+}
+
+/* ===== LESSER KNOWN ===== */
+.lesser-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
+.lesser-card {
+  background: var(--deep);
+  border: 1px solid var(--border);
+  border-radius: 8px; padding: 1.4rem;
+  position: relative; overflow: hidden;
+  transition: border-color 0.3s;
+}
+.lesser-card:hover { border-color: var(--gold-dim); }
+.lesser-card::before {
+  content: '✦';
+  position: absolute; top: 1rem; right: 1rem;
+  color: var(--gold-dim); font-size: 1rem; opacity: 0.4;
+}
+.lesser-name {
+  font-family: 'Cinzel', serif; font-size: 1rem;
+  color: var(--gold); margin-bottom: 0.4rem;
+}
+.lesser-aka { font-size: 0.82rem; color: var(--text-dim); margin-bottom: 0.8rem; font-style: italic; }
+.lesser-desc { font-size: 0.9rem; color: var(--text); line-height: 1.6; }
+
+/* ===== ARCHITECTURE / TEMPLE ===== */
+.arch-bg {
+  background: var(--deep);
+  border-top: 1px solid var(--border);
+}
+.arch-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem; }
+.arch-card {
+  border: 1px solid var(--border);
+  border-radius: 10px; overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.arch-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.4); }
+.arch-image {
+  height: 160px;
+  background: linear-gradient(135deg, var(--panel-2), var(--accent));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 3.5rem; position: relative; overflow: hidden;
+}
+.arch-image::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at center bottom, rgba(201,168,76,0.08), transparent 70%);
+}
+.arch-info { padding: 1.2rem; background: var(--panel); }
+.arch-monument { font-family: 'Cinzel', serif; font-size: 0.95rem; color: var(--gold-light); }
+.arch-location { font-size: 0.8rem; color: var(--text-dim); margin-top: 0.2rem; }
+.arch-built { font-size: 0.78rem; color: var(--gold-dim); margin-top: 0.4rem; font-style: italic; }
+.arch-desc { font-size: 0.85rem; color: var(--text); margin-top: 0.7rem; line-height: 1.5; }
+
+/* ===== CLAN HIERARCHY ===== */
+.hierarchy-bg {
+  background: var(--panel);
+  border-top: 1px solid var(--border);
+}
+.hierarchy-tree {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 0;
+}
+.h-root {
+  background: linear-gradient(135deg, rgba(201,168,76,0.15), rgba(201,168,76,0.05));
+  border: 2px solid var(--gold);
+  border-radius: 12px; padding: 1.2rem 2.5rem;
+  text-align: center; box-shadow: 0 0 30px rgba(201,168,76,0.15);
+}
+.h-root .h-name {
+  font-family: 'Cinzel', serif; font-size: 1.4rem; color: var(--gold-light);
+}
+.h-root .h-sub { font-size: 0.85rem; color: var(--text-dim); margin-top: 0.3rem; }
+.h-connector-v {
+  width: 2px; height: 40px;
+  background: linear-gradient(180deg, var(--gold), var(--gold-dim));
+}
+.h-level { display: flex; gap: 2rem; position: relative; }
+.h-level::before {
+  content: '';
+  position: absolute; top: -1px;
+  left: calc(50% - (var(--count, 2) * 50px));
+  width: calc(100% - 60px);
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+}
+.h-branch { display: flex; flex-direction: column; align-items: center; gap: 0; }
+.h-branch-v { width: 2px; height: 25px; background: var(--gold-dim); }
+.h-node {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px; padding: 0.8rem 1.2rem;
+  text-align: center; min-width: 140px;
+  cursor: pointer; transition: all 0.3s;
+}
+.h-node:hover { border-color: var(--gold); background: rgba(201,168,76,0.05); }
+.h-node .h-name {
+  font-family: 'Cinzel', serif; font-size: 0.85rem; color: var(--gold-light);
+}
+.h-node .h-sub { font-size: 0.72rem; color: var(--text-dim); margin-top: 0.15rem; }
+.h-sub-branches { display: flex; gap: 0.8rem; flex-wrap: wrap; justify-content: center; margin-top: 0; }
+.h-sub-node {
+  background: var(--deep); border: 1px solid rgba(201,168,76,0.1);
+  border-radius: 6px; padding: 0.5rem 0.8rem;
+  text-align: center; cursor: pointer; transition: all 0.3s;
+}
+.h-sub-node:hover { border-color: var(--gold-dim); }
+.h-sub-node .h-name { font-family: 'Cinzel', serif; font-size: 0.75rem; color: var(--text-bright); }
+.h-sub-node .h-sub { font-size: 0.65rem; color: var(--text-dim); }
+
+/* ===== SCRIPTURES PANEL ===== */
+.scriptures-bg {
+  background: linear-gradient(180deg, var(--midnight) 0%, var(--deep) 100%);
+  border-top: 1px solid var(--border);
+}
+.scriptures-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2rem; }
+.scripture-panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px; overflow: hidden;
+}
+.scripture-panel-header {
+  background: linear-gradient(135deg, rgba(26,74,110,0.3), transparent);
+  padding: 1.2rem;
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 1rem;
+}
+.scripture-icon { font-size: 2rem; }
+.scripture-panel-title { font-family: 'Cinzel', serif; font-size: 1rem; color: var(--gold-light); }
+.scripture-panel-sub { font-size: 0.8rem; color: var(--text-dim); margin-top: 0.15rem; }
+.scripture-panel-body { padding: 1.2rem; }
+.scripture-ref-item {
+  display: flex; gap: 0.8rem;
+  padding: 0.7rem 0; border-bottom: 1px solid rgba(201,168,76,0.06);
+}
+.scripture-ref-item:last-child { border-bottom: none; }
+.ref-canto {
+  font-family: 'Cinzel', serif; font-size: 0.7rem;
+  color: var(--gold-dim); white-space: nowrap; padding-top: 0.1rem;
+}
+.ref-content { font-size: 0.88rem; color: var(--text); }
+
+/* ===== FOOTER ===== */
+footer {
+  position: relative; z-index: 10;
+  background: var(--midnight);
+  border-top: 1px solid var(--border);
+  padding: 4rem 2rem 2rem;
+  text-align: center;
+}
+.footer-moon { font-size: 3rem; margin-bottom: 1rem; opacity: 0.5; }
+.footer-title {
+  font-family: 'Cinzel', serif; font-size: 1.5rem;
+  color: var(--gold-dim); margin-bottom: 0.5rem;
+}
+.footer-sub { font-size: 0.88rem; color: var(--text-dim); font-style: italic; }
+.footer-divider { width: 100px; height: 1px; background: var(--border); margin: 2rem auto; }
+.footer-credits { font-size: 0.8rem; color: var(--text-dim); line-height: 1.8; }
+.footer-credits strong { color: var(--text-bright); }
+
+/* ===== UTILITY ===== */
+.gold-text { color: var(--gold); }
+.bright-text { color: var(--text-bright); }
+.italic { font-style: italic; }
+.mb-1 { margin-bottom: 1rem; }
+.text-center { text-align: center; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .origin-grid { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+  .timeline-item { grid-template-columns: 30px 1fr; }
+  .timeline-item .tl-spacer { display: none; }
+  .tl-content { grid-column: 2 !important; text-align: left !important; }
+  .timeline-dot { grid-column: 1; }
+  .timeline-track { left: 15px; transform: none; }
+  .lineage-split { flex-direction: column; gap: 1rem; }
+}
+
+/* ===== ANIMATIONS ===== */
+.fade-in {
+  opacity: 0; transform: translateY(20px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+.clan-card { animation: none; }
+</style>
+</head>
+<body>
+
+<!-- STAR FIELD -->
+<div class="starfield" id="starfield"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-brand"><span>☽</span> CHANDRAVANSHA</a>
+  <ul class="nav-links">
+    <li><a href="#origin">Origin</a></li>
+    <li><a href="#lineage">Lineage</a></li>
+    <li><a href="#clans">Clans</a></li>
+    <li><a href="#timeline">Timeline</a></li>
+    <li><a href="#kings">Kings</a></li>
+    <li><a href="#architecture">Architecture</a></li>
+    <li><a href="#scriptures">Scriptures</a></li>
+  </ul>
+  <span class="moon-icon">☽</span>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="moon-glyph"></div>
+  <p class="hero-eyebrow">चन्द्रवंश • The Lunar Dynasty • Established Since Time Immemorial</p>
+  <h1 class="hero-title">CHANDRAVANSHA</h1>
+  <p class="hero-subtitle">The Lunar Dynasty of Ancient India</p>
+  <div class="hero-divider"></div>
+  <p class="hero-desc">
+    Born of the Moon — Soma, the luminous deity of nectar and wisdom — the Chandravansha stands as one of the two great kshatriya lineages of Bharatavarsha. From the divine union of Budha and Ilā sprang Pururava, ancestor of countless royal houses that shaped the subcontinent's destiny for millennia.
+  </p>
+  <p class="hero-sanskrit">चन्द्रात् पुत्रो बुधस्तस्मात् पुरूरवा अभवत्।</p>
+  <div class="scroll-hint">
+    <span>Scroll to Explore</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- ORIGIN SECTION -->
+<section class="origin-bg" id="origin">
+  <div class="section-container">
+    <div class="section-header fade-in">
+      <p class="section-eyebrow">Genesis of the Lunar Line</p>
+      <h2 class="section-title">The Origin of Chandravansha</h2>
+      <p class="section-subtitle">How Soma, god of the Moon, became progenitor of the mightiest warrior lineage in Bharatavarsha</p>
+    </div>
+    <div class="origin-grid">
+      <div class="origin-text fade-in">
+        <h3>What is Chandravansha?</h3>
+        <p><strong>Chandravansha</strong> (Sanskrit: चन्द्रवंश) literally translates as the <em>"Lunar Dynasty"</em> — <em>Chandra</em> meaning Moon and <em>Vamsha</em> meaning lineage or dynasty. It is one of the two primordial kshatriya (warrior) clans of India, the other being the <strong>Suryavansha</strong> (Solar Dynasty). The Chandravanshi Rajputs trace their patrilineal descent from <strong>Soma</strong>, the deified Moon, through an unbroken chain of legendary and historical kings.</p>
+        <p>The dynasty's mythological origin begins with <strong>Atri</strong>, the great rishi, whose meditation gave birth to Soma (the Moon). Soma became the lord of planets, plants, and the nectar of immortality. His son <strong>Budha</strong> (Mercury), born of a union with Tārā (wife of Bṛhaspati), married <strong>Ilā</strong>, a daughter of Manu — from this union was born <strong>Pururava</strong>, the first earthly king of the Chandravansha.</p>
+        <p>The lineage then flows through Pururava's descendants — most significantly splitting at <strong>Yayati</strong> into the <strong>Yadavas</strong> (from Yadu) and the <strong>Paurava/Bharata</strong> line (from Puru). This bifurcation gave rise to two of history's most consequential royal houses.</p>
+
+        <div class="scripture-card">
+          <p class="scripture-label">Vishnu Purana — Book IV, Chapter 6</p>
+          <p class="scripture-quote">From Soma was born Budha, who married Ilā, daughter of Vaivasvata Manu. Their son was Pururava, the first king of the Lunar Race, whose fame spread across the three worlds.</p>
+          <p class="scripture-ref">Viṣṇu Purāṇa 4.6.1–4</p>
+        </div>
+
+        <div class="scripture-card">
+          <p class="scripture-label">Bhagavata Purana — Canto 9, Chapter 14</p>
+          <p class="scripture-quote">The Moon-god Soma, who illuminates all the worlds, begot Budha through Tārā. Budha, the most intelligent among the learned, took Ilā as his wife, and from this union was born Pururava, the great emperor.</p>
+          <p class="scripture-ref">Bhāgavata Purāṇa 9.14.1–5</p>
+        </div>
+
+        <h3 style="margin-top:2rem">The Tārā Incident (Tārakāmaya War)</h3>
+        <p>The birth of <strong>Budha</strong> was itself a cosmic controversy. Soma abducted <strong>Tārā</strong>, the wife of the preceptor Bṛhaspati (Jupiter), triggering a great war between the gods and Daityas called the <em>Tārakāmaya Yuddha</em>. Eventually Tārā returned, and Soma acknowledged Budha as his son born from Tārā. This episode — found in the Mahābhārata's Ādi Parva — establishes the slightly irregular but divinely sanctioned beginning of the lunar race.</p>
+      </div>
+      <div class="fade-in">
+        <h3 style="font-family:'Cinzel',serif;color:var(--gold);font-size:1.1rem;margin-bottom:1.5rem">The Sacred Chain of Descent</h3>
+        <div class="lineage-chain">
+          <div class="lineage-node">
+            <div class="node-name">☽ SOMA (CHANDRA)</div>
+            <div class="node-role">The Moon God • Son of Rishi Atri</div>
+          </div>
+          <div class="lineage-connector"></div>
+          <div class="lineage-node">
+            <div class="node-name">BUDHA</div>
+            <div class="node-role">Son of Soma & Tārā • Planet Mercury</div>
+          </div>
+          <div class="lineage-connector"></div>
+          <div class="lineage-node">
+            <div class="node-name">PURURAVA</div>
+            <div class="node-role">First Earthly King • Son of Budha & Ilā</div>
+          </div>
+          <div class="lineage-connector"></div>
+          <div class="lineage-node">
+            <div class="node-name">ĀYUS</div>
+            <div class="node-role">King of Pratishthāna • Son of Pururava</div>
+          </div>
+          <div class="lineage-connector"></div>
+          <div class="lineage-node">
+            <div class="node-name">NAHUSHA</div>
+            <div class="node-role">Emperor of Devas • Temporarily ruled heavens</div>
+          </div>
+          <div class="lineage-connector"></div>
+          <div class="lineage-node" style="border-color:var(--gold);background:rgba(201,168,76,0.06)">
+            <div class="node-name" style="color:var(--gold-pale)">YAYATI</div>
+            <div class="node-role">The Great Emperor • The Great Bifurcation</div>
+          </div>
+        </div>
+
+        <div class="lineage-split">
+          <div class="split-branch">
+            <div class="branch-line"></div>
+            <div class="lineage-node" style="min-width:160px">
+              <div class="node-name">YADU</div>
+              <div class="node-role">Elder Son • Yaduvansha</div>
+            </div>
+            <div class="branch-line"></div>
+            <div class="lineage-node" style="min-width:160px;font-size:0.82rem">
+              <div class="node-name">KRISHNA, BALARAMA</div>
+              <div class="node-role">Jadeja, Bhati, Jadon...</div>
+            </div>
+          </div>
+          <div class="split-branch">
+            <div class="branch-line"></div>
+            <div class="lineage-node" style="min-width:160px">
+              <div class="node-name">PURU</div>
+              <div class="node-role">Youngest Son • Paurava</div>
+            </div>
+            <div class="branch-line"></div>
+            <div class="lineage-node" style="min-width:160px;font-size:0.82rem">
+              <div class="node-name">BHARATA, KURU</div>
+              <div class="node-role">Tomar, Kachwaha...</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:2.5rem">
+          <div class="scripture-card">
+            <p class="scripture-label">Mahabharata — Adi Parva</p>
+            <p class="scripture-quote">Yayati, son of Nahusha, had five sons: Yadu, Turvasha, Druhyu, Anu, and Puru. The eldest, Yadu, refused to give his youth to his father, and was cursed that his lineage would not be consecrated kings. Yet from Yadu sprang the Yadavas, greatest of clans.</p>
+            <p class="scripture-ref">Mahābhārata, Ādi Parva 75–80</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLANS SECTION -->
+<section class="clans-bg" id="clans">
+  <div class="section-container">
+    <div class="section-header fade-in">
+      <p class="section-eyebrow">The 36 Rajput Clans</p>
+      <h2 class="section-title">Chandravanshi Clans & Dynasties</h2>
+      <p class="section-subtitle">Each clan bearing the legacy of the Moon — their founders, kingdoms, and eternal glory</p>
+    </div>
+    <div class="clan-grid" id="clanGrid">
+
+      <!-- YADUVANSHI / BHATI -->
+      <div class="clan-card fade-in">
+        <div class="clan-card-header">
+          <div class="clan-badge">🌙</div>
+          <div class="clan-name">Bhati / Bhatī Rajput</div>
+          <div class="clan-alt">भाटी • Yaduvanshi branch • Desert Lords</div>
+        </div>
+        <div class="clan-body">
+          <div class="clan-meta">
+            <div class="meta-item">
+              <div class="meta-label">Founder Ancestor</div>
+              <div class="meta-value">Bhati (son of Gaj)</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">Lineage</div>
+              <div class="meta-value">Yadu → Krishna → Vajra</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">Capital</div>
+              <div class="meta-value">Jaisalmer (Lodurva earlier)</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">Peak Period</div>
+              <div class="meta-value">7th–19th century CE</div>
+            </div>
+          </div>
+          <p class="clan-desc">The Bhati Rajputs ruled the Thar Desert with iron will, establishing the legendary fort-city of Jaisalmer in 1156 CE. Descended from the Yadava branch of Chandravansha, they trace ancestry through Krishna's grandson Vajranabha. Their bardic tradition (Charans) is among the richest in Rajasthan.</p>
+          <div class="clan-tags">
+            <span class="tag highlight">Yaduvanshi</span>
+            <span class="tag">Jaisalmer</span>
+            <span class="tag">Desert Kingdom</span>
+            <span class="tag">Krishna Lineage</span>
+          </div>
+          <button class="clan-expand-btn" onclick="toggleExpand(this)">View Full Details ▾</button>
+          <div class="clan-expanded">
+            <div class="expanded-section">
+              <h4>Main Lineage Tree</h4>
+              <ul>
+                <li>Soma → Budha → Pururava → ... → Yadu → ... → Krishna → Vajranabha → Gaj → Bhati (eponymous ancestor)</li>
+                <li>Bhati established dominance in Sindh and Jangladesh (Bikaner region) c. 6th century CE</li>
+              </ul>
+            </div>
+            <div class="expanded-section">
+              <h4>Subclans & Branches</h4>
+              <ul>
+                <li>Jaisalmeri Bhati (main ruling line)</li>
+                <li>Lodurva Bhati (pre-Jaisalmer capital)</li>
+                <li>Derawar Bhati (Cholistan branch)</li>
+                <li>Bahawalpur branch (Pakistan)</li>
+                <li>Bikaner branch (Janglu)</li>
+              </ul>
+            </div>
+            <div class="expanded-section">
+              <h4>Notable Kings</h4>
+              <div class="rulers-list">
+                <div class="ruler-item"><span class="ruler-name">Rawal Jaisal</span><span class="ruler-period">1156 CE (Founder of Jaisalmer)</span></div>
+                <div class="ruler-item"><span class="ruler-name">Rawal Duda</span><span class="ruler-period">~1250 CE</span></div>
+                <div class="ruler-item"><span class="ruler-name">Rawal Chachak Dev</span><span class="ruler-period">~1275 CE</span></div>
+                <div class="ruler-item"><span class="ruler-name">Rawal Ghadi Singh</span><span class="ruler-period">15th century</span></div>
+                <div class="ruler-item"><span class="ruler-name">Maharawal Sabal Singh</span><span class="ruler-period">1651–1661 CE</span></div>
+              </div>
+            </div>
+            <div class="expanded-section">
+              <h4>Military Achievements</h4>
+              <ul>
+                <li>Repelled multiple Mughal invasions of Jaisalmer</li>
+                <li>Saka (jauhar) battles at Jaisalmer — 1294 CE and 1326 CE</li>
+                <li>Controlled caravan routes across the Thar for centuries</li>
+                <li>Maintained autonomy through strategic marriages and diplomacy</li>
+              </ul>
+            </div>
+            <div class="expanded-section">
+              <h4>Monuments</h4>
+              <ul>
+                <li>Jaisalmer Fort (Sonar Quila) — 1156 CE, UNESCO World Heritage Site</li>
+                <li>Patwon ki Haveli</li>
+                <li>Lodurva Jain Temples</li>
+                <li>Gadsisar Lake (Maharawal Gadsi Singh, 1367 CE)</li>
+              </ul>
+            </div>
+            <div class="expanded-section">
+              <h4>Scriptural Reference</h4>
+              <ul>
+                <li>Harivamsha traces Yadu's descendants through 20+ generations to the historical Yadava period</li>
+                <li>Bhāgavata Purāṇa 9.24 details the Yadu line leading to Krishna and Vajranabha</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- JADEJA -->
+      <div class="clan-card fade-in">
+        <div class="clan-card-header">
+          <div class="clan-badge">⚔️</div>
+          <div class="clan-name">Jadeja Rajput</div>
+          <div class="clan-alt">जाडेजा • Yaduvanshi • Lords of Kutch & Saurashtra</div>
+        </div>
+        <div class="clan-body">
+          <div class="clan-meta">
+            <div class="meta-item">
+              <div class="meta-label">Founder Ancestor</div>
+              <div class="meta-value">Jam Lakhaji / Jadeja</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">Lineage</div>
+              <div class="meta-value">Yadu → Samma → Jadeja</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">Capital</div>
+              <div class="meta-value">Bhuj (Kutch), Jamnagar, Rajkot</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">Peak Period</div>
+              <div class="meta-value">13th–19th century CE</div>
+            </div>
+          </div>
+          <p class="clan-desc">The Jadejas are arguably the most historically documented Yaduvanshi clan in Gujarat, ruling Kutch uninterrupted for over 700 years — one of the longest continuous dynasties in Indian history. They trace ancestry through the Samma clan of Sindh, themselves descendants of the Yadavas.</p>
+          <div class="clan-tags">
+            <span class="tag highlight">Yaduvanshi</span>
+            <span class="tag">Kutch Dynasty</span>
+            <span class="tag">Gujarat</span>
+            <span class="tag">Samma Clan</span>
+          </div>
+          <button class="clan-expand-btn" onclick="toggleExpand(this)">View Full Details ▾</button>
+          <div class="clan-expanded">
+            <div class="expanded-section">
+              <h4>Lineage Path</h4>
+              <ul>
+                <li>Yadu → Sahasrajit → Shatajit → ... → Krishna → Vajranabha → ... → Samma (Sindh rulers) → Jam Lakhaji (founded Kutch rule c. 1147 CE) → Jadeja branch</li>
+              </ul>
+            </div>
+            <div class="expanded-section">
+              <h4>Subclans & Branches</h4>
+              <ul>
+                <li>Bhuj State (main Rao/Maharao line)</li>
+                <li>Jamnagar State (Jam Rawal, 1540 CE)</li>
+                <li>Rajkot State (founded c. 1620 CE)</li>
+                <li>Morbi State</li>
+                <li>Gondal State</li>
+                <li>Dhrangadhra State</li>
+                <li>Wankaner State</li>
+              </ul>
+            </div>
+            <div class="expanded-section">
+              <h4>Notable Rulers</h4>
+              <div class="rulers-list">
+                <div class="ruler-item"><span class="ruler-name">Jam Lakhaji</span><span class="ruler-period">c. 1147 CE (Kutch founder)</span></div>
+                <div class="ruler-item"><span class="ruler-name">Jam Rawal</span><span class="ruler-period">c. 1520 CE (Jamnagar)</span></div>
+                <div class="ruler-item"><span class="ruler-name">Maharao Pragmalji I</span><span class="ruler-period">1778–1813 CE</span></div>
+                <div class="ruler-item"><span class="ruler-name">Maharao Deshalji II</span><span class="ruler-period">1819–1860 CE</span></div>
+                <div class="ruler-item"><span class="ruler-name">Maharao Madansinghji</span><span class="ruler-period">Last ruling Maharao</span></div>
+              </div>
+            </div>
+            <div class="expanded-section">
+              <h4>Monuments</h4>
+              <ul>
+                <li>Aina Mahal (Hall of Mirrors), Bhuj — 18th century</li>
+                <li>Prag Mahal Palace, Bhuj</li>
+                <li>Lakhpat Fort</li>
+                <li>Vijay Vilas Palace, Mandvi</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- JADON -->
+      <div class="clan-card fade-in">
+        <div class="clan-card-header">
+          <div class="clan-badge">👑</div>
+          <div class="clan-name">Jadon Rajput</div>
+          <div class="clan-alt">जादों • Yaduvanshi • Kings of Karauli & Mathura</div>
+        </div>
+        <div class="clan-body">
+          <div class="clan-meta">
+            <div class="meta-item">
+              <div class="meta-label">Founder Ancestor</div>
+              <div class="meta-value">Vijaypal (c. 1040 CE)</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">Lineage</div>
+              <div class="meta-value">Yadu → Krishna → Vajranabha</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">Capital</div>
+              <div class="meta-value">Karauli, Bayana (ancient)</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">Peak Period</div>
+              <div class="meta-value">11th–20th century CE</div>
+            </div>
+          </div>
+          <p class="clan-desc">Jadons are direct descendants of the Yadava lord Krishna through Vajranabha. They established the Karauli State and claim guardianship of Mathura — the birthplace of Krishna. The Jadon Rajputs ruled continuously in the Braj region, considered sacred to Vaishnavism.</p>
+          <div class="clan-tags">
+            <span class="tag highlight">Yaduvanshi</span>
+            <span class="tag">Karauli</span>
+            <span class="tag">Braj Region</span>
+            <span class="tag">Krishna Lineage</span>
+          </div>
+          <button class="clan-expand-btn" onclick="toggleExpand(this)">View Full Details ▾</button>
+          <div class="clan-expanded">
+            <div class="expanded-section">
+              <h4>Lineage Path</h4>
+              <ul>
+                <li>Krishna → Pradyumna → Aniruddha → Vajranabha (last Yadava ruler of Mathura) → ... → Vijaypal (founder of Bairaat/Karauli, c. 1040 CE)</li>
+              </ul>
+            </div>
+            <div class="expanded-section">
+              <h4>Subclans</h4>
+              <ul>
+                <li>Karauli State (principal line)</li>
+                <li>Bayana branch (early medieval)</li>
+                <li>Mathura Jadon</li>
+                <li>Alibaksh branch (Punjab)</li>
+              </ul>
+            </div>
+            <div class="expanded-section">
+              <h4>Notable Rulers</h4>
+              <div class="rulers-list">
+                <div class="ruler-item"><span class="ruler-name">Vijaypal</span><span class="ruler-period">c. 1040 CE (Founder)</span></div>
+                <div class="ruler-item"><span class="ruler-name">Arjunpal</span><span class="ruler-period">c. 1200 CE</span></div>
+                <div class="ruler-item"><span class="ruler-name">Dharmpal</span><span class="ruler-period">c. 1327 CE</span></div>
+                <div class="ruler-item"><span class="ruler-name">Maharaja Gopal Singh</span><span class="ruler-period">1803–1827 CE</span></div>
+              </div>
+            </div>
+            <div class="expanded-section">
+              <h4>Monuments</h4>
+              <ul>
+                <li>Karauli Fort & City Palace</li>
+                <li>Madan Mohanji Temple, Karauli (sacred to Vaishnavas)</li>
+                <li>Bayana Fort (ancient seat)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TOMAR -->
+      <div class="clan-card fade-in">
+        <div class="clan-card-header">
+          <div class="clan-badge">🏰</div>
+          <div class="clan-name">Tomar Rajput</div>
+          <div class="clan-alt">तोमर • Paurava Branch • Founders of Delhi</div>
+        </div>
+        <div class="clan-body">
+          <div class="clan-meta">
+            <div class="meta-item">
+              <div class="meta-label">Founder Ancestor</div>
+              <div class="meta-value">Anangpal Tomar I</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">Lineage</div>
+              <div class="meta-value">Puru → Bharata → Kuru → Tomar</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">Capital</div>
+              <div class="meta-value">Delhi (Dhillika), Gwalior</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">Peak Period</div>
+              <div class="meta-value">736–1151 CE (Delhi Rule)</div>
+            </div>
+          </div>
+          <p class="clan-desc">The Tomars founded the city of Delhi — one of the most consequential acts in South Asian history. Descended from the Paurava line through the Bharata-Kuru succession, they established Dhillika (modern Delhi) in 736 CE under Anangpal I and ruled for over four centuries.</p>
+          <div class="clan-tags">
+            <span class="tag highlight">Paurava</span>
+            <span class="tag">Delhi Founders</span>
+            <span class="tag">Kuru Lineage</span>
+            <span class="tag">Gwalior</span>
+          </div>
+          <button class="clan-expand-btn" onclick="toggleExpand(this)">View Full Details ▾</button>
+          <div class="clan-expanded">
+            <div class="expanded-section">
+              <h4>Lineage Path</h4>
+              <ul>
+                <li>Puru → Bharata → Hastin → Kuru → Shantanu → Vichitravirya → Dhritarashtra/Pandu → ... → Parikshit → Janamejaya → ... → (gap) → Anangpal Tomar I (736 CE)</li>
+              </ul>
+            </div>
+            <div class="expanded-section">
+              <h4>Subclans</h4>
+              <ul>
+                <li>Delhi Tomars (ruling line)</li>
+                <li>Gwalior Tomars (Man Singh Tomar's line, 1375–1516 CE)</li>
+                <li>Dholpur branch</li>
+                <li>Narwar Tomars</li>
+              </ul>
+            </div>
+            <div class="expanded-section">
+              <h4>Notable Rulers</h4>
+              <div class="rulers-list">
+                <div class="ruler-item"><span class="ruler-name">Anangpal I</span><span class="ruler-period">736 CE (Delhi founder)</span></div>
+                <div class="ruler-item"><span class="ruler-name">Anangpal II</span><span class="ruler-period">1051–1081 CE</span></div>
+                <div class="ruler-item"><span class="ruler-name">Mahipal</span><span class="ruler-period">~1100 CE</span></div>
+                <div class="ruler-item"><span class="ruler-name">Man Singh Tomar</span><span class="ruler-period">1486–1516 CE (Gwalior)</span></div>
+              </div>
+            </div>
+            <div class="expanded-section">
+              <h4>Monuments</h4>
+              <ul>
+                <li>Lal Kot / Qila Rai Pithora (earliest Delhi fort, 736 CE)</li>
+                <li>Gwalior Fort — Man Mandir Palace (Man Singh, 1508 CE)</li>
+                <li>Sas-Bahu Temple Complex, Gwalior</li>
+                <li>Teli ka Mandir, Gwalior</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- HAIHAYA / CHEDIS -->
+      <div class="clan-card fade-in">
+        <div class="clan-card-header">
+          <div class="clan-badge">🔱</div>
+          <div class="clan-name">Haihaya Rajput</div>
+          <div class="clan-alt">हैहय • Yadava Branch • Five Haihaya Clans</div>
+        </div>
+        <div class="clan-body">
+          <div class="clan-meta">
+            <div class="meta-item">
+              <div class="meta-label">Founder Ancestor</div>
+              <div class="meta-value">Haihaya (son of Shashabindu)</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">Lineage</div>
+              <div class="meta-value">Yadu → Shashabindu → Haihaya</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">Capital</div>
+              <div class="meta-value">Mahishmati (on Narmada)</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">Peak Period</div>
+              <div class="meta-value">Puranic era → 10th century CE</div>
+            </div>
+          </div>
+          <p class="clan-desc">The Haihayas were five great clans descended from Haihaya — Vrishni, Bhoja, Avanti, Tundikera, and Sharyata. Their most famous king was <strong>Kartavirya Arjuna (Sahasrabahu)</strong>, who had a thousand arms and was said to have defeated even Ravana. Their conflict with Parashurama defined an era.</p>
+          <div class="clan-tags">
+            <span class="tag highlight">Yaduvanshi</span>
+            <span class="tag">Mahishmati</span>
+            <span class="tag">Sahasrabahu</span>
+            <span class="tag">Narmada Kingdom</span>
+          </div>
+          <button class="clan-expand-btn" onclick="toggleExpand(this)">View Full Details ▾</button>
+          <div class="clan-expanded">
+            <div class="expanded-section">
+              <h4>Five Haihaya Clans (Vishnu Purana 4.11)</h4>
+              <ul>
+                <li><strong>Vrishni</strong> — The clan of Krishna's ancestors</li>
+                <li><strong>Bhoja</strong> — Ruled Mrittikavati; Kamsa's lineage</li>
+                <li><strong>Avanti</strong> — Ruled Ujjain (ancient Avantika)</li>
+                <li><strong>Tundikera</strong> — Lesser known branch</li>
+                <li><strong>Sharyata</strong> — Ancient maritime traders</li>
+              </ul>
+            </div>
+            <div class="expanded-section">
+              <h4>Notable Rulers</h4>
+              <div class="rulers-list">
+                <div class="ruler-item"><span class="ruler-name">Kartavirya Arjuna (Sahasrabahu)</span><span class="ruler-period">Puranic era</span></div>
+                <div class="ruler-item"><span class="ruler-name">Shashabindu</span><span class="ruler-period">Ancestor king</span></div>
+                <div class="ruler-item"><span class="ruler-name">Madhu</span><span class="ruler-period">Founder of Madhupuri/Mathura</span></div>
+              </div>
+            </div>
+            <div class="expanded-section">
+              <h4>Scriptural References</h4>
+              <ul>
+                <li>Mahābhārata Sabhā Parva — battle with Parashurama</li>
+                <li>Vishnu Purana 4.11 — Five Haihaya branches</li>
+                <li>Bhāgavata Purāṇa 9.23 — Haihaya genealogy</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KACHWAHA (Chandravanshi branch) -->
+      <div class="clan-card fade-in">
+        <div class="clan-card-header">
+          <div class="clan-badge">🌟</div>
+          <div class="clan-name">Kachwaha Rajput</div>
+          <div class="clan-alt">कछवाहा • Disputed Suryavanshi / Chandravanshi • Amber & Jaipur</div>
+        </div>
+        <div class="clan-body">
+          <div class="clan-meta">
+            <div class="meta-item">
+              <div class="meta-label">Founder Ancestor</div>
+              <div class="meta-value">Dulha Rai / Saud (11th century)</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">Lineage</div>
+              <div class="meta-value">Claimed Rama → Kusha branch</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">Capital</div>
+              <div class="meta-value">Amber (old), Jaipur (1727 CE)</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">Peak Period</div>
+              <div class="meta-value">11th–20th century CE</div>
+            </div>
+          </div>
+          <p class="clan-desc">Though primarily classified Suryavanshi by later tradition, historical chronicles and certain Puranic interpretations place the Kachwahas within the broader Chandravanshi-Suryavanshi overlap. They became the most powerful Rajput ally of the Mughals under Man Singh I and built the Pink City of Jaipur.</p>
+          <div class="clan-tags">
+            <span class="tag">Amber Rulers</span>
+            <span class="tag">Jaipur</span>
+            <span class="tag">Mughal Allies</span>
+            <span class="tag">Rajasthan</span>
+          </div>
+          <button class="clan-expand-btn" onclick="toggleExpand(this)">View Full Details ▾</button>
+          <div class="clan-expanded">
+            <div class="expanded-section">
+              <h4>Notable Rulers</h4>
+              <div class="rulers-list">
+                <div class="ruler-item"><span class="ruler-name">Dulha Rai</span><span class="ruler-period">c. 1036 CE (Amber founder)</span></div>
+                <div class="ruler-item"><span class="ruler-name">Bharmal (Bihari Mal)</span><span class="ruler-period">1548–1574 CE</span></div>
+                <div class="ruler-item"><span class="ruler-name">Raja Man Singh I</span><span class="ruler-period">1589–1614 CE</span></div>
+                <div class="ruler-item"><span class="ruler-name">Mirza Raja Jai Singh I</span><span class="ruler-period">1621–1667 CE</span></div>
+                <div class="ruler-item"><span class="ruler-name">Sawai Jai Singh II</span><span class="ruler-period">1699–1743 CE (Jaipur founder)</span></div>
+              </div>
+            </div>
+            <div class="expanded-section">
+              <h4>Monuments</h4>
+              <ul>
+                <li>Amber Fort (Man Singh Palace, 1592 CE)</li>
+                <li>City Palace, Jaipur</li>
+                <li>Jantar Mantar (Jai Singh II's astronomical observatories)</li>
+                <li>Hawa Mahal, Jaipur</li>
+                <li>Jaigarh Fort</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- YADUVANSHI (Mathura) -->
+      <div class="clan-card fade-in">
+        <div class="clan-card-header">
+          <div class="clan-badge">🦚</div>
+          <div class="clan-name">Yaduvanshi (Mathura)</div>
+          <div class="clan-alt">यदुवंशी • Krishna's own clan • Vrishni branch</div>
+        </div>
+        <div class="clan-body">
+          <div class="clan-meta">
+            <div class="meta-item">
+              <div class="meta-label">Founder Ancestor</div>
+              <div class="meta-value">Yadu (son of Yayati)</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">Lineage</div>
+              <div class="meta-value">Yadu → Kroshthu → Vrishni</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">Capital</div>
+              <div class="meta-value">Mathura, then Dvaraka</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">Peak Period</div>
+              <div class="meta-value">Puranic → c. 3000 BCE (trad.)</div>
+            </div>
+          </div>
+          <p class="clan-desc">The Vrishni-Yaduvanshis were the clan of Lord Krishna himself. The Bhāgavata Purāṇa devotes entire cantos to this lineage. After the Mahabharata War and the destruction of the Yadava clan at Prabhasa, Vajranabha (Krishna's grandson) revived the line at Mathura.</p>
+          <div class="clan-tags">
+            <span class="tag highlight">Krishna's Clan</span>
+            <span class="tag">Vrishni</span>
+            <span class="tag">Dvaraka</span>
+            <span class="tag">Most Sacred</span>
+          </div>
+          <button class="clan-expand-btn" onclick="toggleExpand(this)">View Full Details ▾</button>
+          <div class="clan-expanded">
+            <div class="expanded-section">
+              <h4>Vrishni Succession</h4>
+              <ul>
+                <li>Yadu → Kroshthu → Vrishni → Shini → Satyaka → Yudhajit → Shini II → Satyaki (warrior in Kurukshetra)</li>
+                <li>Parallel Shurasena line: Shurasena → Vasudeva → Sri Krishna</li>
+                <li>After Kurukshetra: Vajranabha (via Aniruddha) restored Mathura rule</li>
+              </ul>
+            </div>
+            <div class="expanded-section">
+              <h4>Scriptural References</h4>
+              <ul>
+                <li>Bhāgavata Purāṇa Canto 9, Ch 24 — full Yadu genealogy</li>
+                <li>Harivamsha Parva — dedicated to Yadu genealogy and Krishna</li>
+                <li>Vishnu Purana 4.12–14 — Vrishni and Andhaka branches</li>
+                <li>Mahābhārata, Mausala Parva — destruction of Yadavas</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CHANDELA -->
+      <div class="clan-card fade-in">
+        <div class="clan-card-header">
+          <div class="clan-badge">🌺</div>
+          <div class="clan-name">Chandela Rajput</div>
+          <div class="clan-alt">चन्देल • Moon-born • Builders of Khajuraho</div>
+        </div>
+        <div class="clan-body">
+          <div class="clan-meta">
+            <div class="meta-item">
+              <div class="meta-label">Founder Ancestor</div>
+              <div class="meta-value">Chandravarman / Nannuka</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">Lineage</div>
+              <div class="meta-value">Chandra (Moon) directly</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">Capital</div>
+              <div class="meta-value">Khajuraho, Kalinjar, Ajaygarh</div>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">Peak Period</div>
+              <div class="meta-value">831–1315 CE</div>
+            </div>
+          </div>
+          <p class="clan-desc">The Chandelas claimed direct descent from the Moon-god through a legendary ancestor Chandravarman. Their dynasty produced the magnificent Khajuraho temple complex — 85 temples of breathtaking sculptural artistry, 25 of which survive today as UNESCO World Heritage Sites.</p>
+          <div class="clan-tags">
+            <span class="tag highlight">Moon-Born</span>
+            <span class="tag">Khajuraho</span>
+            <span class="tag">Bundelkhand</span>
+            <span class="tag">UNESCO Heritage</span>
+          </div>
+          <button class="clan-expand-btn" onclick="toggleExpand(this)">View Full Details ▾</button>
+          <div class="clan-expanded">
+            <div class="expanded-section">
+              <h4>Notable Rulers</h4>
+              <div class="rulers-list">
+                <div class="ruler-item"><span class="ruler-name">Nannuka</span><span class="ruler-period">831 CE (Founder)</span></div>
+                <div class="ruler-item"><span class="ruler-name">Dhanga</span><span class="ruler-period">950–1002 CE (Greatest)</span></div>
+                <div class="ruler-item"><span class="ruler-name">Vidyadhara</span><span class="ruler-period">1003–1035 CE</span></div>
+                <div class="ruler-item"><span class="ruler-name">Kirtivarman</span><span class="ruler-period">1060–1100 CE</span></div>
+              </div>
+            </div>
+            <div class="expanded-section">
+              <h4>Monuments</h4>
+              <ul>
+                <li>Khajuraho Temple Complex — 25 surviving temples (UNESCO)</li>
+                <li>Kandariya Mahadeva Temple — tallest (30m), c. 1050 CE</li>
+                <li>Kalinjar Fort</li>
+                <li>Ajaygarh Fort</li>
+                <li>Devi Jagdamba Temple</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /clan-grid -->
+  </div>
+</section>
+
+<!-- TIMELINE SECTION -->
+<section class="timeline-bg" id="timeline">
+  <div class="section-container">
+    <div class="section-header fade-in">
+      <p class="section-eyebrow">Through the Ages</p>
+      <h2 class="section-title">Chandravanshi Timeline</h2>
+      <p class="section-subtitle">From the dawn of creation to the twilight of princely states</p>
+    </div>
+    <div class="timeline-wrapper">
+      <div class="timeline-track"></div>
+
+      <div class="timeline-item fade-in">
+        <div class="tl-spacer"></div>
+        <div class="timeline-dot">
+          <div class="dot major"></div>
+          <div class="tl-period">Mythological</div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-era">Divine Origin</div>
+          <div class="tl-event">Soma Begets Budha — Birth of the Lunar Line</div>
+          <div class="tl-desc">Atri's meditation produces Soma (Moon). Soma abducts Tārā, and Budha is born. Budha marries Ilā (Manu's daughter), and Pururava — the first earthly Chandravanshi king — is born at Pratishthāna (Allahabad).</div>
+        </div>
+      </div>
+
+      <div class="timeline-item fade-in">
+        <div class="tl-content">
+          <div class="tl-era">Puranic Age</div>
+          <div class="tl-event">Yayati & The Great Division</div>
+          <div class="tl-desc">Emperor Yayati curses his eldest son Yadu for refusing to exchange youth. Puru gives his youth and becomes heir. From Yadu springs the Yaduvansha (including future Krishna lineage). From Puru springs the Pauravas (Bharatas, Kurus, eventually Tomars).</div>
+        </div>
+        <div class="timeline-dot">
+          <div class="dot major"></div>
+          <div class="tl-period">Puranic</div>
+        </div>
+        <div class="tl-spacer"></div>
+      </div>
+
+      <div class="timeline-item fade-in">
+        <div class="tl-spacer"></div>
+        <div class="timeline-dot">
+          <div class="dot major"></div>
+          <div class="tl-period">~3100 BCE (trad.)</div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-era">Mahabharata Era</div>
+          <div class="tl-event">Kurukshetra War — End of the Yadava Age</div>
+          <div class="tl-desc">Krishna, the supreme Yadava, guides the Pandavas (Paurava line). After the war, the Yadava clan self-destructs at Prabhasa (Mausala Parva). Vajranabha revives the Yadava lineage at Mathura. Parikshit, grandson of Arjuna (Paurava), rules Hastinapura.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item fade-in">
+        <div class="tl-content">
+          <div class="tl-era">Historical — Early Medieval</div>
+          <div class="tl-event">Haihaya Kingdoms & Narmada Civilizations</div>
+          <div class="tl-desc">The Haihaya branches — Avanti, Vrishni, Bhoja — rule in central India. Ujjain (Avantika) becomes a great center. The Nanda and Maurya empires rise from this matrix. Chandravanshi traditions merge with Buddhist era histories.</div>
+        </div>
+        <div class="timeline-dot">
+          <div class="dot"></div>
+          <div class="tl-period">600–300 BCE</div>
+        </div>
+        <div class="tl-spacer"></div>
+      </div>
+
+      <div class="timeline-item fade-in">
+        <div class="tl-spacer"></div>
+        <div class="timeline-dot">
+          <div class="dot"></div>
+          <div class="tl-period">736 CE</div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-era">Early Rajput Period</div>
+          <div class="tl-event">Tomars Found Delhi — Dhillika Established</div>
+          <div class="tl-desc">Anangpal Tomar I founds Dhillika (Delhi) in 736 CE. The Iron Pillar of Delhi (from Gupta times) is incorporated into Tomar capital. This marks the beginning of Delhi's continuous history as a major city, eventually becoming the subcontinent's political capital.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item fade-in">
+        <div class="tl-content">
+          <div class="tl-era">Imperial Rajput Period</div>
+          <div class="tl-event">Chandela Golden Age — Khajuraho Temple Complex</div>
+          <div class="tl-desc">King Dhanga (950–1002 CE) presides over the Chandela golden age. Khajuraho's 85 temples are built over 200 years. Vidyadhara repels both Mahmud of Ghazni and Sultan Masud. The Chandelas control Bundelkhand, Kalinjar, and much of central India.</div>
+        </div>
+        <div class="timeline-dot">
+          <div class="dot major"></div>
+          <div class="tl-period">950–1050 CE</div>
+        </div>
+        <div class="tl-spacer"></div>
+      </div>
+
+      <div class="timeline-item fade-in">
+        <div class="tl-spacer"></div>
+        <div class="timeline-dot">
+          <div class="dot major"></div>
+          <div class="tl-period">1156 CE</div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-era">Desert Kingdoms</div>
+          <div class="tl-event">Rawal Jaisal Founds Jaisalmer Fort City</div>
+          <div class="tl-desc">Bhati Rajput king Rawal Jaisal founds Jaisalmer on Trikuta Hill, creating the "Golden City" in the Thar Desert. This becomes one of the most impregnable Rajput fortresses, withstanding multiple Mughal sieges. The Patwon ki Haveli and other monuments mark cultural zenith.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item fade-in">
+        <div class="tl-content">
+          <div class="tl-era">Jadeja Supremacy</div>
+          <div class="tl-event">Jadeja Dynasty Establishes Kutch & Jamnagar</div>
+          <div class="tl-desc">Jam Lakhaji establishes Jadeja Rajput supremacy in Kutch (c. 1147 CE). Later, Jam Rawal founds Jamnagar (1540 CE) — the "Saurashtra Gem." Jadeja Rajputs rule Kutch continuously for over 700 years until Indian independence in 1947 — the longest continuous Rajput dynasty.</div>
+        </div>
+        <div class="timeline-dot">
+          <div class="dot major"></div>
+          <div class="tl-period">1147–1947 CE</div>
+        </div>
+        <div class="tl-spacer"></div>
+      </div>
+
+      <div class="timeline-item fade-in">
+        <div class="tl-spacer"></div>
+        <div class="timeline-dot">
+          <div class="dot"></div>
+          <div class="tl-period">1486–1516 CE</div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-era">Tomar Renaissance</div>
+          <div class="tl-event">Man Singh Tomar — The Gwalior Golden Age</div>
+          <div class="tl-desc">Man Singh Tomar (1486–1516 CE) builds the Man Mandir Palace in Gwalior Fort, a masterpiece of Rajput architecture. He patronizes music, composing the Dhrupad musical form with Baiju Bawra. Tansen, the greatest Indian classical musician, later flourishes in this tradition.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item fade-in">
+        <div class="tl-content">
+          <div class="tl-era">Colonial & Modern</div>
+          <div class="tl-event">Princely States Era & Integration into India</div>
+          <div class="tl-desc">Multiple Chandravanshi states — Jaisalmer, Kutch/Bhuj, Karauli, Gwalior — sign Instruments of Accession with the Indian Union (1947–48). The Jadeja Maharao of Kutch, Bhupendrasinghji, accedes in 1948. These royal families preserve their cultural heritage, temples, and genealogical traditions to this day.</div>
+        </div>
+        <div class="timeline-dot">
+          <div class="dot"></div>
+          <div class="tl-period">1947–1948 CE</div>
+        </div>
+        <div class="tl-spacer"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MOST INFLUENTIAL KINGS -->
+<section class="kings-bg" id="kings">
+  <div class="section-container">
+    <div class="section-header fade-in">
+      <p class="section-eyebrow">Hall of Glory</p>
+      <h2 class="section-title">Most Influential Chandravanshi Kings</h2>
+      <p class="section-subtitle">The monarchs whose reigns shaped civilizations</p>
+    </div>
+    <div class="kings-table-wrap fade-in">
+      <table class="kings-table">
+        <thead>
+          <tr>
+            <th style="width:50px">#</th>
+            <th>King / Emperor</th>
+            <th>Clan / Dynasty</th>
+            <th>Period</th>
+            <th>Capital</th>
+            <th>Greatest Achievement</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="rank-badge">1</span></td>
+            <td>Sri Krishna (Vasudeva Krishna)</td>
+            <td class="dynasty">Vrishni Yaduvanshi</td>
+            <td class="period">~3100 BCE (trad.)</td>
+            <td>Dvaraka</td>
+            <td>Delivered the Bhagavad Gita; guided Mahabharata war; established Dvaraka; revered as Purna Avatara of Vishnu</td>
+          </tr>
+          <tr>
+            <td><span class="rank-badge">2</span></td>
+            <td>Pururava</td>
+            <td class="dynasty">First Chandravanshi King</td>
+            <td class="period">Mythological</td>
+            <td>Pratishthāna</td>
+            <td>Founded the Chandravansha; established fire sacrifices; love story with Urvashi immortalized in Rigveda</td>
+          </tr>
+          <tr>
+            <td><span class="rank-badge">3</span></td>
+            <td>Kartavirya Arjuna (Sahasrabahu)</td>
+            <td class="dynasty">Haihaya — Chedi</td>
+            <td class="period">Puranic Era</td>
+            <td>Mahishmati</td>
+            <td>Thousand-armed emperor; defeated Ravana of Lanka; conquered all of Bharatavarsha; killed by Parashurama</td>
+          </tr>
+          <tr>
+            <td><span class="rank-badge">4</span></td>
+            <td>Dhanga (Raja Dhangadev)</td>
+            <td class="dynasty">Chandela</td>
+            <td class="period">950–1002 CE</td>
+            <td>Khajuraho</td>
+            <td>Presided over Khajuraho temple construction; defeated Mahmud of Ghazni's ally; died at 100+ by merging into Ganges at Prayag</td>
+          </tr>
+          <tr>
+            <td><span class="rank-badge">5</span></td>
+            <td>Vidyadhara</td>
+            <td class="dynasty">Chandela</td>
+            <td class="period">1003–1035 CE</td>
+            <td>Kalinjar</td>
+            <td>Repelled both Mahmud of Ghazni invasions; Chandela empire at largest extent; great patron of arts</td>
+          </tr>
+          <tr>
+            <td><span class="rank-badge">6</span></td>
+            <td>Anangpal II (Tomar)</td>
+            <td class="dynasty">Tomar</td>
+            <td class="period">1051–1081 CE</td>
+            <td>Delhi (Dhillika)</td>
+            <td>Expanded Delhi fortifications; installed the famous Anangtal baoli; his inscription (1052 CE) is earliest evidence of the name "Delhi"</td>
+          </tr>
+          <tr>
+            <td><span class="rank-badge">7</span></td>
+            <td>Man Singh Tomar</td>
+            <td class="dynasty">Tomar (Gwalior)</td>
+            <td class="period">1486–1516 CE</td>
+            <td>Gwalior</td>
+            <td>Built Man Mandir Palace; patron of Dhrupad classical music; his court included Baiju Bawra; Gwalior Fort declared "Pearl of the Forts"</td>
+          </tr>
+          <tr>
+            <td><span class="rank-badge">8</span></td>
+            <td>Rawal Jaisal</td>
+            <td class="dynasty">Bhati</td>
+            <td class="period">1156 CE</td>
+            <td>Jaisalmer</td>
+            <td>Founded Jaisalmer Fort-City on Trikuta Hill; established the golden trade city in Thar Desert; 12 generations of bhats memorize lineage</td>
+          </tr>
+          <tr>
+            <td><span class="rank-badge">9</span></td>
+            <td>Jam Rawal</td>
+            <td class="dynasty">Jadeja</td>
+            <td class="period">c. 1520 CE</td>
+            <td>Jamnagar</td>
+            <td>Founded Jamnagar (Nawanagar); established maritime power in Kathiawar; the state later produced Ranji (K.S. Ranjitsinhji), cricketing legend</td>
+          </tr>
+          <tr>
+            <td><span class="rank-badge">10</span></td>
+            <td>Nahusha</td>
+            <td class="dynasty">Chandravanshi</td>
+            <td class="period">Puranic</td>
+            <td>Pratishthāna</td>
+            <td>So virtuous he was appointed king of Devas (heaven); fell due to pride; story immortalized in Mahābhārata's Vana Parva (serpent dialogue)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- LESSER KNOWN BRANCHES -->
+<section style="background:var(--midnight);border-top:1px solid var(--border)">
+  <div class="section-container">
+    <div class="section-header fade-in">
+      <p class="section-eyebrow">Hidden Histories</p>
+      <h2 class="section-title">Lesser-Known Chandravanshi Branches</h2>
+      <p class="section-subtitle">Clans that shaped regions but escaped the grand chronicles</p>
+    </div>
+    <div class="lesser-grid">
+      <div class="lesser-card fade-in">
+        <div class="lesser-name">Chudasama Rajput</div>
+        <div class="lesser-aka">Also: Chudasama • Sorath branch of Jadeja</div>
+        <div class="lesser-desc">Ruled Saurashtra (Sorath/Junagadh) from 875–1472 CE. Their king Khenghar II is celebrated in folk ballads. Claimed Yaduvanshi descent. Famous for the battle of Ghumli and patronage of Girnar inscriptions. Often overlooked in mainstream Rajput histories.</div>
+      </div>
+      <div class="lesser-card fade-in">
+        <div class="lesser-name">Andhaka (Yadava clan)</div>
+        <div class="lesser-aka">One of the 18 Yadava ganas</div>
+        <div class="lesser-desc">The Andhakas were a closely allied Yadava clan mentioned extensively in the Harivamsha and Bhāgavata Purāṇa. They ruled alongside the Vrishnis in the Mathura-Dvaraka corridor. Ugrasena (Kamsa's father) was Andhaka. Often conflated with Vrishnis but genealogically distinct.</div>
+      </div>
+      <div class="lesser-card fade-in">
+        <div class="lesser-name">Bhoja Rajput (Yadava)</div>
+        <div class="lesser-aka">Bhoja — one of Five Haihaya branches</div>
+        <div class="lesser-desc">The Bhojas ruled Mrittikavati and later Vidarbha. Kamsa's lineage is traced to Bhoja-Haihaya. They appear frequently in the Mahābhārata as powerful allies/enemies of Krishna. A medieval Bhoja dynasty of Malwa (though Paramara, not Chandravanshi) shares the name, causing confusion in chronicles.</div>
+      </div>
+      <div class="lesser-card fade-in">
+        <div class="lesser-name">Satvata (Yadava)</div>
+        <div class="lesser-aka">Satvata — progenitor of Bhagavata tradition</div>
+        <div class="lesser-desc">Satvata was a son of Yadu whose descendants became the founders of the Pāñcharātra Vaishnava tradition — the oldest organized Bhakti sect. The Satvata Samhita is named after them. Their religious contribution outlasted their political power by millennia. Present in Gujarat and Madhya Pradesh.</div>
+      </div>
+      <div class="lesser-card fade-in">
+        <div class="lesser-name">Devabhuti / Shunga remnants</div>
+        <div class="lesser-aka">Post-Maurya Chandravanshi claimants</div>
+        <div class="lesser-desc">Several post-Maurya dynasties claimed Chandravanshi descent to legitimize their rule. The Shungas claimed Brahmin-Kshatriya composite identity. Various copper plate inscriptions (Gupta era) trace local chieftains to "Soma-vamsha" to claim legitimacy in the absence of Suryavanshi purity claims.</div>
+      </div>
+      <div class="lesser-card fade-in">
+        <div class="lesser-name">Pallavas (disputed claim)</div>
+        <div class="lesser-aka">South Indian dynasty — Chandravanshi claim debated</div>
+        <div class="lesser-desc">Some Pallava copper plates claim descent from the Yadava-Bharadvaja line. The Simhavishnu and Mahendravarman inscriptions (6th–7th century CE) use Chandravanshi genealogical tropes. While most scholars prefer Brahmin or Naga origin, the Chandravanshi claim reflects the pan-Indian prestige of the lunar dynasty.</div>
+      </div>
+      <div class="lesser-card fade-in">
+        <div class="lesser-name">Rao Bhungi's Bhati Line</div>
+        <div class="lesser-aka">Lesser Bhati branches of Sindh</div>
+        <div class="lesser-desc">Before the establishment of Jaisalmer, the Bhati Rajputs ruled in Sindh and Multan. Rao Bhungi established the "Bhungi" sub-branch that dominated parts of upper Sindh. These Bhatis later migrated with the Muslim invasions and formed distinct sub-identities in Pakistan's Cholistan desert.</div>
+      </div>
+      <div class="lesser-card fade-in">
+        <div class="lesser-name">Hala (Yadava clan)</div>
+        <div class="lesser-aka">Son of Balarama — Halavayudha lineage</div>
+        <div class="lesser-desc">Descendants of Balarama's Hala weapon mythology. A sub-clan of Yadavas who claimed descent from Balarama (Sankarshana). They preserved agricultural traditions linked to Balarama's plough (hala). Mentioned in Harivamsha as a distinct Yadava branch in Gujarat coastal regions.</div>
+      </div>
+      <div class="lesser-card fade-in">
+        <div class="lesser-name">Puru-Bharata (Lunar Bharata line)</div>
+        <div class="lesser-aka">Pre-Tomar Paurava rulers</div>
+        <div class="lesser-desc">Between the Kurukshetra war and the rise of Tomars (736 CE) lies ~3000 years of Paurava kings mentioned in Puranas. The Puranic king lists (Vishnu Purana 4.20–21) name 30+ Paurava kings ruling at Hastinapura and later Kaushambi. These represent the historical gap between Puranic and Rajput-era records.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON CARDS -->
+<section style="background:var(--panel);border-top:1px solid var(--border)">
+  <div class="section-container">
+    <div class="section-header fade-in">
+      <p class="section-eyebrow">Dynastic Analysis</p>
+      <h2 class="section-title">Clan Comparison</h2>
+      <p class="section-subtitle">Relative power, territorial reach, and historical significance</p>
+    </div>
+    <div class="compare-grid">
+      <div class="compare-card fade-in">
+        <div class="compare-header">
+          <div><div class="compare-clan">Bhati Rajput</div><div class="compare-branch">Yaduvanshi — Jaisalmer</div></div>
+          <div class="compare-power"><span class="power-label">Influence</span><span class="power-stars">★★★★☆</span></div>
+        </div>
+        <div class="compare-body">
+          <div class="compare-stat"><span class="compare-stat-label">Duration of Rule</span><span class="compare-stat-val">~1200 years (7th–19th c.)</span></div>
+          <div class="compare-stat"><span class="compare-stat-label">Max Territory</span><span class="compare-stat-val">Thar Desert, W. Rajasthan</span></div>
+          <div class="compare-stat"><span class="compare-stat-label">Key Strength</span><span class="compare-stat-val">Desert warfare, trade control</span></div>
+          <div class="compare-bar-wrap"><div class="compare-bar-label"><span>Military Power</span><span>75%</span></div><div class="compare-bar"><div class="compare-bar-fill" style="width:75%"></div></div></div>
+          <div class="compare-bar-wrap"><div class="compare-bar-label"><span>Territorial Extent</span><span>55%</span></div><div class="compare-bar"><div class="compare-bar-fill" style="width:55%"></div></div></div>
+          <div class="compare-bar-wrap"><div class="compare-bar-label"><span>Cultural Legacy</span><span>90%</span></div><div class="compare-bar"><div class="compare-bar-fill" style="width:90%"></div></div></div>
+        </div>
+      </div>
+
+      <div class="compare-card fade-in">
+        <div class="compare-header">
+          <div><div class="compare-clan">Jadeja Rajput</div><div class="compare-branch">Yaduvanshi — Kutch</div></div>
+          <div class="compare-power"><span class="power-label">Influence</span><span class="power-stars">★★★★★</span></div>
+        </div>
+        <div class="compare-body">
+          <div class="compare-stat"><span class="compare-stat-label">Duration of Rule</span><span class="compare-stat-val">~800 years (c.1147–1947)</span></div>
+          <div class="compare-stat"><span class="compare-stat-label">Max Territory</span><span class="compare-stat-val">All of Kutch + Kathiawar</span></div>
+          <div class="compare-stat"><span class="compare-stat-label">Key Strength</span><span class="compare-stat-val">Naval power, longevity</span></div>
+          <div class="compare-bar-wrap"><div class="compare-bar-label"><span>Military Power</span><span>80%</span></div><div class="compare-bar"><div class="compare-bar-fill" style="width:80%"></div></div></div>
+          <div class="compare-bar-wrap"><div class="compare-bar-label"><span>Territorial Extent</span><span>70%</span></div><div class="compare-bar"><div class="compare-bar-fill" style="width:70%"></div></div></div>
+          <div class="compare-bar-wrap"><div class="compare-bar-label"><span>Cultural Legacy</span><span>85%</span></div><div class="compare-bar"><div class="compare-bar-fill" style="width:85%"></div></div></div>
+        </div>
+      </div>
+
+      <div class="compare-card fade-in">
+        <div class="compare-header">
+          <div><div class="compare-clan">Chandela</div><div class="compare-branch">Moon-Born — Bundelkhand</div></div>
+          <div class="compare-power"><span class="power-label">Influence</span><span class="power-stars">★★★★★</span></div>
+        </div>
+        <div class="compare-body">
+          <div class="compare-stat"><span class="compare-stat-label">Duration of Rule</span><span class="compare-stat-val">~500 years (831–1315 CE)</span></div>
+          <div class="compare-stat"><span class="compare-stat-label">Max Territory</span><span class="compare-stat-val">Bundelkhand + C. India</span></div>
+          <div class="compare-stat"><span class="compare-stat-label">Key Strength</span><span class="compare-stat-val">Temple architecture, arts</span></div>
+          <div class="compare-bar-wrap"><div class="compare-bar-label"><span>Military Power</span><span>85%</span></div><div class="compare-bar"><div class="compare-bar-fill" style="width:85%"></div></div></div>
+          <div class="compare-bar-wrap"><div class="compare-bar-label"><span>Territorial Extent</span><span>75%</span></div><div class="compare-bar"><div class="compare-bar-fill" style="width:75%"></div></div></div>
+          <div class="compare-bar-wrap"><div class="compare-bar-label"><span>Cultural Legacy</span><span>100%</span></div><div class="compare-bar"><div class="compare-bar-fill" style="width:100%"></div></div></div>
+        </div>
+      </div>
+
+      <div class="compare-card fade-in">
+        <div class="compare-header">
+          <div><div class="compare-clan">Tomar</div><div class="compare-branch">Paurava — Delhi & Gwalior</div></div>
+          <div class="compare-power"><span class="power-label">Influence</span><span class="power-stars">★★★★★</span></div>
+        </div>
+        <div class="compare-body">
+          <div class="compare-stat"><span class="compare-stat-label">Duration of Rule</span><span class="compare-stat-val">736–1151 CE (Delhi)</span></div>
+          <div class="compare-stat"><span class="compare-stat-label">Max Territory</span><span class="compare-stat-val">Delhi, Gwalior, Haryana</span></div>
+          <div class="compare-stat"><span class="compare-stat-label">Key Strength</span><span class="compare-stat-val">City-founding, music</span></div>
+          <div class="compare-bar-wrap"><div class="compare-bar-label"><span>Military Power</span><span>80%</span></div><div class="compare-bar"><div class="compare-bar-fill" style="width:80%"></div></div></div>
+          <div class="compare-bar-wrap"><div class="compare-bar-label"><span>Territorial Extent</span><span>65%</span></div><div class="compare-bar"><div class="compare-bar-fill" style="width:65%"></div></div></div>
+          <div class="compare-bar-wrap"><div class="compare-bar-label"><span>Cultural Legacy</span><span>95%</span></div><div class="compare-bar"><div class="compare-bar-fill" style="width:95%"></div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARCHITECTURE -->
+<section class="arch-bg" id="architecture">
+  <div class="section-container">
+    <div class="section-header fade-in">
+      <p class="section-eyebrow">Stone & Spirit</p>
+      <h2 class="section-title">Chandravanshi Architecture</h2>
+      <p class="section-subtitle">Forts, temples, and palaces — the eternal legacy cast in stone</p>
+    </div>
+    <div class="arch-grid">
+      <div class="arch-card fade-in">
+        <div class="arch-image">🏯</div>
+        <div class="arch-info">
+          <div class="arch-monument">Jaisalmer Fort (Sonar Quila)</div>
+          <div class="arch-location">📍 Jaisalmer, Rajasthan</div>
+          <div class="arch-built">Built: 1156 CE by Rawal Jaisal (Bhati Rajput)</div>
+          <div class="arch-desc">The "Golden Fort" — a UNESCO World Heritage Site. Built from yellow sandstone, it glows golden at sunset. One of the few living forts in the world, with ~3,000 residents. Contains Jain temples, palaces, and wells. Survived three Saka (jauhar) episodes.</div>
+        </div>
+      </div>
+      <div class="arch-card fade-in">
+        <div class="arch-image">🛕</div>
+        <div class="arch-info">
+          <div class="arch-monument">Kandariya Mahadeva Temple</div>
+          <div class="arch-location">📍 Khajuraho, Madhya Pradesh</div>
+          <div class="arch-built">Built: c. 1050 CE by Chandela Rajputs</div>
+          <div class="arch-desc">The tallest and most ornate Khajuraho temple — 30.5m high, with 872 sculptures covering its exterior. Dedicated to Shiva. It represents the zenith of Nagara-style temple architecture. UNESCO World Heritage Site since 1986.</div>
+        </div>
+      </div>
+      <div class="arch-card fade-in">
+        <div class="arch-image">🏰</div>
+        <div class="arch-info">
+          <div class="arch-monument">Gwalior Fort (Man Mandir Palace)</div>
+          <div class="arch-location">📍 Gwalior, Madhya Pradesh</div>
+          <div class="arch-built">Built: 1508 CE by Man Singh Tomar</div>
+          <div class="arch-desc">Described by the first Mughal emperor Babur as "the pearl amongst the fortresses of India." The Man Mandir Palace features extraordinary blue-tiled decorations, ornate jharokas, and intricate stone lattice work — a fusion of Hindu and early Mughal aesthetic.</div>
+        </div>
+      </div>
+      <div class="arch-card fade-in">
+        <div class="arch-image">🌊</div>
+        <div class="arch-info">
+          <div class="arch-monument">Aina Mahal (Hall of Mirrors)</div>
+          <div class="arch-location">📍 Bhuj, Kutch, Gujarat</div>
+          <div class="arch-built">Built: 18th century CE by Rao Lakhpatji (Jadeja)</div>
+          <div class="arch-desc">The "Palace of Mirrors" — a unique fusion of European Baroque and Indian aesthetics. Built by craftsman Ramsingh Malam after he trained in Europe. Its interior is encrusted with mirrors, gilded tiles, and Venetian glass. Partially damaged in the 2001 Kutch earthquake, now restored.</div>
+        </div>
+      </div>
+      <div class="arch-card fade-in">
+        <div class="arch-image">🗼</div>
+        <div class="arch-info">
+          <div class="arch-monument">Kalinjar Fort</div>
+          <div class="arch-location">📍 Banda district, Uttar Pradesh</div>
+          <div class="arch-built">Chandela Rajput stronghold, 9th–14th century CE</div>
+          <div class="arch-desc">One of the most impregnable forts in India, built on a plateau 700ft above the Vindhya ranges. The Chandelas held this against Ghaznavid and Ghaurid armies for centuries. Contains rock-cut temples and inscriptions of Chandela kings. Sher Shah Suri was mortally wounded besieging it (1545 CE).</div>
+        </div>
+      </div>
+      <div class="arch-card fade-in">
+        <div class="arch-image">🏛️</div>
+        <div class="arch-info">
+          <div class="arch-monument">Lakhpat Fort</div>
+          <div class="arch-location">📍 Kutch, Gujarat</div>
+          <div class="arch-built">Jadeja Rajput fortification, 18th century CE</div>
+          <div class="arch-desc">A walled city at the mouth of the Kori Creek — once a bustling port town with 10,000+ residents. The fort walls stretch 7km and contain Sikh Gurudwaras (Guru Nanak visited), Jain temples, and mosques. Abandoned after the 1819 earthquake but still hauntingly beautiful.</div>
+        </div>
+      </div>
+      <div class="arch-card fade-in">
+        <div class="arch-image">🌙</div>
+        <div class="arch-info">
+          <div class="arch-monument">Dvaraka (Dwarka) — Mythological Capital</div>
+          <div class="arch-location">📍 Dwarka, Gujarat</div>
+          <div class="arch-built">Founded by Krishna (Yaduvanshi) • Submerged c. 3100 BCE (trad.)</div>
+          <div class="arch-desc">The legendary island city of Krishna — built in a single night by Vishvakarma, the divine architect. Archaeological underwater excavations off Dwarka coast have revealed submerged structures dated to 7500–9000 years BP, sparking debate about the historical basis of Dvaraka mythology. The Dwarkadhish Temple (12th century CE) marks the site today.</div>
+        </div>
+      </div>
+      <div class="arch-card fade-in">
+        <div class="arch-image">⚔️</div>
+        <div class="arch-info">
+          <div class="arch-monument">Lal Kot / Qila Rai Pithora</div>
+          <div class="arch-location">📍 Mehrauli, Delhi</div>
+          <div class="arch-built">736 CE by Anangpal Tomar I</div>
+          <div class="arch-desc">The original Tomar fort that became the nucleus of Delhi. Anangpal I built Lal Kot (Red Fort — predating Mughal Lal Qila by 900 years). Anangpal II (1060 CE) expanded it to Qila Rai Pithora. The Iron Pillar of Chandragupta II stands nearby — the Tomars incorporated it as a trophy of legitimacy.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HIERARCHY TREE -->
+<section class="hierarchy-bg" id="hierarchy">
+  <div class="section-container">
+    <div class="section-header fade-in">
+      <p class="section-eyebrow">Full Genealogical Map</p>
+      <h2 class="section-title">Chandravanshi Clan Hierarchy</h2>
+      <p class="section-subtitle">The complete tree from Soma to historical Rajput clans</p>
+    </div>
+    <div class="hierarchy-tree fade-in" style="overflow-x:auto">
+      <div class="h-root">
+        <div class="h-name">☽ SOMA (CHANDRA) — The Moon God</div>
+        <div class="h-sub">Son of Rishi Atri • Lord of the Celestials</div>
+      </div>
+      <div class="h-connector-v"></div>
+      <div class="h-node" style="background:rgba(201,168,76,0.08);border-color:var(--gold-dim)">
+        <div class="h-name">BUDHA (Mercury) + ILĀ (Manu's daughter)</div>
+        <div class="h-sub">The Sacred Union</div>
+      </div>
+      <div class="h-connector-v"></div>
+      <div class="h-node">
+        <div class="h-name">PURURAVA → ĀYUS → NAHUSHA</div>
+        <div class="h-sub">First Earthly Kings</div>
+      </div>
+      <div class="h-connector-v"></div>
+      <div class="h-node" style="background:rgba(201,168,76,0.1);border-color:var(--gold);min-width:300px">
+        <div class="h-name">⬛ YAYATI — The Great Emperor</div>
+        <div class="h-sub">The Bifurcation Point of the Chandravansha</div>
+      </div>
+      <div style="height:30px;position:relative;width:100%;max-width:800px">
+        <div style="position:absolute;top:0;left:50%;width:2px;height:100%;background:var(--gold-dim);transform:translateX(-50%)"></div>
+        <div style="position:absolute;top:29px;left:calc(50% - 180px);width:360px;height:2px;background:linear-gradient(90deg,transparent,var(--gold-dim),var(--gold),var(--gold-dim),transparent)"></div>
+      </div>
+      <div style="display:flex;gap:4rem;justify-content:center;align-items:flex-start">
+        <div class="h-branch" style="align-items:center">
+          <div class="h-branch-v"></div>
+          <div class="h-node" style="min-width:220px;border-color:var(--gold-dim)">
+            <div class="h-name">YADU (Elder Son)</div>
+            <div class="h-sub">Cursed — lineage not consecrated kings</div>
+          </div>
+          <div class="h-branch-v"></div>
+          <div style="display:flex;flex-direction:column;gap:0.5rem;align-items:center">
+            <div class="h-sub-node"><div class="h-name">VRISHNI branch</div><div class="h-sub">Krishna, Balarama</div></div>
+            <div class="h-sub-node"><div class="h-name">BHOJA branch</div><div class="h-sub">Kamsa, Avanti</div></div>
+            <div class="h-sub-node"><div class="h-name">HAIHAYA branch</div><div class="h-sub">Sahasrabahu, Mahishmati</div></div>
+            <div class="h-sub-node"><div class="h-name">SATVATA branch</div><div class="h-sub">Bhagavata tradition</div></div>
+            <div class="h-sub-node"><div class="h-name">BHATI Rajput</div><div class="h-sub">Jaisalmer, Thar</div></div>
+            <div class="h-sub-node"><div class="h-name">JADEJA Rajput</div><div class="h-sub">Kutch, Jamnagar</div></div>
+            <div class="h-sub-node"><div class="h-name">JADON Rajput</div><div class="h-sub">Karauli, Mathura</div></div>
+            <div class="h-sub-node"><div class="h-name">CHUDASAMA</div><div class="h-sub">Sorath, Junagadh</div></div>
+          </div>
+        </div>
+        <div class="h-branch" style="align-items:center">
+          <div class="h-branch-v"></div>
+          <div class="h-node" style="min-width:220px;border-color:var(--gold-dim)">
+            <div class="h-name">PURU (Youngest Son)</div>
+            <div class="h-sub">Gave youth to Yayati — blessed heir</div>
+          </div>
+          <div class="h-branch-v"></div>
+          <div style="display:flex;flex-direction:column;gap:0.5rem;align-items:center">
+            <div class="h-sub-node"><div class="h-name">BHARATA</div><div class="h-sub">Gave name to Bhārata (India)</div></div>
+            <div class="h-sub-node"><div class="h-name">HASTIN</div><div class="h-sub">Founded Hastinapura</div></div>
+            <div class="h-sub-node"><div class="h-name">KURU</div><div class="h-sub">Kurukshetra — Kaurava/Pandava</div></div>
+            <div class="h-sub-node"><div class="h-name">SHANTANU → BHISHMA</div><div class="h-sub">Mahabharata era</div></div>
+            <div class="h-sub-node"><div class="h-name">PARIKSHIT → JANAMEJAYA</div><div class="h-sub">Post-war Hastinapura</div></div>
+            <div class="h-sub-node"><div class="h-name">TOMAR Rajput</div><div class="h-sub">Delhi, Gwalior</div></div>
+            <div class="h-sub-node"><div class="h-name">CHANDELA Rajput</div><div class="h-sub">Khajuraho, Kalinjar</div></div>
+            <div class="h-sub-node"><div class="h-name">PANWAR / PARAMARA</div><div class="h-sub">Malwa branch</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCRIPTURES -->
+<section class="scriptures-bg" id="scriptures">
+  <div class="section-container">
+    <div class="section-header fade-in">
+      <p class="section-eyebrow">Textual Evidence</p>
+      <h2 class="section-title">Scriptural References</h2>
+      <p class="section-subtitle">The ancient texts that chronicle the Chandravanshi legacy</p>
+    </div>
+    <div class="scriptures-grid">
+      <div class="scripture-panel fade-in">
+        <div class="scripture-panel-header">
+          <div class="scripture-icon">📜</div>
+          <div>
+            <div class="scripture-panel-title">Mahābhārata</div>
+            <div class="scripture-panel-sub">Vyāsa • ~400 BCE – 400 CE (compiled)</div>
+          </div>
+        </div>
+        <div class="scripture-panel-body">
+          <div class="scripture-ref-item">
+            <div class="ref-canto">Ādi Parva 75–85</div>
+            <div class="ref-content">Complete genealogy from Soma to Yayati; the five sons' story; Yadu's curse</div>
+          </div>
+          <div class="scripture-ref-item">
+            <div class="ref-canto">Ādi Parva 94–95</div>
+            <div class="ref-content">Pururava-Urvashi love story; origin of the three sacred fires (Rigveda reference)</div>
+          </div>
+          <div class="scripture-ref-item">
+            <div class="ref-canto">Vana Parva 176–178</div>
+            <div class="ref-content">Nahusha becomes king of Devas; his fall due to insulting Agastya; Yudhishthira's dialogue with the Naga-Nahusha</div>
+          </div>
+          <div class="scripture-ref-item">
+            <div class="ref-canto">Sabhā Parva 38</div>
+            <div class="ref-content">Haihaya kingdom's tribute; Sahasrabahu's fame described by Narada</div>
+          </div>
+          <div class="scripture-ref-item">
+            <div class="ref-canto">Mausala Parva</div>
+            <div class="ref-content">Destruction of the Yadava clan at Prabhasa; submergence of Dvaraka; Krishna's departure</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="scripture-panel fade-in">
+        <div class="scripture-panel-header">
+          <div class="scripture-icon">🌺</div>
+          <div>
+            <div class="scripture-panel-title">Bhāgavata Purāṇa</div>
+            <div class="scripture-panel-sub">Srimad Bhagavatam • ~9th–10th century CE (final form)</div>
+          </div>
+        </div>
+        <div class="scripture-panel-body">
+          <div class="scripture-ref-item">
+            <div class="ref-canto">Canto 9, Ch 14</div>
+            <div class="ref-content">Birth of Budha from Soma and Tārā; Pururava's birth and story; Āyus and Nahusha lineage</div>
+          </div>
+          <div class="scripture-ref-item">
+            <div class="ref-canto">Canto 9, Ch 18–19</div>
+            <div class="ref-content">Yayati's story; Śarmiṣṭhā and Devayānī; Yadu and Puru branches; Yayati's curse</div>
+          </div>
+          <div class="scripture-ref-item">
+            <div class="ref-canto">Canto 9, Ch 23–24</div>
+            <div class="ref-content">Haihaya genealogy (5 branches); Sahasrabahu's feats; complete Yadu genealogy to Krishna</div>
+          </div>
+          <div class="scripture-ref-item">
+            <div class="ref-canto">Canto 10</div>
+            <div class="ref-content">Life of Krishna (Vrishni-Yadava); establishes Dvaraka; destroys 18 akshauhini armies in Kurukshetra</div>
+          </div>
+          <div class="scripture-ref-item">
+            <div class="ref-canto">Canto 11, Ch 31</div>
+            <div class="ref-content">Vajranabha (Krishna's grandson) revives Mathura rule; restores Krishna's images and worship</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="scripture-panel fade-in">
+        <div class="scripture-panel-header">
+          <div class="scripture-icon">📚</div>
+          <div>
+            <div class="scripture-panel-title">Vishnu Purāṇa</div>
+            <div class="scripture-panel-sub">~300–400 CE • Parāśara's composition</div>
+          </div>
+        </div>
+        <div class="scripture-panel-body">
+          <div class="scripture-ref-item">
+            <div class="ref-canto">Book IV, Ch 6</div>
+            <div class="ref-content">Soma-Budha-Pururava genealogy; Chandravansha's divine establishment</div>
+          </div>
+          <div class="scripture-ref-item">
+            <div class="ref-canto">Book IV, Ch 10–11</div>
+            <div class="ref-content">Yayati's five sons; Haihaya five branches (Vrishni, Bhoja, Avanti, Tundikera, Sharyata)</div>
+          </div>
+          <div class="scripture-ref-item">
+            <div class="ref-canto">Book IV, Ch 12–14</div>
+            <div class="ref-content">Vrishni and Andhaka clans; Shurasena line; Vasudeva; complete Yadava genealogy</div>
+          </div>
+          <div class="scripture-ref-item">
+            <div class="ref-canto">Book IV, Ch 19–21</div>
+            <div class="ref-content">Paurava succession from Puru to Janamejaya; 30+ kings of Hastinapura; Kaushambi transfer</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="scripture-panel fade-in">
+        <div class="scripture-panel-header">
+          <div class="scripture-icon">🌟</div>
+          <div>
+            <div class="scripture-panel-title">Harivamsha & Other Sources</div>
+            <div class="scripture-panel-sub">Harivamsha, Epigraphs, Bardic Chronicles</div>
+          </div>
+        </div>
+        <div class="scripture-panel-body">
+          <div class="scripture-ref-item">
+            <div class="ref-canto">Harivamsha Parva</div>
+            <div class="ref-content">Supplement to Mahābhārata dedicated entirely to Yadu genealogy and Krishna's biography; 118 chapters of detailed Yadava lineage</div>
+          </div>
+          <div class="scripture-ref-item">
+            <div class="ref-canto">Bardic Khyats</div>
+            <div class="ref-content">Charan bardic tradition of Rajasthan (Khyats of Nainsi, Bankidas) documents Bhati, Jadeja, and Jadon genealogies from 1000 CE onward</div>
+          </div>
+          <div class="scripture-ref-item">
+            <div class="ref-canto">Copper Plate Grants</div>
+            <div class="ref-content">Chandela copper plates (Khajuraho inscriptions, 10th–12th century CE) claim lunar descent; Jadeja copper plates at Bhuj Museum confirm Yadava lineage</div>
+          </div>
+          <div class="scripture-ref-item">
+            <div class="ref-canto">Col. Tod's Annals (1829)</div>
+            <div class="ref-content">James Tod's "Annals and Antiquities of Rajasthan" — first systematic western documentation of Chandravanshi Rajput genealogies, though with some mythologization</div>
+          </div>
+          <div class="scripture-ref-item">
+            <div class="ref-canto">ASI Archaeological Reports</div>
+            <div class="ref-content">Archaeological Survey of India reports on Gwalior, Khajuraho, Jaisalmer confirm historical chronology matching Puranic genealogies from ~8th century CE onward</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-moon">☽</div>
+  <div class="footer-title">CHANDRAVANSHA — The Eternal Lunar Dynasty</div>
+  <div class="footer-sub">चन्द्रात् वंश: सनातन: — From the Moon, an eternal lineage</div>
+  <div class="footer-divider"></div>
+  <div class="footer-credits">
+    <strong>Sources:</strong> Mahābhārata (Vyāsa), Bhāgavata Purāṇa (Śuka), Vishnu Purāṇa (Parāśara), Harivamsha, Matsya Purāṇa,<br>
+    Annals of Rajasthan (Col. James Tod, 1829), ASI Archaeological Reports, Bardic Khyats of Rajasthan (Nainsi, Bankidas),<br>
+    Epigraphical India, Jadeja Copper Plates (Bhuj), Chandela Inscriptions (Khajuraho), Gwalior Museum Inscriptions.<br><br>
+    <em>This portal presents both mythological tradition and historical scholarship. Dates before 700 CE are traditional/approximate.</em>
+  </div>
+</footer>
+
+<script>
+// Generate starfield
+(function(){
+  const sf = document.getElementById('starfield');
+  for(let i = 0; i < 200; i++){
+    const s = document.createElement('div');
+    s.className = 'star';
+    const size = Math.random() * 2.5 + 0.5;
+    s.style.cssText = `
+      width:${size}px; height:${size}px;
+      left:${Math.random()*100}%;
+      top:${Math.random()*100}%;
+      animation-duration:${Math.random()*4+2}s;
+      animation-delay:${Math.random()*5}s;
+      opacity:${Math.random()*0.7+0.1};
+    `;
+    sf.appendChild(s);
+  }
+})();
+
+// Intersection Observer for fade-in
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if(entry.isIntersecting){
+      setTimeout(() => entry.target.classList.add('visible'), i * 60);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Toggle clan card expansion
+function toggleExpand(btn){
+  const expanded = btn.parentElement.nextElementSibling || btn.nextElementSibling;
+  const card = btn.closest('.clan-card');
+  // Find expanded div
+  let exp = card.querySelector('.clan-expanded');
+  if(exp){
+    exp.classList.toggle('open');
+    btn.textContent = exp.classList.contains('open') ? 'Collapse ▲' : 'View Full Details ▾';
+  }
+}
+
+// Smooth nav active state
+window.addEventListener('scroll', () => {
+  const sections = document.querySelectorAll('section[id]');
+  const links = document.querySelectorAll('.nav-links a');
+  let current = '';
+  sections.forEach(s => {
+    if(window.scrollY >= s.offsetTop - 100) current = s.id;
+  });
+  links.forEach(l => {
+    l.style.color = l.getAttribute('href') === '#'+current ? 'var(--gold)' : '';
+  });
+});
+</script>
+</body>
+</html>

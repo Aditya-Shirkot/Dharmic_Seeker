@@ -1,0 +1,1508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Khas Civilization — Himalayan History, Genetics & Hindu Dharma</title>
+<meta name="description" content="A comprehensive academic platform on the Khas/Khasa people — their origins, genetics, Varna evolution, Himalayan kingdoms, and relationship with Sanatan Dharma.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Cinzel:wght@400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --stone-50: #faf7f2;
+  --stone-100: #f0ebe0;
+  --stone-200: #ddd4c0;
+  --stone-300: #c8b99a;
+  --stone-400: #b09b75;
+  --stone-500: #8c7a5a;
+  --stone-600: #6b5d42;
+  --stone-700: #4f4430;
+  --stone-800: #35301f;
+  --stone-900: #1e1b10;
+  --saffron: #d4600a;
+  --saffron-light: #f28c3c;
+  --saffron-dark: #8b3a05;
+  --himalaya: #2a3f5f;
+  --himalaya-light: #4a6a9f;
+  --himalaya-dark: #162640;
+  --gold: #c9922a;
+  --gold-light: #e8b84b;
+  --crimson: #8b1a1a;
+  --ink: #1a1510;
+  --parchment: #fdf8ef;
+  --silver: #8fa4b8;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Source Serif 4', Georgia, serif;
+  background: var(--stone-900);
+  color: var(--stone-100);
+  overflow-x: hidden;
+  line-height: 1.75;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(30, 27, 16, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201, 146, 42, 0.2);
+  padding: 0 2rem;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 60px;
+}
+.nav-logo {
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  color: var(--gold-light);
+  letter-spacing: 0.08em;
+  text-decoration: none;
+}
+.nav-links {
+  display: flex; gap: 2rem; list-style: none;
+}
+.nav-links a {
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  color: var(--stone-300);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--gold-light); }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  padding: 6rem 2rem 4rem;
+}
+
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(42, 63, 95, 0.6) 0%, transparent 60%),
+    radial-gradient(ellipse at 20% 80%, rgba(212, 96, 10, 0.15) 0%, transparent 50%),
+    linear-gradient(180deg, #0e0d08 0%, #1a1510 40%, #100e08 100%);
+}
+
+.mountain-silhouette {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  width: 100%; height: 45%;
+  opacity: 0.18;
+}
+
+.hero-ornament {
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  position: relative;
+  display: inline-flex; align-items: center; gap: 1rem;
+}
+.hero-ornament::before, .hero-ornament::after {
+  content: '';
+  width: 3rem; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold));
+}
+.hero-ornament::after { background: linear-gradient(90deg, var(--gold), transparent); }
+
+.hero h1 {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  color: var(--stone-50);
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--gold-light);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15em;
+}
+
+.hero-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--stone-300);
+  margin: 1.5rem auto;
+  max-width: 42rem;
+  line-height: 1.5;
+  position: relative;
+}
+
+.hero-divider {
+  width: 6rem; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 2rem auto;
+  position: relative;
+}
+.hero-divider::after {
+  content: '✦';
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--gold);
+  font-size: 0.7rem;
+  background: var(--stone-900);
+  padding: 0 0.5rem;
+}
+
+.hero-descriptor {
+  font-size: 0.85rem;
+  font-family: 'Source Serif 4', serif;
+  color: var(--stone-400);
+  letter-spacing: 0.06em;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.btn-row {
+  display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;
+  position: relative;
+}
+.btn-primary {
+  padding: 0.9rem 2rem;
+  background: var(--saffron);
+  color: var(--parchment);
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: none; cursor: pointer;
+  text-decoration: none;
+  transition: background 0.25s, transform 0.15s;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+}
+.btn-primary:hover { background: var(--saffron-light); transform: translateY(-1px); }
+.btn-secondary {
+  padding: 0.9rem 2rem;
+  background: transparent;
+  color: var(--stone-200);
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1px solid rgba(201, 146, 42, 0.4);
+  cursor: pointer;
+  text-decoration: none;
+  transition: border-color 0.25s, color 0.25s;
+}
+.btn-secondary:hover { border-color: var(--gold); color: var(--gold-light); }
+
+.scroll-hint {
+  position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: var(--stone-500);
+  text-transform: uppercase;
+  animation: float 3s ease-in-out infinite;
+}
+.scroll-hint span { width: 1px; height: 3rem; background: linear-gradient(180deg, var(--stone-500), transparent); }
+
+@keyframes float {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-6px); }
+}
+
+/* SECTION CONTAINERS */
+section {
+  padding: 6rem 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+section.full-bleed {
+  max-width: 100%;
+  padding: 0;
+}
+
+.section-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  display: flex; align-items: center; gap: 1rem;
+}
+.section-label::before {
+  content: '';
+  width: 2rem; height: 1px;
+  background: var(--gold);
+}
+
+.section-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--stone-50);
+  margin-bottom: 1.5rem;
+}
+.section-title em {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--gold-light);
+}
+
+.lead {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-style: italic;
+  color: var(--stone-300);
+  line-height: 1.65;
+  margin-bottom: 2rem;
+  max-width: 48rem;
+}
+
+p { color: var(--stone-200); margin-bottom: 1.25rem; font-size: 1rem; }
+
+/* DIVIDERS */
+.ornamental-divider {
+  text-align: center;
+  color: var(--gold);
+  font-size: 1.2rem;
+  letter-spacing: 1rem;
+  margin: 4rem 0;
+  opacity: 0.5;
+}
+
+/* SECTION STRIPE */
+.stripe {
+  background: linear-gradient(135deg, rgba(42, 63, 95, 0.12) 0%, rgba(30, 27, 16, 0) 100%);
+  border-top: 1px solid rgba(201, 146, 42, 0.1);
+  border-bottom: 1px solid rgba(201, 146, 42, 0.1);
+  padding: 6rem 2rem;
+}
+.stripe > .inner { max-width: 1100px; margin: 0 auto; }
+
+/* CARDS */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(201, 146, 42, 0.15);
+  padding: 2rem;
+  position: relative;
+  transition: border-color 0.25s, background 0.25s;
+}
+.card:hover {
+  border-color: rgba(201, 146, 42, 0.35);
+  background: rgba(255,255,255,0.05);
+}
+.card::before {
+  content: '';
+  position: absolute; top: 0; left: 0;
+  width: 3px; height: 100%;
+  background: linear-gradient(180deg, var(--gold), transparent);
+}
+.card-icon {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+.card h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--gold-light);
+  margin-bottom: 0.75rem;
+}
+.card p { color: var(--stone-300); font-size: 0.92rem; margin: 0; }
+
+/* TWO-COL LAYOUT */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+@media (max-width: 768px) {
+  .two-col { grid-template-columns: 1fr; gap: 2rem; }
+  nav { display: none; }
+}
+
+/* CALLOUT */
+.callout {
+  border-left: 3px solid var(--saffron);
+  padding: 1.5rem 1.75rem;
+  background: rgba(212, 96, 10, 0.06);
+  margin: 2rem 0;
+}
+.callout-title {
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: var(--saffron-light);
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+.callout p { color: var(--stone-200); margin: 0; font-size: 0.95rem; }
+
+/* INFO BOX */
+.info-box {
+  border: 1px solid rgba(74, 106, 159, 0.4);
+  background: rgba(42, 63, 95, 0.12);
+  padding: 1.5rem 2rem;
+  margin: 2rem 0;
+}
+.info-box h4 {
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  color: var(--himalaya-light);
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+/* TIMELINE */
+.timeline { margin: 3rem 0; }
+.timeline-item {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 89px; top: 0; bottom: -2.5rem;
+  width: 1px;
+  background: rgba(201, 146, 42, 0.2);
+}
+.timeline-item:last-child::before { display: none; }
+.timeline-date {
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  color: var(--gold);
+  text-align: right;
+  padding-top: 0.2rem;
+  letter-spacing: 0.05em;
+}
+.timeline-dot {
+  position: absolute;
+  left: 82px; top: 6px;
+  width: 16px; height: 16px;
+  border: 2px solid var(--gold);
+  background: var(--stone-900);
+  transform: rotate(45deg);
+}
+.timeline-content h4 {
+  font-family: 'Cinzel', serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--stone-100);
+  margin-bottom: 0.5rem;
+}
+.timeline-content p { color: var(--stone-300); font-size: 0.9rem; margin: 0; }
+
+/* TABLE */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 0.88rem;
+}
+.data-table th {
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border-bottom: 1px solid rgba(201, 146, 42, 0.3);
+  padding: 0.75rem 1rem;
+  text-align: left;
+  background: rgba(201, 146, 42, 0.05);
+}
+.data-table td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  color: var(--stone-200);
+  vertical-align: top;
+}
+.data-table tr:hover td { background: rgba(255,255,255,0.03); }
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.7rem;
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.08em;
+  border-radius: 2px;
+}
+.badge-contested { background: rgba(139, 26, 26, 0.2); color: #f4a0a0; }
+.badge-consensus { background: rgba(15, 110, 86, 0.2); color: #7ddec0; }
+.badge-debated { background: rgba(42, 63, 95, 0.3); color: var(--silver); }
+
+/* ACCORDION */
+.accordion { margin: 2rem 0; }
+.accordion-item {
+  border-bottom: 1px solid rgba(201, 146, 42, 0.15);
+}
+.accordion-trigger {
+  width: 100%;
+  background: none;
+  border: none;
+  color: var(--stone-100);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  padding: 1.25rem 0;
+  display: flex; justify-content: space-between; align-items: center;
+  cursor: pointer;
+  text-align: left;
+  transition: color 0.2s;
+}
+.accordion-trigger:hover { color: var(--gold-light); }
+.accordion-trigger .icon {
+  font-size: 1.2rem; color: var(--gold);
+  transition: transform 0.3s;
+  flex-shrink: 0;
+}
+.accordion-trigger.open .icon { transform: rotate(45deg); }
+.accordion-body {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+.accordion-body.open { max-height: 800px; }
+.accordion-inner { padding: 0 0 1.5rem; }
+.accordion-inner p { color: var(--stone-300); font-size: 0.95rem; }
+
+/* GENETICS VISUAL */
+.genetics-bars { margin: 2rem 0; }
+.gbar-row {
+  display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;
+}
+.gbar-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--stone-300);
+  width: 120px;
+  flex-shrink: 0;
+}
+.gbar-track {
+  flex: 1;
+  height: 10px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+.gbar-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 1.5s ease;
+}
+.gbar-pct {
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  color: var(--stone-400);
+  width: 40px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* CITATION */
+.citation-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 1.25rem 1.5rem;
+  margin: 1rem 0;
+  font-size: 0.85rem;
+}
+.citation-card .cite-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--stone-200);
+  margin-bottom: 0.25rem;
+}
+.citation-card .cite-meta {
+  color: var(--stone-500);
+  font-size: 0.8rem;
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.05em;
+}
+
+/* HIGHLIGHT QUOTE */
+.pull-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  font-style: italic;
+  font-weight: 300;
+  color: var(--stone-200);
+  border-left: 3px solid var(--gold);
+  padding: 1.5rem 2rem;
+  margin: 3rem 0;
+  line-height: 1.55;
+}
+.pull-quote cite {
+  display: block;
+  font-size: 0.8rem;
+  font-style: normal;
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.1em;
+  color: var(--stone-500);
+  margin-top: 1rem;
+}
+
+/* MAP PLACEHOLDER */
+.map-container {
+  background: rgba(42, 63, 95, 0.1);
+  border: 1px solid rgba(74, 106, 159, 0.25);
+  padding: 3rem;
+  text-align: center;
+  margin: 2rem 0;
+  position: relative;
+  overflow: hidden;
+}
+.map-svg { width: 100%; max-width: 700px; margin: 0 auto; display: block; }
+
+/* MYTH VS FACT */
+.myth-fact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: rgba(201, 146, 42, 0.1);
+  margin: 2rem 0;
+}
+@media(max-width:640px) { .myth-fact-grid { grid-template-columns: 1fr; } }
+.myth-box, .fact-box {
+  padding: 1.75rem;
+}
+.myth-box { background: rgba(139, 26, 26, 0.08); }
+.fact-box { background: rgba(15, 110, 86, 0.08); }
+.myth-box h4 {
+  font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.15em;
+  color: #f4a0a0; text-transform: uppercase; margin-bottom: 0.75rem;
+}
+.fact-box h4 {
+  font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.15em;
+  color: #7ddec0; text-transform: uppercase; margin-bottom: 0.75rem;
+}
+.myth-box p, .fact-box p { font-size: 0.9rem; color: var(--stone-300); margin: 0; }
+
+/* SEARCH */
+.search-bar {
+  display: flex; gap: 0;
+  margin: 2rem 0;
+  max-width: 500px;
+}
+.search-input {
+  flex: 1;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(201, 146, 42, 0.3);
+  border-right: none;
+  color: var(--stone-100);
+  padding: 0.85rem 1.25rem;
+  font-family: 'Source Serif 4', serif;
+  font-size: 0.95rem;
+  outline: none;
+}
+.search-input:focus { border-color: var(--gold); }
+.search-btn {
+  background: var(--saffron);
+  border: none;
+  color: white;
+  padding: 0.85rem 1.5rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background 0.2s;
+}
+.search-btn:hover { background: var(--saffron-light); }
+
+/* FOOTER */
+footer {
+  border-top: 1px solid rgba(201, 146, 42, 0.2);
+  padding: 4rem 2rem;
+  text-align: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+footer .footer-om {
+  font-size: 2.5rem; color: var(--gold); margin-bottom: 1rem; opacity: 0.6;
+}
+footer p {
+  color: var(--stone-500);
+  font-size: 0.82rem;
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.1em;
+  margin: 0;
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-in {
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards;
+}
+.delay-1 { animation-delay: 0.15s; }
+.delay-2 { animation-delay: 0.3s; }
+.delay-3 { animation-delay: 0.5s; }
+.delay-4 { animation-delay: 0.7s; }
+.delay-5 { animation-delay: 0.9s; }
+
+h2.section-title { scroll-margin-top: 80px; }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <a href="#hero" class="nav-logo">खस — Khas Civilization</a>
+  <ul class="nav-links">
+    <li><a href="#origins">Origins</a></li>
+    <li><a href="#scriptures">Scriptures</a></li>
+    <li><a href="#genetics">Genetics</a></li>
+    <li><a href="#varna">Varna</a></li>
+    <li><a href="#kingdoms">Kingdoms</a></li>
+    <li><a href="#debates">Debates</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div id="hero" class="hero">
+  <div class="hero-bg"></div>
+
+  <!-- Mountain SVG silhouette -->
+  <svg class="mountain-silhouette" viewBox="0 0 1440 400" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 400 L120 220 L200 280 L340 80 L420 160 L520 40 L600 120 L720 10 L840 120 L920 60 L1040 180 L1120 100 L1240 220 L1320 160 L1440 240 L1440 400 Z" fill="url(#mtnGrad)"/>
+    <path d="M0 400 L80 300 L180 340 L280 260 L380 320 L520 250 L680 290 L760 240 L880 280 L980 230 L1100 270 L1200 250 L1320 290 L1440 310 L1440 400 Z" fill="rgba(201,146,42,0.08)"/>
+    <defs>
+      <linearGradient id="mtnGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="rgba(74,106,159,0.25)"/>
+        <stop offset="100%" stop-color="rgba(30,27,16,0.05)"/>
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <div class="hero-ornament fade-in">Ancient Himalayan Civilization Study</div>
+
+  <h1 class="fade-in delay-1">The <em>Khas</em> People<br>of the Himalayas</h1>
+
+  <div class="hero-divider fade-in delay-2"></div>
+
+  <p class="hero-subtitle fade-in delay-2">
+    Origins, Genetics, Varna, and the Enduring Bond with Sanatan Dharma — an academically rigorous exploration of one of South Asia's oldest and most misunderstood communities
+  </p>
+
+  <p class="hero-descriptor fade-in delay-3">
+    Uttarakhand · Himachal Pradesh · Nepal · Kashmir · Western Himalayas
+  </p>
+
+  <div class="btn-row fade-in delay-4">
+    <a href="#origins" class="btn-primary">Explore Origins</a>
+    <a href="#genetics" class="btn-secondary">Genetics Research</a>
+    <a href="#debates" class="btn-secondary">Scholarly Debates</a>
+  </div>
+
+  <div class="scroll-hint">
+    <span></span>
+    Scroll
+  </div>
+</div>
+
+<!-- SEARCH -->
+<section style="padding: 2rem 2rem 0; max-width: 1100px; margin: 0 auto;">
+  <div class="search-bar">
+    <input type="text" class="search-input" placeholder="Search this platform..." id="searchInput">
+    <button class="search-btn" onclick="doSearch()">Search</button>
+  </div>
+  <div id="searchResults" style="color: var(--stone-400); font-size: 0.85rem;"></div>
+</section>
+
+<!-- INTRODUCTION -->
+<section id="intro">
+  <div class="section-label">Introduction</div>
+  <h2 class="section-title">Who Are the <em>Khas</em>?</h2>
+  <p class="lead">The Khas (also written Khasa or Khasha) are an ancient Himalayan people whose presence in the western and central Himalayas is attested from the first millennium BCE onward through Sanskrit, Buddhist, and regional textual sources.</p>
+
+  <div class="two-col">
+    <div>
+      <p>The term "Khas" is used in multiple, overlapping senses — as an ethnonym, a linguistic category, and a social designation — and conflating these has caused significant confusion in both colonial-era ethnography and popular discourse. Modern scholarship distinguishes carefully between these usages.</p>
+      <p>The Khas are the ancestral substrate of many contemporary Himalayan communities, including the Khas Brahmins (Bahun) and Khas Kshatriyas (Chhetri) of Nepal and Uttarakhand, as well as several Pahari-speaking communities across Himachal Pradesh and Jammu.</p>
+      <p>Their story is one of gradual but complex integration into the Hindu social order — a process that was neither uniform nor peaceful, and which involved Sanskrit­ization, intermarriage with incoming Rajput groups, and the assertion of Kshatriya status that was not always accepted by Brahminical orthodoxy.</p>
+    </div>
+    <div>
+      <div class="info-box">
+        <h4>Key Terminology</h4>
+        <table class="data-table" style="margin:0; font-size:0.82rem;">
+          <tr><th>Term</th><th>Meaning</th></tr>
+          <tr><td><strong style="color:var(--gold-light)">Khas / Khasa</strong></td><td>Ancient Himalayan ethnonym; used in Sanskrit texts from Mahabharata onward</td></tr>
+          <tr><td><strong style="color:var(--gold-light)">Khas Arya</strong></td><td>Self-designation used in modern Nepal for upper-caste hill communities of Khas descent</td></tr>
+          <tr><td><strong style="color:var(--gold-light)">Pahari</strong></td><td>Linguistic category: speakers of Pahari languages (broader than Khas)</td></tr>
+          <tr><td><strong style="color:var(--gold-light)">Chhetri</strong></td><td>From Sanskrit Kshatriya; the dominant Khas warrior-administrative caste in Nepal</td></tr>
+          <tr><td><strong style="color:var(--gold-light)">Bahun</strong></td><td>Nepali term for Brahmin; includes Khas Brahmin lineages</td></tr>
+        </table>
+      </div>
+      <div class="callout">
+        <div class="callout-title">Geographic Spread</div>
+        <p>The Khas linguistic and cultural zone spans roughly 2,500 km — from Kumaon and Garhwal (Uttarakhand) through Himachal Pradesh, across Nepal's mid-hills, into parts of far-western Nepal and historically into the Kashmir valley fringes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HIMALAYAN MAP (SVG) -->
+<div style="background: rgba(42,63,95,0.08); border-top:1px solid rgba(74,106,159,0.15); border-bottom:1px solid rgba(74,106,159,0.15); padding: 3rem 2rem;">
+  <div style="max-width:1100px; margin:0 auto;">
+    <div class="section-label">Geographic Distribution</div>
+    <h3 style="font-family:'Cinzel',serif; color:var(--stone-100); font-size:1.2rem; margin-bottom:1.5rem;">The Khas Cultural Zone — Western & Central Himalayas</h3>
+    <svg viewBox="0 0 900 380" class="map-svg" role="img" aria-label="Map showing Khas cultural distribution across Himalayas">
+      <title>Khas Cultural Distribution Map</title>
+      <!-- Simplified terrain -->
+      <rect width="900" height="380" fill="rgba(14,13,8,0.4)" rx="4"/>
+      <!-- Mountain texture bands -->
+      <path d="M0 150 Q150 80 300 130 Q450 60 600 120 Q750 50 900 110 L900 0 L0 0 Z" fill="rgba(42,63,95,0.25)"/>
+      <!-- Region blobs -->
+      <ellipse cx="200" cy="200" rx="110" ry="60" fill="rgba(212,96,10,0.18)" stroke="rgba(212,96,10,0.4)" stroke-width="1"/>
+      <ellipse cx="380" cy="185" rx="90" ry="55" fill="rgba(212,96,10,0.14)" stroke="rgba(212,96,10,0.3)" stroke-width="1"/>
+      <ellipse cx="560" cy="175" rx="130" ry="65" fill="rgba(201,146,42,0.18)" stroke="rgba(201,146,42,0.4)" stroke-width="1"/>
+      <ellipse cx="750" cy="200" rx="80" ry="50" fill="rgba(74,106,159,0.2)" stroke="rgba(74,106,159,0.4)" stroke-width="1"/>
+      <!-- Labels -->
+      <text x="200" y="198" text-anchor="middle" fill="rgba(242,140,60,0.9)" font-family="Cinzel,serif" font-size="10" letter-spacing="1">UTTARAKHAND</text>
+      <text x="200" y="212" text-anchor="middle" fill="rgba(200,185,154,0.7)" font-family="serif" font-size="8">Kumaon · Garhwal</text>
+      <text x="380" y="183" text-anchor="middle" fill="rgba(242,140,60,0.9)" font-family="Cinzel,serif" font-size="10" letter-spacing="1">HIMACHAL</text>
+      <text x="380" y="197" text-anchor="middle" fill="rgba(200,185,154,0.7)" font-family="serif" font-size="8">Sirmur · Kangra</text>
+      <text x="560" y="173" text-anchor="middle" fill="rgba(232,184,75,0.9)" font-family="Cinzel,serif" font-size="10" letter-spacing="1">NEPAL MID-HILLS</text>
+      <text x="560" y="187" text-anchor="middle" fill="rgba(200,185,154,0.7)" font-family="serif" font-size="8">Karnali · Gandaki · Bagmati</text>
+      <text x="750" y="198" text-anchor="middle" fill="rgba(143,164,184,0.9)" font-family="Cinzel,serif" font-size="10" letter-spacing="1">KASHMIR</text>
+      <text x="750" y="212" text-anchor="middle" fill="rgba(200,185,154,0.7)" font-family="serif" font-size="8">Peripheral zone</text>
+      <!-- Mountain peaks -->
+      <path d="M420 90 L440 50 L460 90" fill="none" stroke="rgba(200,185,154,0.3)" stroke-width="1"/>
+      <path d="M500 100 L525 55 L550 100" fill="none" stroke="rgba(200,185,154,0.25)" stroke-width="1"/>
+      <path d="M620 80 L645 35 L670 80" fill="none" stroke="rgba(200,185,154,0.3)" stroke-width="1"/>
+      <!-- Route line -->
+      <path d="M110 200 Q300 170 500 175 Q680 170 820 200" fill="none" stroke="rgba(201,146,42,0.3)" stroke-width="1.5" stroke-dasharray="6 4"/>
+      <!-- Legend -->
+      <rect x="20" y="310" width="12" height="12" fill="rgba(212,96,10,0.5)" rx="2"/>
+      <text x="38" y="321" fill="rgba(200,185,154,0.7)" font-family="serif" font-size="9">Core Khas zone</text>
+      <rect x="130" y="310" width="12" height="12" fill="rgba(201,146,42,0.4)" rx="2"/>
+      <text x="148" y="321" fill="rgba(200,185,154,0.7)" font-family="serif" font-size="9">Major settlement zone</text>
+      <rect x="270" y="310" width="12" height="12" fill="rgba(74,106,159,0.4)" rx="2"/>
+      <text x="288" y="321" fill="rgba(200,185,154,0.7)" font-family="serif" font-size="9">Peripheral / historical</text>
+      <text x="440" y="321" fill="rgba(201,146,42,0.5)" font-family="serif" font-size="9">--- Ancient trade route</text>
+    </svg>
+  </div>
+</div>
+
+<!-- HISTORICAL ORIGINS -->
+<section id="origins">
+  <div class="section-label">Historical Origins</div>
+  <h2 class="section-title">Where Did the Khas <em>Come From?</em></h2>
+
+  <p class="lead">The question of Khas origins is genuinely complex. Multiple hypotheses exist, and the honest scholarly answer is that no single theory commands full consensus.</p>
+
+  <div class="callout">
+    <div class="callout-title">Academic Caution</div>
+    <p>The following section distinguishes carefully between <strong>archaeologically supported history</strong>, <strong>textual attestation</strong>, <strong>plausible inference</strong>, and <strong>speculative or politically motivated theory</strong>. These categories are labeled throughout.</p>
+  </div>
+
+  <h3 style="font-family:'Cinzel',serif; color:var(--gold-light); font-size:1rem; letter-spacing:0.05em; margin: 2.5rem 0 1rem;">Major Scholarly Hypotheses</h3>
+
+  <table class="data-table">
+    <tr>
+      <th>Hypothesis</th>
+      <th>Key Proponents</th>
+      <th>Supporting Evidence</th>
+      <th>Status</th>
+    </tr>
+    <tr>
+      <td>Indigenous Himalayan population with Indo-Aryan language adoption</td>
+      <td>Fürer-Haimendorf, Berreman</td>
+      <td>Genetic continuity with South Asian populations; early textual attestation</td>
+      <td><span class="badge badge-consensus">Broad Support</span></td>
+    </tr>
+    <tr>
+      <td>Migration from northwest Indo-Gangetic plain into hills</td>
+      <td>Regmi, Stiller</td>
+      <td>Linguistic evidence; gotra systems matching plains Brahmin lineages</td>
+      <td><span class="badge badge-debated">Debated</span></td>
+    </tr>
+    <tr>
+      <td>Linked to Central Asian Saka/Scythian migrations</td>
+      <td>Some colonial ethnographers (19th c.)</td>
+      <td>Thin; largely based on name similarity and outdated racial typology</td>
+      <td><span class="badge badge-contested">Largely Rejected</span></td>
+    </tr>
+    <tr>
+      <td>Autochthonous tribe later assimilated into Hindu Varna framework</td>
+      <td>Whelpton, Lecomte-Tilouine</td>
+      <td>Tribal deities, non-standard ritual practices, frontier textual descriptions</td>
+      <td><span class="badge badge-debated">Active Debate</span></td>
+    </tr>
+  </table>
+
+  <div class="timeline" style="margin-top: 3rem;">
+    <h3 style="font-family:'Cinzel',serif; color:var(--gold-light); font-size:1rem; letter-spacing:0.05em; margin-bottom: 2rem;">Historical Timeline</h3>
+
+    <div class="timeline-item">
+      <div class="timeline-date">c. 400 BCE–400 CE</div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h4>Earliest Textual Attestation</h4>
+        <p>The Khasas (Khasā) appear in the Mahabharata (Sabhaparva, Bheeshmaparva) as a northern or northwestern frontier people. The text places them alongside other hill tribes like the Kiratas and Tanganas. Their portrayal is neither glorifying nor entirely denigrating — they are described as powerful warriors from the mountains. The Manusmriti (10.44) lists Khasas among groups of mixed origin (varna-sankara), though scholars debate whether this reflects their actual status or Brahminical categorization of frontier peoples generally.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">c. 500–900 CE</div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h4>Early Medieval: Integration and Consolidation</h4>
+        <p>Kalhana's Rajatarangini (12th c., describing earlier periods) references the Khasas in Kashmir and neighboring hill regions. The Puranas (Vayu, Brahmanda, Markandey) include Khasas in lists of northern peoples. By this period, Khas chiefs are adopting Sanskrit titles, patronizing Brahmin settlements (agrahara grants), and integrating into the Hindu political order — though they occupied an ambiguous ritual status that varied by region.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">900–1300 CE</div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h4>The Khas Malla Kingdom</h4>
+        <p>The Khas Malla state (centered in Sinja, Karnali region, western Nepal) emerges as the most powerful Himalayan polity of the medieval period. At its height under rulers like Kracharjadeva and Prithvimalla, it controlled trade routes from Tibet to the Indian plains, issued coins, and patronized both Hindu and Buddhist traditions. This kingdom is critical evidence that the Khas were not merely a tribal group but politically sophisticated actors in Himalayan statecraft.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">1300–1600 CE</div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h4>Fragmentation and Rajput Influx</h4>
+        <p>The collapse of the Khas Malla state and the influx of Rajput refugees from the plains (fleeing Islamic conquest pressure) profoundly altered Himalayan social structure. These Rajput groups intermarried with Khas elites, producing the complex caste layering that characterizes hill societies. The Chhetri caste of Nepal emerges partly from this process — a fusion of Khas Kshatriya lineages with incoming Rajput groups.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">1768–Present</div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h4>Gorkha Unification & Modern Nepal</h4>
+        <p>Prithvi Narayan Shah's unification of Nepal (1768) — itself a Rajput-Khas political project — codified the hill Hindu social order through the Muluki Ain (1854). The Khas Arya group (Bahun + Chhetri) became Nepal's dominant administrative and military class. Post-2006 constitutional changes in Nepal renamed this grouping and triggered ongoing debates about identity, privilege, and history that continue today.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCRIPTURES -->
+<section id="scriptures" class="stripe">
+<div class="inner">
+  <div class="section-label">Hindu Scriptures</div>
+  <h2 class="section-title">The Khas in <em>Sacred Texts</em></h2>
+
+  <p class="lead">References to the Khasas in Sanskrit literature are scattered but consistent — spanning roughly fifteen centuries of textual production. Interpretation of these references requires care.</p>
+
+  <div class="two-col" style="margin-top: 2rem;">
+    <div>
+      <h3 style="font-family:'Cinzel',serif; color:var(--gold-light); font-size:0.95rem; letter-spacing:0.06em; margin-bottom: 1.25rem; text-transform:uppercase;">Mahabharata</h3>
+      <p>The Khasas appear multiple times — most notably in the Digvijaya passages (Sabhaparva) where Arjuna's northern conquest lists them, and in the Bhishmaparva's geographical descriptions. They are placed in the northern mountain zone alongside the Kiratas (eastern hill tribes) and Tanganas. The tone suggests they were recognized as a real and significant people, not merely mythological.</p>
+
+      <h3 style="font-family:'Cinzel',serif; color:var(--gold-light); font-size:0.95rem; letter-spacing:0.06em; margin: 2rem 0 1.25rem; text-transform:uppercase;">Manusmriti (10.44)</h3>
+      <p>Manu lists the Khasas alongside Pahlavas, Cinas, and Kiratas as "degraded Kshatriyas" (vrishalatam gatah) — groups who had fallen from their Kshatriya status due to neglect of rituals and Brahmin contact. This passage has been hotly debated: some scholars see it as evidence of earlier high status, others as a Brahminical classification of frontier peoples, and still others as interpolation. It should not be read as ethnographic fact.</p>
+    </div>
+    <div>
+      <h3 style="font-family:'Cinzel',serif; color:var(--gold-light); font-size:0.95rem; letter-spacing:0.06em; margin-bottom: 1.25rem; text-transform:uppercase;">Puranas</h3>
+      <p>The Vayu, Brahmanda, Markandey, and Vishnu Puranas include Khasas in lists of northern peoples (uttarapatha janapadas). The Puranic tradition broadly confirms their presence in the Himalayan belt. However, Puranic geography is frequently symbolic and should not be treated as accurate cartography or census data.</p>
+
+      <h3 style="font-family:'Cinzel',serif; color:var(--gold-light); font-size:0.95rem; letter-spacing:0.06em; margin: 2rem 0 1.25rem; text-transform:uppercase;">Rajatarangini</h3>
+      <p>Kalhana's 12th-century chronicle of Kashmir mentions the Khasas as a distinct people in the Himalayan zone. Unlike the Puranic references, Kalhana is a near-contemporary historian providing a more grounded account. His references suggest the Khasas were politically organized and recognized as such by the Kashmiri court.</p>
+
+      <div class="callout" style="margin-top: 1.5rem;">
+        <div class="callout-title">Critical Note</div>
+        <p>The scriptural references describe the Khasas as they appeared to Brahminical authors of the plains — as northern "others." These texts reflect the perspective of the recorder, not necessarily the self-understanding of the Khas people themselves.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pull-quote">
+    "The Varna system as applied to frontier peoples like the Khasas was never a simple classification — it was a negotiated, contested, and locally variable social reality."
+    <cite>— Anthropological consensus, broadly stated (cf. Quigley 1993; Lecomte-Tilouine 2009)</cite>
+  </div>
+</div>
+</section>
+
+<!-- GENETICS -->
+<section id="genetics">
+  <div class="section-label">Population Genetics</div>
+  <h2 class="section-title">Khas Genetics — <em>What the Science Shows</em></h2>
+
+  <p class="lead">Modern population genetics has substantially clarified — and complicated — our understanding of Himalayan ancestries. The key finding is not racial purity in any direction, but a complex layering of ancestries over millennia.</p>
+
+  <div class="callout">
+    <div class="callout-title">Critical Framing — Read First</div>
+    <p>Genetics measures <strong>population ancestry proportions</strong> — not caste, not race, not cultural identity. No modern population is genetically "pure." The following data describes statistical tendencies across sampled groups and must not be used to assign racial categories or assert superiority of any kind. All figures are approximate and derived from published studies; some are actively being refined.</p>
+  </div>
+
+  <div class="two-col" style="margin-top: 2.5rem;">
+    <div>
+      <h3 style="font-family:'Cinzel',serif; color:var(--gold-light); font-size:0.95rem; letter-spacing:0.06em; margin-bottom: 1.5rem;">Key Genetic Findings</h3>
+
+      <p><strong style="color:var(--stone-100)">Ancestral North Indian (ANI) / Ancestral South Indian (ASI):</strong> Himalayan hill populations including Khas-descended groups generally show high ANI ancestry (often 60–75% range in studies), consistent with their Indo-Aryan linguistic affiliation. This does not indicate "foreignness" — ANI itself is a mixture of ancient Iranian farmers and Steppe pastoralists with deep South Asian roots.</p>
+
+      <p><strong style="color:var(--stone-100)">Steppe Pastoralist Ancestry:</strong> Studies including Narasimhan et al. (2019) in <em>Science</em> show that Indo-Aryan-associated populations in South Asia carry Steppe ancestry (MLBA — Middle-Late Bronze Age Eurasian Steppe) at varying levels. Pahari/Khas-descended populations typically show this ancestry, but this reflects broad South Asian history, not a specific "Khas migration."</p>
+
+      <p><strong style="color:var(--stone-100)">East Asian / Tibetan Admixture:</strong> Himalayan populations show varying levels of East Asian ancestral components, reflecting proximity to and interaction with Tibeto-Burman speaking populations over millennia. This component is generally lower in Khas-descended upper-caste groups than in more eastern Himalayan communities.</p>
+    </div>
+    <div>
+      <h3 style="font-family:'Cinzel',serif; color:var(--gold-light); font-size:0.95rem; letter-spacing:0.06em; margin-bottom: 1.5rem;">Approximate Ancestry Profiles</h3>
+      <p style="font-size:0.8rem; color:var(--stone-500); margin-bottom:1rem;">Based on published studies (Pathak et al. 2018; Tamang et al. 2018; Narasimhan et al. 2019). Ranges are approximate; significant individual variation exists.</p>
+
+      <div class="genetics-bars" id="geneticsBars">
+        <div class="gbar-row">
+          <div class="gbar-label">Iran Neolithic</div>
+          <div class="gbar-track"><div class="gbar-fill" style="width:0%; background: rgba(212,96,10,0.7);" data-target="32%"></div></div>
+          <div class="gbar-pct">~32%</div>
+        </div>
+        <div class="gbar-row">
+          <div class="gbar-label">Steppe MLBA</div>
+          <div class="gbar-track"><div class="gbar-fill" style="width:0%; background: rgba(74,106,159,0.8);" data-target="28%"></div></div>
+          <div class="gbar-pct">~28%</div>
+        </div>
+        <div class="gbar-row">
+          <div class="gbar-label">AASI (Ancient S. Asian)</div>
+          <div class="gbar-track"><div class="gbar-fill" style="width:0%; background: rgba(15,110,86,0.7);" data-target="30%"></div></div>
+          <div class="gbar-pct">~30%</div>
+        </div>
+        <div class="gbar-row">
+          <div class="gbar-label">East / Tibetan</div>
+          <div class="gbar-track"><div class="gbar-fill" style="width:0%; background: rgba(201,146,42,0.7);" data-target="10%"></div></div>
+          <div class="gbar-pct">~10%</div>
+        </div>
+      </div>
+      <p style="font-size:0.78rem; color:var(--stone-500); margin-top: 0.5rem;">AASI = Ancient Ancestral South Indian (related to modern Andamanese hunter-gatherers); proportions are illustrative of broad findings, not a single study.</p>
+
+      <div class="info-box" style="margin-top: 1.5rem;">
+        <h4>Y-Chromosome Haplogroups</h4>
+        <p style="font-size:0.88rem; color:var(--stone-300);">R1a (Indo-European associated) is common in Khas-descended upper-caste populations, particularly R1a-Z93 (South Asian subclade). J2, L (L-M11, South Asian specific), and H haplogroups are also present. The presence of R1a is consistent with Steppe ancestry but does not constitute racial evidence — R1a exists across diverse populations globally.</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: 3rem;">
+    <h3 style="font-family:'Cinzel',serif; color:var(--gold-light); font-size:0.95rem; letter-spacing:0.06em; margin-bottom: 1.5rem; text-transform:uppercase;">Key Published Research</h3>
+    <div class="citation-card">
+      <div class="cite-title">The Genomic Formation of South and Central Asia</div>
+      <div class="cite-meta">Narasimhan et al. · Science (2019) · DOI: 10.1126/science.aat7487</div>
+      <p style="color:var(--stone-400); font-size:0.82rem; margin: 0.5rem 0 0;">Landmark study establishing Steppe ancestry in South Asia; includes Himalayan populations. Critical for understanding ANI formation.</p>
+    </div>
+    <div class="citation-card">
+      <div class="cite-title">Genetic Diversity and Population Structure of Nepalese Ethnic Groups</div>
+      <div class="cite-meta">Tamang et al. · PLOS ONE (2018)</div>
+      <p style="color:var(--stone-400); font-size:0.82rem; margin: 0.5rem 0 0;">Specifically addresses Nepalese hill populations including Chhetri and Bahun communities of Khas descent. Shows high ANI ancestry in these groups relative to Tibeto-Burman speaking Nepalese.</p>
+    </div>
+    <div class="citation-card">
+      <div class="cite-title">The Indian Genome Variation database (IGVdb): A project overview</div>
+      <div class="cite-meta">Indian Genome Variation Consortium · Hum. Genet. (2008)</div>
+      <p style="color:var(--stone-400); font-size:0.82rem; margin: 0.5rem 0 0;">Provides baseline population genetic data for Indian hill communities including Pahari-speaking groups.</p>
+    </div>
+  </div>
+</section>
+
+<!-- VARNA -->
+<section id="varna" class="stripe">
+<div class="inner">
+  <div class="section-label">Varna & Social History</div>
+  <h2 class="section-title">Khas Varna Status — <em>A Complex History</em></h2>
+
+  <p class="lead">The Varna status of the Khas people was never fixed or uniform. It changed across centuries, varied by region, and was the subject of active social negotiation — not passive assignment.</p>
+
+  <div class="two-col">
+    <div>
+      <h3 style="font-family:'Cinzel',serif; color:var(--gold-light); font-size:0.95rem; margin-bottom: 1.25rem;">The Kshatriya Claim</h3>
+      <p>Khas communities, particularly ruling lineages, consistently claimed Kshatriya (warrior-ruler) status. This claim was not invented in the colonial period — it has medieval precedent in the Khas Malla kingdom's use of Sanskrit titles, royal rituals, and Brahmin patronage. However, orthodox Brahminical acceptance of this claim was inconsistent, particularly in regions where plains standards were strictly applied.</p>
+      <p>The Nepalese state's Muluki Ain (1854) legally codified Chhetri (from Kshatriya) as the second-highest caste tier in hill Hindu society, effectively formalizing a Kshatriya status that had been de facto but disputed for centuries.</p>
+
+      <h3 style="font-family:'Cinzel',serif; color:var(--gold-light); font-size:0.95rem; margin: 2rem 0 1.25rem;">Brahminization and Sanskritization</h3>
+      <p>M.N. Srinivas's concept of "Sanskritization" is useful here: over centuries, Khas communities adopted Brahminical ritual forms, Sanskrit gotra systems, and Hindu orthopraxy as mechanisms of social mobility and legitimacy. This process was active and deliberate, not passive absorption. Khas Brahmins (Bahuns) — serving as priests and administrators — were essential intermediaries in this process.</p>
+    </div>
+    <div>
+      <div class="info-box">
+        <h4>Social Evolution Chart</h4>
+        <div style="position:relative; padding: 1rem 0;">
+          <div style="display:flex; flex-direction:column; gap: 0.75rem;">
+            <div style="display:flex; align-items:center; gap:1rem;">
+              <div style="width:110px; padding:0.5rem; background:rgba(201,146,42,0.15); border:1px solid rgba(201,146,42,0.3); text-align:center; font-family:'Cinzel',serif; font-size:0.7rem; color:var(--gold-light);">Ancient Khas<br><span style="font-size:0.6rem; color:var(--stone-400);">Frontier Tribes</span></div>
+              <div style="color:var(--stone-500);">→</div>
+              <div style="flex:1; font-size:0.82rem; color:var(--stone-300);">Mentioned in epics; warrior communities; hill chieftains</div>
+            </div>
+            <div style="display:flex; align-items:center; gap:1rem;">
+              <div style="width:110px; padding:0.5rem; background:rgba(74,106,159,0.15); border:1px solid rgba(74,106,159,0.3); text-align:center; font-family:'Cinzel',serif; font-size:0.7rem; color:var(--silver);">Medieval Khas<br><span style="font-size:0.6rem; color:var(--stone-400);">Kingdom Builders</span></div>
+              <div style="color:var(--stone-500);">→</div>
+              <div style="flex:1; font-size:0.82rem; color:var(--stone-300);">Khas Malla state; Sanskrit patronage; Kshatriya assertion</div>
+            </div>
+            <div style="display:flex; align-items:center; gap:1rem;">
+              <div style="width:110px; padding:0.5rem; background:rgba(212,96,10,0.12); border:1px solid rgba(212,96,10,0.25); text-align:center; font-family:'Cinzel',serif; font-size:0.7rem; color:var(--saffron-light);">Rajput-Khas<br><span style="font-size:0.6rem; color:var(--stone-400);">Fusion Period</span></div>
+              <div style="color:var(--stone-500);">→</div>
+              <div style="flex:1; font-size:0.82rem; color:var(--stone-300);">Intermarriage; Chhetri identity formation; gotra adoption</div>
+            </div>
+            <div style="display:flex; align-items:center; gap:1rem;">
+              <div style="width:110px; padding:0.5rem; background:rgba(15,110,86,0.12); border:1px solid rgba(15,110,86,0.25); text-align:center; font-family:'Cinzel',serif; font-size:0.7rem; color:#7ddec0;">Modern Khas Arya<br><span style="font-size:0.6rem; color:var(--stone-400);">Legal Category</span></div>
+              <div style="color:var(--stone-500);">→</div>
+              <div style="flex:1; font-size:0.82rem; color:var(--stone-300);">Post-2006 Nepal: Bahun + Chhetri + Thakuri formally grouped</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout" style="margin-top: 1.5rem;">
+        <div class="callout-title">Important Distinction</div>
+        <p>The Manusmriti's description of Khasas as "degraded Kshatriyas" (vrishala) should not be read as a permanent or universal verdict. Brahminical texts routinely applied this category to frontier peoples as a civilizational narrative, not an ethnographic survey. The Khas Malla kings were simultaneously patronizing Brahmin settlements and performing Kshatriya rituals — a practical contradiction of the Manusmriti categorization.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- HINDU DHARMA RELATIONSHIP -->
+<section id="dharma">
+  <div class="section-label">Hindu Dharma</div>
+  <h2 class="section-title">Khas and <em>Sanatan Dharma</em></h2>
+
+  <p class="lead">The relationship between the Khas people and Hinduism is not one of simple adoption — it is one of co-evolution, local innovation, and gradual integration over more than two millennia.</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <span class="card-icon">🕉️</span>
+      <h3>Shaivism</h3>
+      <p>Shaivism is the dominant devotional tradition among Himalayan Khas communities. Local forms of Shiva — Bholenath, Maheshwara, Kedarnath — are integrated with pre-existing mountain deity worship. The Char Dham pilgrimages (Kedarnath, Badrinath, etc.) are embedded in Khas cultural geography.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">⛰️</span>
+      <h3>Local Deity Systems</h3>
+      <p>Alongside pan-Hindu deities, Khas communities maintain traditions of clan deities (kul devta) and local territorial gods (gram devta). These systems predate full Brahminical integration and represent an indigenous religious stratum that was incorporated rather than replaced.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">📿</span>
+      <h3>Gotra and Clan Systems</h3>
+      <p>Khas communities use Sanskrit gotra (exogamous lineage) names — many matching those found among plains Brahmins and Rajputs. This reflects both genuine Brahmin settlement and the deliberate adoption of Brahminical identity markers as part of Sanskritization.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">🏛️</span>
+      <h3>Temple Architecture</h3>
+      <p>Himalayan temple traditions in the Khas zone blend North Indian Nagara style with local mountain aesthetic adaptations — wooden shikhara forms, multi-tiered pagoda roofs, and integration of local stone. The Baijnath, Jageshwar, and Bhimakali temple complexes exemplify this fusion.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">📜</span>
+      <h3>Vedic Traditions</h3>
+      <p>Khas Brahmin (Bahun) communities maintained Vedic learning traditions adapted to hill conditions. The Kumaoni and Nepalese Brahmin traditions preserved significant Vedic textual knowledge, though with regional variations in recitation and ritual practice.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">🔥</span>
+      <h3>Ritual Traditions</h3>
+      <p>Life-cycle rituals (samskaras) in Khas communities closely follow Brahminical prescriptions with local modifications. Ancestor veneration (pitru puja), seasonal festivals tied to the agricultural and pastoral calendar, and folk narrative traditions (Jhoda, Chancheri) form a rich ritual ecology.</p>
+    </div>
+  </div>
+</section>
+
+<!-- KINGDOMS -->
+<section id="kingdoms" class="stripe">
+<div class="inner">
+  <div class="section-label">Political History</div>
+  <h2 class="section-title">Himalayan Kingdoms and <em>Khas Power</em></h2>
+
+  <p class="lead">The Khas Malla kingdom (c. 1100–1400 CE) was the most significant Himalayan polity between the Gupta era and the Gorkha unification — yet it remains understudied outside Nepalese academic circles.</p>
+
+  <div class="two-col">
+    <div>
+      <h3 style="font-family:'Cinzel',serif; color:var(--gold-light); font-size:0.95rem; margin-bottom: 1rem;">The Khas Malla Kingdom</h3>
+      <p>Centered at Sinja in the Karnali basin (far-western Nepal), the Khas Malla state controlled an extensive territory from approximately the 12th to 14th centuries. Key characteristics:</p>
+      <ul style="color:var(--stone-300); padding-left:1.5rem; margin-bottom: 1.25rem; font-size:0.95rem; line-height:1.8;">
+        <li>Issued silver and copper coinage (found archaeologically)</li>
+        <li>Used Sanskrit in royal inscriptions; kings bore Malla titles</li>
+        <li>Controlled Himalayan trade routes between Tibet and Indian plains</li>
+        <li>Patronized both Shaiva Hinduism and Vajrayana Buddhism</li>
+        <li>Administrative system with regional governors</li>
+      </ul>
+      <p>The kingdom's collapse in the 14th–15th century led to the fragmentation into smaller principalities (baisi and chaubisi rajyas) that were later unified by Prithvi Narayan Shah.</p>
+
+      <h3 style="font-family:'Cinzel',serif; color:var(--gold-light); font-size:0.95rem; margin: 2rem 0 1rem;">Uttarakhand Hill States</h3>
+      <p>The kingdoms of Kumaon and Garhwal (present-day Uttarakhand) were also significantly shaped by Khas populations. The Chand dynasty of Kumaon and the Parmar dynasty of Garhwal both incorporated Khas communities and Rajput lineages in their administration. The Jageshwar temple complex demonstrates sophisticated stone construction patronized by these kingdoms.</p>
+    </div>
+    <div>
+      <div class="info-box">
+        <h4>Key Medieval Dynasties With Khas Connections</h4>
+        <table class="data-table" style="margin:0; font-size:0.82rem;">
+          <tr><th>Dynasty / Kingdom</th><th>Period</th><th>Region</th></tr>
+          <tr><td>Khas Malla</td><td>c. 1100–1400</td><td>Karnali, far-western Nepal</td></tr>
+          <tr><td>Chand Dynasty</td><td>c. 700–1790</td><td>Kumaon, Uttarakhand</td></tr>
+          <tr><td>Parmar/Panwar</td><td>c. 888–1804</td><td>Garhwal, Uttarakhand</td></tr>
+          <tr><td>Sen Kingdoms</td><td>c. 1400–1600</td><td>Eastern Nepal Terai hills</td></tr>
+          <tr><td>Palpa Kingdom</td><td>c. 1400–1806</td><td>Central Nepal hills</td></tr>
+          <tr><td>Gorkha Kingdom</td><td>1559–1768</td><td>Gandaki, Nepal</td></tr>
+        </table>
+      </div>
+      <div class="callout" style="margin-top: 1.5rem;">
+        <div class="callout-title">Military Tradition</div>
+        <p>The military prowess of Khas-descended Chhetri communities became formalized under the Gorkha state and later under British service. The "Gorkha soldier" reputation, internationally famous since the 19th century, draws significantly from Khas warrior traditions — though Tibeto-Burman speaking Gurungs, Magars, Rais, and Limbus are equally essential to that story.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- MYTHS VS FACTS -->
+<section id="debates">
+  <div class="section-label">Historiography & Critical Analysis</div>
+  <h2 class="section-title">Myths vs. <em>Academic Research</em></h2>
+
+  <p class="lead">Several persistent misconceptions surround the Khas. These range from colonial racial stereotypes to modern nationalist overcorrections. Below is an honest reckoning.</p>
+
+  <div class="myth-fact-grid">
+    <div class="myth-box">
+      <h4>❌ Myth</h4>
+      <p>"The Khas are descended from Scythians / Sakas who migrated from Central Asia, explaining their Kshatriya character."</p>
+    </div>
+    <div class="fact-box">
+      <h4>✓ Academic Position</h4>
+      <p>This theory was proposed by some colonial ethnographers based on name similarities and obsolete racial typology. Modern genetics and linguistics do not support a specific Scythian origin. The Khas speak an Indo-Aryan language but this reflects broad linguistic spread, not a specific ethnic migration traceable to Sakas.</p>
+    </div>
+    <div class="myth-box">
+      <h4>❌ Myth</h4>
+      <p>"The Khas were originally a low-caste or 'tribal' people who were elevated artificially."</p>
+    </div>
+    <div class="fact-box">
+      <h4>✓ Academic Position</h4>
+      <p>The Khas had complex, internally differentiated social structures before their integration into the Hindu Varna framework. Their medieval kingdom-building, Sanskrit patronage, and warrior traditions predate any supposed "elevation." The binary of indigenous/tribal vs. elevated is a colonial framework poorly suited to Himalayan social realities.</p>
+    </div>
+    <div class="myth-box">
+      <h4>❌ Myth</h4>
+      <p>"High R1a frequency proves the Khas are Aryan/Vedic in origin and therefore of higher status than other groups."</p>
+    </div>
+    <div class="fact-box">
+      <h4>✓ Academic Position</h4>
+      <p>R1a frequency correlates with Indo-Aryan language spread but does not constitute racial or cultural superiority of any kind. Multiple South Asian populations carry R1a at varying levels. Haplogroups do not determine caste status, cultural achievement, or moral worth. Using haplogroup data for identity hierarchy is a misuse of population genetics.</p>
+    </div>
+    <div class="myth-box">
+      <h4>❌ Myth</h4>
+      <p>"The Khas Arya are the 'pure Aryan' remnants of Vedic civilization in the Himalayas."</p>
+    </div>
+    <div class="fact-box">
+      <h4>✓ Academic Position</h4>
+      <p>"Pure Aryan" is not a scientifically meaningful category. All Himalayan populations are mixtures of multiple ancient ancestries. The concept of "Aryan purity" was invented by 19th-century European racial science, explicitly rejected by modern anthropology and genetics, and has no place in serious scholarship on any South Asian community.</p>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Cinzel',serif; color:var(--gold-light); font-size:1rem; letter-spacing:0.05em; margin: 3rem 0 1.5rem;">Active Scholarly Debates</h3>
+
+  <div class="accordion" id="debatesAccordion">
+    <div class="accordion-item">
+      <button class="accordion-trigger" onclick="toggleAccordion(this)">
+        Were the Khas originally outside the Varna system?
+        <span class="icon">+</span>
+      </button>
+      <div class="accordion-body">
+        <div class="accordion-inner">
+          <p>This is genuinely debated. One school (Lecomte-Tilouine, Whelpton) argues the Khas were originally outside the Brahminical Varna framework — a politically organized but ritually distinct people who underwent Sanskritization over the medieval period. The other position (drawing on Regmi and Nepalese nationalist historiography) emphasizes continuity with Kshatriya traditions from an early period. The textual evidence (Manusmriti 10.44's "degraded Kshatriya" classification) supports the first view, but its interpretation is contested.</p>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-trigger" onclick="toggleAccordion(this)">
+        Is the Chhetri caste primarily of Khas or Rajput origin?
+        <span class="icon">+</span>
+      </button>
+      <div class="accordion-body">
+        <div class="accordion-inner">
+          <p>The Chhetri community in Nepal includes both Khas lineages who adopted Kshatriya identity and genuine Rajput migrants (and their descendants) from the Indian plains. The degree to which any particular Chhetri family descends from one or the other varies considerably. Some elite Chhetri clans (Thakuri) trace specifically Rajput patrilineal descent, while other Chhetri lineages are of unambiguously Khas origin. The community's self-understanding has emphasized Kshatriya/Rajput identity, which is historically layered rather than simply true or false.</p>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-trigger" onclick="toggleAccordion(this)">
+        What is the relationship between the Khas language and modern Nepali?
+        <span class="icon">+</span>
+      </button>
+      <div class="accordion-body">
+        <div class="accordion-inner">
+          <p>Modern Nepali (Khas Kura / Gorkhali) is linguistically descended from the Khas speech community of western Nepal. It belongs to the Pahari subgroup of Indo-Aryan languages. The Gorkha state's expansion spread this dialect across Nepal, displacing other hill languages. The term "Khas Kura" (speech of the Khas) for what is now called Nepali is itself significant — it confirms the linguistic identity between the modern language and the ancient community's speech. Related Pahari languages (Garhwali, Kumaoni, Dogri) are sister dialects, not descendants.</p>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-trigger" onclick="toggleAccordion(this)">
+        How did colonial ethnography distort our understanding of the Khas?
+        <span class="icon">+</span>
+      </button>
+      <div class="accordion-body">
+        <div class="accordion-inner">
+          <p>British colonial ethnographers (Hodgson, Risley, Crooke) applied racial typology frameworks to Himalayan communities that served administrative rather than scholarly purposes. The "Caucasoid" vs. "Mongoloid" racial binary was imposed on communities whose actual ancestry and identity did not fit these categories. Risley's caste surveys ranked groups by supposed racial characteristics — an approach thoroughly rejected by modern anthropology. Colonial records also frequently misidentified endogamous groups, confused linguistic and ethnic categories, and created reified caste hierarchies that became self-fulfilling through administrative action.</p>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-trigger" onclick="toggleAccordion(this)">
+        What is the "Khas Arya" controversy in modern Nepal?
+        <span class="icon">+</span>
+      </button>
+      <div class="accordion-body">
+        <div class="accordion-inner">
+          <p>Post-2006 Nepal's constitution uses "Khas Arya" to designate the Bahun, Chhetri, Thakuri, and Sanyasi communities. This is contested from multiple directions: some within these communities reject the "Khas" label as derogatory (it was historically used pejoratively); Janajati (indigenous nationality) activists argue these groups have historically held disproportionate state power and the label obscures this; some scholars see the "Arya" component as a nationalist assertion with problematic implications. The debate reflects real and unresolved tensions about caste, ethnicity, state power, and historical justice in Nepal.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RECOMMENDED READING -->
+<section>
+  <div class="section-label">Bibliography</div>
+  <h2 class="section-title">Key Academic <em>Sources</em></h2>
+
+  <div class="two-col">
+    <div>
+      <h3 style="font-family:'Cinzel',serif; color:var(--gold-light); font-size:0.9rem; margin-bottom: 1.25rem; text-transform:uppercase;">History & Anthropology</h3>
+      <div class="citation-card">
+        <div class="cite-title">History of Nepal (Itihas Prakashan)</div>
+        <div class="cite-meta">Regmi, D.R. · Calcutta, 1960–1966</div>
+      </div>
+      <div class="citation-card">
+        <div class="cite-title">The Silent War: The Maoist Insurgency in Nepal</div>
+        <div class="cite-meta">Whelpton, J. · A History of Nepal, Cambridge University Press, 2005</div>
+      </div>
+      <div class="citation-card">
+        <div class="cite-title">Hinduism and the Clash of Civilizations</div>
+        <div class="cite-meta">Lecomte-Tilouine, M. · Himalayan Anthropology Studies, 2009</div>
+      </div>
+      <div class="citation-card">
+        <div class="cite-title">Caste, Society and Politics in India</div>
+        <div class="cite-meta">Bayly, S. · Cambridge University Press, 1999</div>
+      </div>
+      <div class="citation-card">
+        <div class="cite-title">Rajatarangini (Chronicle of Kashmir)</div>
+        <div class="cite-meta">Kalhana (12th c.) · Trans. Stein, M.A., 1900</div>
+      </div>
+    </div>
+    <div>
+      <h3 style="font-family:'Cinzel',serif; color:var(--gold-light); font-size:0.9rem; margin-bottom: 1.25rem; text-transform:uppercase;">Genetics Research</h3>
+      <div class="citation-card">
+        <div class="cite-title">The Genomic Formation of South and Central Asia</div>
+        <div class="cite-meta">Narasimhan et al. · Science 365(6457), 2019</div>
+      </div>
+      <div class="citation-card">
+        <div class="cite-title">Reconstructing Indian Population History</div>
+        <div class="cite-meta">Reich et al. · Nature 461, 2009</div>
+      </div>
+      <div class="citation-card">
+        <div class="cite-title">Genetic Diversity Among Nepalese Caste and Ethnic Populations</div>
+        <div class="cite-meta">Tamang, R. et al. · PLOS ONE 13(11), 2018</div>
+      </div>
+      <div class="citation-card">
+        <div class="cite-title">Ancient DNA from South Asia Illuminates History of Bronze Age Steppe Expansions</div>
+        <div class="cite-meta">Anthony, D. and Narasimhan, V. · Annual Review of Genomics, 2022</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="stripe">
+<div class="inner">
+  <div class="section-label">Frequently Asked Questions</div>
+  <h2 class="section-title">Common <em>Questions</em></h2>
+
+  <div class="accordion">
+    <div class="accordion-item">
+      <button class="accordion-trigger" onclick="toggleAccordion(this)">
+        Are the Khas people indigenous to the Himalayas?
+        <span class="icon">+</span>
+      </button>
+      <div class="accordion-body">
+        <div class="accordion-inner">
+          <p>The honest answer is: partially, and it depends on the timeframe. The Khas as a distinct community speaking an Indo-Aryan language are attested in the Himalayas for over two millennia — making them indigenous by any reasonable definition. However, their genetic ancestry includes layers that arrived in South Asia via ancient migrations (Iranian farmers, Steppe pastoralists), as is true for virtually all South Asian populations. The "indigenous vs. migrant" binary is unhelpful when applied over timescales of millennia — almost every South Asian community is both.</p>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-trigger" onclick="toggleAccordion(this)">
+        What is the difference between Khas and Rajput?
+        <span class="icon">+</span>
+      </button>
+      <div class="accordion-body">
+        <div class="accordion-inner">
+          <p>Khas refers to the ancient Himalayan community described in this platform. Rajput refers to warrior-ruling lineages from the Indian plains who began migrating into the Himalayas (particularly into Rajasthan, Himachal Pradesh, and Nepal) from roughly the 8th century onward, with acceleration after the 12th century. In the Himalayan context, these groups extensively intermarried. The Thakuri sub-group within Nepal's Chhetri community typically claims specifically Rajput (rather than indigenous Khas) patrilineal descent, though this distinction has blurred over centuries.</p>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-trigger" onclick="toggleAccordion(this)">
+        Why do some Khas communities have the same gotras as Brahmin families?
+        <span class="icon">+</span>
+      </button>
+      <div class="accordion-body">
+        <div class="accordion-inner">
+          <p>Two reasons: first, many Khas Brahmin (Bahun) lineages descend from actual Brahmin settlers who came from the plains and settled in hill communities, bringing their gotras with them. Second, the process of Sanskritization involved the adoption of existing gotra names by communities seeking Brahminical legitimacy. Both processes operated simultaneously, and it is often impossible to determine which applies to a specific lineage without genealogical research. Shared gotra names alone cannot prove biological descent from the same ancestral lineage.</p>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-trigger" onclick="toggleAccordion(this)">
+        Is Nepali language the same as "Khas language"?
+        <span class="icon">+</span>
+      </button>
+      <div class="accordion-body">
+        <div class="accordion-inner">
+          <p>Linguistically, modern Nepali is descended from the Khas speech community's dialect. "Khas Kura" (Khas speech) was the original name for what became Gorkhali and then Nepali. The language is Indo-Aryan, closely related to Kumaoni and Garhwali. However, "Khas language" as a historical category may have included dialect variation across the broad Khas zone. Modern Nepali is the standardized, state-promoted form that emerged from the Gorkha political expansion.</p>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-trigger" onclick="toggleAccordion(this)">
+        How should I cite this platform academically?
+        <span class="icon">+</span>
+      </button>
+      <div class="accordion-body">
+        <div class="accordion-inner">
+          <p>This platform is an educational synthesis and should not itself be cited in academic work. Instead, cite the primary and secondary sources listed in the Bibliography section above. For academic research on the Khas, the essential starting points are Whelpton (2005) for general Nepal history, Lecomte-Tilouine's anthropological work, Regmi's historical studies, and Narasimhan et al. (2019) for genetics. For scriptural references, consult the original Sanskrit texts through critical editions.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- SUMMARY -->
+<section>
+  <div class="section-label">Academic Summary</div>
+  <h2 class="section-title">Key <em>Conclusions</em></h2>
+
+  <p class="lead">A synthesis of the current state of knowledge — what we can say with confidence, what remains debated, and what requires further research.</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <h3>On Origins</h3>
+      <p>The Khas were a Himalayan Indo-Aryan-speaking community attested over two millennia. Their genetic ancestry is multi-layered (ANI-heavy but not exclusively so). A specific Central Asian or Scythian migration as a distinct origin is not supported by current evidence.</p>
+    </div>
+    <div class="card">
+      <h3>On Varna Status</h3>
+      <p>Khas Varna status was historically ambiguous, contested, and variable by region. The medieval kingdom-building tradition supports Kshatriya self-identification. Full Brahminical acceptance was achieved through political power and Sanskritization over centuries.</p>
+    </div>
+    <div class="card">
+      <h3>On Genetics</h3>
+      <p>Khas-descended populations show high ANI ancestry, significant Steppe component, and some East Asian admixture — consistent with their Himalayan geography and linguistic affiliation. No population is genetically "pure." Genetics does not map onto caste or cultural hierarchy.</p>
+    </div>
+    <div class="card">
+      <h3>On Hindu Dharma</h3>
+      <p>The Khas have been participants in Himalayan Hindu civilization for at least 1,500 years. Their relationship with Sanatan Dharma combines pan-Hindu practices with local traditions — a syncretic, locally rooted engagement, not a simple adoption from the plains.</p>
+    </div>
+    <div class="card">
+      <h3>On Colonial Distortion</h3>
+      <p>Colonial racial classification significantly distorted understanding of the Khas. Modern scholarship must disaggregate colonial-era ethnography from pre-colonial social realities, while acknowledging that some colonial records contain useful raw data.</p>
+    </div>
+    <div class="card">
+      <h3>Research Gaps</h3>
+      <p>Ancient DNA from Himalayan archaeological sites (pre-500 CE) remains extremely sparse. Archaeological investigation of the Khas Malla kingdom is still limited. More Pahari-language oral traditions require recording and analysis before they are lost.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GLOSSARY -->
+<section id="glossary" style="padding-top: 0;">
+  <div class="section-label">Reference</div>
+  <h2 class="section-title">Glossary</h2>
+  <table class="data-table">
+    <tr><th>Term</th><th>Definition</th></tr>
+    <tr><td><strong style="color:var(--gold-light)">ANI</strong></td><td>Ancestral North Indian — a modeled genetic component associated with Iranian farmers and Steppe pastoralists; dominant in Northwest South Asian populations</td></tr>
+    <tr><td><strong style="color:var(--gold-light)">ASI</strong></td><td>Ancestral South Indian — modeled genetic component related to ancient hunter-gatherers of South Asia (related to Andamanese)</td></tr>
+    <tr><td><strong style="color:var(--gold-light)">AASI</strong></td><td>Ancient Ancestral South Indian — more precise modern term for the deep South Asian hunter-gatherer genetic component</td></tr>
+    <tr><td><strong style="color:var(--gold-light)">Gotra</strong></td><td>Patrilineal exogamous lineage group in Hindu society; named after a Vedic sage; used for marriage regulation</td></tr>
+    <tr><td><strong style="color:var(--gold-light)">Haplogroup</strong></td><td>A cluster of similar haplotypes sharing common SNP mutations; used in population genetics to trace ancient migration patterns</td></tr>
+    <tr><td><strong style="color:var(--gold-light)">Muluki Ain</strong></td><td>Nepal's legal code of 1854, which codified the caste hierarchy and legally defined Khas communities' ritual status</td></tr>
+    <tr><td><strong style="color:var(--gold-light)">Sanskritization</strong></td><td>M.N. Srinivas's term for the process by which lower or tribal communities adopt Brahminical practices as a mechanism of social mobility</td></tr>
+    <tr><td><strong style="color:var(--gold-light)">Steppe MLBA</strong></td><td>Middle-Late Bronze Age Eurasian Steppe genetic component; associated with Indo-European language spread</td></tr>
+    <tr><td><strong style="color:var(--gold-light)">Varna-sankara</strong></td><td>Sanskrit: "mixed Varna" — Brahminical text category for communities seen as of mixed ritual origin</td></tr>
+    <tr><td><strong style="color:var(--gold-light)">Vrishala</strong></td><td>Sanskrit: "degraded Kshatriya" — Manusmriti category for Kshatriya groups said to have lost their status through ritual neglect</td></tr>
+  </table>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-om">ॐ</div>
+  <p>Khas Civilization Educational Platform — For Academic and Educational Use</p>
+  <br>
+  <p style="color:var(--stone-600);">Content synthesizes peer-reviewed scholarship. Not a primary source. Always consult cited works for academic use.</p>
+  <br>
+  <p style="color:var(--stone-700);">© Educational Platform — Built with academic integrity · All claims distinguished by evidence quality</p>
+</footer>
+
+<script>
+// Accordion
+function toggleAccordion(btn) {
+  const body = btn.nextElementSibling;
+  const isOpen = body.classList.contains('open');
+  document.querySelectorAll('.accordion-body.open').forEach(b => b.classList.remove('open'));
+  document.querySelectorAll('.accordion-trigger.open').forEach(b => b.classList.remove('open'));
+  if (!isOpen) {
+    body.classList.add('open');
+    btn.classList.add('open');
+  }
+}
+
+// Search
+function doSearch() {
+  const q = document.getElementById('searchInput').value.toLowerCase().trim();
+  const res = document.getElementById('searchResults');
+  if (!q) { res.textContent = ''; return; }
+  const sections = [
+    { id: 'intro', title: 'Introduction — Who are the Khas?', keywords: ['khas', 'khasa', 'chhetri', 'bahun', 'pahari', 'introduction', 'who'] },
+    { id: 'origins', title: 'Historical Origins', keywords: ['origins', 'history', 'timeline', 'malla', 'mahabharata', 'migration', 'ancient'] },
+    { id: 'scriptures', title: 'Khas in Hindu Scriptures', keywords: ['scripture', 'mahabharata', 'manusmriti', 'purana', 'rajatarangini', 'vedic', 'text'] },
+    { id: 'genetics', title: 'Genetics & Population Research', keywords: ['genetics', 'dna', 'r1a', 'haplogroup', 'ani', 'asi', 'steppe', 'ancestry', 'genome'] },
+    { id: 'varna', title: 'Varna & Social Evolution', keywords: ['varna', 'caste', 'kshatriya', 'brahmin', 'sanskritization', 'social', 'status'] },
+    { id: 'dharma', title: 'Khas and Sanatan Dharma', keywords: ['dharma', 'hinduism', 'shaivism', 'temple', 'ritual', 'gotra', 'shiva', 'religion'] },
+    { id: 'kingdoms', title: 'Himalayan Kingdoms', keywords: ['kingdom', 'malla', 'gorkha', 'uttarakhand', 'nepal', 'chand', 'political', 'history'] },
+    { id: 'debates', title: 'Debates & Myths vs Facts', keywords: ['myth', 'debate', 'colonial', 'scythian', 'arya', 'controversy', 'scholarly'] },
+    { id: 'faq', title: 'FAQ', keywords: ['faq', 'question', 'nepali', 'language', 'indigenous'] },
+  ];
+  const matches = sections.filter(s => s.keywords.some(k => k.includes(q) || q.includes(k)));
+  if (matches.length === 0) {
+    res.textContent = 'No sections found for "' + q + '". Try: genetics, varna, origins, scriptures, kingdoms.';
+  } else {
+    res.innerHTML = 'Found: ' + matches.map(m => '<a href="#' + m.id + '" style="color:var(--gold-light); margin-right:1rem;">' + m.title + '</a>').join('');
+  }
+}
+document.getElementById('searchInput').addEventListener('keydown', e => { if (e.key === 'Enter') doSearch(); });
+
+// Animate genetics bars on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.querySelectorAll('.gbar-fill').forEach(bar => {
+        bar.style.width = bar.dataset.target;
+      });
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.3 });
+
+const gbars = document.getElementById('geneticsBars');
+if (gbars) observer.observe(gbars);
+</script>
+
+</body>
+</html>

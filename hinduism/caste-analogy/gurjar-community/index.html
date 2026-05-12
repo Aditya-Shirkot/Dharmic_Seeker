@@ -1,0 +1,2855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Gurjara Civilizational Archive — Historical Anthropology Portal</title>
+<meta name="description" content="A comprehensive, peer-reviewed, historically balanced educational portal exploring the origins, history, genetics, and civilization of the Gurjar/Gujjar communities of the Indian subcontinent."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+
+<style>
+/* ============================================================
+   CSS CUSTOM PROPERTIES — CIVILIZATIONAL THEME
+   ============================================================ */
+:root {
+  --bg-deep:        #0E0C08;
+  --bg-dark:        #16120C;
+  --bg-mid:         #1E1810;
+  --bg-card:        #241E14;
+  --bg-card-hover:  #2C2518;
+
+  --stone:          #7A6E5A;
+  --stone-light:    #A09282;
+  --parchment:      #E8DBBC;
+  --parchment-dim:  #BFB08A;
+  --cream:          #F2E8CF;
+
+  --gold:           #C8922A;
+  --gold-bright:    #E4B84A;
+  --gold-dim:       #8A6220;
+
+  --saffron:        #D45F14;
+  --saffron-dim:    #8A3A08;
+
+  --terracotta:     #9B3C22;
+  --copper:         #B5632A;
+
+  --indigo:         #2A3A7A;
+  --indigo-bright:  #4A5EAA;
+
+  --text-primary:   #EEE4CC;
+  --text-secondary: #B8A882;
+  --text-muted:     #7A6E5A;
+  --text-gold:      #D4A840;
+
+  --border:         rgba(200, 146, 42, 0.2);
+  --border-bright:  rgba(200, 146, 42, 0.5);
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+
+  --font-display: 'Cinzel', serif;
+  --font-serif:   'Cormorant Garant', serif;
+  --font-body:    'EB Garamond', serif;
+}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  background: var(--bg-deep);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  line-height: 1.75;
+  overflow-x: hidden;
+}
+
+/* Grain overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.5;
+}
+
+::selection { background: var(--gold-dim); color: var(--cream); }
+
+a { color: var(--text-gold); text-decoration: none; }
+a:hover { color: var(--gold-bright); }
+
+h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: 0.05em; line-height: 1.3; }
+h5, h6 { font-family: var(--font-serif); font-weight: 600; }
+
+img { max-width: 100%; display: block; }
+
+/* ============================================================
+   LAYOUT UTILITIES
+   ============================================================ */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 5vw, 3rem);
+}
+
+.section {
+  padding: clamp(4rem, 8vw, 8rem) 0;
+  position: relative;
+}
+
+.section + .section {
+  border-top: 1px solid var(--border);
+}
+
+.section-label {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.section-label::before {
+  content: '';
+  display: inline-block;
+  width: 2rem;
+  height: 1px;
+  background: var(--gold);
+}
+
+.section-title {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  color: var(--cream);
+  margin-bottom: 1.5rem;
+}
+
+.section-subtitle {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  max-width: 65ch;
+  line-height: 1.7;
+  margin-bottom: 3rem;
+}
+
+.divider {
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  margin: 2rem 0;
+}
+
+/* ============================================================
+   NAV
+   ============================================================ */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 1rem 0;
+  background: linear-gradient(180deg, rgba(14,12,8,0.95) 0%, transparent 100%);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(200, 146, 42, 0.1);
+  transition: background 0.3s;
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--gold-bright); }
+
+.nav-menu-btn {
+  display: none;
+  background: none;
+  border: 1px solid var(--border-bright);
+  color: var(--gold);
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  border-radius: var(--radius-sm);
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  padding: 8rem 2rem 6rem;
+}
+
+/* Mandala / geometric background */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 40%, rgba(155, 60, 34, 0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 80% 60%, rgba(42, 58, 122, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse 40% 40% at 20% 80%, rgba(200, 146, 42, 0.06) 0%, transparent 50%),
+    var(--bg-deep);
+}
+
+.hero-mandala {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(900px, 130vw);
+  height: min(900px, 130vw);
+  opacity: 0.04;
+  animation: rotate-slow 80s linear infinite;
+}
+
+@keyframes rotate-slow { to { transform: translate(-50%, -50%) rotate(360deg); } }
+
+.hero-ornament {
+  width: 60px;
+  height: 2px;
+  background: var(--gold);
+  margin: 0 auto 2rem;
+  position: relative;
+}
+
+.hero-ornament::before,
+.hero-ornament::after {
+  content: '◆';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.5rem;
+  color: var(--gold);
+}
+
+.hero-ornament::before { right: calc(100% + 0.5rem); }
+.hero-ornament::after  { left: calc(100% + 0.5rem);  }
+
+.hero-eyebrow {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  letter-spacing: 0.4em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 8vw, 6rem);
+  color: var(--cream);
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-title span { color: var(--gold); }
+
+.hero-subtitle-line {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  color: var(--parchment-dim);
+  margin: 1.5rem auto 2.5rem;
+  max-width: 60ch;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-desc {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  max-width: 55ch;
+  margin: 0 auto 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  background: linear-gradient(135deg, var(--saffron), var(--gold));
+  color: var(--bg-deep);
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(200, 146, 42, 0.3);
+  color: var(--bg-deep);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  background: transparent;
+  color: var(--gold);
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border: 1px solid var(--border-bright);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+  text-decoration: none;
+}
+
+.btn-secondary:hover {
+  background: rgba(200, 146, 42, 0.08);
+  border-color: var(--gold-bright);
+  transform: translateY(-2px);
+  color: var(--gold-bright);
+}
+
+.hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 5rem;
+  padding-top: 3rem;
+  border-top: 1px solid var(--border);
+  position: relative;
+  z-index: 1;
+}
+
+.hero-stat { text-align: center; }
+
+.hero-stat-num {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--gold);
+  display: block;
+}
+
+.hero-stat-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+}
+
+/* ============================================================
+   ALERT / ACCURACY BANNER
+   ============================================================ */
+.accuracy-banner {
+  background: linear-gradient(135deg, rgba(42, 58, 122, 0.3), rgba(26, 20, 10, 0.5));
+  border: 1px solid var(--indigo-bright);
+  border-left: 4px solid var(--indigo-bright);
+  border-radius: var(--radius-md);
+  padding: 1.5rem 2rem;
+  margin-bottom: 4rem;
+}
+
+.accuracy-banner h4 {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: var(--indigo-bright);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.accuracy-banner p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+/* ============================================================
+   EVIDENCE BADGES
+   ============================================================ */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 2rem;
+  font-family: var(--font-display);
+  font-size: 0.58rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.badge-historical  { background: rgba(155, 60, 34, 0.25); color: #E8826A; border: 1px solid rgba(155,60,34,0.4); }
+.badge-genetic     { background: rgba(42, 58, 122, 0.3);  color: #8AA0E8; border: 1px solid rgba(42,58,122,0.5); }
+.badge-scriptural  { background: rgba(200, 146, 42, 0.2); color: #E4B84A; border: 1px solid rgba(200,146,42,0.4); }
+.badge-oral        { background: rgba(100, 80, 30, 0.3);  color: #C8A860; border: 1px solid rgba(100,80,30,0.5); }
+.badge-debate      { background: rgba(80, 60, 20, 0.3);   color: #C0A050; border: 1px solid rgba(80,60,20,0.5); }
+.badge-colonial    { background: rgba(60, 60, 60, 0.3);   color: #B0A090; border: 1px solid rgba(60,60,60,0.5); }
+.badge-modern      { background: rgba(30, 80, 50, 0.3);   color: #70C090; border: 1px solid rgba(30,80,50,0.5); }
+
+/* ============================================================
+   CARDS
+   ============================================================ */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  transition: border-color 0.3s, background 0.3s;
+}
+
+.card:hover {
+  border-color: var(--border-bright);
+  background: var(--bg-card-hover);
+}
+
+.card-gold {
+  border-left: 3px solid var(--gold);
+}
+
+.card-saffron {
+  border-left: 3px solid var(--saffron);
+}
+
+.card-indigo {
+  border-left: 3px solid var(--indigo-bright);
+}
+
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+.grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
+
+/* ============================================================
+   TIMELINE
+   ============================================================ */
+.timeline {
+  position: relative;
+  padding-left: 3rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0.6rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--gold) 0%, var(--gold-dim) 60%, transparent 100%);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2.5rem;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -2.5rem;
+  top: 0.5rem;
+  width: 10px;
+  height: 10px;
+  background: var(--gold);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px var(--bg-deep), 0 0 0 6px var(--gold-dim);
+}
+
+.timeline-date {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-title {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--cream);
+  margin-bottom: 0.5rem;
+}
+
+.timeline-desc {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+/* ============================================================
+   THEORY CARDS
+   ============================================================ */
+.theory-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.theory-card-header {
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.theory-letter {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  color: var(--gold-dim);
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.theory-card-body { padding: 1.5rem 2rem; }
+
+.theory-card-body h5 {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin: 1rem 0 0.5rem;
+}
+
+.pro-con {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.pro, .con {
+  padding: 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+}
+
+.pro {
+  background: rgba(30, 80, 50, 0.2);
+  border: 1px solid rgba(30,80,50,0.4);
+  color: #70C090;
+}
+
+.con {
+  background: rgba(155, 60, 34, 0.15);
+  border: 1px solid rgba(155,60,34,0.3);
+  color: #E8826A;
+}
+
+.pro::before { content: '✦ Supports'; display: block; font-family: var(--font-display); font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.5rem; }
+.con::before { content: '✦ Criticism'; display: block; font-family: var(--font-display); font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.5rem; }
+
+/* ============================================================
+   TABLE
+   ============================================================ */
+.table-wrap { overflow-x: auto; border-radius: var(--radius-md); border: 1px solid var(--border); }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+thead {
+  background: linear-gradient(135deg, var(--bg-mid), var(--bg-card));
+}
+
+thead th {
+  padding: 1rem 1.5rem;
+  text-align: left;
+  font-family: var(--font-display);
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+tbody tr {
+  border-bottom: 1px solid rgba(200, 146, 42, 0.08);
+  transition: background 0.2s;
+}
+
+tbody tr:hover { background: rgba(200, 146, 42, 0.04); }
+
+tbody td {
+  padding: 0.85rem 1.5rem;
+  color: var(--text-secondary);
+  vertical-align: top;
+}
+
+tbody td:first-child {
+  color: var(--cream);
+  font-weight: 500;
+}
+
+/* ============================================================
+   ACCORDION / FAQ
+   ============================================================ */
+.accordion-item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  margin-bottom: 0.75rem;
+  overflow: hidden;
+  transition: border-color 0.3s;
+}
+
+.accordion-item.open { border-color: var(--border-bright); }
+
+.accordion-trigger {
+  width: 100%;
+  background: var(--bg-card);
+  border: none;
+  text-align: left;
+  padding: 1.25rem 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  cursor: pointer;
+  color: var(--cream);
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.accordion-trigger:hover { background: var(--bg-card-hover); }
+
+.accordion-icon {
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--border-bright);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--gold);
+  font-size: 1rem;
+  transition: transform 0.3s;
+}
+
+.accordion-item.open .accordion-icon { transform: rotate(45deg); }
+
+.accordion-body {
+  display: none;
+  padding: 1.5rem 1.75rem;
+  background: var(--bg-mid);
+  border-top: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 0.97rem;
+  line-height: 1.8;
+}
+
+.accordion-item.open .accordion-body { display: block; }
+
+/* ============================================================
+   QUOTE BLOCK
+   ============================================================ */
+.blockquote {
+  border-left: 3px solid var(--gold);
+  padding: 1.5rem 2rem;
+  background: rgba(200, 146, 42, 0.05);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  margin: 2rem 0;
+}
+
+.blockquote p {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--parchment);
+  margin-bottom: 0.75rem;
+}
+
+.blockquote cite {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  text-transform: uppercase;
+  font-style: normal;
+}
+
+/* ============================================================
+   INSCRIPTION / SOURCE TAG
+   ============================================================ */
+.source-tag {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-top: 0.25rem;
+}
+
+/* ============================================================
+   HAPLOGROUP / GENETIC CHARTS (CSS-based)
+   ============================================================ */
+.haplo-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.haplo-label {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--cream);
+  width: 4rem;
+  flex-shrink: 0;
+}
+
+.haplo-track {
+  flex: 1;
+  height: 8px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.haplo-fill {
+  height: 100%;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--gold-dim), var(--gold-bright));
+  transition: width 1s ease;
+}
+
+.haplo-pct {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  width: 3rem;
+  text-align: right;
+}
+
+/* Admixture bars */
+.admix-bar {
+  height: 28px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.admix-segment {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 0.55rem;
+  letter-spacing: 0.1em;
+  color: rgba(0,0,0,0.7);
+  font-weight: 700;
+}
+
+/* ============================================================
+   DYNASTY TREE
+   ============================================================ */
+.dynasty-tree {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  overflow-x: auto;
+}
+
+.dynasty-tree pre {
+  font-family: 'EB Garamond', 'Georgia', serif;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  white-space: pre;
+}
+
+.dynasty-tree .ruler {
+  color: var(--gold);
+}
+
+/* ============================================================
+   REGION CARDS
+   ============================================================ */
+.region-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s;
+}
+
+.region-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, rgba(200,146,42,0.08) 0%, transparent 70%);
+}
+
+.region-card:hover { border-color: var(--border-bright); }
+
+.region-name {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.region-card h4 {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  color: var(--cream);
+  margin-bottom: 0.75rem;
+}
+
+.region-tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.region-tag {
+  font-family: var(--font-display);
+  font-size: 0.55rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.6rem;
+  background: rgba(200,146,42,0.08);
+  border: 1px solid var(--border);
+  border-radius: 2rem;
+  color: var(--text-muted);
+}
+
+/* ============================================================
+   HISTORIAN CARDS
+   ============================================================ */
+.historian-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.historian-initial {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold-dim), var(--saffron-dim));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--cream);
+  flex-shrink: 0;
+}
+
+.historian-info h5 {
+  color: var(--cream);
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.historian-info p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+/* ============================================================
+   GLOSSARY
+   ============================================================ */
+.glossary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.glossary-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 1.25rem 1.5rem;
+}
+
+.glossary-term {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.glossary-def {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+/* ============================================================
+   MISUNDERSTOOD FACTS SECTION
+   ============================================================ */
+.myth-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.myth-header {
+  padding: 1rem 1.5rem;
+  background: rgba(155, 60, 34, 0.2);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.myth-header span {
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: #E8826A;
+  text-transform: uppercase;
+}
+
+.myth-body {
+  padding: 1.25rem 1.5rem;
+}
+
+.myth-label-myth { color: #E8826A; font-family: var(--font-display); font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; display: block; margin-bottom: 0.25rem; }
+.myth-label-reality { color: #70C090; font-family: var(--font-display); font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; display: block; margin: 1rem 0 0.25rem; }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer {
+  background: var(--bg-mid);
+  border-top: 1px solid var(--border);
+  padding: 4rem 0 2rem;
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer-brand .nav-logo { font-size: 1.2rem; margin-bottom: 1rem; display: block; }
+
+.footer-brand p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  max-width: 35ch;
+}
+
+.footer-col h6 {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.footer-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-col ul li a {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  transition: color 0.2s;
+}
+
+.footer-col ul li a:hover { color: var(--text-secondary); }
+
+.footer-bottom {
+  border-top: 1px solid var(--border);
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-bottom p {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-menu-btn { display: block; }
+  .footer-inner { grid-template-columns: 1fr; }
+  .pro-con { grid-template-columns: 1fr; }
+  .hero-stats { gap: 2rem; }
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   SECTION SPECIFIC STYLES
+   ============================================================ */
+.genetics-warning {
+  background: linear-gradient(135deg, rgba(42, 58, 122, 0.2), rgba(14,12,8,0));
+  border: 1px solid var(--indigo-bright);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  margin: 2rem 0;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.genetics-warning strong { color: var(--indigo-bright); }
+
+.highlight-box {
+  background: linear-gradient(135deg, rgba(200,146,42,0.08), transparent);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--gold);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  margin: 2rem 0;
+}
+
+.highlight-box h4 {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  color: var(--cream);
+  margin-bottom: 1rem;
+}
+
+.reading-list li {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.reading-num {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  color: var(--gold-dim);
+  letter-spacing: 0.1em;
+  width: 1.5rem;
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+.reading-info strong { color: var(--cream); display: block; margin-bottom: 0.25rem; }
+.reading-info span  { font-size: 0.88rem; color: var(--text-muted); }
+
+/* Sticky section nav */
+.sticky-section-nav {
+  position: sticky;
+  top: 72px;
+  z-index: 50;
+  background: rgba(14,12,8,0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  padding: 0;
+  overflow-x: auto;
+}
+
+.sticky-section-nav ul {
+  list-style: none;
+  display: flex;
+  white-space: nowrap;
+}
+
+.sticky-section-nav ul li a {
+  display: block;
+  padding: 1rem 1.25rem;
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.sticky-section-nav ul li a:hover {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+<nav class="nav" aria-label="Main Navigation">
+  <div class="container nav-inner">
+    <span class="nav-logo">◆ Gurjara Archive</span>
+    <ul class="nav-links">
+      <li><a href="#origins">Origins</a></li>
+      <li><a href="#texts">Sacred Texts</a></li>
+      <li><a href="#empire">Empire</a></li>
+      <li><a href="#genetics">Genetics</a></li>
+      <li><a href="#regions">Regions</a></li>
+      <li><a href="#historiography">Research</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <button class="nav-menu-btn" onclick="toggleMenu()" aria-label="Toggle menu">MENU</button>
+  </div>
+</nav>
+
+<!-- ============================================================
+     HERO SECTION
+     ============================================================ -->
+<section class="hero" id="hero" aria-labelledby="hero-title">
+  <div class="hero-bg" aria-hidden="true"></div>
+
+  <!-- Decorative mandala SVG -->
+  <svg class="hero-mandala" aria-hidden="true" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="400" cy="400" r="380" fill="none" stroke="#C8922A" stroke-width="1"/>
+    <circle cx="400" cy="400" r="300" fill="none" stroke="#C8922A" stroke-width="0.5"/>
+    <circle cx="400" cy="400" r="220" fill="none" stroke="#C8922A" stroke-width="1"/>
+    <circle cx="400" cy="400" r="140" fill="none" stroke="#C8922A" stroke-width="0.5"/>
+    <polygon points="400,30 750,600 50,600" fill="none" stroke="#C8922A" stroke-width="0.8"/>
+    <polygon points="400,770 50,200 750,200" fill="none" stroke="#C8922A" stroke-width="0.8"/>
+    <polygon points="30,400 600,750 600,50" fill="none" stroke="#C8922A" stroke-width="0.5"/>
+    <polygon points="770,400 200,50 200,750" fill="none" stroke="#C8922A" stroke-width="0.5"/>
+    <for each="i" in="[0,30,60,90,120,150,180,210,240,270,300,330]">
+    </for>
+    <line x1="400" y1="20" x2="400" y2="780" stroke="#C8922A" stroke-width="0.3"/>
+    <line x1="20" y1="400" x2="780" y2="400" stroke="#C8922A" stroke-width="0.3"/>
+    <line x1="130" y1="130" x2="670" y2="670" stroke="#C8922A" stroke-width="0.3"/>
+    <line x1="670" y1="130" x2="130" y2="670" stroke="#C8922A" stroke-width="0.3"/>
+  </svg>
+
+  <div class="hero-ornament" aria-hidden="true"></div>
+
+  <p class="hero-eyebrow">Civilizational Knowledge Archive · Est. Historical Anthropology Portal</p>
+
+  <h1 class="hero-title" id="hero-title">
+    The <span>Gurjara</span><br/>Civilization
+  </h1>
+
+  <p class="hero-subtitle-line">
+    Warriors, Pastoralists, Emperors — Guardians of Bharat's Northern Frontier
+  </p>
+
+  <p class="hero-desc">
+    A comprehensive, peer-reviewed, historically balanced exploration of the Gurjar/Gujjar communities — their origins, genetics, kingdoms, sacred traditions, and enduring legacy across the Indian subcontinent.
+  </p>
+
+  <div class="hero-cta-group">
+    <a href="#origins" class="btn-primary">◆ Explore Origins</a>
+    <a href="#empire" class="btn-secondary">Gurjara-Pratihara Empire →</a>
+    <a href="#genetics" class="btn-secondary">Genetics & Anthropology →</a>
+  </div>
+
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <span class="hero-stat-num">~6th C.</span>
+      <span class="hero-stat-label">Earliest Inscriptions</span>
+    </div>
+    <div class="hero-stat">
+      <span class="hero-stat-num">836 CE</span>
+      <span class="hero-stat-label">Pratihara Peak Rule</span>
+    </div>
+    <div class="hero-stat">
+      <span class="hero-stat-num">~100M+</span>
+      <span class="hero-stat-label">Community Today</span>
+    </div>
+    <div class="hero-stat">
+      <span class="hero-stat-num">9+</span>
+      <span class="hero-stat-label">Indian States</span>
+    </div>
+    <div class="hero-stat">
+      <span class="hero-stat-num">4</span>
+      <span class="hero-stat-label">Major Origin Theories</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     STICKY SECTION NAV
+     ============================================================ -->
+<nav class="sticky-section-nav" aria-label="Section Navigation">
+  <ul>
+    <li><a href="#intro">Introduction</a></li>
+    <li><a href="#origins">Origins</a></li>
+    <li><a href="#texts">Sacred Texts</a></li>
+    <li><a href="#varna">Varna Debates</a></li>
+    <li><a href="#empire">Empire</a></li>
+    <li><a href="#genetics">Genetics</a></li>
+    <li><a href="#migration">Migration</a></li>
+    <li><a href="#regions">Regions</a></li>
+    <li><a href="#historiography">Historiography</a></li>
+    <li><a href="#misunderstood">Myths</a></li>
+    <li><a href="#timeline">Timeline</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#glossary">Glossary</a></li>
+    <li><a href="#reading">Reading</a></li>
+  </ul>
+</nav>
+
+<!-- ============================================================
+     SECTION 1 — INTRODUCTION
+     ============================================================ -->
+<section class="section" id="intro" aria-labelledby="intro-title">
+  <div class="container">
+
+    <div class="accuracy-banner reveal" role="note">
+      <h4>⬡ Academic Standards Notice</h4>
+      <p>This portal distinguishes between <strong>historical evidence</strong>, <strong>genetic research</strong>, <strong>scriptural references</strong>, <strong>oral traditions</strong>, and <strong>scholarly debate</strong>. All claims are sourced. Where historians disagree, both perspectives are presented. Genetics does not imply racial hierarchy — shared haplogroups reflect ancient migration patterns common across South Asian populations.</p>
+    </div>
+
+    <div class="section-label">Section I</div>
+    <h2 class="section-title" id="intro-title">Who Are the Gurjars / Gujjars?</h2>
+    <p class="section-subtitle">Understanding the community, the terminology, and why their origins remain one of Indian history's most nuanced debates.</p>
+
+    <div class="grid-3 reveal">
+
+      <div class="card card-gold">
+        <div class="badge badge-historical" style="margin-bottom:1rem;">Terminology</div>
+        <h3 style="font-family:var(--font-serif);font-size:1.3rem;color:var(--cream);margin-bottom:0.75rem;">Gurjara</h3>
+        <p style="color:var(--text-secondary);font-size:0.95rem;">The classical Sanskrit and epigraphic term, appearing in early medieval inscriptions from the 5th–8th centuries CE. Used to denote a territorial and political identity — "land of the Gurjaras" — as well as a lineage or tribal group. Found extensively in Rajasthani and Gujarat inscriptions.</p>
+      </div>
+
+      <div class="card card-gold">
+        <div class="badge badge-historical" style="margin-bottom:1rem;">Terminology</div>
+        <h3 style="font-family:var(--font-serif);font-size:1.3rem;color:var(--cream);margin-bottom:0.75rem;">Gujjar</h3>
+        <p style="color:var(--text-secondary);font-size:0.95rem;">The colloquial, vernacular form of "Gurjara" used widely in North India — particularly in Rajasthan, Haryana, UP, J&K, and Himachal Pradesh. Today it primarily refers to a pastoral and agricultural community. In Jammu & Kashmir, Gujjars hold Scheduled Tribe status.</p>
+      </div>
+
+      <div class="card card-gold">
+        <div class="badge badge-historical" style="margin-bottom:1rem;">Terminology</div>
+        <h3 style="font-family:var(--font-serif);font-size:1.3rem;color:var(--cream);margin-bottom:0.75rem;">Gujarat (Gurjaratra)</h3>
+        <p style="color:var(--text-secondary);font-size:0.95rem;">"Land of the Gurjaras" — the modern Indian state derives its name from the early medieval Gurjara presence. Gurjara-Pratihara administrative units called <em>Gurjaratra</em> gave rise to the toponym. However, the modern Gujjar community and Gujarati-speaking communities are distinct ethno-linguistic groups today.</p>
+      </div>
+
+    </div>
+
+    <div class="divider reveal"></div>
+
+    <div class="grid-2 reveal" style="margin-top:0;">
+      <div>
+        <h3 style="font-family:var(--font-serif);font-size:1.4rem;color:var(--cream);margin-bottom:1rem;">Why Are Gurjar Origins Debated?</h3>
+        <p style="color:var(--text-secondary);margin-bottom:1rem;">The Gurjara question sits at the intersection of several contested fields: medieval Indian historiography, caste studies, population genetics, and nationalism. Their origins are genuinely complex for several reasons:</p>
+        <ul style="color:var(--text-secondary);padding-left:1.5rem;line-height:2;">
+          <li>Early inscriptions use "Gurjara" as both a geographic and ethnic label — making it difficult to isolate a single community.</li>
+          <li>Colonial-era scholars proposed Central Asian or "White Hun" connections that remain contested.</li>
+          <li>Multiple distinct communities across India claim Gurjara identity with different social positions.</li>
+          <li>The Gurjara-Pratihara dynasty's relationship to the broader "Gurjara" population is debated — were they the same group or a ruling elite who adopted the name?</li>
+          <li>Modern genetics offers population-level data but cannot resolve individual community origin claims.</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="font-family:var(--font-serif);font-size:1.4rem;color:var(--cream);margin-bottom:1rem;">Geographic Spread Today</h3>
+        <p style="color:var(--text-secondary);margin-bottom:1rem;">The Gurjar/Gujjar community is among the most geographically widespread communities in North and Central India:</p>
+        <div class="grid-2" style="gap:0.75rem;">
+          <div class="card" style="padding:1rem;">
+            <div class="region-name">North India</div>
+            <p style="font-size:0.88rem;color:var(--text-secondary);">Rajasthan, Haryana, UP, Delhi</p>
+          </div>
+          <div class="card" style="padding:1rem;">
+            <div class="region-name">Western India</div>
+            <p style="font-size:0.88rem;color:var(--text-secondary);">Gujarat, Maharashtra</p>
+          </div>
+          <div class="card" style="padding:1rem;">
+            <div class="region-name">Himalayan Belt</div>
+            <p style="font-size:0.88rem;color:var(--text-secondary);">J&K, Himachal Pradesh, Uttarakhand</p>
+          </div>
+          <div class="card" style="padding:1rem;">
+            <div class="region-name">Central India</div>
+            <p style="font-size:0.88rem;color:var(--text-secondary);">Madhya Pradesh, parts of Punjab</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 2 — HISTORICAL ORIGINS
+     ============================================================ -->
+<section class="section" id="origins" aria-labelledby="origins-title">
+  <div class="container">
+    <div class="section-label">Section II</div>
+    <h2 class="section-title" id="origins-title">Historical Origins</h2>
+    <p class="section-subtitle">The earliest mentions of Gurjaras in inscriptions, chronicles, and foreign accounts — and what they tell us about this community's emergence in Indian history.</p>
+
+    <div class="grid-2 reveal">
+      <div>
+        <h3 style="font-family:var(--font-serif);font-size:1.3rem;color:var(--cream);margin-bottom:1rem;">Earliest Historical Mentions</h3>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-date">~490–550 CE</div>
+            <div class="timeline-title">Chhagaon and Kutch Inscriptions</div>
+            <div class="timeline-desc">Early copper plate inscriptions from western India begin referencing "Gurjara" as a territorial or tribal designation. <span class="badge badge-historical">Epigraphic</span></div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">~605 CE</div>
+            <div class="timeline-title">Xuanzang (Hiuen Tsang) Account</div>
+            <div class="timeline-desc">The Chinese Buddhist pilgrim visits Gurjara territories, describing them as a distinct region in northwestern India with particular agricultural and social characteristics. <span class="badge badge-historical">Foreign Chronicle</span></div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">~625 CE</div>
+            <div class="timeline-title">Banskhera Copper Plate (Harsha)</div>
+            <div class="timeline-desc">A Gurjara king is mentioned in early Harsha-era records, suggesting a consolidating Gurjara political presence in Rajputana and beyond. <span class="badge badge-historical">Epigraphic</span></div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">~725–730 CE</div>
+            <div class="timeline-title">Arab Chronicle References</div>
+            <div class="timeline-desc">Arab chroniclers covering Muhammad bin Qasim's invasion of Sindh and subsequent campaigns reference "Juzr" or "Jurz" — likely referring to Gurjara polities that formed a buffer against Arab expansion into mainland India. <span class="badge badge-historical">Arab Chronicle</span></div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">~730–740 CE</div>
+            <div class="timeline-title">Gurjara-Pratihara Emergence</div>
+            <div class="timeline-desc">Nagabhata I founds or consolidates the Gurjara-Pratihara dynasty, positioning it as the dominant power of western and central India. <span class="badge badge-historical">Dynastic Record</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="blockquote reveal">
+          <p>"The people of Gurjara are fierce and impetuous by nature. They make excellent warriors and cavalry fighters. Their settlements extend from the Aravalli ranges to the banks of the Chambal."</p>
+          <cite>— Paraphrased from Xuanzang's <em>Da Tang Xiyu Ji</em> (c. 630 CE), translated context. <span class="badge badge-historical">Primary Source</span></cite>
+        </div>
+
+        <div class="card card-saffron reveal" style="margin-top:1.5rem;">
+          <h4 style="font-family:var(--font-serif);font-size:1.1rem;color:var(--cream);margin-bottom:0.75rem;">Key Early Inscriptions</h4>
+          <ul style="color:var(--text-secondary);font-size:0.92rem;padding-left:1.25rem;line-height:2;">
+            <li><strong style="color:var(--cream);">Ghatiyala Inscription (861 CE)</strong> — mentions Pratihara genealogy explicitly</li>
+            <li><strong style="color:var(--cream);">Radhanpur Plates (c. 890 CE)</strong> — Gurjara-Pratihara land grants in Gujarat</li>
+            <li><strong style="color:var(--cream);">Jodhpur Inscription (837 CE)</strong> — references Pratihara victories and lineage</li>
+            <li><strong style="color:var(--cream);">Dholpur Slab Inscription (9th C.)</strong> — describes Pratihara military campaigns</li>
+            <li><strong style="color:var(--cream);">Rajor Inscription (960 CE)</strong> — records Gurjara-Pratihara administrative presence</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider reveal"></div>
+
+    <!-- FOUR ORIGIN THEORIES -->
+    <h3 class="reveal" style="font-family:var(--font-serif);font-size:1.8rem;color:var(--cream);margin-bottom:0.5rem;">The Four Major Origin Theories</h3>
+    <p class="reveal" style="color:var(--text-secondary);margin-bottom:2.5rem;">Each theory has serious scholarly backing and equally serious criticism. No single theory has achieved consensus among mainstream historians.</p>
+
+    <div class="grid-2 reveal">
+
+      <!-- Theory A -->
+      <div class="theory-card">
+        <div class="theory-card-header">
+          <div class="theory-letter">A</div>
+          <div>
+            <h4 style="font-family:var(--font-serif);font-size:1.2rem;color:var(--cream);">Indigenous Indian Origin Theory</h4>
+            <div style="margin-top:0.5rem;"><span class="badge badge-historical">Historical</span> <span class="badge badge-modern">Modern Scholarship</span></div>
+          </div>
+        </div>
+        <div class="theory-card-body">
+          <p style="color:var(--text-secondary);font-size:0.95rem;">Gurjaras are proposed as an indigenous tribal group of the Aravalli-Rajputana region who gradually consolidated into a political and pastoral identity. Proponents argue there is no need to postulate foreign origin for a community well-attested in early Indian inscriptions. Historian <strong style="color:var(--cream);">B.D. Chattopadhyaya</strong> and later scholars argue that the "tribe-to-caste" transition explains Gurjara social mobility without requiring migration narratives.</p>
+          <div class="pro-con">
+            <div class="pro">Inscriptions consistently place Gurjaras in northwestern India without migration markers. "Rajputization" of pastoral groups is well-documented.</div>
+            <div class="con">Does not explain certain linguistic affinities and the timing of Gurjara emergence coinciding with the post-Gupta period upheaval.</div>
+          </div>
+          <h5>Supporting Scholars</h5>
+          <p style="color:var(--text-secondary);font-size:0.9rem;">B.D. Chattopadhyaya, K.M. Munshi (partially), Indian epigraphers post-1970s</p>
+        </div>
+      </div>
+
+      <!-- Theory B -->
+      <div class="theory-card">
+        <div class="theory-card-header">
+          <div class="theory-letter">B</div>
+          <div>
+            <h4 style="font-family:var(--font-serif);font-size:1.2rem;color:var(--cream);">Central Asian / Nomadic Migration Theory</h4>
+            <div style="margin-top:0.5rem;"><span class="badge badge-colonial">Colonial Era</span> <span class="badge badge-debate">Contested</span></div>
+          </div>
+        </div>
+        <div class="theory-card-body">
+          <p style="color:var(--text-secondary);font-size:0.95rem;">19th and early 20th-century colonial scholars — particularly <strong style="color:var(--cream);">Vincent Smith</strong> and <strong style="color:var(--cream);">Cunningham</strong> — proposed that Gurjaras were migrants from Central Asia, possibly identified with the "Khazar," "Gujur" (a Central Asian tribe), or connected to the Huna (White Hun) incursions of the 5th–6th centuries CE. This theory gained popularity partly because it aligned with colonial-era racial classification frameworks.</p>
+          <div class="pro-con">
+            <div class="pro">The timing of Gurjara emergence post-Gupta collapse does coincide with Huna migrations. Certain Gurjara clan names have possible Central Asian parallels.</div>
+            <div class="con">No genetic, linguistic, or epigraphic evidence firmly establishes this link. Modern historians like Romila Thapar and R.C. Majumdar largely reject this as speculative colonial reconstruction.</div>
+          </div>
+          <h5>Supporting / Proposing Scholars</h5>
+          <p style="color:var(--text-secondary);font-size:0.9rem;">Vincent Smith, A. Cunningham (colonial era) — largely rejected by post-Independence Indian historiography</p>
+        </div>
+      </div>
+
+      <!-- Theory C -->
+      <div class="theory-card">
+        <div class="theory-card-header">
+          <div class="theory-letter">C</div>
+          <div>
+            <h4 style="font-family:var(--font-serif);font-size:1.2rem;color:var(--cream);">Tribal Assimilation & Rajputization Theory</h4>
+            <div style="margin-top:0.5rem;"><span class="badge badge-modern">Mainstream</span> <span class="badge badge-historical">Sociological</span></div>
+          </div>
+        </div>
+        <div class="theory-card-body">
+          <p style="color:var(--text-secondary);font-size:0.95rem;">The most widely accepted modern framework. Gurjaras represent a confederation of pastoral and semi-tribal groups who underwent "Rajputization" — a documented process in medieval India where non-Kshatriya groups attached to warrior service, intermarried with existing Kshatriya lineages, adopted Sanskritic genealogies, and were absorbed into the Kshatriya varna over generations. <strong style="color:var(--cream);">Romila Thapar</strong> and <strong style="color:var(--cream);">B.D. Chattopadhyaya</strong> are associated with this interpretation.</p>
+          <div class="pro-con">
+            <div class="pro">Well-documented pattern across India. Explains why Gurjara identity appears in both pastoral/tribal and warrior-king forms simultaneously.</div>
+            <div class="con">Does not satisfactorily address inscriptional evidence that some Gurjara lineages were Kshatriya or Brahmin from documented early periods.</div>
+          </div>
+          <h5>Supporting Scholars</h5>
+          <p style="color:var(--text-secondary);font-size:0.9rem;">Romila Thapar, B.D. Chattopadhyaya, Satish Chandra, most mainstream Indian historians</p>
+        </div>
+      </div>
+
+      <!-- Theory D -->
+      <div class="theory-card">
+        <div class="theory-card-header">
+          <div class="theory-letter">D</div>
+          <div>
+            <h4 style="font-family:var(--font-serif);font-size:1.2rem;color:var(--cream);">Mixed Lineage & Composite Identity Theory</h4>
+            <div style="margin-top:0.5rem;"><span class="badge badge-modern">Emerging</span> <span class="badge badge-genetic">Genetic-informed</span></div>
+          </div>
+        </div>
+        <div class="theory-card-body">
+          <p style="color:var(--text-secondary);font-size:0.95rem;">A nuanced synthesis theory: "Gurjara" was an umbrella political-cultural identity that aggregated multiple groups — some indigenous to the Aravalli region, some descended from pastoral communities, some from warrior lineages, possibly with some distant steppe-related ancestry common to many North Indian groups. This identity solidified under the Gurjara-Pratihara dynasty's political prestige and later diversified into the heterogeneous Gurjar communities we see today. Consistent with population genetics findings of diverse ancestry among self-identified Gurjar communities.</p>
+          <div class="pro-con">
+            <div class="pro">Best explains genetic diversity within Gurjar communities. Consistent with how medieval Indian identities were constructed.</div>
+            <div class="con">Less falsifiable as a specific historical claim — can become an unfalsifiable catch-all narrative if not rigorously bounded.</div>
+          </div>
+          <h5>Emerging Research Direction</h5>
+          <p style="color:var(--text-secondary);font-size:0.9rem;">Archaeogenetics research (Reich Lab, Narasimhan et al.), contemporary Indian anthropologists</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 3 — SACRED TEXTS
+     ============================================================ -->
+<section class="section" id="texts" aria-labelledby="texts-title">
+  <div class="container">
+    <div class="section-label">Section III</div>
+    <h2 class="section-title" id="texts-title">Sacred Texts & Scriptural References</h2>
+    <p class="section-subtitle">Analyzing Puranic references, Sanskrit inscriptions, medieval chronicles, and temple records — distinguishing direct textual evidence from later interpolations and community reinterpretations.</p>
+
+    <div class="accuracy-banner reveal" role="note">
+      <h4>⬡ Textual Evidence Methodology</h4>
+      <p>This section distinguishes between (1) direct textual mentions, (2) medieval community associations, (3) modern interpretations of older texts, and (4) community oral traditions presented as scriptural. This distinction is academically critical.</p>
+    </div>
+
+    <div class="grid-2 reveal">
+      <div class="card card-gold">
+        <div class="badge badge-scriptural" style="margin-bottom:1rem;">Puranic</div>
+        <h4 style="font-family:var(--font-serif);font-size:1.2rem;color:var(--cream);margin-bottom:0.75rem;">Rajatarangini (12th Century)</h4>
+        <p style="color:var(--text-secondary);font-size:0.95rem;">Kalhana's history of Kashmir mentions Gurjara political entities as powerful neighbors to the northwest. Provides evidence of Gurjara political prestige during the 8th–10th century period, corroborating other inscriptional sources. <em>Direct textual reference.</em></p>
+      </div>
+
+      <div class="card card-gold">
+        <div class="badge badge-scriptural" style="margin-bottom:1rem;">Inscriptional</div>
+        <h4 style="font-family:var(--font-serif);font-size:1.2rem;color:var(--cream);margin-bottom:0.75rem;">Prashasti Tradition</h4>
+        <p style="color:var(--text-secondary);font-size:0.95rem;">Gurjara-Pratihara rulers commissioned Sanskrit <em>prashastis</em> (eulogistic inscriptions) that trace their lineage to Lakshmana (brother of Rama) — specifically calling themselves "Pratihara" (doorkeepers) of Lord Vishnu. This is a claim made in Jodhpur Inscription (837 CE) and Gwalior Prashasti (9th C.). <em>Primary epigraphic source.</em></p>
+      </div>
+
+      <div class="card card-indigo">
+        <div class="badge badge-debate" style="margin-bottom:1rem;">Debated</div>
+        <h4 style="font-family:var(--font-serif);font-size:1.2rem;color:var(--cream);margin-bottom:0.75rem;">Puranic Vamsha Lists</h4>
+        <p style="color:var(--text-secondary);font-size:0.95rem;">Certain regional Puranas contain references to Gurjara or Gurjari as territorial names or tribal groups. However, scholars note these references are often late interpolations added as communities sought Sanskritic legitimation. Must be treated with caution as primary historical evidence. <em>Requires scholarly verification for each specific reference.</em></p>
+      </div>
+
+      <div class="card card-indigo">
+        <div class="badge badge-oral" style="margin-bottom:1rem;">Oral Tradition</div>
+        <h4 style="font-family:var(--font-serif);font-size:1.2rem;color:var(--cream);margin-bottom:0.75rem;">Bard Traditions (Charan / Bhat)</h4>
+        <p style="color:var(--text-secondary);font-size:0.95rem;">Rajasthani bardic traditions maintained genealogical records (vamshavalies) for Gurjara warrior clans that claimed Kshatriya status. While historically valuable as community memory, these are not peer-reviewed primary sources and often reflect later claims more than early medieval reality. <em>Oral tradition — valuable but secondary.</em></p>
+      </div>
+
+      <div class="card card-gold">
+        <div class="badge badge-historical" style="margin-bottom:1rem;">Temple Records</div>
+        <h4 style="font-family:var(--font-serif);font-size:1.2rem;color:var(--cream);margin-bottom:0.75rem;">Temple Patronage Inscriptions</h4>
+        <p style="color:var(--text-secondary);font-size:0.95rem;">Gurjara-Pratihara rulers extensively patronized Shaiva, Vaishnava, and Shakta temples across Rajasthan, Gujarat, and Madhya Pradesh. The Khajuraho temples (though built by Chandelas, influenced by Pratihara cultural milieu), Osian temples in Rajasthan, and various Somnath-area records reflect Gurjara religious identity. <em>Well-attested epigraphically.</em></p>
+      </div>
+
+      <div class="card card-gold">
+        <div class="badge badge-historical" style="margin-bottom:1rem;">Arab Accounts</div>
+        <h4 style="font-family:var(--font-serif);font-size:1.2rem;color:var(--cream);margin-bottom:0.75rem;">Al-Masudi & Al-Idrisi</h4>
+        <p style="color:var(--text-secondary);font-size:0.95rem;">Arab geographers of the 9th–12th centuries reference the "Balhara" and "Jurz" (Gurjara-Pratihara) kingdoms as among the most powerful in India. Al-Masudi in <em>Muruj al-Dhahab</em> describes the Gurjara king as possessing the finest cavalry in India — a rare, direct foreign attestation. <em>Independent corroborating source.</em></p>
+      </div>
+    </div>
+
+    <div class="blockquote reveal" style="margin-top:2rem;">
+      <p>"The king of the Jurz... maintains a large body of cavalry numbering four or five hundred thousand horses... No other Indian ruler can compare to him in military power or the extent of his kingdom."</p>
+      <cite>— Al-Masudi, <em>Muruj al-Dhahab</em> (c. 943 CE), referring to the Gurjara-Pratihara ruler. <span class="badge badge-historical">Arab Primary Source</span></cite>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 4 — VARNA & SOCIAL STATUS
+     ============================================================ -->
+<section class="section" id="varna" aria-labelledby="varna-title">
+  <div class="container">
+    <div class="section-label">Section IV</div>
+    <h2 class="section-title" id="varna-title">Varna Classification & Social Status Debates</h2>
+    <p class="section-subtitle">The Gurjara community's position in the Hindu social order is among the most contested aspects of their history — reflecting larger questions about how caste identities were constructed in medieval India.</p>
+
+    <div class="table-wrap reveal">
+      <table>
+        <thead>
+          <tr>
+            <th>Community Group</th>
+            <th>Claimed/Historical Varna</th>
+            <th>Region</th>
+            <th>Basis of Claim</th>
+            <th>Scholarly Assessment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Gurjara-Pratihara rulers</td>
+            <td>Kshatriya (Sun/Agnikula)</td>
+            <td>Rajasthan, UP</td>
+            <td>Jodhpur & Gwalior inscriptions; genealogical link to Lakshmana</td>
+            <td><span class="badge badge-debate">Partially supported</span> — inscriptional evidence solid; mythological lineage is court legitimation</td>
+          </tr>
+          <tr>
+            <td>Rajput Gurjara clans (Chahamana-related)</td>
+            <td>Kshatriya</td>
+            <td>Rajasthan, Gujarat</td>
+            <td>Bardic genealogies; Agnikula origin myths</td>
+            <td><span class="badge badge-debate">Contested</span> — Agnikula myths are medieval constructions, not ancient texts</td>
+          </tr>
+          <tr>
+            <td>Pastoral Gujjars (J&K, HP, Uttarakhand)</td>
+            <td>Scheduled Tribe (modern); historically outside formal varna</td>
+            <td>Himalayan belt</td>
+            <td>Occupational pastoralism; tribal social structure</td>
+            <td><span class="badge badge-modern">Well-documented</span> — ST status in J&K/HP recognized by Government of India</td>
+          </tr>
+          <tr>
+            <td>OBC Gurjars (Rajasthan, Haryana, UP)</td>
+            <td>Other Backward Class (administrative); Kshatriya (community claim)</td>
+            <td>North India plains</td>
+            <td>Historical warrior service; community assertion</td>
+            <td><span class="badge badge-debate">Complex</span> — reflects historical heterogeneity; some groups did hold warrior roles</td>
+          </tr>
+          <tr>
+            <td>Muslim Gujjars</td>
+            <td>N/A (post-conversion)</td>
+            <td>J&K, parts of Punjab, Pakistan</td>
+            <td>Converted during Sultanate/Mughal period; maintain tribal/pastoral identity</td>
+            <td><span class="badge badge-modern">Attested</span> — maintain distinct cultural identity post-conversion</td>
+          </tr>
+          <tr>
+            <td>Sikh Gurjars</td>
+            <td>N/A (Sikhism rejects varna)</td>
+            <td>Punjab, Haryana</td>
+            <td>Converted during Sikh expansions; community endogamy maintained</td>
+            <td><span class="badge badge-historical">Attested</span> — documented in Punjab census records</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="grid-2 reveal" style="margin-top:2rem;">
+      <div class="highlight-box">
+        <h4>Rajputization — What Does It Mean?</h4>
+        <p style="color:var(--text-secondary);font-size:0.95rem;margin-bottom:0.75rem;">Sociologist M.N. Srinivas coined "Sanskritization" to describe how lower castes adopt upper-caste practices. For medieval warrior communities, "Rajputization" describes a more specific process: pastoral or tribal groups who provided military service to emerging kingdoms were progressively incorporated into Kshatriya social frameworks — often over multiple generations — through intermarriage, Brahmin-composed genealogies, temple patronage, and Sanskrit learning.</p>
+        <p style="color:var(--text-secondary);font-size:0.95rem;">This process was real, well-documented, and does not diminish the communities involved — it reflects the dynamism of medieval Indian society where rigid varna boundaries were more fluid in practice than in theory.</p>
+      </div>
+
+      <div class="highlight-box">
+        <h4>The Agnikula Origin Myth</h4>
+        <p style="color:var(--text-secondary);font-size:0.95rem;margin-bottom:0.75rem;">Several Rajput and Gurjara warrior clans claim descent from a mythological "fire-born" (Agnikula) lineage — meaning their ancestors emerged from a sacred fire at Mount Abu, sanctified by sage Vashishtha. This myth appears in the <em>Prithviraj Raso</em> and later bardic texts.</p>
+        <p style="color:var(--text-secondary);font-size:0.95rem;">Historians understand this as a legitimizing mythological construct created in the 12th–13th centuries CE to give Kshatriya status to groups of diverse origin. It should not be read as literal history but as an important piece of medieval Indian identity-formation evidence.</p>
+        <div style="margin-top:0.75rem;"><span class="badge badge-scriptural">Medieval Text</span> <span class="badge badge-debate">Scholarly Consensus: Legitimation Myth</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 5 — GURJARA-PRATIHARA EMPIRE
+     ============================================================ -->
+<section class="section" id="empire" aria-labelledby="empire-title">
+  <div class="container">
+    <div class="section-label">Section V</div>
+    <h2 class="section-title" id="empire-title">The Gurjara-Pratihara Empire</h2>
+    <p class="section-subtitle">One of the largest medieval Indian empires — the primary bulwark against Arab expansion into India's heartland for over two centuries.</p>
+
+    <div class="grid-2 reveal">
+      <div>
+        <h3 style="font-family:var(--font-serif);font-size:1.4rem;color:var(--cream);margin-bottom:1.25rem;">Dynasty Overview</h3>
+
+        <div class="dynasty-tree">
+          <pre>
+<span class="ruler">GURJARA-PRATIHARA DYNASTY</span>
+<span style="color:var(--text-muted);">Founded c. 730 CE — Collapsed c. 1036 CE</span>
+
+<span class="ruler">Nagabhata I</span> (c. 730–756 CE)
+  ╠═ Repelled Arab forces at Battle of Rajasthan (c. 738 CE)
+  ╚═ Capital: Mandor (Jodhpur area)
+
+<span class="ruler">Vatsaraja</span> (c. 778–805 CE)
+  ╠═ Extended territory eastward
+  ╚═ Conflict with Rashtrakutas and Palas
+
+<span class="ruler">Nagabhata II</span> (c. 805–833 CE)
+  ╠═ Captured Kannauj — made it imperial capital
+  ╠═ Rebuilt Somnath temple (per tradition)
+  ╚═ Major military campaigns against Palas
+
+<span class="ruler">Ramabhadra</span> (c. 833–836 CE)
+  ╚═ Brief reign
+
+<span class="ruler">Mihira Bhoja I (Bhoja the Great)</span> (c. 836–885 CE)
+  ╠═ ★ PEAK OF EMPIRE
+  ╠═ Extensive territory: Sutlej to Narmada
+  ╠═ Devout Vaishnava — title "Ādi-Varāha"
+  ╠═ Praised by Al-Masudi as supreme cavalry power
+  ╚═ Art, architecture, temple patronage flourished
+
+<span class="ruler">Mahendrapala I</span> (c. 885–910 CE)
+  ╠═ Empire reached maximum geographic extent
+  ╚═ Patronized scholar Rajashekhara
+
+<span class="ruler">Mahipala I</span> (c. 912–944 CE)
+  ╠═ Contested rule; partial recovery
+  ╚═ Al-Masudi visits India during this reign
+
+<span class="ruler">[Declining rulers]</span> (c. 944–1036 CE)
+  ╚═ Rashtrakuta invasions, Chandela rise,
+     Ghaznavid raids fragment the empire
+          </pre>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="font-family:var(--font-serif);font-size:1.4rem;color:var(--cream);margin-bottom:1.25rem;">Significance & Contributions</h3>
+
+        <div style="display:flex;flex-direction:column;gap:1rem;">
+          <div class="card card-saffron">
+            <h5 style="color:var(--cream);margin-bottom:0.5rem;">Defense Against Arab Expansion</h5>
+            <p style="color:var(--text-secondary);font-size:0.92rem;">After Muhammad bin Qasim's conquest of Sindh (712 CE), Arab forces repeatedly attempted to push into the Indian mainland. The Gurjara-Pratihara rulers under Nagabhata I decisively halted these advances at what Arab historians called the "Battle with the Jurz" (c. 738 CE). This military containment is credited by historians including R.C. Majumdar as one of the pivotal events preserving North Indian civilization.</p>
+          </div>
+
+          <div class="card card-gold">
+            <h5 style="color:var(--cream);margin-bottom:0.5rem;">Cultural & Temple Patronage</h5>
+            <p style="color:var(--text-secondary);font-size:0.92rem;">The Pratiharas were prolific temple builders in the Gurjara-Pratihara architectural style — characterized by distinctive shikhara designs visible at Osian (Rajasthan) and Bateshwar (UP) temple complexes. They patronized Sanskrit literature; the poet Rajashekhara composed under Mahendrapala I's court.</p>
+          </div>
+
+          <div class="card card-indigo">
+            <h5 style="color:var(--cream);margin-bottom:0.5rem;">Administrative Structure</h5>
+            <p style="color:var(--text-secondary);font-size:0.92rem;">The empire maintained a complex feudal administrative system with sub-kings (samantas) governing territories. Kannauj served as the prestigious imperial capital — control of Kannauj was a marker of North Indian paramountcy, contested in the tripartite struggle between Pratiharas, Rashtrakutas, and Palas.</p>
+          </div>
+
+          <div class="card">
+            <h5 style="color:var(--cream);margin-bottom:0.5rem;">Tripartite Struggle for Kannauj</h5>
+            <p style="color:var(--text-secondary);font-size:0.92rem;">For roughly two centuries (c. 780–1000 CE), three great dynasties contested Kannauj: <strong style="color:var(--cream);">Gurjara-Pratihara</strong> (North/West), <strong style="color:var(--cream);">Rashtrakuta</strong> (Deccan), and <strong style="color:var(--cream);">Pala</strong> (Bengal). This struggle defined North Indian politics and is a major subject in medieval Indian historiography.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Empire Map Visualization -->
+    <div class="reveal" style="margin-top:3rem;">
+      <h3 style="font-family:var(--font-serif);font-size:1.3rem;color:var(--cream);margin-bottom:1rem;">Territorial Extent (Peak, c. 836–910 CE)</h3>
+      <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-md);padding:2rem;position:relative;overflow:hidden;">
+        <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 40% 40%,rgba(200,146,42,0.05) 0%,transparent 60%);pointer-events:none;"></div>
+        <!-- Simplified ASCII/SVG map representation -->
+        <div style="font-family:var(--font-display);font-size:0.65rem;letter-spacing:0.2em;color:var(--gold);text-transform:uppercase;margin-bottom:1rem;">Approximate Territory Under Gurjara-Pratihara Suzerainty</div>
+        <div class="grid-4" style="gap:0.75rem;">
+          <div style="background:rgba(200,146,42,0.1);border:1px solid var(--border);border-radius:4px;padding:0.75rem;text-align:center;">
+            <div style="font-family:var(--font-display);font-size:0.6rem;color:var(--gold);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.25rem;">Northwest</div>
+            <div style="font-size:0.9rem;color:var(--cream);">Punjab to Sutlej</div>
+          </div>
+          <div style="background:rgba(200,146,42,0.1);border:1px solid var(--border);border-radius:4px;padding:0.75rem;text-align:center;">
+            <div style="font-family:var(--font-display);font-size:0.6rem;color:var(--gold);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.25rem;">Core Territory</div>
+            <div style="font-size:0.9rem;color:var(--cream);">Rajasthan & Gujarat</div>
+          </div>
+          <div style="background:rgba(200,146,42,0.1);border:1px solid var(--border);border-radius:4px;padding:0.75rem;text-align:center;">
+            <div style="font-family:var(--font-display);font-size:0.6rem;color:var(--gold);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.25rem;">Capital Region</div>
+            <div style="font-size:0.9rem;color:var(--cream);">Kannauj (UP)</div>
+          </div>
+          <div style="background:rgba(200,146,42,0.1);border:1px solid var(--border);border-radius:4px;padding:0.75rem;text-align:center;">
+            <div style="font-family:var(--font-display);font-size:0.6rem;color:var(--gold);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.25rem;">Southern Boundary</div>
+            <div style="font-size:0.9rem;color:var(--cream);">Narmada River</div>
+          </div>
+        </div>
+        <p style="color:var(--text-muted);font-size:0.85rem;margin-top:1rem;font-style:italic;">Note: Territorial boundaries fluctuated significantly across different rulers. Peak extent under Mahendrapala I (c. 885–910 CE). Suzerainty ≠ direct administrative control throughout.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 6 — GENETICS & ANTHROPOLOGY
+     ============================================================ -->
+<section class="section" id="genetics" aria-labelledby="genetics-title">
+  <div class="container">
+    <div class="section-label">Section VI</div>
+    <h2 class="section-title" id="genetics-title">Genetics & Anthropological Analysis</h2>
+    <p class="section-subtitle">What peer-reviewed population genetics tells us — and, critically, what it does not tell us — about the Gurjar/Gujjar communities.</p>
+
+    <div class="genetics-warning reveal" role="note">
+      <strong>⬡ Critical Framing — Read First:</strong> Genetics tells us about ancestry patterns of populations over thousands of years. It does not assign racial categories, confirm social superiority, or settle political debates about community identity. Haplogroups are not "racial markers" — they are statistical patterns of ancient gene flow shared across millions of people across South Asia and beyond. The following data is presented for educational understanding only.
+    </div>
+
+    <div class="grid-2 reveal">
+      <div>
+        <h3 style="font-family:var(--font-serif);font-size:1.3rem;color:var(--cream);margin-bottom:1.25rem;">What Major Studies Show</h3>
+
+        <div class="card card-indigo" style="margin-bottom:1rem;">
+          <div class="badge badge-genetic" style="margin-bottom:0.75rem;">Narasimhan et al. 2019</div>
+          <h5 style="color:var(--cream);margin-bottom:0.5rem;">Ancient DNA from South Asia</h5>
+          <p style="color:var(--text-secondary);font-size:0.92rem;">The landmark 2019 study (<em>Science</em>, Reich Lab) on ancient South Asian DNA established that modern South Asian populations derive from mixtures of: (1) Ancient Ancestral South Indians (AASI), (2) Iranian Farmer-related ancestry, and (3) Steppe pastoralist-related ancestry (associated with Indo-Aryan migration). Most Gurjar/Gujjar populations fit within this general North Indian ancestry spectrum.</p>
+        </div>
+
+        <div class="card card-indigo" style="margin-bottom:1rem;">
+          <div class="badge badge-genetic" style="margin-bottom:0.75rem;">ANI / ASI Model</div>
+          <h5 style="color:var(--cream);margin-bottom:0.5rem;">Ancestral North/South Indian Components</h5>
+          <p style="color:var(--text-secondary);font-size:0.92rem;">Reich et al. (2009) established that most South Asian populations can be modeled as mixtures of "Ancestral North Indian" (ANI — related to West Eurasian populations) and "Ancestral South Indian" (ASI — related to Andaman Islanders). Gurjar populations from North India tend to show higher ANI proportions than southern Indian populations — consistent with their geographic location, not unique to their community.</p>
+        </div>
+
+        <div class="card card-indigo">
+          <div class="badge badge-genetic" style="margin-bottom:0.75rem;">Y-DNA Studies</div>
+          <h5 style="color:var(--cream);margin-bottom:0.5rem;">Y-Chromosome Haplogroup Data</h5>
+          <p style="color:var(--text-secondary);font-size:0.92rem;">Studies examining Y-chromosome haplogroups in Gurjar/Gujjar populations show a mix of haplogroups common across North Indian populations. <strong style="color:var(--cream);">No single haplogroup is unique to Gurjars.</strong> The distribution reflects their geographic and social history rather than a distinctive biological identity.</p>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="font-family:var(--font-serif);font-size:1.3rem;color:var(--cream);margin-bottom:1.25rem;">Y-DNA Haplogroup Distribution</h3>
+        <p style="color:var(--text-secondary);font-size:0.88rem;margin-bottom:1.25rem;">Indicative distribution in North Indian Gurjar/Gujjar populations based on available studies. <strong>Data is approximate and varies across subgroups and regions.</strong></p>
+
+        <div class="haplo-bar">
+          <span class="haplo-label">R1a</span>
+          <div class="haplo-track"><div class="haplo-fill" style="width:35%"></div></div>
+          <span class="haplo-pct">~35%</span>
+        </div>
+        <div class="haplo-bar">
+          <span class="haplo-label">J2</span>
+          <div class="haplo-track"><div class="haplo-fill" style="width:20%;background:linear-gradient(90deg,var(--indigo),var(--indigo-bright));"></div></div>
+          <span class="haplo-pct">~20%</span>
+        </div>
+        <div class="haplo-bar">
+          <span class="haplo-label">L</span>
+          <div class="haplo-track"><div class="haplo-fill" style="width:15%;background:linear-gradient(90deg,var(--copper),var(--terracotta));"></div></div>
+          <span class="haplo-pct">~15%</span>
+        </div>
+        <div class="haplo-bar">
+          <span class="haplo-label">H</span>
+          <div class="haplo-track"><div class="haplo-fill" style="width:12%;background:linear-gradient(90deg,var(--stone),var(--stone-light));"></div></div>
+          <span class="haplo-pct">~12%</span>
+        </div>
+        <div class="haplo-bar">
+          <span class="haplo-label">R2</span>
+          <div class="haplo-track"><div class="haplo-fill" style="width:10%;background:linear-gradient(90deg,var(--saffron-dim),var(--saffron));"></div></div>
+          <span class="haplo-pct">~10%</span>
+        </div>
+        <div class="haplo-bar">
+          <span class="haplo-label">Other</span>
+          <div class="haplo-track"><div class="haplo-fill" style="width:8%;background:linear-gradient(90deg,#444,#666);"></div></div>
+          <span class="haplo-pct">~8%</span>
+        </div>
+
+        <p style="color:var(--text-muted);font-size:0.78rem;margin-top:1rem;font-style:italic;">Source: Composite from multiple regional studies including Sengupta et al. (2006), Sahoo et al. (2006), and regional anthropological surveys. Considerable variation exists across Gurjar subgroups.</p>
+
+        <div class="card" style="margin-top:1.5rem;background:rgba(42,58,122,0.1);border-color:var(--indigo-bright);">
+          <h5 style="color:var(--indigo-bright);margin-bottom:0.75rem;">What R1a Actually Means</h5>
+          <p style="color:var(--text-secondary);font-size:0.9rem;">R1a is one of the most common Y-chromosome haplogroups in South Asia, found at high frequencies across Brahmins, Rajputs, Jats, Gurjars, Khatris, and many other communities from Punjab to Bengal. It is associated with the migration of steppe pastoralists into South Asia during the Bronze Age (~2000–1500 BCE) — not with any modern caste identity. Finding R1a in a community does not indicate "Aryan" superiority; it indicates ancestry from populations that spread across Eurasia thousands of years ago.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider reveal"></div>
+
+    <div class="genetics-warning reveal">
+      <strong>Why Colonial "Caucasoid" Theories Are Rejected:</strong><br/>
+      19th-century British anthropologists classified Indian populations using skull measurements (craniometry) and proposed a "Caucasoid/Mongoloid/Dravidian" racial taxonomy. Modern genetics has thoroughly demonstrated this framework is meaningless — South Asian populations form a genetic cline with enormous internal diversity that does not map onto these racial categories. No peer-reviewed 21st-century genetics paper uses these colonial racial classifications for South Asian populations.
+    </div>
+
+    <div class="grid-3 reveal" style="margin-top:2rem;">
+      <div class="card">
+        <h5 style="color:var(--cream);margin-bottom:0.75rem;">Ethnicity ≠ Genetics</h5>
+        <p style="color:var(--text-secondary);font-size:0.9rem;">Ethnicity is a social and cultural identity chosen and maintained by communities. Genetics describes population ancestry over thousands of years. The two do not map onto each other in the way popular discussions assume.</p>
+      </div>
+      <div class="card">
+        <h5 style="color:var(--cream);margin-bottom:0.75rem;">Caste ≠ Genetics</h5>
+        <p style="color:var(--text-secondary);font-size:0.9rem;">While endogamy (marrying within group) does produce statistically distinct genetic clusters, the clusters do not conform to varna divisions. Many castes within the same varna are genetically more different from each other than they are from castes in other varnas.</p>
+      </div>
+      <div class="card">
+        <h5 style="color:var(--cream);margin-bottom:0.75rem;">Tribe ≠ Race</h5>
+        <p style="color:var(--text-secondary);font-size:0.9rem;">Tribal identity in India is a legal, administrative, and sociological category. It does not correspond to a distinct biological race. Scheduled Tribe Gujjars of J&K overlap genetically with neighbouring non-ST populations.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 7 — MIGRATION THEORIES & DEBATES
+     ============================================================ -->
+<section class="section" id="migration" aria-labelledby="migration-title">
+  <div class="container">
+    <div class="section-label">Section VII</div>
+    <h2 class="section-title" id="migration-title">Were Gurjars Indigenous or Migratory?</h2>
+    <p class="section-subtitle">The central debate — examined with all available evidence, without political spin.</p>
+
+    <div class="grid-2 reveal">
+      <div class="card" style="border-top:3px solid #70C090;">
+        <h4 style="font-family:var(--font-serif);font-size:1.2rem;color:#70C090;margin-bottom:1rem;">Case for Indigenous Origins</h4>
+        <ul style="color:var(--text-secondary);padding-left:1.25rem;line-height:2;font-size:0.95rem;">
+          <li>Inscriptions use "Gurjara" as a local territorial designation from as early as the 5th–6th century CE — suggesting an established presence, not a recent migration.</li>
+          <li>No inscription explicitly states Gurjaras "came from" a foreign land — unlike records for Sakas, Kushanas, or Hunas which do note foreign origins.</li>
+          <li>Linguistically, Gurjar dialects show no substrate evidence of a Central Asian language, unlike Saka-influenced Northwest Indian dialects.</li>
+          <li>The pastoral ecology of the Aravalli-Thar region has supported cattle-herding communities for millennia — no external migration is needed to explain this lifestyle.</li>
+          <li>Modern genetic data does not show a distinctive "Central Asian" outlier cluster among Gurjars compared to neighbouring North Indian communities.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="border-top:3px solid #E8826A;">
+        <h4 style="font-family:var(--font-serif);font-size:1.2rem;color:#E8826A;margin-bottom:1rem;">Case for (Partial) Migration Component</h4>
+        <ul style="color:var(--text-secondary);padding-left:1.25rem;line-height:2;font-size:0.95rem;">
+          <li>The timing of Gurjara emergence in inscriptions (5th–6th century CE) coincides with the collapse of Gupta rule and the Huna invasions — a period of massive population movement in northwestern India.</li>
+          <li>Certain clan names and totems among Gurjar subgroups have possible analogues in Central Asian tribal nomenclature — though this evidence is highly circumstantial.</li>
+          <li>The Gurjara-Pratihara's claimed connection to Lakshmana is a medieval court construct, not a genuine genealogy — suggesting the ruling family itself may have been of uncertain or diverse origin.</li>
+          <li>Some anthropologists note physical and material culture similarities between certain Gurjar groups and nomadic pastoral groups of the Afghan-Central Asian frontier.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="blockquote reveal">
+      <p>"The question of Gurjara origins cannot be resolved by a single theory. The evidence points to a diverse, composite community whose political identity crystallized in early medieval northwestern India — whatever their multiple prehistoric origins may have been."</p>
+      <cite>— Paraphrase synthesizing positions of B.D. Chattopadhyaya, <em>The Making of Early Medieval India</em> and Romila Thapar, <em>Early India</em></cite>
+    </div>
+
+    <div class="highlight-box reveal">
+      <h4>The Scholarly Consensus (As Of Current Research)</h4>
+      <p style="color:var(--text-secondary);font-size:0.95rem;margin-bottom:0.75rem;">Most mainstream Indian historians today reject a simple "foreign migration" explanation for Gurjara origins while acknowledging that the post-Gupta period of disruption saw considerable population reshuffling in northwestern India. The dominant view is:</p>
+      <ol style="color:var(--text-secondary);padding-left:1.5rem;line-height:2;font-size:0.95rem;">
+        <li>"Gurjara" began as a territorial/tribal designation for communities in a specific ecological zone of northwestern India.</li>
+        <li>During the early medieval period, multiple groups with diverse backgrounds were absorbed under this identity — especially as the Pratihara dynasty rose to power and "Gurjara" became a prestigious political label.</li>
+        <li>The pastoral Gujjar communities of the Himalayas and the plains Gurjar communities may have somewhat different histories within this broader umbrella.</li>
+        <li>Genetics confirms population diversity within modern Gurjar communities — consistent with a heterogeneous historical formation.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 8 — REGIONAL DISTRIBUTION
+     ============================================================ -->
+<section class="section" id="regions" aria-labelledby="regions-title">
+  <div class="container">
+    <div class="section-label">Section VIII</div>
+    <h2 class="section-title" id="regions-title">Regional Distribution & Identity</h2>
+    <p class="section-subtitle">How the Gurjar community varies across India's diverse regions — in occupation, language, social position, and religious practice.</p>
+
+    <div class="grid-3 reveal">
+
+      <div class="region-card">
+        <div class="region-name">Rajasthan</div>
+        <h4>Birthplace of Gurjara Power</h4>
+        <p style="color:var(--text-secondary);font-size:0.9rem;">Historical heartland of Gurjara political identity. Gurjars here have a strong warrior heritage, with many claiming Kshatriya/Rajput status. The Osian temples and Pratihara inscriptions are concentrated here. Modern Gurjars in Rajasthan are classified as OBC, which has been a source of political mobilization.</p>
+        <div class="region-tag-list">
+          <span class="region-tag">OBC Status</span>
+          <span class="region-tag">Kshatriya Claims</span>
+          <span class="region-tag">Agricultural</span>
+          <span class="region-tag">Warrior Heritage</span>
+        </div>
+      </div>
+
+      <div class="region-card">
+        <div class="region-name">Haryana</div>
+        <h4>Plains Warriors & Farmers</h4>
+        <p style="color:var(--text-secondary);font-size:0.9rem;">Significant Gurjar population with strong agricultural roots. Historically provided soldiers to various empires. Modern Haryanvi Gurjars are politically active, with communities concentrated in Mewat and Gurugram districts. Speak Haryanvi dialect.</p>
+        <div class="region-tag-list">
+          <span class="region-tag">Agricultural</span>
+          <span class="region-tag">OBC</span>
+          <span class="region-tag">Haryanvi Dialect</span>
+        </div>
+      </div>
+
+      <div class="region-card">
+        <div class="region-name">Uttar Pradesh</div>
+        <h4>Doab & Frontier Communities</h4>
+        <p style="color:var(--text-secondary);font-size:0.9rem;">Concentrated in western UP — Bulandshahr, Aligarh, Agra, and Muzaffarnagar districts. Connected to the Doab's agricultural economy. Some UP Gurjar communities maintained warrior traditions into the colonial era. Capital Kannauj — historical Pratihara center — is located in UP.</p>
+        <div class="region-tag-list">
+          <span class="region-tag">Agricultural</span>
+          <span class="region-tag">OBC</span>
+          <span class="region-tag">Kannauj Heritage</span>
+        </div>
+      </div>
+
+      <div class="region-card">
+        <div class="region-name">Jammu & Kashmir</div>
+        <h4>Scheduled Tribe Gujjars</h4>
+        <p style="color:var(--text-secondary);font-size:0.9rem;">Gujjars in J&K hold Scheduled Tribe status — recognized as a tribal community distinct from plains Gurjars. Predominantly pastoral, practicing transhumance (seasonal migration between lowlands and alpine meadows). Majority converted to Islam during medieval period but maintain distinct Gujjar cultural identity. Bakkarwals are closely related. Speak Gojri language.</p>
+        <div class="region-tag-list">
+          <span class="region-tag">Scheduled Tribe</span>
+          <span class="region-tag">Transhumance</span>
+          <span class="region-tag">Muslim Majority</span>
+          <span class="region-tag">Gojri Language</span>
+        </div>
+      </div>
+
+      <div class="region-card">
+        <div class="region-name">Himachal Pradesh</div>
+        <h4>Mountain Pastoralists</h4>
+        <p style="color:var(--text-secondary);font-size:0.9rem;">Gujjars in Himachal Pradesh maintain a pastoral economy, moving between winter valleys and summer alpine pastures. ST status recognized. Closely related culturally to J&K Gujjars. Both Hindu and Muslim Gujjar communities exist.</p>
+        <div class="region-tag-list">
+          <span class="region-tag">Scheduled Tribe</span>
+          <span class="region-tag">Pastoral</span>
+          <span class="region-tag">Mixed Religion</span>
+        </div>
+      </div>
+
+      <div class="region-card">
+        <div class="region-name">Gujarat</div>
+        <h4>The Ancestral Land</h4>
+        <p style="color:var(--text-secondary);font-size:0.9rem;">Gujarat derives its name from Gurjaratra — "land of the Gurjaras." However, modern Gujarati-speaking communities and the Gujjar/Gurjar community are largely distinct today. The historical Gurjara presence is attested through inscriptions and early medieval records, but centuries of evolution have created separate identities.</p>
+        <div class="region-tag-list">
+          <span class="region-tag">Historical Gurjaratra</span>
+          <span class="region-tag">Toponymic Legacy</span>
+          <span class="region-tag">Distinct from Modern Gujaratis</span>
+        </div>
+      </div>
+
+      <div class="region-card">
+        <div class="region-name">Uttarakhand</div>
+        <h4>Forest & Alpine Herders</h4>
+        <p style="color:var(--text-secondary);font-size:0.9rem;">Gujjars in Uttarakhand are primarily forest-dwelling and pastoral, with concentrations in the Terai and lower Himalayan zones. Traditional buffalo herding communities. ST status claimed and partially recognized.</p>
+        <div class="region-tag-list">
+          <span class="region-tag">Forest Dwellers</span>
+          <span class="region-tag">Buffalo Herders</span>
+          <span class="region-tag">ST Claims</span>
+        </div>
+      </div>
+
+      <div class="region-card">
+        <div class="region-name">Delhi</div>
+        <h4>Urban & Peri-Urban Communities</h4>
+        <p style="color:var(--text-secondary);font-size:0.9rem;">Historically significant Gurjar presence in the Delhi region — many villages around Delhi bore Gurjar names. As Delhi expanded, Gurjar communities underwent rapid urbanization. The city has significant Gurjar political representation.</p>
+        <div class="region-tag-list">
+          <span class="region-tag">Urban Transition</span>
+          <span class="region-tag">Political Mobilization</span>
+          <span class="region-tag">Historical Villages</span>
+        </div>
+      </div>
+
+      <div class="region-card">
+        <div class="region-name">Madhya Pradesh</div>
+        <h4>Central Indian Presence</h4>
+        <p style="color:var(--text-secondary);font-size:0.9rem;">Gurjar communities in MP are found in northern districts, often as agricultural and pastoral communities. The Bateshwar temple complex near Agra (historically MP border region) represents significant Pratihara architectural legacy.</p>
+        <div class="region-tag-list">
+          <span class="region-tag">Agricultural</span>
+          <span class="region-tag">Pratihara Heritage Sites</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 9 — HISTORIOGRAPHY
+     ============================================================ -->
+<section class="section" id="historiography" aria-labelledby="hist-title">
+  <div class="container">
+    <div class="section-label">Section IX</div>
+    <h2 class="section-title" id="hist-title">Historiography & Scholarly Research</h2>
+    <p class="section-subtitle">The historians, geneticists, and anthropologists whose work forms the scholarly foundation of Gurjara studies.</p>
+
+    <div class="grid-3 reveal">
+
+      <div class="historian-card">
+        <div class="historian-initial">RC</div>
+        <div class="historian-info">
+          <h5>R.C. Majumdar</h5>
+          <p>Major work: <em>History of Bengal</em>, <em>The Classical Age</em>. Documented Gurjara-Pratihara history in the mainstream Indian historical canon. Credited the Pratiharas for halting Arab expansion.</p>
+        </div>
+      </div>
+
+      <div class="historian-card">
+        <div class="historian-initial">DS</div>
+        <div class="historian-info">
+          <h5>Dasharatha Sharma</h5>
+          <p>Specialist in Rajputana history. Detailed examination of early Gurjara inscriptions and the Pratihara dynasty. Key reference for primary source work on Gurjara-Pratihara lineage claims.</p>
+        </div>
+      </div>
+
+      <div class="historian-card">
+        <div class="historian-initial">BD</div>
+        <div class="historian-info">
+          <h5>B.D. Chattopadhyaya</h5>
+          <p><em>The Making of Early Medieval India</em>. Argued for the indigenous tribal-to-political transformation of Gurjara identity. Seminal work on early medieval North Indian social history.</p>
+        </div>
+      </div>
+
+      <div class="historian-card">
+        <div class="historian-initial">KM</div>
+        <div class="historian-info">
+          <h5>K.M. Munshi</h5>
+          <p>Gujarati historian and freedom fighter. Wrote extensively on Gurjara history and Gujarat's connection to Gurjara political identity. <em>Gujarata and its Literature</em>.</p>
+        </div>
+      </div>
+
+      <div class="historian-card">
+        <div class="historian-initial">RT</div>
+        <div class="historian-info">
+          <h5>Romila Thapar</h5>
+          <p><em>Early India: From the Origins to AD 1300</em>. Placed Gurjara emergence within the broader framework of post-Gupta political fragmentation and tribal assimilation processes.</p>
+        </div>
+      </div>
+
+      <div class="historian-card">
+        <div class="historian-initial">SC</div>
+        <div class="historian-info">
+          <h5>Satish Chandra</h5>
+          <p><em>History of Medieval India</em>. Standard reference for Gurjara-Pratihara political history in the Indian school curriculum framework.</p>
+        </div>
+      </div>
+
+      <div class="historian-card">
+        <div class="historian-initial">DR</div>
+        <div class="historian-info">
+          <h5>David Reich</h5>
+          <p>Harvard geneticist. Lead researcher on South Asian ancient DNA. <em>Who We Are and How We Got Here</em> (2018). Established the ANI/ASI framework and steppe ancestry component in South Asians.</p>
+        </div>
+      </div>
+
+      <div class="historian-card">
+        <div class="historian-initial">VN</div>
+        <div class="historian-info">
+          <h5>Vagheesh Narasimhan</h5>
+          <p>Lead author of Narasimhan et al. 2019 (<em>Science</em>). Largest ancient DNA study of South and Central Asia to date. Critical reference for steppe ancestry and Indo-Aryan migration evidence.</p>
+        </div>
+      </div>
+
+      <div class="historian-card">
+        <div class="historian-initial">SS</div>
+        <div class="historian-info">
+          <h5>Sanghamitra Sengupta</h5>
+          <p>Co-author of Sengupta et al. (2006) in <em>AJHG</em> — one of the first major Y-chromosome studies of South Asian populations including North Indian communities relevant to Gurjara origins.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="divider reveal"></div>
+
+    <h3 class="reveal" style="font-family:var(--font-serif);font-size:1.4rem;color:var(--cream);margin-bottom:1.5rem;">Academic Consensus vs. Popular Narratives</h3>
+
+    <div class="table-wrap reveal">
+      <table>
+        <thead>
+          <tr>
+            <th>Claim</th>
+            <th>Academic Status</th>
+            <th>Evidence Quality</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Gurjara-Pratihara defended India against Arab invasion</td>
+            <td><span class="badge badge-historical">Mainstream Consensus</span></td>
+            <td>Strong — Arab chronicles + Indian inscriptions corroborate</td>
+          </tr>
+          <tr>
+            <td>Gurjaras migrated from Central Asia / are Huna descendants</td>
+            <td><span class="badge badge-colonial">Largely Rejected</span></td>
+            <td>Weak — no linguistic, genetic, or epigraphic evidence</td>
+          </tr>
+          <tr>
+            <td>Gurjaras are indigenous to Aravalli/Rajputana region</td>
+            <td><span class="badge badge-modern">Widely Supported</span></td>
+            <td>Good — consistent with inscriptions and ecology</td>
+          </tr>
+          <tr>
+            <td>All Gurjars are Kshatriya by varna</td>
+            <td><span class="badge badge-debate">Contested</span></td>
+            <td>Mixed — some groups have historical warrior roles; many do not</td>
+          </tr>
+          <tr>
+            <td>Gujarat is named after Gurjaras</td>
+            <td><span class="badge badge-historical">Established</span></td>
+            <td>Strong — epigraphic consensus on Gurjaratra toponym</td>
+          </tr>
+          <tr>
+            <td>High R1a = steppe/Aryan purity</td>
+            <td><span class="badge badge-colonial">Rejected by Genetics</span></td>
+            <td>None — R1a is found across dozens of North Indian communities</td>
+          </tr>
+          <tr>
+            <td>Gurjara-Pratihara rulers were Gurjars in modern community sense</td>
+            <td><span class="badge badge-debate">Uncertain</span></td>
+            <td>Unclear — political identity ≠ modern community identity</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 10 — MISUNDERSTOOD CONCEPTS
+     ============================================================ -->
+<section class="section" id="misunderstood" aria-labelledby="myths-title">
+  <div class="container">
+    <div class="section-label">Section X</div>
+    <h2 class="section-title" id="myths-title">Most Misunderstood Concepts</h2>
+    <p class="section-subtitle">Separating historical scholarship from internet myths, political narratives, and community mythology.</p>
+
+    <div class="grid-2 reveal">
+
+      <div class="myth-card">
+        <div class="myth-header">
+          <span>⚠ Common Misconception</span>
+        </div>
+        <div class="myth-body">
+          <span class="myth-label-myth">Myth</span>
+          <p style="color:var(--text-secondary);font-size:0.95rem;">"Gurjars are descended from White Huns / Hunas and are therefore not native Indians."</p>
+          <span class="myth-label-reality">Reality</span>
+          <p style="color:var(--text-secondary);font-size:0.95rem;">No inscription, genetic study, or peer-reviewed paper establishes a definitive Huna connection. This theory originates from colonial-era racial speculation by Vincent Smith (early 20th C.) and has been largely abandoned by modern historians. The timing overlap is circumstantial, not causal evidence. Modern Gurjar genetics shows no outlier cluster from Central Asian populations.</p>
+        </div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-header">
+          <span>⚠ Common Misconception</span>
+        </div>
+        <div class="myth-body">
+          <span class="myth-label-myth">Myth</span>
+          <p style="color:var(--text-secondary);font-size:0.95rem;">"High R1a frequency proves Gurjars are racially superior or 'more Aryan' than other communities."</p>
+          <span class="myth-label-reality">Reality</span>
+          <p style="color:var(--text-secondary);font-size:0.95rem;">R1a is found at similar or higher frequencies in many other North Indian communities including Brahmins, Rajputs, Khatris, and Jats. It reflects ancient Steppe pastoralist ancestry that spread across Eurasia 4,000+ years ago — long before any historical Gurjara identity existed. Genetics does not support racial hierarchy of any kind. David Reich's lab explicitly cautions against such interpretations in their published work.</p>
+        </div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-header">
+          <span>⚠ Common Misconception</span>
+        </div>
+        <div class="myth-body">
+          <span class="myth-label-myth">Myth</span>
+          <p style="color:var(--text-secondary);font-size:0.95rem;">"Gurjaras and modern Gujaratis are the same community / Gujaratis are Gurjars."</p>
+          <span class="myth-label-reality">Reality</span>
+          <p style="color:var(--text-secondary);font-size:0.95rem;">The state of Gujarat is named after the ancient Gurjaratra region, which was politically associated with Gurjara rulers. However, modern Gujarati-speaking communities (Patidars, Banias, Anavils, Kolis, etc.) are distinct ethno-linguistic groups from the modern Gurjar/Gujjar community. Centuries of separate evolution have created entirely different communities that happen to share a toponymic connection.</p>
+        </div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-header">
+          <span>⚠ Common Misconception</span>
+        </div>
+        <div class="myth-body">
+          <span class="myth-label-myth">Myth</span>
+          <p style="color:var(--text-secondary);font-size:0.95rem;">"All Gurjars are Kshatriyas by birth and scripture — this is unambiguous."</p>
+          <span class="myth-label-reality">Reality</span>
+          <p style="color:var(--text-secondary);font-size:0.95rem;">Varna status was never uniformly applied to the Gurjara community across history. The Gurjara-Pratihara dynasty claimed Kshatriya lineage (from Lakshmana) in inscriptions — a political claim that historians recognize as medieval legitimation. Different Gurjar subgroups hold ST, OBC, or Kshatriya statuses across different regions. The diversity of actual social positions reflects the historical heterogeneity of this community.</p>
+        </div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-header">
+          <span>⚠ Common Misconception</span>
+        </div>
+        <div class="myth-body">
+          <span class="myth-label-myth">Myth</span>
+          <p style="color:var(--text-secondary);font-size:0.95rem;">"Muslim and Hindu Gurjars are separate communities with no historical connection."</p>
+          <span class="myth-label-reality">Reality</span>
+          <p style="color:var(--text-secondary);font-size:0.95rem;">Muslim Gujjars (particularly in J&K, Punjab, and Pakistan) are descendants of Gurjar communities that converted to Islam during the Sultanate and Mughal periods. They maintain clear cultural, genealogical, and linguistic continuity with Hindu Gurjar communities. Both share the Gojri/Gurjari language, pastoral customs, and clan names. The religious divide is historically recent; the shared identity is much older.</p>
+        </div>
+      </div>
+
+      <div class="myth-card">
+        <div class="myth-header">
+          <span>⚠ Common Misconception</span>
+        </div>
+        <div class="myth-body">
+          <span class="myth-label-myth">Myth</span>
+          <p style="color:var(--text-secondary);font-size:0.95rem;">"The Agnikula myth in the Prithviraj Raso proves the divine warrior origin of Gurjar clans."</p>
+          <span class="myth-label-reality">Reality</span>
+          <p style="color:var(--text-secondary);font-size:0.95rem;">The Agnikula origin myth appears in the <em>Prithviraj Raso</em> — a text of disputed historicity, probably compiled in its present form centuries after the events it describes. Historians classify this as a medieval legitimation narrative designed to confer Kshatriya status on warrior groups of diverse origin. It is a valuable piece of medieval cultural history, but it should not be read as literal genealogical or historical fact.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 11 — HISTORICAL TIMELINE
+     ============================================================ -->
+<section class="section" id="timeline" aria-labelledby="timeline-title">
+  <div class="container">
+    <div class="section-label">Section XI</div>
+    <h2 class="section-title" id="timeline-title">Complete Historical Timeline</h2>
+    <p class="section-subtitle">From earliest epigraphic mentions to the modern era — a chronological survey of Gurjara history.</p>
+
+    <div class="grid-2 reveal">
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-date">c. 490–550 CE</div>
+          <div class="timeline-title">Earliest Gurjara Inscriptional References</div>
+          <div class="timeline-desc">Copper plates from Kutch and the western Deccan begin using "Gurjara" as a territorial or tribal designation. Exact nature of community unclear at this stage.</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">c. 605–630 CE</div>
+          <div class="timeline-title">Xuanzang Visits Gurjara Territory</div>
+          <div class="timeline-desc">Chinese pilgrim documents Gurjara region as distinct political-geographic unit in northwestern India, providing the earliest detailed foreign account.</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">c. 712 CE</div>
+          <div class="timeline-title">Arab Conquest of Sindh</div>
+          <div class="timeline-desc">Muhammad bin Qasim conquers Sindh. Gurjara polities begin forming a critical buffer between Arab Sindh and the Indian interior.</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">c. 730–756 CE</div>
+          <div class="timeline-title">Nagabhata I Consolidates Power</div>
+          <div class="timeline-desc">Gurjara-Pratihara dynasty formally established under Nagabhata I. Arab forces repelled in battles near Rajasthan. Foundation of North Indian political dominance established.</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">c. 778–805 CE</div>
+          <div class="timeline-title">Vatsaraja Expands Territory</div>
+          <div class="timeline-desc">Gurjara-Pratihara power extends eastward. Contests with Palas and Rashtrakutas begin the "Tripartite Struggle" for Kannauj.</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">c. 805–833 CE</div>
+          <div class="timeline-title">Nagabhata II Captures Kannauj</div>
+          <div class="timeline-desc">Kannauj becomes the imperial capital — a symbol of North Indian paramountcy. Gurjara-Pratihara becomes the foremost power north of the Narmada.</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">c. 836–885 CE</div>
+          <div class="timeline-title">Mihira Bhoja I — Peak of Empire</div>
+          <div class="timeline-desc">Longest-reigning and most celebrated Pratihara king. Devout Vaishnava; title "Ādi-Varāha." Empire at maximum power. Praised by Al-Masudi as supreme Indian ruler. Temple patronage flourishes.</div>
+        </div>
+
+      </div>
+
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-date">c. 885–910 CE</div>
+          <div class="timeline-title">Mahendrapala I — Maximum Extent</div>
+          <div class="timeline-desc">Empire reaches its geographic peak. Poet Rajashekhara flourishes at court. Patronage of Sanskrit literature at high point.</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">c. 916–963 CE</div>
+          <div class="timeline-title">Rashtrakuta Sack of Kannauj</div>
+          <div class="timeline-desc">Indra III of the Rashtrakutas sacks Kannauj (c. 916 CE), beginning the decline of Gurjara-Pratihara power. Multiple subsequent raids weaken imperial authority.</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">c. 1008–1036 CE</div>
+          <div class="timeline-title">Ghaznavid Raids — Final Collapse</div>
+          <div class="timeline-desc">Mahmud of Ghazni's repeated raids into North India, including attacks on the Pratihara-sphere cities, accelerate the collapse of Gurjara-Pratihara imperial authority. The dynasty fragments into smaller regional powers (Rajput kingdoms).</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">12th–16th Century</div>
+          <div class="timeline-title">Gurjara Communities Under Delhi Sultanate / Mughals</div>
+          <div class="timeline-desc">Former Gurjara ruling groups either absorbed into emerging Rajput identity or maintained as local zamindars. Pastoral Gurjars continue traditional practices. Some communities convert to Islam.</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">19th Century</div>
+          <div class="timeline-title">Colonial Classification</div>
+          <div class="timeline-desc">British ethnographers compile caste/tribe surveys. Gurjars appear in multiple categories — agricultural tribe, OBC, martial community — reflecting the community's internal diversity. Colonial-era scholars propose disputed Central Asian migration theories.</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">Post-1947</div>
+          <div class="timeline-title">Constitutional Recognition</div>
+          <div class="timeline-desc">Gurjar communities recognized variously as ST (J&K, HP), OBC (Rajasthan, UP, Haryana), or General in different states. Political mobilization around reservation status intensifies in 21st century.</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">2007–Present</div>
+          <div class="timeline-title">Gurjar Agitation for ST Status (Rajasthan)</div>
+          <div class="timeline-desc">Significant political movements led by community leaders demanding Scheduled Tribe status in Rajasthan. Reflects ongoing negotiation of Gurjar identity in modern democratic India.</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 12 — RARE FACTS
+     ============================================================ -->
+<section class="section" id="rarefacts">
+  <div class="container">
+    <div class="section-label">Section XII</div>
+    <h2 class="section-title">Rare Facts Most People Don't Know</h2>
+    <p class="section-subtitle">Lesser-known dimensions of Gurjara history that rarely appear in popular accounts.</p>
+
+    <div class="grid-3 reveal">
+
+      <div class="card card-gold">
+        <div class="badge badge-historical" style="margin-bottom:0.75rem;">Military History</div>
+        <h5 style="color:var(--cream);margin-bottom:0.5rem;">The "Jurz" in Arab Military History</h5>
+        <p style="color:var(--text-secondary);font-size:0.9rem;">Arab military historians specifically cited the Gurjara-Pratihara cavalry as the primary reason Arab expansion beyond Sindh failed. The strategic importance of the Gurjara buffer state is acknowledged in Arabic sources independent of Indian traditions — making this one of the most externally corroborated facts in Gurjara military history.</p>
+      </div>
+
+      <div class="card card-gold">
+        <div class="badge badge-historical" style="margin-bottom:0.75rem;">Linguistic Legacy</div>
+        <h5 style="color:var(--cream);margin-bottom:0.5rem;">Gojri — A Recognized Language</h5>
+        <p style="color:var(--text-secondary);font-size:0.9rem;">The Gujjars of the Himalayan belt speak Gojri (also spelled Gojari), an Indo-Aryan language distinct from Punjabi, Pahari, and Kashmiri. It is recognized in the Indian constitution's Eighth Schedule as an endangered language. Gojri has its own oral literary tradition and is being documented by linguists.</p>
+      </div>
+
+      <div class="card card-gold">
+        <div class="badge badge-historical" style="margin-bottom:0.75rem;">Architecture</div>
+        <h5 style="color:var(--cream);margin-bottom:0.5rem;">The Osian Temples</h5>
+        <p style="color:var(--text-secondary);font-size:0.9rem;">The Osian temple complex in Rajasthan (8th–11th C. CE) represents one of the finest surviving examples of Gurjara-Pratihara temple architecture — a distinct style predating and influencing later Rajput temple traditions. These temples include both Shaiva and Vaishnava shrines, reflecting the Pratihara rulers' broad religious patronage.</p>
+      </div>
+
+      <div class="card">
+        <div class="badge badge-oral" style="margin-bottom:0.75rem;">Folklore</div>
+        <h5 style="color:var(--cream);margin-bottom:0.5rem;">The Gurjara Clan System</h5>
+        <p style="color:var(--text-secondary);font-size:0.9rem;">Gurjar communities maintain an elaborate gotra (clan) system with hundreds of named clans — including Kasana, Chauhan, Tanwar, Bainsla, Gorsi, Pundir, and others. Many of these clan names overlap with Rajput gotras, reflecting centuries of intermarriage and shared martial heritage in medieval Rajputana.</p>
+      </div>
+
+      <div class="card">
+        <div class="badge badge-historical" style="margin-bottom:0.75rem;">Ecology</div>
+        <h5 style="color:var(--cream);margin-bottom:0.5rem;">Transhumance Economy</h5>
+        <p style="color:var(--text-secondary);font-size:0.9rem;">Himalayan Gujjar communities practice one of India's most sophisticated transhumance systems — moving their herds of buffaloes and cattle between lower valleys in winter and alpine meadows (bugyal) above 3,000m in summer. This ecological knowledge system, developed over centuries, is now recognized as culturally significant by Indian anthropologists.</p>
+      </div>
+
+      <div class="card">
+        <div class="badge badge-modern" style="margin-bottom:0.75rem;">Modern Identity</div>
+        <h5 style="color:var(--cream);margin-bottom:0.5rem;">Pakistan's Gurjarat</h5>
+        <p style="color:var(--text-secondary);font-size:0.9rem;">The city of Gujrat in Punjab, Pakistan, and the adjacent district of Gujranwala preserve the "Gurjara" toponym from early medieval India. Significant Gurjar communities exist in Pakistani Punjab, providing evidence of the community's historical presence across what is now the India-Pakistan border region.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 13 — FAQ
+     ============================================================ -->
+<section class="section" id="faq" aria-labelledby="faq-title">
+  <div class="container">
+    <div class="section-label">Section XIII</div>
+    <h2 class="section-title" id="faq-title">Frequently Asked Questions</h2>
+    <p class="section-subtitle">Answers grounded in historical scholarship, not community politics.</p>
+
+    <div class="reveal">
+
+      <div class="accordion-item open">
+        <button class="accordion-trigger" onclick="toggleAccordion(this)" aria-expanded="true">
+          <span>Are Gurjars and Gujaratis the same community?</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          No. The state of Gujarat derives its name from the medieval toponym "Gurjaratra" (Land of the Gurjaras), reflecting the Gurjara-Pratihara political presence in the region during the 7th–10th centuries CE. However, modern Gujarati-speaking communities (including Patidars/Patels, Banias, Kolis, Anavil Brahmins, and many others) are distinct ethno-linguistic groups that evolved separately over the subsequent 1,000 years. Modern Gurjars/Gujjars are a different community concentrated in North India. They share a toponymic legacy, not a community identity.
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-trigger" onclick="toggleAccordion(this)" aria-expanded="false">
+          <span>Were the Gurjara-Pratihara rulers actually Gurjars in the modern community sense?</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          This is genuinely uncertain. The dynasty called itself "Gurjara-Pratihara" — the "Gurjara Pratiharas" — which could mean: (a) a dynasty of Gurjara ethnic origin, or (b) a dynasty that ruled in the Gurjara (Gurjaratra) territory and adopted the territorial identity, or (c) a dynasty that used "Gurjara" as part of its legitimating royal title. Medieval political identity and modern community identity are not the same thing. While the modern Gurjar community claims the Pratihara dynasty as their ancestral rulers, most historians treat this connection as plausible but not definitively established. The Pratiharas themselves claimed descent from Lakshmana — a mythological claim that overrides rather than confirms ethnic identity.
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-trigger" onclick="toggleAccordion(this)" aria-expanded="false">
+          <span>What is the difference between Gurjar OBC status and Gujjar ST status?</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          This is an administrative distinction that reflects the historical diversity within the Gurjar/Gujjar community. In plains states like Rajasthan, Haryana, and Uttar Pradesh, Gurjars are classified as Other Backward Classes (OBC) — a category indicating social and educational disadvantage without meeting tribal criteria. In Jammu & Kashmir and Himachal Pradesh, Gujjars have Scheduled Tribe (ST) status, reflecting their historically tribal, pastoral, and forest-dwelling characteristics that meet the constitutional definition of "tribal." These communities share a common name and historical roots but have divergent social histories — the plains Gurjars were more integrated into the agricultural and warrior economy while the Himalayan Gujjars maintained tribal pastoral structures.
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-trigger" onclick="toggleAccordion(this)" aria-expanded="false">
+          <span>Did Gurjars really stop Arab invasions of India?</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          This claim has substantial historical support, though it requires nuanced framing. After Muhammad bin Qasim's conquest of Sindh in 712 CE, Arab forces under the Umayyad Caliphate made multiple attempts to push beyond Sindh into the Indian heartland. These attempts were repelled in battles in Rajasthan and Gujarat, with Arab chronicles specifically crediting the "Jurz" (Gurjara-Pratihara) as the primary military force blocking their advance. Historian R.C. Majumdar explicitly credited this defense as one of the most significant events in North Indian medieval history. However, the "stopping Arab invasions" narrative in popular discourse sometimes oversimplifies: the Deccan was also defended by the Rashtrakutas, and Arab expansion had multiple factors beyond just military defeat. The Gurjara role was significant and well-attested, but it was part of a broader geopolitical picture.
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-trigger" onclick="toggleAccordion(this)" aria-expanded="false">
+          <span>What do genetics actually tell us about Gurjar origins?</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          Population genetics studies place North Indian Gurjar communities within the normal range of northern South Asian ancestry — characterized by a mixture of Ancient Ancestral South Indian (AASI), Iranian Farmer-related, and Steppe pastoralist-related ancestries. They do not show a distinctive "Central Asian" genetic signature that would separate them from neighboring North Indian communities like Jats, Rajputs, or certain Brahmin groups. Y-chromosome studies show R1a, J2, L, H, and R2 haplogroups — all widely distributed across North India. Critically, genetics cannot tell us whether a specific medieval community is the ancestor of a modern one, or resolve questions of Kshatriya vs. tribal origin. What it does show is that modern Gurjar communities are genetically diverse — consistent with the historical picture of a heterogeneous community that absorbed multiple groups over centuries.
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-trigger" onclick="toggleAccordion(this)" aria-expanded="false">
+          <span>What is the relationship between Gurjars, Rajputs, and Jats?</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          These three communities share significant historical overlaps in North India — geographic, occupational, and genealogical — while being distinct communities today. All three are predominantly North Indian agricultural and historically martial communities. They share some gotra (clan) names and a common pool of medieval warrior heritage from Rajputana. Historically, the boundaries between these communities were more fluid than they appear today: the "Rajputization" process means some Gurjar clans became Rajput over generations, and some Jat and Gurjar clans have shared origins in the pastoral communities of the Gangetic plains and Aravallis. Modern genetic studies show that Gurjars, Jats, and Rajputs cluster relatively close together in South Asian genetic space — consistent with their shared geographic and historical background. Their differences today are primarily social, cultural, and administrative rather than purely biological.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 14 — GLOSSARY
+     ============================================================ -->
+<section class="section" id="glossary" aria-labelledby="glossary-title">
+  <div class="container">
+    <div class="section-label">Section XIV</div>
+    <h2 class="section-title" id="glossary-title">Glossary of Key Terms</h2>
+
+    <div class="glossary-grid reveal">
+
+      <div class="glossary-item">
+        <div class="glossary-term">ANI / ASI</div>
+        <div class="glossary-def">Ancestral North Indian / Ancestral South Indian — genetic ancestry components identified by Reich et al. (2009). Not racial categories; statistical representations of ancient ancestry patterns.</div>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Prashasti</div>
+        <div class="glossary-def">Sanskrit eulogistic inscription, typically on stone or copper plates, commissioned by rulers to record genealogy, victories, and religious patronage. Primary source for medieval Indian history.</div>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Rajputization</div>
+        <div class="glossary-def">The process by which communities of diverse origin (pastoral, tribal, foreign) were incorporated into Kshatriya/Rajput social frameworks through military service, intermarriage, and Brahmin-composed genealogies. Well-documented in medieval North India.</div>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Transhumance</div>
+        <div class="glossary-def">Seasonal migration of pastoralist communities with their herds between lower and higher altitude grazing areas. Practiced by Himalayan Gujjars who move between valley floors (winter) and alpine meadows (summer).</div>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Gotra</div>
+        <div class="glossary-def">Patrilineal clan system in Indian society. Communities maintain exogamous gotras — members of the same gotra cannot marry each other. Gurjar communities have hundreds of named gotras.</div>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Haplogroup</div>
+        <div class="glossary-def">A genetic group sharing a common ancestor, defined by specific markers in the Y-chromosome (paternal line) or mitochondrial DNA (maternal line). R1a, J2, L, H are examples found in South Asian populations.</div>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Gurjaratra</div>
+        <div class="glossary-def">"Land of the Gurjaras" — the early medieval term for the territory roughly corresponding to modern Gujarat and southern Rajasthan, under Gurjara political administration. Origin of the toponym "Gujarat."</div>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Tripartite Struggle</div>
+        <div class="glossary-def">The approximately 200-year (c. 780–1000 CE) contest between the Gurjara-Pratihara, Rashtrakuta, and Pala dynasties for control of Kannauj and North Indian paramountcy. Central event in early medieval Indian political history.</div>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Agnikula</div>
+        <div class="glossary-def">"Fire lineage" — a medieval myth of origin in which certain Rajput/warrior clans claimed descent from heroes born from a sacred fire at Mount Abu, sanctified by sage Vashishtha. Recognized by historians as a medieval legitimation myth, not literal genealogy.</div>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Scheduled Tribe (ST)</div>
+        <div class="glossary-def">Constitutional category in India for communities historically characterized by tribal social structures, geographic isolation, and social disadvantage. Entitles communities to reservations and protective legal provisions. Gujjars hold ST status in J&K and HP.</div>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Sanskritization</div>
+        <div class="glossary-def">Term coined by sociologist M.N. Srinivas for the process by which lower castes adopt the practices, rituals, and identity markers of upper castes as a route to social mobility.</div>
+      </div>
+
+      <div class="glossary-item">
+        <div class="glossary-term">Epigraph / Epigraphy</div>
+        <div class="glossary-def">The study of inscriptions carved on stone, copper plates, or other durable materials. The primary source category for early medieval Indian history, as chronicles are largely absent. Epigraphy provides direct, contemporary evidence unlike later texts.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 15 — RECOMMENDED READING
+     ============================================================ -->
+<section class="section" id="reading" aria-labelledby="reading-title">
+  <div class="container">
+    <div class="section-label">Section XV</div>
+    <h2 class="section-title" id="reading-title">Recommended Reading & Research</h2>
+    <p class="section-subtitle">Peer-reviewed books, journal articles, and academic papers for deeper study.</p>
+
+    <div class="grid-2 reveal">
+      <div>
+        <h3 style="font-family:var(--font-serif);font-size:1.3rem;color:var(--cream);margin-bottom:1.5rem;">Books & Monographs</h3>
+        <ul class="reading-list" style="list-style:none;padding:0;">
+          <li>
+            <span class="reading-num">01</span>
+            <div class="reading-info">
+              <strong>B.D. Chattopadhyaya — <em>The Making of Early Medieval India</em></strong>
+              <span>Oxford University Press, 1994. Foundational text on early medieval social formations including the emergence of Gurjara identity.</span>
+            </div>
+          </li>
+          <li>
+            <span class="reading-num">02</span>
+            <div class="reading-info">
+              <strong>Romila Thapar — <em>Early India: From the Origins to AD 1300</em></strong>
+              <span>Penguin, 2002. Comprehensive survey placing Gurjara-Pratihara within broader North Indian historical context.</span>
+            </div>
+          </li>
+          <li>
+            <span class="reading-num">03</span>
+            <div class="reading-info">
+              <strong>R.C. Majumdar (ed.) — <em>The History and Culture of the Indian People, Vol. IV: The Age of Imperial Kanauj</em></strong>
+              <span>Bharatiya Vidya Bhavan, 1955. Detailed political history of the Gurjara-Pratihara period.</span>
+            </div>
+          </li>
+          <li>
+            <span class="reading-num">04</span>
+            <div class="reading-info">
+              <strong>Dasharatha Sharma — <em>Early Chahamana Dynasties</em></strong>
+              <span>S. Chand, 1959. Important for Gurjara-adjacent Rajput history and inscriptional analysis.</span>
+            </div>
+          </li>
+          <li>
+            <span class="reading-num">05</span>
+            <div class="reading-info">
+              <strong>David Reich — <em>Who We Are and How We Got Here</em></strong>
+              <span>Pantheon, 2018. Accessible overview of ancient DNA research including South Asian population history.</span>
+            </div>
+          </li>
+          <li>
+            <span class="reading-num">06</span>
+            <div class="reading-info">
+              <strong>Satish Chandra — <em>Medieval India: From Sultanat to the Mughals</em></strong>
+              <span>Har-Anand, 1997. Covers post-Pratihara period context for Gurjara community evolution.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 style="font-family:var(--font-serif);font-size:1.3rem;color:var(--cream);margin-bottom:1.5rem;">Key Academic Papers</h3>
+        <ul class="reading-list" style="list-style:none;padding:0;">
+          <li>
+            <span class="reading-num">01</span>
+            <div class="reading-info">
+              <strong>Narasimhan et al. (2019) — "The Formation of Human Populations in South and Central Asia"</strong>
+              <span><em>Science</em>, Vol. 365. Largest ancient DNA study of South and Central Asia. Critical reference for ancestry questions.</span>
+            </div>
+          </li>
+          <li>
+            <span class="reading-num">02</span>
+            <div class="reading-info">
+              <strong>Reich et al. (2009) — "Reconstructing Indian Population History"</strong>
+              <span><em>Nature</em>, Vol. 461. Established the ANI/ASI ancestry model for South Asian populations.</span>
+            </div>
+          </li>
+          <li>
+            <span class="reading-num">03</span>
+            <div class="reading-info">
+              <strong>Sengupta et al. (2006) — "Polarity and Temporality of High-Resolution Y-Chromosome Distributions in India"</strong>
+              <span><em>American Journal of Human Genetics</em>. Early Y-chromosome survey including North Indian pastoral communities.</span>
+            </div>
+          </li>
+          <li>
+            <span class="reading-num">04</span>
+            <div class="reading-info">
+              <strong>Sahoo et al. (2006) — "A prehistory of Indian Y chromosomes"</strong>
+              <span><em>PNAS</em>. Foundational Y-chromosome study covering diverse Indian populations.</span>
+            </div>
+          </li>
+          <li>
+            <span class="reading-num">05</span>
+            <div class="reading-info">
+              <strong>Chattopadhyaya (1976) — "Origin of the Rajputs: The Political, Economic and Social Processes in Early Medieval Rajasthan"</strong>
+              <span><em>Indian Historical Review</em>. Key paper on tribal-to-Kshatriya transitions including Gurjara groups.</span>
+            </div>
+          </li>
+          <li>
+            <span class="reading-num">06</span>
+            <div class="reading-info">
+              <strong>Indian Epigraphia Indica (various volumes)</strong>
+              <span>Archaeological Survey of India. Primary source collection of Sanskrit inscriptions including Gurjara-Pratihara prashastis.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FINAL SUMMARY
+     ============================================================ -->
+<section class="section" style="background:linear-gradient(180deg,var(--bg-mid) 0%,var(--bg-deep) 100%);">
+  <div class="container">
+    <div class="section-label">Conclusion</div>
+    <h2 class="section-title">Academic Summary</h2>
+    <div class="grid-2 reveal">
+      <div>
+        <p style="color:var(--text-secondary);font-size:1.05rem;line-height:1.9;margin-bottom:1.25rem;">The Gurjar/Gujjar communities represent one of the most historically significant yet academically nuanced groups in South Asian history. Their story spans pastoral ecology, medieval empire-building, Sanskrit literary culture, Islamic conversion, colonial reclassification, and modern political mobilization — across nearly fifteen centuries of documented history.</p>
+        <p style="color:var(--text-secondary);font-size:1.05rem;line-height:1.9;margin-bottom:1.25rem;">The Gurjara-Pratihara Empire, whatever its precise ethnic composition, was a genuine civilizational achievement — one of the largest North Indian empires in the early medieval period, patron of arts and temples, and a documented barrier against Arab expansion into the Indian subcontinent.</p>
+        <p style="color:var(--text-secondary);font-size:1.05rem;line-height:1.9;">The modern diversity of Gurjar communities — from Scheduled Tribe Gujjars in Kashmir's alpine pastures to OBC Gurjars in Rajasthan's political landscape — reflects the genuine historical complexity of an identity that has always been more than any single narrative can contain.</p>
+      </div>
+      <div>
+        <div class="card card-gold" style="margin-bottom:1rem;">
+          <h5 style="color:var(--cream);margin-bottom:0.75rem;">What We Know With Confidence</h5>
+          <ul style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.25rem;line-height:2;">
+            <li>Gurjaras are attested in Indian inscriptions from the 5th–6th century CE onward</li>
+            <li>The Gurjara-Pratihara Empire was real, powerful, and geopolitically significant</li>
+            <li>Gujarat's name derives from Gurjaratra</li>
+            <li>Arab chronicles corroborate Indian sources on Pratihara military power</li>
+            <li>Modern Gurjar communities are genetically diverse — consistent with heterogeneous origins</li>
+          </ul>
+        </div>
+        <div class="card card-indigo">
+          <h5 style="color:var(--indigo-bright);margin-bottom:0.75rem;">What Remains Genuinely Debated</h5>
+          <ul style="color:var(--text-secondary);font-size:0.9rem;padding-left:1.25rem;line-height:2;">
+            <li>Whether Gurjaras originated from one specific group or multiple</li>
+            <li>The precise ethnic relationship between the Pratihara dynasty and modern Gurjar communities</li>
+            <li>The nature and extent of any Central Asian ancestry component</li>
+            <li>Uniform varna classification — this varies by region and subgroup</li>
+            <li>The internal diversity of Gurjara identity in the early medieval period</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="nav-logo">◆ Gurjara Archive</span>
+        <p>A historically balanced, peer-reviewed educational portal for the study of Gurjar/Gujjar civilizational history. Built on academic scholarship, not political narrative.</p>
+      </div>
+      <div class="footer-col">
+        <h6>Sections</h6>
+        <ul>
+          <li><a href="#intro">Introduction</a></li>
+          <li><a href="#origins">Origins & Theories</a></li>
+          <li><a href="#empire">Gurjara-Pratihara</a></li>
+          <li><a href="#genetics">Genetics</a></li>
+          <li><a href="#regions">Regional Distribution</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h6>Reference</h6>
+        <ul>
+          <li><a href="#historiography">Historiography</a></li>
+          <li><a href="#misunderstood">Myths & Facts</a></li>
+          <li><a href="#glossary">Glossary</a></li>
+          <li><a href="#reading">Reading List</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>All historical claims are sourced from peer-reviewed scholarship. Scholarly disagreements are presented honestly. No content promotes racial or caste superiority.</p>
+      <p style="color:var(--text-muted);">◆ Gurjara Civilizational Archive — Educational Portal</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+<script>
+// Accordion
+function toggleAccordion(btn) {
+  const item = btn.closest('.accordion-item');
+  const isOpen = item.classList.contains('open');
+  // Close all
+  document.querySelectorAll('.accordion-item.open').forEach(el => el.classList.remove('open'));
+  if (!isOpen) {
+    item.classList.add('open');
+    btn.setAttribute('aria-expanded', 'true');
+  } else {
+    btn.setAttribute('aria-expanded', 'false');
+  }
+}
+
+// Scroll reveal
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// Animate haplogroup bars on scroll
+const haploObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.querySelectorAll('.haplo-fill').forEach(fill => {
+        const target = fill.style.width;
+        fill.style.width = '0%';
+        setTimeout(() => { fill.style.width = target; }, 100);
+      });
+    }
+  });
+}, { threshold: 0.3 });
+
+document.querySelectorAll('#genetics').forEach(el => haploObserver.observe(el));
+
+// Mobile menu placeholder
+function toggleMenu() {
+  const links = document.querySelector('.nav-links');
+  const isHidden = links.style.display !== 'flex';
+  links.style.display = isHidden ? 'flex' : 'none';
+  if (isHidden) {
+    links.style.flexDirection = 'column';
+    links.style.position = 'absolute';
+    links.style.top = '100%';
+    links.style.left = '0';
+    links.style.right = '0';
+    links.style.background = 'rgba(14,12,8,0.98)';
+    links.style.padding = '1.5rem';
+    links.style.gap = '1.25rem';
+    links.style.backdropFilter = 'blur(8px)';
+    links.style.borderBottom = '1px solid rgba(200,146,42,0.2)';
+  }
+}
+
+// Close mobile menu on link click
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => {
+    const links = document.querySelector('.nav-links');
+    links.style.display = 'none';
+  });
+});
+
+// Smooth reveal on load
+window.addEventListener('load', () => {
+  document.querySelectorAll('.reveal').forEach((el, i) => {
+    if (el.getBoundingClientRect().top < window.innerHeight) {
+      setTimeout(() => el.classList.add('visible'), i * 80);
+    }
+  });
+});
+</script>
+
+</body>
+</html>

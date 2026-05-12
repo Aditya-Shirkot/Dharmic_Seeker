@@ -1,0 +1,1877 @@
+html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vanaras of Kishkindha — Warriors of Shri Rama</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+Devanagari:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #C9A84C;
+  --gold-light: #E8D08A;
+  --gold-deep: #8B6914;
+  --saffron: #FF6B35;
+  --saffron-deep: #C4410A;
+  --crimson: #8B1A1A;
+  --crimson-light: #C94040;
+  --forest: #1A3320;
+  --forest-mid: #2D5A3D;
+  --forest-light: #4A7C5C;
+  --stone: #2C2416;
+  --stone-mid: #4A3C28;
+  --stone-light: #7A6A50;
+  --parchment: #F5E6C8;
+  --parchment-deep: #E8D4A8;
+  --ink: #1A1208;
+  --ash: #C8B88A;
+  --sky: #1A2840;
+  --ember: #FF4500;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--stone);
+  color: var(--parchment);
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 17px;
+  line-height: 1.75;
+  overflow-x: hidden;
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--stone); }
+::-webkit-scrollbar-thumb { background: var(--gold-deep); border-radius: 3px; }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(26,18,8,0.95);
+  border-bottom: 1px solid rgba(201,168,76,0.3);
+  backdrop-filter: blur(12px);
+  padding: 0 2rem;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 60px;
+}
+.nav-brand {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 0.85rem;
+  color: var(--gold);
+  letter-spacing: 0.12em;
+  text-decoration: none;
+}
+.nav-links {
+  display: flex; gap: 1.8rem; list-style: none;
+}
+.nav-links a {
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  color: var(--ash);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--gold); }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  padding: 6rem 2rem 4rem;
+}
+
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 40%, rgba(139,105,20,0.18) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 80% at 20% 100%, rgba(139,26,26,0.25) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 80% at 80% 100%, rgba(26,51,32,0.4) 0%, transparent 60%),
+    linear-gradient(180deg, #0A0806 0%, #1A1208 30%, #1A3320 70%, #0A1208 100%);
+}
+
+.hero-pattern {
+  position: absolute; inset: 0; opacity: 0.04;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(201,168,76,0.5) 40px, rgba(201,168,76,0.5) 41px),
+    repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(201,168,76,0.5) 40px, rgba(201,168,76,0.5) 41px);
+}
+
+.hero-content { position: relative; z-index: 2; max-width: 900px; }
+
+.hero-sanskrit {
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  color: var(--gold);
+  opacity: 0.8;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+  animation: fadeInDown 1s ease both;
+}
+
+.hero-eyebrow {
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.4em;
+  color: var(--saffron);
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  animation: fadeInDown 1s 0.2s ease both;
+}
+
+.hero-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(2.2rem, 6vw, 5rem);
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--gold-light);
+  margin-bottom: 1rem;
+  animation: fadeInUp 1s 0.3s ease both;
+  text-shadow: 0 0 60px rgba(201,168,76,0.3);
+}
+
+.hero-subtitle {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  color: var(--parchment);
+  opacity: 0.85;
+  margin-bottom: 1rem;
+  animation: fadeInUp 1s 0.5s ease both;
+}
+
+.hero-verse {
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--ash);
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+  animation: fadeInUp 1s 0.6s ease both;
+  border-left: 2px solid var(--gold-deep);
+  padding-left: 1.2rem;
+  text-align: left;
+}
+
+.hero-ctas {
+  display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;
+  animation: fadeInUp 1s 0.8s ease both;
+}
+
+.btn-primary {
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 0.9rem 2.2rem;
+  background: linear-gradient(135deg, var(--gold-deep), var(--gold));
+  color: var(--ink);
+  border: none; cursor: pointer;
+  text-decoration: none; display: inline-block;
+  clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+  font-weight: 600;
+  transition: all 0.3s;
+}
+.btn-primary:hover { background: linear-gradient(135deg, var(--gold), var(--gold-light)); transform: translateY(-2px); }
+
+.btn-secondary {
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 0.85rem 2rem;
+  background: transparent;
+  color: var(--gold);
+  border: 1px solid rgba(201,168,76,0.5);
+  cursor: pointer;
+  text-decoration: none; display: inline-block;
+  transition: all 0.3s;
+}
+.btn-secondary:hover { border-color: var(--gold); background: rgba(201,168,76,0.08); }
+
+.hero-deco {
+  position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+  animation: pulse 2s infinite;
+  z-index: 2;
+}
+.hero-deco span { display: block; width: 1px; height: 40px; background: linear-gradient(to bottom, var(--gold), transparent); }
+.hero-deco p { font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.3em; color: var(--gold); opacity: 0.6; }
+
+/* ── SECTION WRAPPER ── */
+section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
+.section-full { max-width: none; padding: 5rem 0; }
+.section-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+.section-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--saffron);
+  margin-bottom: 0.8rem;
+  display: flex; align-items: center; gap: 1rem;
+}
+.section-label::before, .section-label::after {
+  content: ''; display: block; height: 1px; flex: 1;
+  background: linear-gradient(to right, transparent, var(--saffron-deep), transparent);
+}
+
+.section-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+  color: var(--gold-light);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.section-desc {
+  font-size: 1.05rem;
+  color: var(--ash);
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 3.5rem;
+  line-height: 1.8;
+}
+
+/* ── DIVIDERS ── */
+.divider {
+  width: 100%; height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold-deep), transparent);
+  margin: 0;
+}
+.divider-section {
+  background: linear-gradient(180deg, var(--stone) 0%, #0F0C08 50%, var(--stone) 100%);
+  height: 80px;
+}
+
+/* ── INTRO GRID ── */
+.intro-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 2.5rem; margin-top: 3rem;
+}
+@media (max-width: 768px) { .intro-grid { grid-template-columns: 1fr; } }
+
+.intro-card {
+  background: linear-gradient(135deg, rgba(44,36,22,0.8), rgba(26,51,32,0.4));
+  border: 1px solid rgba(201,168,76,0.2);
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+.intro-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0;
+  width: 4px; height: 100%;
+  background: linear-gradient(to bottom, var(--gold), var(--forest-mid));
+}
+.intro-card-icon {
+  font-size: 2rem; margin-bottom: 1rem;
+  display: block;
+}
+.intro-card h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  color: var(--gold);
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.08em;
+}
+.intro-card p { font-size: 0.95rem; color: var(--parchment-deep); opacity: 0.9; }
+
+/* ── THEORY TABS ── */
+.theory-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem; margin-top: 2.5rem;
+}
+.theory-card {
+  border: 1px solid rgba(201,168,76,0.15);
+  padding: 1.5rem;
+  background: rgba(26,18,8,0.6);
+  position: relative;
+  transition: all 0.3s;
+  cursor: default;
+}
+.theory-card:hover { border-color: rgba(201,168,76,0.4); background: rgba(44,36,22,0.8); transform: translateY(-3px); }
+.theory-num {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 2.5rem;
+  color: rgba(201,168,76,0.15);
+  position: absolute; top: 0.5rem; right: 1rem;
+  line-height: 1;
+}
+.theory-card h4 {
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem;
+  color: var(--saffron);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.8rem;
+}
+.theory-card p { font-size: 0.88rem; color: var(--ash); line-height: 1.7; }
+
+/* ── WARRIOR CARDS ── */
+.warriors-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 2.5rem;
+}
+@media (max-width: 500px) { .warriors-grid { grid-template-columns: 1fr; } }
+
+.warrior-card {
+  border: 1px solid rgba(201,168,76,0.2);
+  background: linear-gradient(145deg, rgba(26,18,8,0.95), rgba(26,51,32,0.3));
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s;
+}
+.warrior-card:hover { border-color: rgba(201,168,76,0.5); transform: translateY(-4px); box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
+
+.warrior-card-header {
+  padding: 1.8rem 1.8rem 1.2rem;
+  border-bottom: 1px solid rgba(201,168,76,0.15);
+  position: relative;
+}
+.warrior-badge {
+  position: absolute; top: 1rem; right: 1rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  padding: 0.25rem 0.7rem;
+  border: 1px solid;
+  text-transform: uppercase;
+}
+.badge-chief { border-color: var(--gold); color: var(--gold); background: rgba(201,168,76,0.08); }
+.badge-general { border-color: var(--saffron); color: var(--saffron); background: rgba(255,107,53,0.08); }
+.badge-divine { border-color: #9B7FD4; color: #9B7FD4; background: rgba(155,127,212,0.08); }
+.badge-riksha { border-color: #7FD4B0; color: #7FD4B0; background: rgba(127,212,176,0.08); }
+
+.warrior-name {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 1.5rem;
+  color: var(--gold-light);
+  margin-bottom: 0.3rem;
+}
+.warrior-sanskrit {
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: 1.1rem;
+  color: var(--gold);
+  opacity: 0.7;
+  margin-bottom: 0.4rem;
+}
+.warrior-epithet {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--ash);
+  opacity: 0.8;
+}
+
+.warrior-card-body { padding: 1.5rem 1.8rem; }
+
+.warrior-row {
+  display: flex; gap: 0.5rem;
+  margin-bottom: 0.6rem;
+  font-size: 0.9rem;
+  border-bottom: 1px solid rgba(201,168,76,0.06);
+  padding-bottom: 0.6rem;
+}
+.warrior-row:last-child { border-bottom: none; }
+.warrior-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  min-width: 90px;
+  padding-top: 0.15rem;
+}
+.warrior-val { color: var(--parchment-deep); flex: 1; font-size: 0.88rem; line-height: 1.5; }
+
+.warrior-powers {
+  display: flex; flex-wrap: wrap; gap: 0.4rem;
+  margin-top: 0.3rem;
+}
+.power-tag {
+  font-family: 'Cinzel', serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  padding: 0.2rem 0.6rem;
+  background: rgba(201,168,76,0.08);
+  border: 1px solid rgba(201,168,76,0.2);
+  color: var(--ash);
+}
+
+.warrior-accordion {
+  border-top: 1px solid rgba(201,168,76,0.12);
+  margin-top: 1rem;
+}
+.accordion-btn {
+  width: 100%; padding: 0.8rem 1.8rem;
+  background: none; border: none;
+  display: flex; justify-content: space-between; align-items: center;
+  cursor: pointer;
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  text-transform: uppercase;
+  transition: background 0.2s;
+}
+.accordion-btn:hover { background: rgba(201,168,76,0.05); }
+.accordion-icon { transition: transform 0.3s; display: inline-block; }
+.accordion-content {
+  padding: 0 1.8rem 1.2rem;
+  display: none;
+}
+.accordion-content.open { display: block; }
+.accordion-content p { font-size: 0.88rem; color: var(--ash); line-height: 1.75; margin-bottom: 0.8rem; }
+.accordion-content .scripture-ref {
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  color: var(--gold-deep);
+  letter-spacing: 0.1em;
+  border-left: 2px solid var(--gold-deep);
+  padding-left: 0.8rem;
+  margin-top: 1rem;
+}
+
+/* ── FEATURED HEROES ── */
+.featured-hero {
+  background: linear-gradient(135deg, rgba(26,18,8,0.98), rgba(26,51,32,0.5));
+  border: 1px solid rgba(201,168,76,0.25);
+  padding: 3rem;
+  margin-bottom: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+.featured-hero::after {
+  content: attr(data-name);
+  position: absolute;
+  right: -1rem; top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 6rem;
+  color: rgba(201,168,76,0.04);
+  white-space: nowrap;
+  letter-spacing: 0.1em;
+  pointer-events: none;
+}
+.featured-name {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  color: var(--gold-light);
+  margin-bottom: 0.5rem;
+}
+.featured-sanskrit {
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: 1.4rem;
+  color: var(--gold);
+  opacity: 0.75;
+  margin-bottom: 1.5rem;
+}
+.featured-cols {
+  display: grid; grid-template-columns: 1fr 1.6fr;
+  gap: 3rem; margin-top: 1.5rem;
+}
+@media (max-width: 768px) { .featured-cols { grid-template-columns: 1fr; } }
+
+.stat-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.stat-box {
+  background: rgba(201,168,76,0.06);
+  border: 1px solid rgba(201,168,76,0.15);
+  padding: 1rem;
+}
+.stat-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin-bottom: 0.4rem;
+}
+.stat-value {
+  font-size: 0.9rem;
+  color: var(--parchment);
+}
+
+.featured-para { font-size: 0.95rem; color: var(--parchment-deep); line-height: 1.85; margin-bottom: 1.2rem; }
+.featured-para em { color: var(--gold); font-style: normal; }
+
+/* ── HIERARCHY CHART ── */
+.hierarchy-wrap {
+  background: rgba(10,8,6,0.8);
+  border: 1px solid rgba(201,168,76,0.2);
+  padding: 2.5rem;
+  font-family: 'Cinzel', monospace;
+  font-size: 0.8rem;
+  line-height: 2;
+  overflow-x: auto;
+}
+.h-root { color: var(--gold-light); font-size: 1rem; }
+.h-l1 { color: var(--saffron); padding-left: 1.5rem; }
+.h-l2 { color: var(--ash); padding-left: 3rem; }
+.h-l3 { color: var(--stone-light); padding-left: 4.5rem; font-size: 0.75rem; }
+.h-connector { color: rgba(201,168,76,0.4); }
+
+/* ── LINEAGE TABLE ── */
+.lineage-table {
+  width: 100%; border-collapse: collapse;
+  margin-top: 2rem;
+}
+.lineage-table th {
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid rgba(201,168,76,0.3);
+  text-align: left;
+  background: rgba(201,168,76,0.05);
+}
+.lineage-table td {
+  padding: 0.75rem 1rem;
+  font-size: 0.88rem;
+  border-bottom: 1px solid rgba(201,168,76,0.08);
+  vertical-align: top;
+}
+.lineage-table tr:hover td { background: rgba(201,168,76,0.04); }
+.td-name { font-family: 'Cinzel', serif; color: var(--gold-light); font-size: 0.85rem; }
+.td-deva { color: var(--saffron); }
+.td-role { color: var(--ash); }
+.td-power { color: #9B7FD4; font-size: 0.8rem; }
+
+/* ── RAM SETU SECTION ── */
+.setu-section {
+  background: linear-gradient(180deg, rgba(26,18,8,0) 0%, rgba(10,8,6,0.9) 30%, rgba(26,40,64,0.3) 70%, rgba(26,18,8,0) 100%);
+  padding: 5rem 2rem;
+}
+.setu-diagram {
+  background: rgba(10,8,6,0.9);
+  border: 1px solid rgba(201,168,76,0.2);
+  padding: 2.5rem;
+  margin: 2rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── SCRIPTURE GRID ── */
+.scripture-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem; margin-top: 2.5rem;
+}
+.scripture-card {
+  border: 1px solid rgba(201,168,76,0.15);
+  background: rgba(26,18,8,0.7);
+  padding: 1.5rem;
+  position: relative;
+}
+.scripture-card::before {
+  content: ''; position: absolute;
+  top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(to right, var(--gold-deep), var(--saffron), transparent);
+}
+.scripture-title {
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem;
+  color: var(--gold);
+  margin-bottom: 0.3rem;
+}
+.scripture-subtitle {
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: 0.9rem;
+  color: var(--gold-deep);
+  margin-bottom: 0.8rem;
+}
+.scripture-desc { font-size: 0.88rem; color: var(--ash); line-height: 1.7; }
+
+/* ── RARE FACTS ── */
+.facts-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+.fact-card {
+  background: rgba(26,18,8,0.8);
+  border-left: 3px solid var(--saffron);
+  padding: 1.5rem 1.5rem 1.5rem 1.8rem;
+}
+.fact-num {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 2rem;
+  color: rgba(255,107,53,0.2);
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+.fact-title {
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  color: var(--saffron);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.6rem;
+}
+.fact-text { font-size: 0.88rem; color: var(--ash); line-height: 1.7; }
+
+/* ── FAQ ── */
+.faq-item {
+  border-bottom: 1px solid rgba(201,168,76,0.12);
+}
+.faq-question {
+  width: 100%; padding: 1.2rem 0;
+  background: none; border: none; cursor: pointer;
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: 'Cinzel', serif;
+  font-size: 0.9rem;
+  color: var(--gold-light);
+  text-align: left;
+  letter-spacing: 0.05em;
+}
+.faq-answer {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.4s ease;
+  font-size: 0.9rem;
+  color: var(--ash);
+  line-height: 1.8;
+}
+.faq-answer.open { max-height: 400px; }
+.faq-answer p { padding-bottom: 1.2rem; }
+
+/* ── GLOSSARY ── */
+.glossary-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+.gloss-item {
+  background: rgba(26,18,8,0.6);
+  border: 1px solid rgba(201,168,76,0.1);
+  padding: 1rem 1.2rem;
+}
+.gloss-term {
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem;
+  color: var(--gold);
+  margin-bottom: 0.3rem;
+}
+.gloss-def { font-size: 0.82rem; color: var(--ash); line-height: 1.6; }
+
+/* ── TIMELINE ── */
+.timeline { position: relative; padding-left: 2rem; }
+.timeline::before {
+  content: ''; position: absolute;
+  left: 0; top: 0; bottom: 0; width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--gold-deep), var(--forest-mid), transparent);
+}
+.timeline-item {
+  position: relative;
+  padding: 0 0 2.5rem 2rem;
+}
+.timeline-item::before {
+  content: ''; position: absolute;
+  left: -4px; top: 0.4rem;
+  width: 9px; height: 9px;
+  background: var(--gold);
+  border-radius: 50%;
+}
+.timeline-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--saffron);
+  margin-bottom: 0.4rem;
+}
+.timeline-heading {
+  font-family: 'Cinzel', serif;
+  font-size: 0.95rem;
+  color: var(--gold-light);
+  margin-bottom: 0.5rem;
+}
+.timeline-text { font-size: 0.88rem; color: var(--ash); line-height: 1.75; }
+
+/* ── STATS BAR ── */
+.stats-row {
+  display: flex; flex-wrap: wrap; gap: 0;
+  border: 1px solid rgba(201,168,76,0.2);
+  margin: 3rem 0;
+  overflow: hidden;
+}
+.stat-item {
+  flex: 1; min-width: 150px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  border-right: 1px solid rgba(201,168,76,0.15);
+  background: rgba(26,18,8,0.6);
+}
+.stat-item:last-child { border-right: none; }
+.stat-number {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 2.5rem;
+  color: var(--gold-light);
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+.stat-desc {
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ash);
+}
+
+/* ── FOOTER ── */
+footer {
+  background: #0A0806;
+  border-top: 1px solid rgba(201,168,76,0.2);
+  padding: 3rem 2rem;
+  text-align: center;
+}
+.footer-mantra {
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: 1.3rem;
+  color: var(--gold);
+  opacity: 0.8;
+  margin-bottom: 1rem;
+}
+.footer-text {
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  color: var(--stone-light);
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+@keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+
+.reveal {
+  opacity: 0; transform: translateY(30px);
+  transition: all 0.7s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ── SEARCH ── */
+.search-bar {
+  display: flex; gap: 1rem; margin-bottom: 2.5rem;
+  align-items: center;
+}
+.search-input {
+  flex: 1; padding: 0.7rem 1.2rem;
+  background: rgba(26,18,8,0.8);
+  border: 1px solid rgba(201,168,76,0.25);
+  color: var(--parchment);
+  font-family: 'EB Garamond', serif;
+  font-size: 0.95rem;
+  outline: none;
+}
+.search-input:focus { border-color: var(--gold); }
+.filter-btn {
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  padding: 0.6rem 1.2rem;
+  background: transparent;
+  border: 1px solid rgba(201,168,76,0.3);
+  color: var(--ash);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.filter-btn:hover, .filter-btn.active { border-color: var(--gold); color: var(--gold); background: rgba(201,168,76,0.08); }
+
+/* ── PULLQUOTE ── */
+.pullquote {
+  border-left: 3px solid var(--gold-deep);
+  padding: 1.5rem 2rem;
+  margin: 2rem 0;
+  background: rgba(201,168,76,0.04);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--parchment-deep);
+  line-height: 1.9;
+}
+.pullquote cite {
+  display: block; margin-top: 0.8rem;
+  font-style: normal;
+  font-family: 'Cinzel', serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  color: var(--gold-deep);
+}
+
+/* ── WORLD MAP PLACEHOLDER ── */
+.map-placeholder {
+  width: 100%; min-height: 300px;
+  background: linear-gradient(135deg, rgba(26,51,32,0.4), rgba(26,40,64,0.4));
+  border: 1px solid rgba(201,168,76,0.2);
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; padding: 2rem;
+  position: relative; overflow: hidden;
+}
+.map-placeholder::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(
+    -45deg, transparent, transparent 10px,
+    rgba(201,168,76,0.03) 10px, rgba(201,168,76,0.03) 11px
+  );
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) { .nav-links { display: none; } }
+@media (max-width: 600px) {
+  .featured-hero { padding: 2rem 1.5rem; }
+  .stats-row { flex-direction: column; }
+  .stat-item { border-right: none; border-bottom: 1px solid rgba(201,168,76,0.15); }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════ NAV ══════════════ -->
+<nav>
+  <a class="nav-brand" href="#">Vanaras of Kishkindha</a>
+  <ul class="nav-links">
+    <li><a href="#intro">Origins</a></li>
+    <li><a href="#warriors">Warriors</a></li>
+    <li><a href="#heroes">Great Heroes</a></li>
+    <li><a href="#setu">Ram Setu</a></li>
+    <li><a href="#scriptures">Scriptures</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+</nav>
+
+<!-- ══════════════ HERO ══════════════ -->
+<section class="hero section-full" style="padding-top:0">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-content">
+    <p class="hero-sanskrit">जय श्रीराम · वानर सेना की जय</p>
+    <p class="hero-eyebrow">The Sacred Itihasa Encyclopedia</p>
+    <h1 class="hero-title">Warriors of<br>Kishkindha</h1>
+    <p class="hero-subtitle">The Vanara and Riksha Heroes of Shri Rama's Divine Mission</p>
+    <p class="hero-verse">
+      "Harayo nāma te vīrāh, pratāpena mahābalāh —<br>
+      Rāmakāryārtham utpannāh, devānāṃ aṃśasambhavāh."<br>
+      <em style="font-size:0.85rem; color: var(--gold-deep);">— They were called Haras — great warriors of immense prowess, born for Rama's mission, born of the divine portions of the Devas.</em>
+    </p>
+    <div class="hero-ctas">
+      <a href="#warriors" class="btn-primary">Explore the Warriors of Rama</a>
+      <a href="#intro" class="btn-secondary">Journey Through Kishkindha</a>
+      <a href="#heroes" class="btn-secondary">Discover the Vanara Heroes</a>
+    </div>
+  </div>
+  <div class="hero-deco">
+    <p>Scroll</p>
+    <span></span>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════ STATS ══════════════ -->
+<div style="max-width:1200px; margin:0 auto; padding:0 2rem;">
+  <div class="stats-row">
+    <div class="stat-item">
+      <div class="stat-number">72</div>
+      <div class="stat-desc">Named Vanara Chiefs</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">100<span style="font-size:1.2rem">M+</span></div>
+      <div class="stat-desc">Warriors in Rama's Army</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">9</div>
+      <div class="stat-desc">Days to Build Ram Setu</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">7</div>
+      <div class="stat-desc">Kandas in Valmiki Ramayana</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">∞</div>
+      <div class="stat-desc">Hanuman's Devotion</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ INTRO ══════════════ -->
+<section id="intro">
+  <p class="section-label">Origins & Identity</p>
+  <h2 class="section-title">Who Were the Vanaras?</h2>
+  <p class="section-desc">A profound question at the intersection of theology, symbolism, tribal history, and divine cosmology — explored through multiple authentic scriptural lenses.</p>
+
+  <div class="pullquote">
+    "Vanarasya hi tat karma karma devair api duṣkaram — What the Vanaras accomplished was beyond even what the Devas could accomplish."
+    <cite>— Valmiki Ramayana, Yuddha Kanda</cite>
+  </div>
+
+  <div class="intro-grid">
+    <div class="intro-card reveal">
+      <span class="intro-card-icon">🐒</span>
+      <h3>The Sanskrit Etymology</h3>
+      <p>The word <em>Vanara</em> (वानर) derives from <em>vana</em> (वन = forest) + the suffix <em>ra</em>, literally meaning "of the forest" or "forest-dweller." However, alternate Nirukta analysis gives <em>van + nara</em> — "the human of the forest." The Kishkindha Kanda of Valmiki's Ramayana consistently distinguishes Vanaras from both ordinary monkeys (markata/kapi) and from humans (nara), suggesting a distinct class of being.</p>
+    </div>
+    <div class="intro-card reveal">
+      <span class="intro-card-icon">⚡</span>
+      <h3>Semi-Divine Warriors</h3>
+      <p>Brahma's edict in the Bala Kanda commands the Devas to father children in the wombs of female Vanaras (<em>Vānarīṣu putrasaṃjñitān</em>) to create warriors capable of assisting Vishnu's avatar. This gives the Vanara army a fundamentally divine origin — each major warrior being the son of a specific Deva — Hanuman of Vayu, Sugriva of Surya, Angada of Indra's ally Bali/Indra, Nala of Vishvakarma, and so forth.</p>
+    </div>
+    <div class="intro-card reveal">
+      <span class="intro-card-icon">🏔️</span>
+      <h3>The Riksha Warriors</h3>
+      <p>The <em>Riksha</em> (ऋक्ष) are bear-warriors — a related but distinct group allied with Rama. Jambavan (Jambavān), the immortal Riksha king, is their supreme representative. The Riksha warriors commanded by Jambavan fought alongside the Vanaras at Lanka. The word Riksha means "bear" but also relates to the <em>Riksha</em> stars (Ursa Major), suggesting astronomical symbolism in their origin mythos.</p>
+    </div>
+    <div class="intro-card reveal">
+      <span class="intro-card-icon">📜</span>
+      <h3>The Kingdom of Kishkindha</h3>
+      <p>Kishkindha (किष्किन्धा) was the capital of the Vanara kingdom, located in what scholars identify with the Bellary region of modern Karnataka, near the Tungabhadra river. Valmiki's geographic descriptions — the Rishyamuka mountain, Lake Pampa (now Lake Hampi), the Matanga hermitage — have been matched to real topographic features in the Koppal and Ballari districts, lending substantial geographic credibility to the Ramayana narrative.</p>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Cinzel',serif; color:var(--gold); margin:3rem 0 1.5rem; font-size:1.1rem; letter-spacing:0.1em;">THE FIVE MAJOR INTERPRETIVE FRAMEWORKS</h3>
+  <div class="theory-grid">
+    <div class="theory-card reveal">
+      <div class="theory-num">I</div>
+      <h4>Theological / Scriptural</h4>
+      <p>The Vanaras were literally semi-divine beings, direct offspring of Devas who took animal forms. This is the position of Valmiki, Tulsidas, and the Puranic tradition — taken as sacred history (Itihasa).</p>
+    </div>
+    <div class="theory-card reveal">
+      <div class="theory-num">II</div>
+      <h4>Tribal / Historical</h4>
+      <p>Vanaras were human forest-dwelling clans or tribes of ancient South India, possibly from Dravidian lineages, whose totemic animal was the monkey. Their kingdom at Kishkindha was a real polity. This view is supported by 19th–20th century historians like A.D. Pusalker.</p>
+    </div>
+    <div class="theory-card reveal">
+      <div class="theory-num">III</div>
+      <h4>Symbolic / Vedantic</h4>
+      <p>Vanaras represent the higher mental faculties — monkey-like in their restlessness but capable of extraordinary discipline when aligned with a divine purpose (Rama). Hanuman especially embodies the liberated mind (chitta). This is the Advaitic and yogic reading.</p>
+    </div>
+    <div class="theory-card reveal">
+      <div class="theory-num">IV</div>
+      <h4>Southeast Asian Tradition</h4>
+      <p>In Thai (Ramakien), Khmer, Malay, Javanese, and Balinese Ramayana traditions, Vanaras are depicted as anthropomorphic warriors with monkey heads — neither purely human nor animal, but a noble warrior race. This reading preserves the literal heroic tradition outside India.</p>
+    </div>
+    <div class="theory-card reveal">
+      <div class="theory-num">V</div>
+      <h4>Astronomical Interpretation</h4>
+      <p>Some scholars see the Vanara chiefs as stellar or constellation deities. Jambavan's Riksha connection (Ursa/bear stars), Hanuman as Vayu (wind/atmosphere), and the search party routes as describing seasonal stellar movements across the Indian sky-sphere.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider-section"></div>
+
+<!-- ══════════════ KISHKINDHA ══════════════ -->
+<section style="padding:5rem 2rem; max-width:1200px; margin:0 auto;">
+  <p class="section-label">The Vanara Kingdom</p>
+  <h2 class="section-title">Kishkindha — The Mountain Citadel</h2>
+  <p class="section-desc">A kingdom of extraordinary warriors nestled in the forest-mountains of ancient Bharat, whose identity and geography can be traced with remarkable precision.</p>
+
+  <div style="display:grid; grid-template-columns:1.2fr 1fr; gap:3rem; margin-top:2rem; align-items:start;">
+    <div>
+      <h3 style="font-family:'Cinzel',serif; color:var(--saffron); font-size:0.9rem; letter-spacing:0.15em; margin-bottom:1.2rem; text-transform:uppercase;">Geography & Real-World Identification</h3>
+      <p style="font-size:0.93rem; color:var(--parchment-deep); line-height:1.85; margin-bottom:1rem;">Valmiki's descriptions of <em>Kishkindha</em> locate it near the <em>Rishyamuka Parvata</em> (the hill where Sugriva lived in exile) and the <em>Matanga Ashrama</em>. Scholars including V.S. Sukthankar and archaeologist M.V. Nair identify this with Anjanadri hill near Hampi in Karnataka, and the Tungabhadra River with the Pampa lake of the Ramayana.</p>
+      <p style="font-size:0.93rem; color:var(--parchment-deep); line-height:1.85; margin-bottom:1rem;">The <em>Kishkindha Kanda</em> describes seven underground caverns, underground palaces, and vast subterranean rivers within the mountain — possibly descriptive of the Deccan Trap cave systems and underground watercourses characteristic of the Bellary plateau geology.</p>
+      <p style="font-size:0.93rem; color:var(--parchment-deep); line-height:1.85;">The ruins at Anegundi, across the Tungabhadra from Hampi, preserve the name <em>Kishkindha</em> in local tradition to this day — a continuity of topographic memory spanning three millennia.</p>
+    </div>
+    <div>
+      <div class="map-placeholder">
+        <div style="position:relative; z-index:1;">
+          <p style="font-family:'Cinzel',serif; font-size:0.8rem; letter-spacing:0.2em; color:var(--gold); margin-bottom:0.5rem; text-transform:uppercase;">Kishkindha Geography</p>
+          <div style="font-size:0.82rem; color:var(--ash); text-align:left; max-width:280px;">
+            <p style="margin-bottom:0.6rem;">📍 <strong style="color:var(--gold-light);">Rishyamuka Parvata</strong> → Anjanadri Hill, Hampi (Karnataka)</p>
+            <p style="margin-bottom:0.6rem;">🌊 <strong style="color:var(--gold-light);">Pampa Sarovara</strong> → Lake near Tungabhadra</p>
+            <p style="margin-bottom:0.6rem;">🏔️ <strong style="color:var(--gold-light);">Matanga Ashrama</strong> → Matanga Hill, Hampi</p>
+            <p style="margin-bottom:0.6rem;">🦁 <strong style="color:var(--gold-light);">Kishkindha capital</strong> → Anegundi, Koppal district</p>
+            <p>🌿 <strong style="color:var(--gold-light);">Gandhamadana Parvata</strong> → Eastern Ghats range</p>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:1rem; background:rgba(201,168,76,0.05); border:1px solid rgba(201,168,76,0.15); padding:1.2rem;">
+        <p style="font-family:'Cinzel',serif; font-size:0.7rem; letter-spacing:0.15em; color:var(--gold-deep); margin-bottom:0.6rem; text-transform:uppercase;">Military Structure</p>
+        <p style="font-size:0.85rem; color:var(--ash); line-height:1.7;">The Vanara army was organized into <em>akshauhinis</em> (complete army divisions). Each division had commanders: <em>Senāpati</em> (general), <em>Senanāyaka</em> (commander), and <em>Yūthapati</em> (troop-leader). Sugriva commanded the entire army, with Angada as prince-commander, Hanuman as special envoy, and the four brothers Nila, Nala, Jambavan, and Satabali commanding directional expeditions.</p>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Cinzel',serif; color:var(--gold); margin:3rem 0 1.5rem; font-size:1rem; letter-spacing:0.1em; text-transform:uppercase;">Command Hierarchy of Rama's Vanara Army</h3>
+  <div class="hierarchy-wrap">
+    <div class="h-root">⚜ SHRI RAMA — Supreme Commander (Senapati Paramashreshtha)</div>
+    <div class="h-l1"><span class="h-connector">├─ </span>SUGRIVA — Vanara King & Commander-in-Chief (Vanararāja)</div>
+    <div class="h-l2"><span class="h-connector">├─ </span>ANGADA — Crown Prince & Field Marshal (Yauvarāja)</div>
+    <div class="h-l2"><span class="h-connector">├─ </span>HANUMAN — Supreme Emissary & Assault Commander (Mahābala)</div>
+    <div class="h-l2"><span class="h-connector">├─ </span>JAMBAVAN — Riksha King & Elder Counsellor (Ṛkṣarāja)</div>
+    <div class="h-l2"><span class="h-connector">├─ </span>NILA — Commander of the Vanguard (Senāmukha)</div>
+    <div class="h-l2"><span class="h-connector">├─ </span>NALA — Chief Engineer, Ram Setu (Setur-nirmātā)</div>
+    <div class="h-l2"><span class="h-connector">└─ </span>SATABALI — Northern Expedition Commander</div>
+    <div class="h-l1"><span class="h-connector">├─ </span>EAST DIVISION — Vinata (commander)</div>
+    <div class="h-l3"><span class="h-connector">└─ </span>Chiefs: Gavaya, Gaja, Kumuda, Hara</div>
+    <div class="h-l1"><span class="h-connector">├─ </span>WEST DIVISION — Susena (commander)</div>
+    <div class="h-l3"><span class="h-connector">└─ </span>Chiefs: Gavaksha, Dhumra, Rambha, Sarabha</div>
+    <div class="h-l1"><span class="h-connector">├─ </span>SOUTH DIVISION — Hanuman / Angada (Lanka assault)</div>
+    <div class="h-l3"><span class="h-connector">└─ </span>Chiefs: Mainda, Dvivida, Jyotirmukha, Gandhamadana</div>
+    <div class="h-l1"><span class="h-connector">└─ </span>NORTH DIVISION — Satabali (commander)</div>
+    <div class="h-l3"><span class="h-connector">└─ </span>Chiefs: Panasa, Krathana, Pramathi</div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════ GREAT HEROES ══════════════ -->
+<section id="heroes" style="padding:5rem 2rem; max-width:1200px; margin:0 auto;">
+  <p class="section-label">The Mahaviras</p>
+  <h2 class="section-title">The Four Great Heroes</h2>
+  <p class="section-desc">Deeply researched profiles of the most significant warriors — their divine origins, extraordinary powers, scriptural references, and spiritual symbolism.</p>
+
+  <!-- HANUMAN -->
+  <div class="featured-hero" data-name="HANUMAN">
+    <div class="warrior-badge badge-divine" style="position:absolute; top:1.5rem; right:1.5rem;">Chiranjeevi</div>
+    <p class="featured-sanskrit">हनुमान् · पवनपुत्र · महावीर</p>
+    <h2 class="featured-name">Hanuman</h2>
+    <p style="font-family:'Cinzel',serif; font-size:0.75rem; letter-spacing:0.25em; color:var(--saffron); text-transform:uppercase; margin-bottom:1.5rem;">Son of Vayu · Shiva's Partial Avatar · Eternal Devotee</p>
+
+    <div class="featured-cols">
+      <div>
+        <div class="stat-grid">
+          <div class="stat-box">
+            <div class="stat-label">Divine Father</div>
+            <div class="stat-value">Vayu (Wind God) · Also Shiva-amsha</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">Mother</div>
+            <div class="stat-value">Anjana (Apsara cursed to Vanara form)</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">Sanskrit Name</div>
+            <div class="stat-value">Hanu (jaw) + mān — "one with a broken jaw" from Indra's Vajra</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">Status</div>
+            <div class="stat-value">Chiranjeevi — Immortal until end of this Manvantara</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">Ashta Siddhis</div>
+            <div class="stat-value">All eight — Anima through Ishatva</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">Scriptural Role</div>
+            <div class="stat-value">Primary hero of Sundara Kanda</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="featured-para">
+          Hanuman's birth story begins in heaven. <em>Anjana</em>, a celestial Apsara born as a Vanara woman due to a sage's curse, performed intense tapas to Shiva for a worthy son. Simultaneously, King Dasharatha performed the Putrakameshti yajna, and Agni delivered the payasa (sacred pudding). As Anjana prayed with her palms open to the wind, Vayu carried a portion of the sacred pudding into her hands — and she consumed it. Thus Hanuman was born, simultaneously the son of Vayu and conceived through the grace of Shiva and Agni.
+        </p>
+        <p class="featured-para">
+          As an infant, he leapt at the rising sun, mistaking it for a fruit (<em>phala</em>). Indra struck him with his Vajra, breaking his jaw (hanu) and giving him his name. Vayu, enraged, withdrew all air from creation, causing all beings to suffocate. The Devas collectively blessed the infant Hanuman with extraordinary boons: Brahma gave him immunity from the Brahmastra; Indra gave him immunity to his own Vajra; Surya gave him a fraction of his own radiance and the knowledge of all scriptures; Varuna gave him protection from water; Agni gave him protection from fire; Vishvakarma made him indestructible by his own weapons; Yama gave him immunity from death; and Shiva blessed him with immortality and invincibility in battle.
+        </p>
+        <p class="featured-para">
+          The <em>Sundara Kanda</em> — the most beloved of all Ramayana kandas — is essentially Hanuman's epic solo. He leaps across the 100-yojana ocean to Lanka, defeats aerial warriors, infiltrates the most fortified city in the ancient world, locates Sita in Ashoka Vatika, consoles her, shows Rama's ring, uproots an entire grove, defeats scores of Rakshasas, allows himself to be captured to enter Ravana's court directly, and burns Lanka with the fire set to his own tail — before returning with the most crucial intelligence in the war. The <em>Hanuman Chalisa</em> of Tulsidas, composed in Awadhi, captures this entire essence in 40 chaupais that have been recited by hundreds of millions for five centuries.
+        </p>
+      </div>
+    </div>
+
+    <div style="margin-top:2rem; border-top:1px solid rgba(201,168,76,0.15); padding-top:1.5rem;">
+      <h4 style="font-family:'Cinzel',serif; color:var(--gold); font-size:0.8rem; letter-spacing:0.15em; text-transform:uppercase; margin-bottom:1rem;">His Eight Supernatural Powers (Ashta Mahā-Siddhis)</h4>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:0.8rem;">
+        <div style="background:rgba(201,168,76,0.05); border:1px solid rgba(201,168,76,0.12); padding:0.8rem; text-align:center;">
+          <div style="font-family:'Noto Serif Devanagari',serif; font-size:0.9rem; color:var(--gold); margin-bottom:0.3rem;">अणिमा</div>
+          <div style="font-family:'Cinzel',serif; font-size:0.65rem; color:var(--ash); letter-spacing:0.1em;">ANIMA — Become atomic</div>
+        </div>
+        <div style="background:rgba(201,168,76,0.05); border:1px solid rgba(201,168,76,0.12); padding:0.8rem; text-align:center;">
+          <div style="font-family:'Noto Serif Devanagari',serif; font-size:0.9rem; color:var(--gold); margin-bottom:0.3rem;">महिमा</div>
+          <div style="font-family:'Cinzel',serif; font-size:0.65rem; color:var(--ash); letter-spacing:0.1em;">MAHIMA — Become cosmic</div>
+        </div>
+        <div style="background:rgba(201,168,76,0.05); border:1px solid rgba(201,168,76,0.12); padding:0.8rem; text-align:center;">
+          <div style="font-family:'Noto Serif Devanagari',serif; font-size:0.9rem; color:var(--gold); margin-bottom:0.3rem;">लघिमा</div>
+          <div style="font-family:'Cinzel',serif; font-size:0.65rem; color:var(--ash); letter-spacing:0.1em;">LAGHIMA — Become weightless</div>
+        </div>
+        <div style="background:rgba(201,168,76,0.05); border:1px solid rgba(201,168,76,0.12); padding:0.8rem; text-align:center;">
+          <div style="font-family:'Noto Serif Devanagari',serif; font-size:0.9rem; color:var(--gold); margin-bottom:0.3rem;">गरिमा</div>
+          <div style="font-family:'Cinzel',serif; font-size:0.65rem; color:var(--ash); letter-spacing:0.1em;">GARIMA — Become immensely heavy</div>
+        </div>
+        <div style="background:rgba(201,168,76,0.05); border:1px solid rgba(201,168,76,0.12); padding:0.8rem; text-align:center;">
+          <div style="font-family:'Noto Serif Devanagari',serif; font-size:0.9rem; color:var(--gold); margin-bottom:0.3rem;">प्राप्ति</div>
+          <div style="font-family:'Cinzel',serif; font-size:0.65rem; color:var(--ash); letter-spacing:0.1em;">PRAPTI — Reach anywhere</div>
+        </div>
+        <div style="background:rgba(201,168,76,0.05); border:1px solid rgba(201,168,76,0.12); padding:0.8rem; text-align:center;">
+          <div style="font-family:'Noto Serif Devanagari',serif; font-size:0.9rem; color:var(--gold); margin-bottom:0.3rem;">प्राकाम्य</div>
+          <div style="font-family:'Cinzel',serif; font-size:0.65rem; color:var(--ash); letter-spacing:0.1em;">PRAKAMYA — Irresistible will</div>
+        </div>
+        <div style="background:rgba(201,168,76,0.05); border:1px solid rgba(201,168,76,0.12); padding:0.8rem; text-align:center;">
+          <div style="font-family:'Noto Serif Devanagari',serif; font-size:0.9rem; color:var(--gold); margin-bottom:0.3rem;">वशित्व</div>
+          <div style="font-family:'Cinzel',serif; font-size:0.65rem; color:var(--ash); letter-spacing:0.1em;">VASHITVA — Control all beings</div>
+        </div>
+        <div style="background:rgba(201,168,76,0.05); border:1px solid rgba(201,168,76,0.12); padding:0.8rem; text-align:center;">
+          <div style="font-family:'Noto Serif Devanagari',serif; font-size:0.9rem; color:var(--gold); margin-bottom:0.3rem;">ईशत्व</div>
+          <div style="font-family:'Cinzel',serif; font-size:0.65rem; color:var(--ash); letter-spacing:0.1em;">ISHATVA — Divine lordship</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAMBAVAN -->
+  <div class="featured-hero" data-name="JAMBAVAN" style="background:linear-gradient(135deg,rgba(26,18,8,0.98),rgba(64,26,26,0.3));">
+    <div class="warrior-badge badge-riksha" style="position:absolute; top:1.5rem; right:1.5rem;">Riksha King</div>
+    <p class="featured-sanskrit">जाम्बवान् · ऋक्षराज · युगंधर</p>
+    <h2 class="featured-name">Jambavan</h2>
+    <p style="font-family:'Cinzel',serif; font-size:0.75rem; letter-spacing:0.25em; color:#7FD4B0; text-transform:uppercase; margin-bottom:1.5rem;">King of the Bears · Witness of Ages · Born at Creation</p>
+
+    <div class="featured-cols">
+      <div>
+        <div class="stat-grid">
+          <div class="stat-box">
+            <div class="stat-label">Origin</div>
+            <div class="stat-value">Born from Brahma's yawn at the dawn of Creation (Kalpa)</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">Yugas Witnessed</div>
+            <div class="stat-value">Satya, Treta, Dvapara (met Vishnu thrice)</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">Species</div>
+            <div class="stat-value">Riksha — Bear warrior (divine class)</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">Key Achievement</div>
+            <div class="stat-value">Reminded Hanuman of his divine powers</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="featured-para">
+          Jambavan is among the most cosmically significant figures in the entire Ramayana. Born directly from Brahma's yawn at the very beginning of the current Kalpa, he is older than the solar dynasties, older than the Devas' earthly incarnations. He circumambulated Vishnu during the <em>Vamana avatara</em> — going around the three worlds in the three steps — and was blessed by Vishnu himself.
+        </p>
+        <p class="featured-para">
+          His most pivotal act in the Ramayana is not a battle — it is a reminder. When all the Vanaras despaired at the impossibility of crossing the hundred-yojana ocean, Jambavan approached Hanuman, who sat quietly in a corner, and recounted his full divine biography to him. This awakening of Hanuman's dormant power — forgotten due to a sage's curse in childhood — is one of the most psychologically profound episodes in the Ramayana. <em>He who knew Hanuman better than Hanuman knew himself.</em>
+        </p>
+        <p class="featured-para">
+          In the Dvapara Yuga, Jambavan appears again in the Syamantaka gem episode of the Bhagavata Purana, where he battles Krishna for twenty-one days, eventually recognizes Krishna as Vishnu, and offers him both the gem and his daughter Jambavati in marriage. This makes Jambavan among the rarest beings in Hindu cosmology — a devotee who personally encountered Vishnu's divine form across three successive Yugas.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUGRIVA -->
+  <div class="featured-hero" data-name="SUGRIVA" style="background:linear-gradient(135deg,rgba(26,18,8,0.98),rgba(40,64,26,0.3));">
+    <div class="warrior-badge badge-chief" style="position:absolute; top:1.5rem; right:1.5rem;">Vanara King</div>
+    <p class="featured-sanskrit">सुग्रीव · वानरराज · सूर्यपुत्र</p>
+    <h2 class="featured-name">Sugriva</h2>
+    <p style="font-family:'Cinzel',serif; font-size:0.75rem; letter-spacing:0.25em; color:var(--gold); text-transform:uppercase; margin-bottom:1.5rem;">Son of Surya · King of Kishkindha · Ally of Dharma</p>
+
+    <div class="featured-cols">
+      <div>
+        <div class="stat-grid">
+          <div class="stat-box">
+            <div class="stat-label">Divine Father</div>
+            <div class="stat-value">Surya (the Sun God)</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">Meaning</div>
+            <div class="stat-value">Su (beautiful) + Griva (neck) — "one with a beautiful neck"</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">Minister</div>
+            <div class="stat-value">Hanuman (his minister and friend from exile)</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">Consort</div>
+            <div class="stat-value">Ruma (primary) · Tara (after Bali's death)</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="featured-para">
+          Sugriva's story is one of injustice, exile, and redemption. His elder brother Bali (Vali), son of Indra, was the mightiest warrior of the age — capable of holding the ends of the earth. A misunderstanding during battle with the demon Mayavi led Bali to believe Sugriva had betrayed him, resulting in Sugriva's exile, seizure of his wife Ruma, and forced separation from his kingdom.
+        </p>
+        <p class="featured-para">
+          The Rishyamuka mountain was the one place Bali could not enter due to a sage Matanga's curse — and there Sugriva lived in fear, with only Hanuman and a few loyal followers. His alliance with Rama was mutual: Rama would slay Bali and restore Sugriva's kingdom; Sugriva would deploy his entire army to find Sita. This political compact was sealed through a fire witness (<em>agni sakshi</em>), making it a dharmic oath.
+        </p>
+        <p class="featured-para">
+          After Bali's death, Sugriva was crowned king with Angada — Bali's son — as crown prince, displaying exemplary magnanimity. However, after the monsoons, Rama had to send Lakshmana to remind Sugriva of his promise, revealing a complex human dimension: even a divine-born king could be overcome by ease and complacency. His redeeming quality was that once reminded, he mobilized the entire Vanara world within days.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ANGADA -->
+  <div class="featured-hero" data-name="ANGADA" style="background:linear-gradient(135deg,rgba(26,18,8,0.98),rgba(64,26,64,0.2));">
+    <div class="warrior-badge badge-general" style="position:absolute; top:1.5rem; right:1.5rem;">Prince-General</div>
+    <p class="featured-sanskrit">अङ्गद · बालिपुत्र · यौवराज</p>
+    <h2 class="featured-name">Angada</h2>
+    <p style="font-family:'Cinzel',serif; font-size:0.75rem; letter-spacing:0.25em; color:var(--saffron); text-transform:uppercase; margin-bottom:1.5rem;">Son of Bali · Crown Prince · Diplomat & Warrior</p>
+
+    <div class="featured-cols">
+      <div>
+        <div class="stat-grid">
+          <div class="stat-box">
+            <div class="stat-label">Father</div>
+            <div class="stat-value">Bali (Vali) — son of Indra</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">Mother</div>
+            <div class="stat-value">Tara — daughter of Susena, greatest Vanara physician</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">Power</div>
+            <div class="stat-value">Inherits Bali's ability to take half enemy strength</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">Diplomatic role</div>
+            <div class="stat-value">Final peace envoy to Ravana's court</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="featured-para">
+          Angada's position in the Ramayana is among the most psychologically nuanced. His father was killed by Rama — the very person he now serves. This creates a profound dharmic complexity that Valmiki explores with sensitivity. Angada's loyalty to Rama is not blind — it is chosen, through understanding of dharma: his father Bali himself, dying, told Angada to serve Rama without reservation.
+        </p>
+        <p class="featured-para">
+          His most celebrated act is his role as Rama's final diplomatic envoy to Ravana's court. Angada enters Lanka alone, faces Ravana and his entire court of Rakshasa warriors, delivers Rama's ultimatum with supreme confidence, and when Ravana orders him seized, plants his foot so firmly into the ground that none of Ravana's warriors — including Ravana's own sons — could lift it. This episode is recounted as a supreme demonstration of warrior pride (<em>vira-rasa</em>) in later texts.
+        </p>
+        <p class="featured-para">
+          In battle, Angada commanded the Vanara vanguard and personally fought Indrajit (Meghnad) — his own half-uncle, in a sense, both being grandsons of Indra. He also killed Ravana's son Narantaka single-handedly with a single blow of his palm. The Kamba Ramayanam gives Angada an even more expanded role, making him one of the primary battle heroes of the Lanka war.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════ WARRIOR PROFILES ══════════════ -->
+<section id="warriors" style="padding:5rem 2rem; max-width:1200px; margin:0 auto;">
+  <p class="section-label">The Warrior Atlas</p>
+  <h2 class="section-title">Complete Vanara & Riksha Profiles</h2>
+  <p class="section-desc">Scripturally grounded profiles of each major warrior — their origin, powers, battles, and spiritual significance.</p>
+
+  <div class="search-bar">
+    <input class="search-input" type="text" placeholder="Search warriors by name, deity, or power..." id="warriorSearch">
+    <button class="filter-btn active" onclick="filterWarriors('all')">All</button>
+    <button class="filter-btn" onclick="filterWarriors('vanara')">Vanaras</button>
+    <button class="filter-btn" onclick="filterWarriors('chief')">Chiefs</button>
+  </div>
+
+  <div class="warriors-grid" id="warriorsGrid">
+
+    <!-- NILA -->
+    <div class="warrior-card" data-type="vanara chief">
+      <div class="warrior-card-header">
+        <span class="warrior-badge badge-general">Vanguard Commander</span>
+        <div class="warrior-sanskrit">नील</div>
+        <div class="warrior-name">Nila</div>
+        <div class="warrior-epithet">Son of Agni · Commander of the Vanara Vanguard</div>
+      </div>
+      <div class="warrior-card-body">
+        <div class="warrior-row"><span class="warrior-label">Divine Origin</span><span class="warrior-val">Agni (Fire God) — born to lead the vanguard into battle</span></div>
+        <div class="warrior-row"><span class="warrior-label">Meaning</span><span class="warrior-val">Nīla — "dark blue/indigo" — the color of deep forest and sacred rivers</span></div>
+        <div class="warrior-row"><span class="warrior-label">Battles</span><span class="warrior-val">Fought Prahasta (Ravana's commander-in-chief) and Nikumbha. His duels are extensively narrated in Yuddha Kanda.</span></div>
+        <div class="warrior-row"><span class="warrior-label">Powers</span>
+          <div>
+            <div class="warrior-powers">
+              <span class="power-tag">Agni's Fire Strength</span>
+              <span class="power-tag">Vanguard Leadership</span>
+              <span class="power-tag">Immense Speed</span>
+            </div>
+          </div>
+        </div>
+        <div class="warrior-row"><span class="warrior-label">Symbolism</span><span class="warrior-val">As son of Agni, Nila represents the transformative, purifying force that leads Dharma's army. Fire at the vanguard — burning away adharma.</span></div>
+      </div>
+      <div class="warrior-accordion">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">Detailed Notes <span class="accordion-icon">▾</span></button>
+        <div class="accordion-content">
+          <p>Nila's appointment as Senamukha (vanguard commander) is described in Kishkindha Kanda when Sugriva organizes the army. Being son of Agni, he was placed at the front — fire leading the way, burning the path for Rama's army. In battle at Lanka, Nila engaged Prahasta in single combat — one of the most detailed duels in the Yuddha Kanda. Prahasta was Ravana's greatest general before Indrajit; his death at Nila's hands was a major blow to Lanka's morale.</p>
+          <p>A lesser-known tradition in the Ramcharitmanas gives Nila the ability to multiply — to appear in many places on the battlefield simultaneously, confusing Rakshasa commanders.</p>
+          <div class="scripture-ref">Valmiki Ramayana — Yuddha Kanda, Sargas 58–60: Nila vs. Prahasta</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NALA -->
+    <div class="warrior-card" data-type="vanara chief">
+      <div class="warrior-card-header">
+        <span class="warrior-badge badge-general">Master Engineer</span>
+        <div class="warrior-sanskrit">नल</div>
+        <div class="warrior-name">Nala</div>
+        <div class="warrior-epithet">Son of Vishvakarma · Architect of Ram Setu</div>
+      </div>
+      <div class="warrior-card-body">
+        <div class="warrior-row"><span class="warrior-label">Divine Origin</span><span class="warrior-val">Vishvakarma (Divine Architect of the Gods) — inheriting divine engineering ability</span></div>
+        <div class="warrior-row"><span class="warrior-label">Meaning</span><span class="warrior-val">Nala — "reed" or "hollow bone"; also related to water channels in Sanskrit</span></div>
+        <div class="warrior-row"><span class="warrior-label">Achievement</span><span class="warrior-val">Designed and supervised the construction of Ram Setu — 100 yojanas long, 10 yojanas wide, completed in 5 days</span></div>
+        <div class="warrior-row"><span class="warrior-label">Power</span><span class="warrior-val">Stones placed by Nala float upon the ocean — a divine boon from Vishvakarma</span></div>
+        <div class="warrior-row"><span class="warrior-label">Symbolism</span><span class="warrior-val">Divine creativity in service of dharma. The bridge is both physical and metaphysical — connecting the human realm to Lanka, the world of adharma.</span></div>
+      </div>
+      <div class="warrior-accordion">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">Detailed Notes <span class="accordion-icon">▾</span></button>
+        <div class="accordion-content">
+          <p>Valmiki describes Nala as resembling his father Vishvakarma in appearance. The curse/boon story: Vishvakarma visited a sage's ashrama and his son Nala mischievously threw the sage's ritual objects into water. The sage cursed him that whatever he threw into water would float — which became the divine engineering principle behind Ram Setu.</p>
+          <p>The construction involved Vanaras inscribing "Rama" on the stones before casting them — a detail preserved strongly in the Adhyatma Ramayana and regional traditions, suggesting that the name of Rama itself held the stones afloat. Modern satellite imagery from NASA's MODIS shows a chain of limestone shoals in the Palk Strait matching the described location.</p>
+          <div class="scripture-ref">Valmiki Ramayana — Yuddha Kanda, Sargas 22–23: Ram Setu construction</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUSENA -->
+    <div class="warrior-card" data-type="vanara chief">
+      <div class="warrior-card-header">
+        <span class="warrior-badge badge-general">Royal Physician</span>
+        <div class="warrior-sanskrit">सुषेण</div>
+        <div class="warrior-name">Susena</div>
+        <div class="warrior-epithet">Vanara Physician-King · Father of Tara</div>
+      </div>
+      <div class="warrior-card-body">
+        <div class="warrior-row"><span class="warrior-label">Role</span><span class="warrior-val">Chief physician and medical commander of the Vanara army</span></div>
+        <div class="warrior-row"><span class="warrior-label">Relation</span><span class="warrior-val">Father of Tara (Bali's wife, later Sugriva's wife) · Father-in-law of both Bali and Sugriva</span></div>
+        <div class="warrior-row"><span class="warrior-label">Knowledge</span><span class="warrior-val">Master of Ayurvedic medicine, especially Mritasanjivani (life-restoring herbs) and combat medicine</span></div>
+        <div class="warrior-row"><span class="warrior-label">Crisis Role</span><span class="warrior-val">Directed Hanuman to fetch the Sanjeevani herb when Lakshmana lay dying on the battlefield — his diagnosis saved Lakshmana's life</span></div>
+      </div>
+      <div class="warrior-accordion">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">Detailed Notes <span class="accordion-icon">▾</span></button>
+        <div class="accordion-content">
+          <p>Susena's brilliance lies not in combat but in medical knowledge. When Indrajit's Shakti weapon felled Lakshmana, the battlefield fell into despair. It was Susena who assessed the wound, identified the required herb — Mritasanjivani from Dronagiri in the Himalayas — and dispatched Hanuman to fetch it before dawn, when the patient would either revive or die permanently.</p>
+          <p>When Hanuman could not identify the specific herb, he uprooted the entire Dronagiri mountain and brought it — one of the most dramatic episodes in the Ramayana. Susena extracted the required herbs and revived Lakshmana. This episode established Susena as an indispensable member of the mission — a warrior's life was entirely in his hands.</p>
+          <div class="scripture-ref">Valmiki Ramayana — Yuddha Kanda, Sargas 74–75: Lakshmana's healing</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TARA -->
+    <div class="warrior-card" data-type="vanara chief">
+      <div class="warrior-card-header">
+        <span class="warrior-badge badge-divine">Panchakanya</span>
+        <div class="warrior-sanskrit">तारा</div>
+        <div class="warrior-name">Tara</div>
+        <div class="warrior-epithet">Queen of Kishkindha · Wisest of Vanaras</div>
+      </div>
+      <div class="warrior-card-body">
+        <div class="warrior-row"><span class="warrior-label">Status</span><span class="warrior-val">One of the Pancha Kanyas — five supreme women of Hindu tradition whose names destroy sin when recited at dawn</span></div>
+        <div class="warrior-row"><span class="warrior-label">Father</span><span class="warrior-val">Susena — the great Vanara physician</span></div>
+        <div class="warrior-row"><span class="warrior-label">Wisdom</span><span class="warrior-val">Warned Bali not to fight Sugriva a second time — predicting Rama's involvement. Bali ignored her, and was slain.</span></div>
+        <div class="warrior-row"><span class="warrior-label">Political role</span><span class="warrior-val">After Bali's death, became Sugriva's chief queen — managing the political intelligence network of Kishkindha</span></div>
+        <div class="warrior-row"><span class="warrior-label">Symbolism</span><span class="warrior-val">Tara (तारा) = star. She is the luminous intelligence that guides and warns — but cannot be heeded by those blinded by ego.</span></div>
+      </div>
+      <div class="warrior-accordion">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">Detailed Notes <span class="accordion-icon">▾</span></button>
+        <div class="accordion-content">
+          <p>Tara's warning to Bali is one of the great unheeded counsels of the Ramayana. She told him explicitly: "Sugriva would not have returned without powerful support. The sound of his roaring suggests he is backed by a warrior of extraordinary power. Do not fight him." Bali dismissed her advice — bound by arrogance and pride in his own invincibility. This makes Tara prophetic — she saw the truth that even the mightiest warrior missed.</p>
+          <p>Her lamentation over Bali's dying body is among the most emotionally devastating passages in the Kishkindha Kanda. Valmiki gives her words great poetic dignity. Tara embodies the Shakti principle of wisdom — the queen as political intelligence rather than mere consort. The Panchakanya tradition elevates her alongside Ahalya, Draupadi, Kunti, and Mandodari — women of complex circumstances but immaculate character.</p>
+          <div class="scripture-ref">Valmiki Ramayana — Kishkindha Kanda, Sargas 15–16: Tara's warning and lament</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAINDA & DVIVIDA -->
+    <div class="warrior-card" data-type="vanara chief">
+      <div class="warrior-card-header">
+        <span class="warrior-badge badge-divine">Twin Warriors</span>
+        <div class="warrior-sanskrit">मैन्द · द्विविद</div>
+        <div class="warrior-name">Mainda & Dvivida</div>
+        <div class="warrior-epithet">Twin Sons of the Ashvins · Invincible Brothers</div>
+      </div>
+      <div class="warrior-card-body">
+        <div class="warrior-row"><span class="warrior-label">Divine Origin</span><span class="warrior-val">Ashvini Kumaras — the twin physician-gods of the Devas, divine horsemen of the dawn</span></div>
+        <div class="warrior-row"><span class="warrior-label">Boon</span><span class="warrior-val">Given amrita (immortal nectar) by the Ashvins — making them nearly impossible to kill in battle</span></div>
+        <div class="warrior-row"><span class="warrior-label">Battles</span><span class="warrior-val">Their combat in Lanka's assault is described as a twin hurricane — they fight in perfect synchrony, impossible to counter simultaneously</span></div>
+        <div class="warrior-row"><span class="warrior-label">Post-Ramayana</span><span class="warrior-val">Dvivida appears in the Bhagavata Purana as an enemy of Krishna — slain by Balarama (Balabhadra) in a battle of mountains</span></div>
+      </div>
+      <div class="warrior-accordion">
+        <button class="accordion-btn" onclick="toggleAccordion(this)">Detailed Notes <span class="accordion-icon">▾</span></button>
+        <div class="accordion-content">
+          <p>Mainda and Dvivida are unique in the Vanara army for having consumed amrita (the nectar of immortality). This was given to them by their divine fathers the Ashvini Kumaras, making them effectively invulnerable in mortal combat. Valmiki calls them "the best among all Vanaras" after Hanuman in terms of strength.</p>
+          <p>The post-Ramayana life of Dvivida is darkly fascinating. The Bhagavata Purana (10th Skandha) narrates that Dvivida, friend of the demon Narakasura, committed many crimes against humanity after the Dvapara Yuga began. He harassed women, uprooted mountains, disrupted ashrams, and challenged Balarama. Their battle was epic — fought with mountains, trees, and bare hands. Balarama finally killed him with a single blow of his ploughshare (Hala). This tradition confirms the Vanaras as extraordinary beings who lived across Yugas.</p>
+          <div class="scripture-ref">Valmiki Ramayana — Kishkindha Kanda, Sarga 39 · Bhagavata Purana — Skandha 10, Chapter 67</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GANDHAMADANA -->
+    <div class="warrior-card" data-type="vanara chief">
+      <div class="warrior-card-header">
+        <span class="warrior-badge badge-general">Mountain Warrior</span>
+        <div class="warrior-sanskrit">गन्धमादन</div>
+        <div class="warrior-name">Gandhamadana</div>
+        <div class="warrior-epithet">Named After the Sacred Mountain of Herbs</div>
+      </div>
+      <div class="warrior-card-body">
+        <div class="warrior-row"><span class="warrior-label">Meaning</span><span class="warrior-val">Gandha (fragrance) + Madana (intoxicating) — "the one whose fragrance/presence intoxicates" — named after the Himalayan herb mountain</span></div>
+        <div class="warrior-row"><span class="warrior-label">Search Role</span><span class="warrior-val">Led the southern search party for Sita with Angada and Hanuman — one of the four directional search expeditions from Kishkindha</span></div>
+        <div class="warrior-row"><span class="warrior-label">Battle</span><span class="warrior-val">Fought at Lanka in the great army alongside the primary Vanara chiefs</span></div>
+        <div class="warrior-row"><span class="warrior-label">Symbolism</span><span class="warrior-val">His name connecting him to the mountain of divine herbs reinforces the Vanara army's deep connection to nature, mountains, and sacred geography.</span></div>
+      </div>
+    </div>
+
+    <!-- SATABALI -->
+    <div class="warrior-card" data-type="vanara chief">
+      <div class="warrior-card-header">
+        <span class="warrior-badge badge-chief">Northern Commander</span>
+        <div class="warrior-sanskrit">शतबली</div>
+        <div class="warrior-name">Satabali</div>
+        <div class="warrior-epithet">Commander of the Northern Search Expedition</div>
+      </div>
+      <div class="warrior-card-body">
+        <div class="warrior-row"><span class="warrior-label">Meaning</span><span class="warrior-val">Shata (hundred) + Bala (strength) — "possessing the strength of a hundred"</span></div>
+        <div class="warrior-row"><span class="warrior-label">Role</span><span class="warrior-val">Led the northern search party to find Sita — across the Himalayas, Kailasha, and northern regions</span></div>
+        <div class="warrior-row"><span class="warrior-label">Geographic Coverage</span><span class="warrior-val">His search party covered the Himavat range, Kailasha, Meru, and the northern ocean — mapping the entire northern arc of ancient Bharat</span></div>
+        <div class="warrior-row"><span class="warrior-label">Troops</span><span class="warrior-val">Commanded ten thousand Vanaras in the northern expedition — a significant military deployment</span></div>
+      </div>
+    </div>
+
+    <!-- KUMUDA -->
+    <div class="warrior-card" data-type="vanara">
+      <div class="warrior-card-header">
+        <span class="warrior-badge badge-general">Battle Commander</span>
+        <div class="warrior-sanskrit">कुमुद</div>
+        <div class="warrior-name">Kumuda</div>
+        <div class="warrior-epithet">Son of Varuna · Commander of Ten Million Warriors</div>
+      </div>
+      <div class="warrior-card-body">
+        <div class="warrior-row"><span class="warrior-label">Divine Origin</span><span class="warrior-val">Son of Varuna — god of waters, cosmic law, and ocean</span></div>
+        <div class="warrior-row"><span class="warrior-label">Meaning</span><span class="warrior-val">Kumuda — the white night-lotus; associated with the moon and water</span></div>
+        <div class="warrior-row"><span class="warrior-label">Command</span><span class="warrior-val">Sugriva assigned Kumuda to command ten million Vanaras in the Lanka campaign</span></div>
+        <div class="warrior-row"><span class="warrior-label">Battles</span><span class="warrior-val">Fought in multiple Lanka engagements; his unit helped breach Lanka's coastal defenses after Ram Setu was completed</span></div>
+      </div>
+    </div>
+
+    <!-- GAJA, GAVAKSHA, GAVAYA -->
+    <div class="warrior-card" data-type="vanara">
+      <div class="warrior-card-header">
+        <span class="warrior-badge badge-general">Eastern Division</span>
+        <div class="warrior-sanskrit">गज · गवाक्ष · गवय</div>
+        <div class="warrior-name">Gaja, Gavaksha & Gavaya</div>
+        <div class="warrior-epithet">The Three Commanders of the East</div>
+      </div>
+      <div class="warrior-card-body">
+        <div class="warrior-row"><span class="warrior-label">Gaja</span><span class="warrior-val">Meaning "elephant" — known for immense physical strength. Commander of the eastern search party under Vinata.</span></div>
+        <div class="warrior-row"><span class="warrior-label">Gavaksha</span><span class="warrior-val">Meaning "ox-eyed" or "window/eye of a cow" — sharp-sighted warrior, commands a large division. Son of a divine bull.</span></div>
+        <div class="warrior-row"><span class="warrior-label">Gavaya</span><span class="warrior-val">Meaning "descended from/like a gaur (bison)" — massive warrior connected to the forest bison clan traditions of South India.</span></div>
+        <div class="warrior-row"><span class="warrior-label">Role</span><span class="warrior-val">All three led massive divisions in the Lanka campaign, each commanding armies of tens of millions of Vanaras</span></div>
+      </div>
+    </div>
+
+    <!-- DHUMRA, RAMBHA, SARABHA -->
+    <div class="warrior-card" data-type="vanara">
+      <div class="warrior-card-header">
+        <span class="warrior-badge badge-general">Western Division</span>
+        <div class="warrior-sanskrit">धूम्र · रम्भ · शरभ</div>
+        <div class="warrior-name">Dhumra, Rambha & Sarabha</div>
+        <div class="warrior-epithet">The Three Commanders of the West</div>
+      </div>
+      <div class="warrior-card-body">
+        <div class="warrior-row"><span class="warrior-label">Dhumra</span><span class="warrior-val">Meaning "smoky grey" — possibly a silver-grey Vanara of immense power, commander in Susena's western division</span></div>
+        <div class="warrior-row"><span class="warrior-label">Rambha</span><span class="warrior-val">Meaning "bamboo" — tall, swift warrior. Connected to Sugriva's innermost circle. Commands a division in Lanka.</span></div>
+        <div class="warrior-row"><span class="warrior-label">Sarabha</span><span class="warrior-val">Meaning a mythological eight-legged animal of supreme power. Sarabha the Vanara embodied this invincible quality — almost impossible to pin down in combat.</span></div>
+        <div class="warrior-row"><span class="warrior-label">Role</span><span class="warrior-val">Susena's lieutenants in the western flank — they secured the coast west of Lanka during the siege</span></div>
+      </div>
+    </div>
+
+    <!-- JYOTIRMUKHA -->
+    <div class="warrior-card" data-type="vanara">
+      <div class="warrior-card-header">
+        <span class="warrior-badge badge-divine">Luminous Warrior</span>
+        <div class="warrior-sanskrit">ज्योतिर्मुख</div>
+        <div class="warrior-name">Jyotirmukha</div>
+        <div class="warrior-epithet">Face of Light · Son of Surya</div>
+      </div>
+      <div class="warrior-card-body">
+        <div class="warrior-row"><span class="warrior-label">Meaning</span><span class="warrior-val">Jyotis (light/fire) + Mukha (face) — "one whose face radiates light"</span></div>
+        <div class="warrior-row"><span class="warrior-label">Divine Origin</span><span class="warrior-val">Said to be a son of Surya — a sibling tradition to Sugriva</span></div>
+        <div class="warrior-row"><span class="warrior-label">Power</span><span class="warrior-val">His face emitted light that blinded enemies in the darkness of battle — particularly effective against the Rakshasa tactic of night warfare</span></div>
+        <div class="warrior-row"><span class="warrior-label">Southern Party</span><span class="warrior-val">Participated in the southern search expedition that eventually reached Lanka's shores</span></div>
+      </div>
+    </div>
+
+    <!-- PANASA -->
+    <div class="warrior-card" data-type="vanara">
+      <div class="warrior-card-header">
+        <span class="warrior-badge badge-general">Northern Division</span>
+        <div class="warrior-sanskrit">पनस</div>
+        <div class="warrior-name">Panasa</div>
+        <div class="warrior-epithet">Son of Agni · Northern Expedition Leader</div>
+      </div>
+      <div class="warrior-card-body">
+        <div class="warrior-row"><span class="warrior-label">Meaning</span><span class="warrior-val">Panasa — related to the jackfruit tree (Artocarpus integrifolius), a sacred forest tree of southern India</span></div>
+        <div class="warrior-row"><span class="warrior-label">Divine Origin</span><span class="warrior-val">Son of Agni by some traditions; a senior Vanara chief in Sugriva's immediate council</span></div>
+        <div class="warrior-row"><span class="warrior-label">Search Party</span><span class="warrior-val">Sent with Satabali to the northern direction; explored the Himalayas and beyond</span></div>
+        <div class="warrior-row"><span class="warrior-label">Significance</span><span class="warrior-val">One of the twelve Vanara chiefs named specifically in the search party assembly — the inner circle of Kishkindha military command</span></div>
+      </div>
+    </div>
+
+  </div><!-- end warriors-grid -->
+</section>
+
+<div class="divider-section"></div>
+
+<!-- ══════════════ DIVINE ORIGINS ══════════════ -->
+<section style="padding:5rem 2rem; max-width:1200px; margin:0 auto;" id="origins">
+  <p class="section-label">Brahma's Divine Plan</p>
+  <h2 class="section-title">The Divine Origins of Rama's Army</h2>
+  <p class="section-desc">According to the Bala Kanda of Valmiki's Ramayana, Brahma issued a cosmic command: every Deva shall father a Vanara son of extraordinary power, to aid the incarnation of Vishnu.</p>
+
+  <table class="lineage-table">
+    <thead>
+      <tr>
+        <th>Warrior</th>
+        <th>Divine Father (Deva)</th>
+        <th>Role in Army</th>
+        <th>Primary Power/Gift</th>
+        <th>Scriptural Source</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="td-name">Hanuman</td><td class="td-deva">Vayu + Shiva-amsha</td><td class="td-role">Supreme emissary, battle commander</td><td class="td-power">All eight siddhis, immortality</td><td style="font-size:0.78rem; color:var(--stone-light);">Bala Kanda 16; Uttara Kanda</td></tr>
+      <tr><td class="td-name">Sugriva</td><td class="td-deva">Surya (Sun)</td><td class="td-role">King, Commander-in-Chief</td><td class="td-power">Solar brilliance, leadership</td><td style="font-size:0.78rem; color:var(--stone-light);">Kishkindha Kanda 11</td></tr>
+      <tr><td class="td-name">Bali (Vali)</td><td class="td-deva">Indra</td><td class="td-role">Former king (slain before war)</td><td class="td-power">Takes half enemy's strength</td><td style="font-size:0.78rem; color:var(--stone-light);">Kishkindha Kanda 11</td></tr>
+      <tr><td class="td-name">Angada</td><td class="td-deva">Bali (grandson of Indra)</td><td class="td-role">Crown Prince, field general</td><td class="td-power">Inherits Bali's strength transference</td><td style="font-size:0.78rem; color:var(--stone-light);">Kishkindha Kanda 54</td></tr>
+      <tr><td class="td-name">Nila</td><td class="td-deva">Agni (Fire)</td><td class="td-role">Vanguard commander</td><td class="td-power">Fire strength, battle fury</td><td style="font-size:0.78rem; color:var(--stone-light);">Bala Kanda 17</td></tr>
+      <tr><td class="td-name">Nala</td><td class="td-deva">Vishvakarma (Divine Architect)</td><td class="td-role">Chief engineer, Ram Setu builder</td><td class="td-power">Objects thrown by him float on water</td><td style="font-size:0.78rem; color:var(--stone-light);">Yuddha Kanda 22</td></tr>
+      <tr><td class="td-name">Kumuda</td><td class="td-deva">Varuna (Water/Ocean)</td><td class="td-role">Battle commander (10 million troops)</td><td class="td-power">Oceanic force and aquatic mobility</td><td style="font-size:0.78rem; color:var(--stone-light);">Kishkindha Kanda 41</td></tr>
+      <tr><td class="td-name">Jyotirmukha</td><td class="td-deva">Surya</td><td class="td-role">Southern search party; battle</td><td class="td-power">Face radiates blinding light</td><td style="font-size:0.78rem; color:var(--stone-light);">Kishkindha Kanda 39</td></tr>
+      <tr><td class="td-name">Mainda & Dvivida</td><td class="td-deva">Ashvini Kumaras (Twin physicians)</td><td class="td-role">Twin battle commanders</td><td class="td-power">Amrita-empowered, near-immortal</td><td style="font-size:0.78rem; color:var(--stone-light);">Kishkindha Kanda 39</td></tr>
+      <tr><td class="td-name">Jambavan</td><td class="td-deva">Born of Brahma's yawn</td><td class="td-role">Riksha king, elder counsellor</td><td class="td-power">Cosmic age, unbreakable wisdom</td><td style="font-size:0.78rem; color:var(--stone-light);">Yuddha Kanda; Bhagavata Purana</td></tr>
+      <tr><td class="td-name">Gaja</td><td class="td-deva">Indra (elephant connection)</td><td class="td-role">Eastern division commander</td><td class="td-power">Elephantine strength, fortress-breaking</td><td style="font-size:0.78rem; color:var(--stone-light);">Kishkindha Kanda 41</td></tr>
+      <tr><td class="td-name">Tara</td><td class="td-deva">Susena (daughter) — divine physician lineage</td><td class="td-role">Political queen, royal intelligence</td><td class="td-power">Prophetic wisdom, strategic insight</td><td style="font-size:0.78rem; color:var(--stone-light);">Kishkindha Kanda 15–16</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════ RAM SETU ══════════════ -->
+<section id="setu" class="setu-section">
+  <div class="section-inner">
+    <p class="section-label">The Sacred Engineering</p>
+    <h2 class="section-title">Ram Setu — Bridge Across Dharma</h2>
+    <p class="section-desc">Perhaps the greatest collective achievement of the Vanara army — a bridge of stone, faith, and divine engineering across 100 yojanas of ocean.</p>
+
+    <div class="setu-diagram">
+      <h3 style="font-family:'Cinzel',serif; color:var(--gold); font-size:0.85rem; letter-spacing:0.15em; text-transform:uppercase; margin-bottom:2rem; text-align:center;">THE CONSTRUCTION OF RAM SETU — A FIVE-DAY TIMELINE</h3>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-label">Day One</div>
+          <div class="timeline-heading">The Great Decision — Samudra's Revelation</div>
+          <div class="timeline-text">After three days of penance by Rama, Samudra (the Ocean god) appears and reveals that only Nala — son of Vishvakarma — can build a bridge across his waters. He promises to hold still and support the bridge. Nala assumes command of the engineering project. One hundred yojanas of ocean must be bridged. The Vanaras begin gathering materials from every forest and mountain within reach.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-label">Day Two</div>
+          <div class="timeline-heading">Foundation Laying — Mountain Stones Enter the Ocean</div>
+          <div class="timeline-text">Vanaras bring mountains, rocks, trees, and enormous boulders from the Sahyadri and Vindhya ranges. Millions of Vanaras work simultaneously — some inscribe "Rama" on each stone, which then floats. Nala and Nila supervise the placement. In a single day, fourteen yojanas of bridge were laid. The sight of an army of forest creatures moving mountains causes the Devas and Rishis to gather in the sky to witness.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-label">Day Three</div>
+          <div class="timeline-heading">The Deep Waters — Twenty More Yojanas</div>
+          <div class="timeline-text">The construction reaches the deep ocean trenches. Larger stones are required. The Vanara chiefs personally uproot entire mountain peaks and carry them to the bridge site. Twenty yojanas completed on this day. Ravana's spies watch in horror and report to Lanka — but Ravana dismisses it as impossible.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-label">Day Four</div>
+          <div class="timeline-heading">Twenty-One Yojanas — The Army Begins to Cross</div>
+          <div class="timeline-text">Twenty-one more yojanas completed. The first units of Rama's army begin crossing. The bridge is described as level, wide (ten yojanas), and stable enough for a full army to march across simultaneously. Valmiki compares it to the Milky Way (Akasha Ganga) stretching across the sky — a bridge of divine white stone across the blue ocean.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-label">Day Five</div>
+          <div class="timeline-heading">Completion — The Bridge Reaches Lanka</div>
+          <div class="timeline-text">Final twenty-two yojanas completed. The complete bridge, one hundred yojanas long and ten wide, connects Bharata to Lanka. The entire army of Rama — hundred crores of warriors — crosses in formation. Rama himself crosses last, and the Devas shower flowers from the sky. The bridge is described as the greatest feat of engineering in the Treta Yuga.</div>
+        </div>
+      </div>
+
+      <div style="margin-top:2rem; padding:1.5rem; background:rgba(201,168,76,0.05); border:1px solid rgba(201,168,76,0.15);">
+        <h4 style="font-family:'Cinzel',serif; color:var(--gold); font-size:0.8rem; letter-spacing:0.15em; text-transform:uppercase; margin-bottom:1rem;">Modern Archaeological Evidence</h4>
+        <p style="font-size:0.88rem; color:var(--ash); line-height:1.75;">In 2002, NASA's Terra satellite MODIS imagery revealed a chain of limestone shoals in the Palk Strait between Pamban Island (India) and Mannar Island (Sri Lanka) — matching Valmiki's described location. The Adam's Bridge structure, approximately 48 km long, shows a chain of sandbanks and shallow reef formations. Geological studies at Geological Survey of India and the National Institute of Ocean Technology suggest the formation is not purely natural. Radiocarbon dating of coral and marine sediment near the Adam's Bridge area has produced dates going back 7,000–9,000 years. The scholarly debate continues — but the geographical correspondence with Valmiki's description is remarkable.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════ SCRIPTURES ══════════════ -->
+<section id="scriptures" style="padding:5rem 2rem; max-width:1200px; margin:0 auto;">
+  <p class="section-label">Primary Sources</p>
+  <h2 class="section-title">Scriptural Traditions of the Vanaras</h2>
+  <p class="section-desc">How different textual traditions preserve, expand, and interpret the Vanara legacy across Bharata and Southeast Asia.</p>
+
+  <div class="scripture-grid">
+    <div class="scripture-card">
+      <div class="scripture-title">Valmiki Ramayana</div>
+      <div class="scripture-subtitle">वाल्मीकि रामायण</div>
+      <div class="scripture-desc">The primary and most authoritative source. Written in Sanskrit, contains 24,000 shlokas across 7 Kandas. The Kishkindha Kanda (4th Kanda) and Yuddha Kanda (6th Kanda) are the primary sources for Vanara information. Valmiki presents the Vanaras as literal semi-divine beings, taking their divine origin entirely at face value within the narrative. The Sundara Kanda is devoted almost entirely to Hanuman.</div>
+    </div>
+    <div class="scripture-card">
+      <div class="scripture-title">Ramcharitmanas</div>
+      <div class="scripture-subtitle">रामचरितमानस</div>
+      <div class="scripture-desc">Tulsidas's 16th-century Awadhi masterpiece. Follows Valmiki's core narrative but emphasizes bhakti (devotion) above all. Hanuman is elevated to supreme importance — his Sundara Kanda equivalent (Sundara Kand) is considered the most spiritually potent section. Tulsidas adds many devotional details: Hanuman's total surrender (dasa bhava), the sweetness of Rama's relationship with the Vanaras, and the cosmic significance of the alliance.</div>
+    </div>
+    <div class="scripture-card">
+      <div class="scripture-title">Adhyatma Ramayana</div>
+      <div class="scripture-subtitle">अध्यात्म रामायण</div>
+      <div class="scripture-desc">Embedded in the Brahmanda Purana, this text takes the Advaita Vedanta view — Rama is explicitly identified as Brahman, and every character's action is a spiritual metaphor. The Vanaras here represent the spiritual faculties of the seeker — Hanuman is the perfect devotee, Sugriva is the purified ego, Lanka is the city of adharma within the human mind. The bridge represents the crossing from samsara to liberation.</div>
+    </div>
+    <div class="scripture-card">
+      <div class="scripture-title">Kamba Ramayanam</div>
+      <div class="scripture-subtitle">கம்பராமாயணம்</div>
+      <div class="scripture-desc">12th-century Tamil masterpiece by the poet Kamban. Greatly expands the roles of Angada and Hanuman, adding scenes not present in Valmiki. Angada's embassy to Lanka is given extraordinary dramatic elaboration. The Vanara warriors are described with Tamil warrior-poetry conventions (Purananuru tradition) — making them among the most heroically painted warriors in Indian literature. Kamban's Kiskindha Kanda is considered a poetic peak of world literature.</div>
+    </div>
+    <div class="scripture-card">
+      <div class="scripture-title">Bhagavata Purana</div>
+      <div class="scripture-subtitle">भागवत पुराण</div>
+      <div class="scripture-desc">Contains key cross-Yuga references to Vanara figures. The Jambavan-Krishna episode (Syamantaka story, 10th Skandha) is the most significant. Dvivida's conflict with Balarama is also here. These passages confirm that key Vanara heroes lived across Yugas — a supernatural longevity consistent with their divine origins. The Bhagavata also provides the most detailed cosmological context for Brahma's creation mandate for the Vanara army.</div>
+    </div>
+    <div class="scripture-card">
+      <div class="scripture-title">Southeast Asian Traditions</div>
+      <div class="scripture-subtitle">Ramakien · Hikayat Seri Rama · Ramayana Kakawin</div>
+      <div class="scripture-desc">Thailand's Ramakien, Malaysia's Hikayat Seri Rama, and Java's Ramayana Kakawin all preserve the Vanara tradition as warrior heroes — not symbolic abstractions. In the Ramakien, Hanuman (Hanuman) is one of the most beloved heroes of Thai culture. Indonesian wayang (shadow puppet) traditions depict Sugriva and Hanuman as noble warrior kings. The Balinese Kecak dance-drama is entirely built around the Vanara army — and has been performed continuously for nearly 2,000 years in some traditions.</div>
+    </div>
+    <div class="scripture-card">
+      <div class="scripture-title">Skanda Purana</div>
+      <div class="scripture-subtitle">स्कन्द पुराण</div>
+      <div class="scripture-desc">Contains supplementary Vanara lore, particularly regarding the divine origins of individual warriors and their post-Ramayana fates. The Skanda Purana also contains material on Hanuman temples and sacred sites associated with Vanara heroes in various tirthas across Bharat — creating a temple geography of the Ramayana landscape.</div>
+    </div>
+    <div class="scripture-card">
+      <div class="scripture-title">Jain & Buddhist Variants</div>
+      <div class="scripture-subtitle">Paumacariyam · Dasaratha Jataka</div>
+      <div class="scripture-desc">The Jain Ramayana (Paumacariyam by Vimalasuri, 2nd century CE) rationalizes the Vanaras as a human tribe with a monkey totem — a significant demythologization that preserves the tribal history interpretation. The Buddhist Dasaratha Jataka is a brief version where the Vanaras are largely absent, and Sita is Rama's sister rather than wife — showing how widely the story varied across traditions while retaining a core.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════ RARE FACTS ══════════════ -->
+<section style="padding:5rem 2rem; max-width:1200px; margin:0 auto;">
+  <p class="section-label">Hidden Knowledge</p>
+  <h2 class="section-title">Rare Facts Most People Don't Know</h2>
+  <p class="section-desc">Lesser-known traditions, forgotten details, and surprising truths from the depths of Ramayana scholarship.</p>
+
+  <div class="facts-grid">
+    <div class="fact-card reveal">
+      <div class="fact-num">01</div>
+      <div class="fact-title">Hanuman's Forgotten Curse</div>
+      <div class="fact-text">The sage Matanga cursed the infant Hanuman to forget his own divine powers until someone reminded him — this is why Jambavan had to awaken him at the ocean shore. Without this curse, Hanuman would have solved every problem in the Ramayana alone, making the narrative of alliance and dharmic struggle impossible. The curse was a cosmic device to preserve free will and collective effort.</div>
+    </div>
+    <div class="fact-card reveal">
+      <div class="fact-num">02</div>
+      <div class="fact-title">Tara Was a Panchakanya</div>
+      <div class="fact-text">Tara — Bali's wife and then Sugriva's queen — is one of the five Pancha Kanyas (sacred women) of Hindu tradition, alongside Ahalya, Draupadi, Kunti, and Mandodari. Their names, recited at dawn, are said to destroy all sin. Tara's inclusion among these five women of profound complexity speaks to the Ramayana tradition's nuanced view of women in crisis — honoring their wisdom and sacrifice.</div>
+    </div>
+    <div class="fact-card reveal">
+      <div class="fact-num">03</div>
+      <div class="fact-title">Dvivida Fought Krishna</div>
+      <div class="fact-text">The Vanara hero Dvivida — one of the twin sons of the Ashvini Kumaras, who consumed amrita — survived into the Dvapara Yuga and became a villain, harassing humans and sages. He was eventually killed by Balarama in a mountain-throwing battle described in the Bhagavata Purana. This confirms the Vanaras as truly multi-Yuga beings.</div>
+    </div>
+    <div class="fact-card reveal">
+      <div class="fact-num">04</div>
+      <div class="fact-title">Jambavan Witnessed Three Avatars of Vishnu</div>
+      <div class="fact-text">Jambavan was present at the Vamana avatar (Treta Yuga), fought with Rama's army (also Treta), and met Krishna (Dvapara Yuga) in the Syamantaka episode. He is one of very few beings in Hindu cosmology to have personally interacted with Vishnu's divine form across three separate Yuga manifestations — making him among the most cosmically experienced figures in the Puranic universe.</div>
+    </div>
+    <div class="fact-card reveal">
+      <div class="fact-num">05</div>
+      <div class="fact-title">Nala's Curse Became the Bridge</div>
+      <div class="fact-text">The sage's curse on Nala — that whatever he threw into water would float — was initially seen as a punitive thing. But in the cosmic economy of dharma, this "curse" became the mechanism by which Ram Setu was built. Hindu cosmology consistently presents apparent misfortune as hidden cosmic preparation — every seeming setback is a setup for dharma's triumph.</div>
+    </div>
+    <div class="fact-card reveal">
+      <div class="fact-num">06</div>
+      <div class="fact-title">Hanuman Has Eight Names for Daily Recitation</div>
+      <div class="fact-text">The Hanuman Ashtanama stotra gives eight sacred names of Hanuman: Hanuman, Anjaneya, Vayuputra, Mahābala, Rāmesta, Phalguna-sakha, Pingāksha, and Amitavikrama. Each name corresponds to a different aspect of his divine nature. Reciting these eight names at dawn and dusk is said to destroy the fears of all who face battle, disease, or sorrow — per the Skanda Purana tradition.</div>
+    </div>
+    <div class="fact-card reveal">
+      <div class="fact-num">07</div>
+      <div class="fact-title">The Vanara Army Had 100 Million Divisions</div>
+      <div class="fact-text">Valmiki gives astronomical numbers for the Vanara army — "akshauhini" divisions are described, with individual commanders like Kumuda leading ten million warriors and others commanding even larger forces. Some Puranic traditions add the number to over one hundred crore (one billion) warriors total — making it the largest army described in ancient Sanskrit literature.</div>
+    </div>
+    <div class="fact-card reveal">
+      <div class="fact-num">08</div>
+      <div class="fact-title">Kishkindha Has Real Archaeological Traces</div>
+      <div class="fact-text">The Hampi region (UNESCO World Heritage Site in Karnataka) is identified with Kishkindha by local tradition, geological evidence, and geographic correspondence with Valmiki's descriptions. The Anjanadri Hill near Hospet is identified as Hanuman's birthplace. The Pampa Sarovara (sacred lake) exists to this day. Footprints traditionally identified as Bali's are preserved at Anegundi village, across the Tungabhadra from Hampi.</div>
+    </div>
+    <div class="fact-card reveal">
+      <div class="fact-num">09</div>
+      <div class="fact-title">Hanuman is Present Wherever the Ramayana is Recited</div>
+      <div class="fact-text">The Uttara Kanda records Rama's boon to Hanuman: "As long as my story is told on this earth, you shall remain alive to listen to it." This establishes Hanuman as Chiranjeevi — the immortal — present wherever the Ramayana is sung, recited, or performed. This is why devotees believe Hanuman is present in every Ramayana recitation, and why his image is placed first in every Ram Katha venue.</div>
+    </div>
+    <div class="fact-card reveal">
+      <div class="fact-num">10</div>
+      <div class="fact-title">The Sanjeevani Mountain is Identified in the Himalayas</div>
+      <div class="fact-text">The Dronagiri mountain from which Hanuman uprooted the Sanjeevani herb range is identified in the Garhwal Himalayas of Uttarakhand — specifically near Joshimath, between the Nanda Devi Sanctuary and the peaks near Badrinath. Local tradition preserves this identification, and Ayurvedic practitioners still gather rare herbs from this region. The Sanjeevani herb itself is identified in different traditions as various Himalayan medicinal plants.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-section"></div>
+
+<!-- ══════════════ SYMBOLISM ══════════════ -->
+<section style="padding:5rem 2rem; max-width:1200px; margin:0 auto;">
+  <p class="section-label">Inner Dimensions</p>
+  <h2 class="section-title">Symbolism of Vanaras in Hindu Thought</h2>
+  <p class="section-desc">The deeper spiritual meanings encoded in the Vanara tradition — without reducing the literal narrative to mere allegory.</p>
+
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:2.5rem; margin-top:2rem;">
+    <div>
+      <div class="pullquote" style="margin:0 0 2rem;">
+        "The mind is restless, turbulent, obstinate, and very strong, O Krishna. I think it is more difficult to control than the wind."
+        <cite>— Arjuna in the Bhagavad Gita 6.34 (on the "Vanara-mind")</cite>
+      </div>
+      <h3 style="font-family:'Cinzel',serif; color:var(--saffron); font-size:0.85rem; letter-spacing:0.15em; text-transform:uppercase; margin-bottom:1rem;">The Monkey-Mind Tradition</h3>
+      <p style="font-size:0.92rem; color:var(--parchment-deep); line-height:1.85; margin-bottom:1rem;">In Indian philosophical tradition, the restless, jumping monkey is a universal metaphor for the untrained mind (chitta or manas). The term "monkey mind" (kapicittata) appears in yogic texts to describe the mind's tendency to leap from thought to thought without discipline. The Ramayana then becomes the story of how the monkey-mind, when trained in devotion to the Divine (Rama), becomes the greatest instrument of liberation.</p>
+      <p style="font-size:0.92rem; color:var(--parchment-deep); line-height:1.85;">Hanuman — the greatest Vanara — represents this perfectly disciplined mind: capable of leaping across oceans (transcending the world of senses), entering Lanka (penetrating the domain of ego and desire), finding Sita (rediscovering the Self), burning Lanka (destroying delusion), and returning to Rama (the eternal return to pure consciousness).</p>
+    </div>
+    <div>
+      <h3 style="font-family:'Cinzel',serif; color:var(--saffron); font-size:0.85rem; letter-spacing:0.15em; text-transform:uppercase; margin-bottom:1rem;">Each Vanara as a Faculty</h3>
+      <div style="display:flex; flex-direction:column; gap:1rem;">
+        <div style="background:rgba(201,168,76,0.05); border:1px solid rgba(201,168,76,0.12); padding:1rem; display:flex; gap:1rem; align-items:flex-start;">
+          <div style="font-family:'Cinzel Decorative',serif; font-size:1.2rem; color:var(--gold); min-width:2.5rem; text-align:center;">H</div>
+          <div><div style="font-family:'Cinzel',serif; font-size:0.8rem; color:var(--gold); margin-bottom:0.3rem;">Hanuman = Pure Intellect & Devotion</div><div style="font-size:0.83rem; color:var(--ash);">The Buddhi (discriminating intelligence) fully surrendered to Atman/Brahman — capable of the impossible</div></div>
+        </div>
+        <div style="background:rgba(201,168,76,0.05); border:1px solid rgba(201,168,76,0.12); padding:1rem; display:flex; gap:1rem; align-items:flex-start;">
+          <div style="font-family:'Cinzel Decorative',serif; font-size:1.2rem; color:var(--saffron); min-width:2.5rem; text-align:center;">S</div>
+          <div><div style="font-family:'Cinzel',serif; font-size:0.8rem; color:var(--saffron); margin-bottom:0.3rem;">Sugriva = The Purified Ego</div><div style="font-size:0.83rem; color:var(--ash);">Once the ego (Bali/ahamkara) is destroyed by grace, even the individual self can serve the Divine's mission</div></div>
+        </div>
+        <div style="background:rgba(201,168,76,0.05); border:1px solid rgba(201,168,76,0.12); padding:1rem; display:flex; gap:1rem; align-items:flex-start;">
+          <div style="font-family:'Cinzel Decorative',serif; font-size:1.2rem; color:#9B7FD4; min-width:2.5rem; text-align:center;">A</div>
+          <div><div style="font-family:'Cinzel',serif; font-size:0.8rem; color:#9B7FD4; margin-bottom:0.3rem;">Angada = Dharmic Loyalty</div><div style="font-size:0.83rem; color:var(--ash);">Loyalty that transcends personal grief — chosen allegiance to Dharma even when one's father was its casualty</div></div>
+        </div>
+        <div style="background:rgba(201,168,76,0.05); border:1px solid rgba(201,168,76,0.12); padding:1rem; display:flex; gap:1rem; align-items:flex-start;">
+          <div style="font-family:'Cinzel Decorative',serif; font-size:1.2rem; color:#7FD4B0; min-width:2.5rem; text-align:center;">J</div>
+          <div><div style="font-family:'Cinzel',serif; font-size:0.8rem; color:#7FD4B0; margin-bottom:0.3rem;">Jambavan = Cosmic Memory</div><div style="font-size:0.83rem; color:var(--ash);">The ancient wisdom tradition that remembers what the individual self forgets — the guru who awakens dormant power</div></div>
+        </div>
+        <div style="background:rgba(201,168,76,0.05); border:1px solid rgba(201,168,76,0.12); padding:1rem; display:flex; gap:1rem; align-items:flex-start;">
+          <div style="font-family:'Cinzel Decorative',serif; font-size:1.2rem; color:var(--gold); min-width:2.5rem; text-align:center;">N</div>
+          <div><div style="font-family:'Cinzel',serif; font-size:0.8rem; color:var(--gold); margin-bottom:0.3rem;">Nala & Nila = Creative Action</div><div style="font-size:0.83rem; color:var(--ash);">The bridge-builders — karma yoga in its purest form: every stone cast in the name of the Divine creates a path where none existed</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════ FAQ ══════════════ -->
+<section id="faq" style="padding:5rem 2rem; max-width:800px; margin:0 auto;">
+  <p class="section-label">Common Questions</p>
+  <h2 class="section-title">Frequently Asked Questions</h2>
+
+  <div style="margin-top:2.5rem;">
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">Were the Vanaras actual monkeys or metaphorical beings? <span>▾</span></button>
+      <div class="faq-answer"><p>This is the central scholarly debate. The scriptural tradition (Valmiki, Tulsidas, all Puranas) treats them as literal semi-divine beings with monkey forms — sons of Devas born in Vanara bodies. The Jain tradition (Paumacariyam) reinterprets them as a human tribe with a monkey totem. The Vedantic tradition reads them symbolically as faculties of the mind. Most contemporary scholars who take the Ramayana seriously as historical memory favor the tribal interpretation — an ancient forest civilization of southern India, deeply connected to monkey totemism, who allied with the Ikshvaku king Rama. None of these interpretations are mutually exclusive within the richness of Hindu hermeneutics.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">What is the difference between Vanaras and Rikshas? <span>▾</span></button>
+      <div class="faq-answer"><p>Vanaras (वानर) are the monkey-warriors — the primary race of Rama's forest alliance, centered in Kishkindha. Rikshas (ऋक्ष) are bear-warriors — a related but distinct species. The word Riksha means "bear" in Sanskrit (related to the Greek Arktos and Latin Ursus — all from the same Proto-Indo-European root). Jambavan is their king. The Riksha warriors are fewer in number but extraordinary in individual power — Jambavan especially being a cosmic figure. In battle, the two groups fought together as one army, with the Rikshas typically serving as heavy shock troops given their bear-like strength.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)"> How many yojanas was Ram Setu and what does that translate to in modern distance? <span>▾</span></button>
+      <div class="faq-answer"><p>Valmiki states Ram Setu was 100 yojanas long and 10 yojanas wide. A yojana (योजन) in Vedic/epic context is generally measured at approximately 8–15 km depending on the text and tradition. The most commonly used figure in Ramayana scholarship is approximately 13–14 km per yojana, giving a total bridge length of roughly 1,300–1,400 km — which would be enormous. However, some scholars use a shorter yojana of 8 km, giving 800 km. The actual distance across the Palk Strait is approximately 50 km, which corresponds to the Adam's Bridge chain. This suggests either the yojana was much smaller in Treta Yuga reckoning, or that the 100 yojana figure is a sacred/symbolic number rather than a literal measurement.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">Is Hanuman still alive today? What is the Chiranjeevi tradition? <span>▾</span></button>
+      <div class="faq-answer"><p>Yes, according to the Hindu scriptural tradition, Hanuman is a Chiranjeevi — one of the seven immortals (Ashta Chiranjeevis in extended lists) who remain alive throughout the current Manvantara (cosmic age). Rama's boon to Hanuman in the Uttara Kanda states: "As long as my story is told on earth, you shall remain present to listen to it." The Bhavishya Purana and several regional traditions record that Hanuman continues to dwell in certain mountains (particularly in the south — some traditions say Gandhamadana Parvata, others say the Himalayas). Devotees across India report experiences that they attribute to Hanuman's living presence. This is not merely symbolic — it is a living article of faith for hundreds of millions.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">Why did Bali have the power to take half of any opponent's strength? <span>▾</span></button>
+      <div class="faq-answer"><p>Bali (Vali) received this extraordinary boon from Brahma — that in any single combat, half the strength of his opponent would transfer to Bali himself. This made him effectively unbeatable in one-on-one combat, as the stronger the opponent, the stronger Bali became. It is precisely because of this boon that Rama could not fight Bali directly — Rama would instantly lose half his power to Bali. This is why Rama shot Bali from behind a tree — not cowardice, but tactical necessity given a supernaturally unfair magical condition. This episode is one of the most debated moral questions in the Ramayana, with Valmiki himself giving Bali (dying) the opportunity to challenge Rama on this point, and Rama providing a detailed dharmic explanation.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">What happened to the Vanara warriors after the Lanka war? <span>▾</span></button>
+      <div class="faq-answer"><p>The Uttara Kanda describes the return journey. Most Vanara chiefs returned to Kishkindha with Sugriva after attending Rama's coronation at Ayodhya. Hanuman remained with Rama permanently (until Rama's departure from earth), and then received the boon of immortality. Jambavan continued his cosmic existence. Sugriva ruled Kishkindha for many more years. Angada was installed as king of a separate territory. The Bhagavata Purana later mentions Dvivida causing trouble in the Dvapara Yuga. Most Vanara warriors are considered to have eventually merged back into their divine origins — the sons of Devas returning to the Deva world — when their earthly mission was complete.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">What does "Hanuman Chalisa" mean and who wrote it? <span>▾</span></button>
+      <div class="faq-answer"><p>The Hanuman Chalisa (हनुमान चालीसा) was composed by Goswami Tulsidas in the 16th century CE, written in Awadhi (a dialect of Hindi). "Chalisa" means forty — the text consists of forty chaupais (quatrains of poetry) plus two dohas (couplets) as an introduction and conclusion. It summarizes Hanuman's entire life, powers, and spiritual significance in 40 verses, and has become the most widely recited Hindu prayer text in the world, with hundreds of millions reciting it daily. Tulsidas reportedly composed it while imprisoned by a Mughal official, and tradition holds that Hanuman himself appeared and freed him. The Chalisa is also considered a raksha kavach (protective shield) against all evil.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-section"></div>
+
+<!-- ══════════════ GLOSSARY ══════════════ -->
+<section style="padding:5rem 2rem; max-width:1200px; margin:0 auto;">
+  <p class="section-label">Quick Reference</p>
+  <h2 class="section-title">Sanskrit Glossary</h2>
+  <p class="section-desc">Essential terms for navigating the Ramayana's Vanara tradition — from ancient Sanskrit root to conceptual meaning.</p>
+
+  <div class="glossary-grid" style="margin-top:2.5rem;">
+    <div class="gloss-item"><div class="gloss-term">Vanara (वानर)</div><div class="gloss-def">Forest-dweller; from vana (forest). The monkey-warrior race of Kishkindha. Semi-divine beings born of Devas in Vanara form.</div></div>
+    <div class="gloss-item"><div class="gloss-term">Riksha (ऋक्ष)</div><div class="gloss-def">Bear; the bear-warrior race allied with Rama, led by King Jambavan. Etymologically related to Ursa (Latin) and Arktos (Greek).</div></div>
+    <div class="gloss-item"><div class="gloss-term">Kishkindha (किष्किन्धा)</div><div class="gloss-def">The mountain kingdom of the Vanaras, capital city of Sugriva. Identified with the Hampi-Anegundi region of Karnataka.</div></div>
+    <div class="gloss-item"><div class="gloss-term">Yūthapati (यूथपति)</div><div class="gloss-def">Troop leader; commander of a yūtha (division) of Vanaras. The basic military unit of the Kishkindha army.</div></div>
+    <div class="gloss-item"><div class="gloss-term">Setu (सेतु)</div><div class="gloss-def">Bridge, embankment, or causeway. Ram Setu = the bridge built by Nala and the Vanara army to reach Lanka.</div></div>
+    <div class="gloss-item"><div class="gloss-term">Akshauhini (अक्षौहिणी)</div><div class="gloss-def">A complete army division containing 21,870 chariots, 21,870 elephants, 65,610 cavalry, and 109,350 infantry. The Vanara army consisted of many akshauhinis.</div></div>
+    <div class="gloss-item"><div class="gloss-term">Chiranjeevi (चिरञ्जीवी)</div><div class="gloss-def">Immortal — one who lives for an entire Kalpa or Manvantara. Hanuman is a Chiranjeevi. Others: Vyasa, Ashvatthama, Bali, Parashurama, Vibhishana, Kripa, Markandeya.</div></div>
+    <div class="gloss-item"><div class="gloss-term">Ashta Siddhi (अष्ट सिद्धि)</div><div class="gloss-def">The eight supernatural powers of a perfected yogi: Anima, Mahima, Laghima, Garima, Prapti, Prakamya, Vashitva, Ishatva. Hanuman possesses all eight.</div></div>
+    <div class="gloss-item"><div class="gloss-term">Yojana (योजन)</div><div class="gloss-def">Ancient Indian unit of distance; approximately 8–15 km depending on tradition. Ram Setu was 100 yojanas long.</div></div>
+    <div class="gloss-item"><div class="gloss-term">Itihasa (इतिहास)</div><div class="gloss-def">Sacred history; literally "thus it was." The Ramayana and Mahabharata are the two Itihasas — distinguished from Puranas (cosmic history) and Shruti (revealed scriptures).</div></div>
+    <div class="gloss-item"><div class="gloss-term">Kanda (काण्ड)</div><div class="gloss-def">Section or chapter of the Ramayana. Valmiki's Ramayana has seven Kandas: Bala, Ayodhya, Aranya, Kishkindha, Sundara, Yuddha, Uttara.</div></div>
+    <div class="gloss-item"><div class="gloss-term">Panchakanya (पञ्चकन्या)</div><div class="gloss-def">The five sacred women of Hindu tradition: Ahalya, Draupadi, Kunti, Tara, Mandodari. Their names, recited at dawn, are said to destroy all sin.</div></div>
+    <div class="gloss-item"><div class="gloss-term">Sundara Kanda (सुन्दर काण्ड)</div><div class="gloss-def">The fifth and most beloved Kanda of the Ramayana, devoted almost entirely to Hanuman's journey to Lanka and back. "Sundara" means beautiful — the kanda of Hanuman's beauty of devotion.</div></div>
+    <div class="gloss-item"><div class="gloss-term">Deva (देव)</div><div class="gloss-def">Divine being; celestial deity. The Devas fathered the Vanara warriors as per Brahma's cosmic command to aid Vishnu's mission on earth.</div></div>
+    <div class="gloss-item"><div class="gloss-term">Bhakti (भक्ति)</div><div class="gloss-def">Devotion; the path of love and surrender to the Divine. Hanuman is the supreme exemplar of Bhakti — the perfect devotee who subordinates every power to love for Rama.</div></div>
+    <div class="gloss-item"><div class="gloss-term">Dharma (धर्म)</div><div class="gloss-def">Cosmic order, righteousness, duty. The entire Vanara alliance with Rama is a dharmic enterprise — the alliance of forest beings with the avatara to restore cosmic order against Ravana's adharma.</div></div>
+  </div>
+</section>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer>
+  <div class="footer-mantra">जय श्रीराम · जय हनुमान · जय वानर सेना</div>
+  <div class="footer-text" style="margin-bottom:0.8rem;">Vanaras of Kishkindha — A Comprehensive Ramayana Itihasa Encyclopedia</div>
+  <div class="footer-text" style="font-size:0.58rem; opacity:0.6;">Research based on: Valmiki Ramayana · Ramcharitmanas · Kamba Ramayanam · Bhagavata Purana · Skanda Purana · Adhyatma Ramayana · Regional traditions</div>
+  <div style="margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid rgba(201,168,76,0.1);">
+    <div class="footer-text" style="opacity:0.4;">Built as a sacred knowledge platform — expandable to a complete Ramayana atlas · AI Ramayana assistant · Interactive war visualizations</div>
+  </div>
+</footer>
+
+<script>
+function toggleAccordion(btn) {
+  const content = btn.nextElementSibling;
+  const icon = btn.querySelector('.accordion-icon');
+  const isOpen = content.classList.contains('open');
+  document.querySelectorAll('.accordion-content.open').forEach(el => {
+    el.classList.remove('open');
+    el.previousElementSibling.querySelector('.accordion-icon').style.transform = 'rotate(0deg)';
+  });
+  if (!isOpen) {
+    content.classList.add('open');
+    icon.style.transform = 'rotate(180deg)';
+  }
+}
+
+function toggleFaq(btn) {
+  const answer = btn.nextElementSibling;
+  const isOpen = answer.classList.contains('open');
+  document.querySelectorAll('.faq-answer.open').forEach(el => el.classList.remove('open'));
+  if (!isOpen) answer.classList.add('open');
+}
+
+function filterWarriors(type) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  document.querySelectorAll('.warrior-card').forEach(card => {
+    if (type === 'all' || card.dataset.type.includes(type)) {
+      card.style.display = 'block';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
+document.getElementById('warriorSearch').addEventListener('input', function() {
+  const q = this.value.toLowerCase();
+  document.querySelectorAll('.warrior-card').forEach(card => {
+    card.style.display = card.textContent.toLowerCase().includes(q) ? 'block' : 'none';
+  });
+});
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

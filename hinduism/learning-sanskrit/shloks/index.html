@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+<html lang="sa">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ॐ Shlokas — The Eternal Sacred Verses</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,400&family=Noto+Sans+Devanagari:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --saffron: #FF6B00;
+      --deep-saffron: #E85D00;
+      --gold: #FFD700;
+      --gold-dim: #C9A227;
+      --blood-red: #8B0000;
+      --crimson: #DC143C;
+      --maroon: #4A0000;
+      --ash: #1A1008;
+      --dark-bg: #0D0800;
+      --parchment: #F5E6C8;
+      --parchment-dim: #C8A96A;
+      --off-white: #FFF8EE;
+      --smoke: rgba(255,107,0,0.08);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background-color: var(--dark-bg);
+      color: var(--parchment);
+      font-family: 'Crimson Pro', Georgia, serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── FIRE PARTICLE CANVAS ── */
+    #fire-canvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.18;
+    }
+
+    /* ── BACKGROUND TEXTURE ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(255,107,0,0.18) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 40% at 50% 110%, rgba(139,0,0,0.25) 0%, transparent 60%),
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 2px,
+          rgba(255,107,0,0.015) 2px,
+          rgba(255,107,0,0.015) 4px
+        );
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── HERO HEADER ── */
+    header {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 80px 20px 60px;
+      border-bottom: 1px solid rgba(255,215,0,0.2);
+    }
+
+    .om-symbol {
+      font-size: clamp(60px, 10vw, 120px);
+      color: var(--gold);
+      display: block;
+      line-height: 1;
+      text-shadow:
+        0 0 20px rgba(255,215,0,0.8),
+        0 0 60px rgba(255,107,0,0.5),
+        0 0 100px rgba(255,107,0,0.2);
+      animation: pulse-glow 3s ease-in-out infinite;
+      margin-bottom: 16px;
+    }
+
+    @keyframes pulse-glow {
+      0%, 100% { text-shadow: 0 0 20px rgba(255,215,0,0.8), 0 0 60px rgba(255,107,0,0.5), 0 0 100px rgba(255,107,0,0.2); }
+      50% { text-shadow: 0 0 30px rgba(255,215,0,1), 0 0 80px rgba(255,107,0,0.8), 0 0 140px rgba(255,107,0,0.4); }
+    }
+
+    .site-title {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(22px, 4vw, 52px);
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      color: var(--gold);
+      text-transform: uppercase;
+      line-height: 1.2;
+      text-shadow: 0 2px 20px rgba(255,107,0,0.6);
+    }
+
+    .site-subtitle {
+      font-family: 'Noto Sans Devanagari', serif;
+      font-size: clamp(14px, 2vw, 20px);
+      color: var(--parchment-dim);
+      margin-top: 12px;
+      letter-spacing: 0.1em;
+      opacity: 0.85;
+    }
+
+    .divider-ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin: 28px auto 0;
+      max-width: 500px;
+    }
+
+    .divider-ornament::before,
+    .divider-ornament::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold-dim));
+    }
+
+    .divider-ornament::after {
+      background: linear-gradient(to left, transparent, var(--gold-dim));
+    }
+
+    .ornament-center {
+      color: var(--gold);
+      font-size: 20px;
+    }
+
+    /* ── CATEGORY NAV ── */
+    nav.category-nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(13, 8, 0, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,107,0,0.2);
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 14px 20px;
+    }
+
+    .cat-btn {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 8px 18px;
+      border: 1px solid rgba(255,215,0,0.35);
+      background: transparent;
+      color: var(--gold-dim);
+      cursor: pointer;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .cat-btn:hover, .cat-btn.active {
+      background: var(--saffron);
+      border-color: var(--saffron);
+      color: var(--dark-bg);
+      box-shadow: 0 0 20px rgba(255,107,0,0.4);
+    }
+
+    /* ── MAIN CONTENT ── */
+    main {
+      position: relative;
+      z-index: 2;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px 24px;
+    }
+
+    /* ── SECTION HEADING ── */
+    .section-heading {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(18px, 3vw, 32px);
+      font-weight: 700;
+      color: var(--saffron);
+      text-align: center;
+      margin: 60px 0 12px;
+      letter-spacing: 0.06em;
+      position: relative;
+    }
+
+    .section-heading::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 2px;
+      background: linear-gradient(to right, var(--saffron), var(--gold));
+      margin: 10px auto 0;
+      border-radius: 2px;
+    }
+
+    .section-desc {
+      text-align: center;
+      color: var(--parchment-dim);
+      font-size: 16px;
+      font-style: italic;
+      margin-bottom: 40px;
+      opacity: 0.75;
+    }
+
+    /* ── SHLOKA GRID ── */
+    .shloka-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+      gap: 32px;
+    }
+
+    @media (max-width: 600px) {
+      .shloka-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── SHLOKA CARD ── */
+    .shloka-card {
+      background: linear-gradient(135deg, rgba(30,12,0,0.85) 0%, rgba(20,5,0,0.95) 100%);
+      border: 1px solid rgba(255,107,0,0.2);
+      border-radius: 4px;
+      padding: 36px 32px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+      cursor: default;
+    }
+
+    .shloka-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(to right, var(--blood-red), var(--saffron), var(--gold));
+    }
+
+    .shloka-card::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; right: -60px;
+      width: 160px; height: 160px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,107,0,0.07), transparent 70%);
+      pointer-events: none;
+    }
+
+    .shloka-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(255,107,0,0.18), 0 4px 16px rgba(0,0,0,0.5);
+      border-color: rgba(255,215,0,0.4);
+    }
+
+    .card-number {
+      position: absolute;
+      top: 16px; right: 20px;
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 11px;
+      color: rgba(255,107,0,0.4);
+      letter-spacing: 0.1em;
+    }
+
+    .card-tag {
+      display: inline-block;
+      font-size: 10px;
+      font-family: 'Cinzel Decorative', serif;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--dark-bg);
+      background: var(--saffron);
+      padding: 3px 10px;
+      border-radius: 2px;
+      margin-bottom: 20px;
+    }
+
+    .card-tag.mahadev { background: #7B2FBE; color: #fff; }
+    .card-tag.ram { background: #1565C0; color: #fff; }
+    .card-tag.kshatriya { background: var(--blood-red); color: var(--gold); }
+    .card-tag.war-cry { background: var(--saffron); color: var(--dark-bg); }
+    .card-tag.gita, .card-tag.krishna { background: #1a6e3c; color: #fff; }
+    .card-tag.durga { background: linear-gradient(135deg, #9C1F5E, #D4006A); color: #fff; }
+
+    .shloka-sanskrit {
+      font-family: 'Noto Sans Devanagari', serif;
+      font-size: clamp(16px, 2.5vw, 20px);
+      line-height: 1.9;
+      color: var(--off-white);
+      margin-bottom: 18px;
+      text-shadow: 0 0 12px rgba(255,215,0,0.08);
+    }
+
+    .shloka-transliteration {
+      font-family: 'Crimson Pro', serif;
+      font-size: 14px;
+      font-style: italic;
+      color: var(--gold-dim);
+      margin-bottom: 16px;
+      line-height: 1.8;
+      opacity: 0.8;
+    }
+
+    .shloka-divider {
+      width: 40px;
+      height: 1px;
+      background: linear-gradient(to right, var(--saffron), transparent);
+      margin: 18px 0;
+    }
+
+    .shloka-meaning {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--parchment-dim);
+    }
+
+    .shloka-source {
+      margin-top: 20px;
+      font-size: 12px;
+      font-family: 'Cinzel Decorative', serif;
+      letter-spacing: 0.1em;
+      color: rgba(255,107,0,0.5);
+      text-transform: uppercase;
+    }
+
+    /* ── QUOTE FEATURE ── */
+    .featured-quote {
+      position: relative;
+      text-align: center;
+      margin: 0px 0;
+      padding: 60px 40px;
+      border-top: 1px solid rgba(255,215,0,0.15);
+      border-bottom: 1px solid rgba(255,215,0,0.15);
+    }
+
+    .featured-quote .big-quote {
+      font-family: 'Noto Sans Devanagari', serif;
+      font-size: clamp(20px, 4vw, 36px);
+      color: var(--gold);
+      line-height: 1.8;
+      text-shadow: 0 0 30px rgba(255,215,0,0.3);
+      margin-bottom: 20px;
+    }
+
+    .featured-quote .quote-source {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 13px;
+      color: var(--saffron);
+      letter-spacing: 0.12em;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 50px 20px 40px;
+      border-top: 1px solid rgba(255,107,0,0.15);
+    }
+
+    footer .footer-om {
+      font-size: 40px;
+      color: var(--gold);
+      opacity: 0.6;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    footer p {
+      font-size: 13px;
+      color: rgba(255,200,100,0.4);
+      letter-spacing: 0.08em;
+      font-family: 'Cinzel Decorative', serif;
+    }
+
+    /* ── SCROLL ANIMATION ── */
+    .shloka-card {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    }
+
+    .shloka-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .shloka-card:hover {
+      transform: translateY(-4px) !important;
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="fire-canvas"></canvas>
+
+<!-- HEADER -->
+<header>
+  <span class="om-symbol">ॐ</span>
+  <h1 class="site-title">Shlokas</h1>
+  <p class="site-subtitle">श्लोक — महादेव • श्रीराम • देवी दुर्गा • क्षत्रिय • युद्धनाद</p>
+  <div class="divider-ornament">
+    <span class="ornament-center">🔱</span>
+  </div>
+</header>
+
+
+  <!-- FEATURED -->
+  <div class="featured-quote">
+    <p class="big-quote">हर हर महादेव<br/>जय माँ भवानी</p>
+    <p class="quote-source">The eternal war cry of Dharma</p>
+  </div>
+
+    <!-- CATEGORY NAV -->
+  <nav class="category-nav">
+    <button class="cat-btn active" onclick="filterCards('all')">All Shlokas</button>
+    <button class="cat-btn" onclick="filterCards('mahadev')">Mahadev</button>
+    <button class="cat-btn" onclick="filterCards('ram')">Shri Ram</button>
+    <button class="cat-btn" onclick="filterCards('durga')">Devi Durga</button>
+    <button class="cat-btn" onclick="filterCards('kshatriya')">Kshatriya</button>
+    <button class="cat-btn" onclick="filterCards('war-cry')">War Cries</button>
+    <button class="cat-btn" onclick="filterCards('krishna')">Bhagavad Gita</button>
+  </nav>
+
+<!-- MAIN -->
+<main>
+
+  <!-- SECTION HEADING (dynamic) -->
+  <h2 class="section-heading" id="section-heading">🕉 All Shlokas</h2>
+  <p class="section-desc" id="section-desc">The sacred verses of Dharma — Mahadev, Shri Ram, Devi Durga, Kshatriya, War Cries & Shri Krishna.</p>
+
+  <div class="shloka-grid" id="shloka-container">
+
+    <!-- MAHADEV 1 -->
+    <div class="shloka-card" data-tag="mahadev">
+      <span class="card-number">#01</span>
+      <span class="card-tag mahadev">Mahadev</span>
+      <p class="shloka-sanskrit">
+        कर्पूरगौरं करुणावतारं<br/>
+        संसारसारं भुजगेन्द्रहारम्।<br/>
+        सदा वसन्तं हृदयारविन्दे<br/>
+        भवं भवानीसहितं नमामि॥
+      </p>
+      <p class="shloka-transliteration">
+        Karpūragauraṃ karuṇāvatāraṃ<br/>
+        saṃsārasāraṃ bhujagendrahāram।<br/>
+        Sadā vasantaṃ hṛdayāravinde<br/>
+        bhavaṃ bhavānīsahitaṃ namāmi॥
+      </p>
+      <div class="shloka-divider"></div>
+      <p class="shloka-meaning">
+        I bow to Shiva — white as camphor, the very avatar of compassion, the essence of existence, adorned with a serpent king as a garland. He who forever dwells in the lotus of my heart, together with Bhavani.
+      </p>
+      <p class="shloka-source">— Shiva Stotram</p>
+    </div>
+
+    <!-- MAHADEV 2 -->
+    <div class="shloka-card" data-tag="mahadev">
+      <span class="card-number">#02</span>
+      <span class="card-tag mahadev">Mahadev</span>
+      <p class="shloka-sanskrit">
+        त्र्यम्बकं यजामहे सुगन्धिं पुष्टिवर्धनम्।<br/>
+        उर्वारुकमिव बन्धनान् मृत्योर्मुक्षीय मामृतात्॥
+      </p>
+      <p class="shloka-transliteration">
+        Tryambakaṃ yajāmahe sugandhiṃ puṣṭivardhanam।<br/>
+        Urvārukamiva bandhanān mṛtyormukṣīya māmṛtāt॥
+      </p>
+      <div class="shloka-divider"></div>
+      <p class="shloka-meaning">
+        We worship the three-eyed Shiva, who is fragrant and nourishes all beings. May He liberate us from the bondage of death, as a ripe cucumber is freed from the vine, and grant us immortality.
+      </p>
+      <p class="shloka-source">— Maha Mrityunjaya Mantra, Rigveda 7.59.12</p>
+    </div>
+
+    <!-- MAHADEV 3 -->
+    <div class="shloka-card" data-tag="mahadev">
+      <span class="card-number">#03</span>
+      <span class="card-tag mahadev">Mahadev</span>
+      <p class="shloka-sanskrit">
+        शिवं शिवकरं शान्तं शिवात्मानं शिवोत्तमम्।<br/>
+        शिवमार्गप्रणेतारं प्रणतोऽस्मि सदाशिवम्॥
+      </p>
+      <p class="shloka-transliteration">
+        Śivaṃ śivakaraṃ śāntaṃ śivātmānaṃ śivottamam।<br/>
+        Śivamārgapraṇetāraṃ praṇato'smi sadāśivam॥
+      </p>
+      <div class="shloka-divider"></div>
+      <p class="shloka-meaning">
+        I bow to Sadashiva — the auspicious one, the giver of auspiciousness, the peaceful one, whose very soul is auspiciousness, the highest of the auspicious, the guide on the path of Shiva.
+      </p>
+      <p class="shloka-source">— Shiva Stuti</p>
+    </div>
+
+    <!-- MAHADEV 4 -->
+    <div class="shloka-card" data-tag="mahadev">
+      <span class="card-number">#04</span>
+      <span class="card-tag mahadev">Mahadev</span>
+      <p class="shloka-sanskrit">
+        सर्वे वेदा यत्पदमामनन्ति<br/>
+        तपांसि सर्वाणि च यद्वदन्ति।<br/>
+        यदिच्छन्तो ब्रह्मचर्यं चरन्ति<br/>
+        तत्ते पदं संग्रहेण ब्रवीम्योमित्येतत्॥
+      </p>
+      <p class="shloka-transliteration">
+        Sarve vedā yatpadamāmananti<br/>
+        tapāṃsi sarvāṇi ca yadvadanti।<br/>
+        Yadicchanto brahmacaryaṃ caranti<br/>
+        tatte padaṃ saṃgraheṇa bravīmyomityetat॥
+      </p>
+      <div class="shloka-divider"></div>
+      <p class="shloka-meaning">
+        That goal which all the Vedas declare, which all austerities speak of, desiring which people practise brahmacharya — that goal I tell you briefly: it is OM. That is none other than Shiva himself.
+      </p>
+      <p class="shloka-source">— Katha Upanishad 1.2.15</p>
+    </div>
+
+    <!-- MAHADEV 5 -->
+    <div class="shloka-card" data-tag="mahadev">
+      <span class="card-number">#05</span>
+      <span class="card-tag mahadev">Mahadev</span>
+      <p class="shloka-sanskrit">
+        नमः शिवाय च शिवतराय च<br/>
+        नमस्तीक्ष्णेषवे चायुधिने च।<br/>
+        नमः स्वायुधाय च सुधन्वने च<br/>
+        नमः स्रुत्याय च पथ्याय च॥
+      </p>
+      <p class="shloka-transliteration">
+        Namaḥ śivāya ca śivatarāya ca<br/>
+        namastīkṣṇeṣave cāyudhine ca।<br/>
+        Namaḥ svāyudhāya ca sudhanvane ca<br/>
+        namaḥ srutyāya ca pathyāya ca॥
+      </p>
+      <div class="shloka-divider"></div>
+      <p class="shloka-meaning">
+        Salutations to Shiva and to the ever-more-auspicious. Salutations to the one with sharp arrows, the one bearing weapons. Salutations to the self-armed, the one with a great bow. Salutations to the one who is the path itself.
+      </p>
+      <p class="shloka-source">— Shri Rudram, Krishna Yajurveda</p>
+    </div>
+
+    <!-- SECTION: RAM (inline within grid via full-width heading trick) -->
+
+    <!-- RAM 1 -->
+    <div class="shloka-card" data-tag="ram">
+      <span class="card-number">#06</span>
+      <span class="card-tag ram">Shri Ram</span>
+      <p class="shloka-sanskrit">
+        रामो राजमणिः सदा विजयते<br/>
+        रामं रमेशं भजे।<br/>
+        रामेणाभिहता निशाचरचमू<br/>
+        रामाय तस्मै नमः॥<br/>
+        रामान्नास्ति परायणं परतरं<br/>
+        रामस्य दासोऽस्म्यहम्।<br/>
+        रामे चित्तलयः सदा भवतु मे<br/>
+        भो राम मामुद्धर॥
+      </p>
+      <p class="shloka-transliteration">
+        Rāmo rājamaṇiḥ sadā vijayate<br/>
+        rāmaṃ rameśaṃ bhaje।
+      </p>
+      <div class="shloka-divider"></div>
+      <p class="shloka-meaning">
+        Rama, the crest jewel of kings, always triumphs. I worship Rama, the lord of all bliss. By Rama, the armies of demons were destroyed. Salutations to that Rama. There is no higher refuge than Rama. I am his servant. May my mind forever merge in Rama. O Rama, please uplift me.
+      </p>
+      <p class="shloka-source">— Ramashtagam, Shankaracharya</p>
+    </div>
+
+    <!-- RAM 2 -->
+    <div class="shloka-card" data-tag="ram">
+      <span class="card-number">#07</span>
+      <span class="card-tag ram">Shri Ram</span>
+      <p class="shloka-sanskrit">
+        श्रीरामचन्द्र कृपालु भजु मन<br/>
+        हरण भवभय दारुणम्।<br/>
+        नव कञ्ज लोचन कञ्ज मुख<br/>
+        कर कञ्ज पद कञ्जारुणम्॥
+      </p>
+      <p class="shloka-transliteration">
+        Śrī rāmacandra kṛpālu bhaju mana<br/>
+        haraṇa bhavabhaya dāruṇam।<br/>
+        Nava kañja locana kañja mukha<br/>
+        kara kañja pada kañjāruṇam॥
+      </p>
+      <div class="shloka-divider"></div>
+      <p class="shloka-meaning">
+        O mind, worship Shri Ramachandra who is merciful, who removes the terrible fear of worldly existence. His eyes are like fresh lotuses, his face like a lotus, his hands like lotus flowers, and his feet are reddish like lotuses.
+      </p>
+      <p class="shloka-source">— Ram Stuti, Goswami Tulsidas</p>
+    </div>
+
+    <!-- RAM 3 -->
+    <div class="shloka-card" data-tag="ram">
+      <span class="card-number">#08</span>
+      <span class="card-tag ram">Shri Ram</span>
+      <p class="shloka-sanskrit">
+        आपदामपहर्तारं दातारं सर्वसम्पदाम्।<br/>
+        लोकाभिरामं श्रीरामं भूयो भूयो नमाम्यहम्॥
+      </p>
+      <p class="shloka-transliteration">
+        Āpadāmapahartāraṃ dātāraṃ sarvasampadām।<br/>
+        Lokābhirāmaṃ śrīrāmaṃ bhūyo bhūyo namāmyaham॥
+      </p>
+      <div class="shloka-divider"></div>
+      <p class="shloka-meaning">
+        I again and again bow to Shri Rama — the remover of all calamities, the bestower of all prosperity, and the one who is pleasing and delightful to all the worlds.
+      </p>
+      <p class="shloka-source">— Valmiki Ramayana</p>
+    </div>
+
+    <!-- RAM 4 -->
+    <div class="shloka-card" data-tag="ram">
+      <span class="card-number">#09</span>
+      <span class="card-tag ram">Shri Ram</span>
+      <p class="shloka-sanskrit">
+        रामाय रामभद्राय रामचन्द्राय वेधसे।<br/>
+        रघुनाथाय नाथाय सीतायाः पतये नमः॥
+      </p>
+      <p class="shloka-transliteration">
+        Rāmāya rāmabhadrāya rāmacandrāya vedhase।<br/>
+        Raghunāthāya nāthāya sītāyāḥ pataye namaḥ॥
+      </p>
+      <div class="shloka-divider"></div>
+      <p class="shloka-meaning">
+        Salutations to Rama — the auspicious Rama, the moon-like Rama, the creator, the lord of the Raghu dynasty, the master of all, and the lord of Sita.
+      </p>
+      <p class="shloka-source">— Ram Namavali</p>
+    </div>
+
+    <!-- KSHATRIYA 1 -->
+    <div class="shloka-card" data-tag="kshatriya">
+      <span class="card-number">#10</span>
+      <span class="card-tag kshatriya">Kshatriya</span>
+      <p class="shloka-sanskrit">
+        क्षत्रियस्य परो धर्मः<br/>
+        प्रजापालनमुच्यते।<br/>
+        प्राणैरपि समं युद्धे<br/>
+        रक्षणं धर्मसेतुना॥
+      </p>
+      <p class="shloka-transliteration">
+        Kṣatriyasya paro dharmaḥ<br/>
+        prajāpālanamucyate।<br/>
+        Prāṇairapi samaṃ yuddhe<br/>
+        rakṣaṇaṃ dharmasetunā॥
+      </p>
+      <div class="shloka-divider"></div>
+      <p class="shloka-meaning">
+        The supreme duty of a Kshatriya is the protection of his people. Even at the cost of his life on the battlefield, he is duty-bound to protect by the bridge of dharma.
+      </p>
+      <p class="shloka-source">— Mahabharata, Shanti Parva</p>
+    </div>
+
+    <!-- KSHATRIYA 2 -->
+    <div class="shloka-card" data-tag="kshatriya">
+      <span class="card-number">#11</span>
+      <span class="card-tag kshatriya">Kshatriya</span>
+      <p class="shloka-sanskrit">
+        वीरभोग्या वसुन्धरा।
+      </p>
+      <p class="shloka-transliteration">
+        Vīrabhogya vasundharā।
+      </p>
+      <div class="shloka-divider"></div>
+      <p class="shloka-meaning">
+        This earth belongs to the brave. The world is enjoyed only by those who possess valor. Only the courageous inherit the earth — not the timid.
+      </p>
+      <p class="shloka-source">— Ancient Kshatriya Maxim</p>
+    </div>
+
+    <!-- KSHATRIYA 3 -->
+    <div class="shloka-card" data-tag="kshatriya">
+      <span class="card-number">#12</span>
+      <span class="card-tag kshatriya">Kshatriya</span>
+      <p class="shloka-sanskrit">
+        शूरस्य लक्षणं किं स्यात्<br/>
+        सङ्ग्रामेष्वनिवर्तनम्।<br/>
+        प्राणानपि परित्यज्य<br/>
+        रणाद् भीरुर्न निर्गमेत्॥
+      </p>
+      <p class="shloka-transliteration">
+        Śūrasya lakṣaṇaṃ kiṃ syāt<br/>
+        saṅgrāmeṣvanirvartanam।<br/>
+        Prāṇānapiparityajya<br/>
+        raṇād bhīrurna nirgamet॥
+      </p>
+      <div class="shloka-divider"></div>
+      <p class="shloka-meaning">
+        What is the mark of a true warrior? Never turning back from battle. Even at the cost of his life, a brave man does not flee from the battlefield.
+      </p>
+      <p class="shloka-source">— Mahabharata, Udyoga Parva</p>
+    </div>
+
+    <!-- KSHATRIYA 4 -->
+    <div class="shloka-card" data-tag="kshatriya">
+      <span class="card-number">#13</span>
+      <span class="card-tag kshatriya">Kshatriya</span>
+      <p class="shloka-sanskrit">
+        मरणं प्रकृतिः शरीरिणां<br/>
+        विकृतिर्जीवितमुच्यते बुधैः।<br/>
+        क्षणमप्यवतिष्ठते श्वसन्<br/>
+        यदि जन्तुर्न वृथा स जीवति॥
+      </p>
+      <p class="shloka-transliteration">
+        Maraṇaṃ prakṛtiḥ śarīriṇāṃ<br/>
+        vikṛtirjīvitamucyate budhaiḥ।<br/>
+        Kṣaṇamapyavatiṣṭhate śvasan<br/>
+        yadi janturna vṛthā sa jīvati॥
+      </p>
+      <div class="shloka-divider"></div>
+      <p class="shloka-meaning">
+        Death is natural for those with bodies; the wise call continued living a deviation. Even if a being breathes for a single moment without purpose, that life is not in vain — but only if used for dharma.
+      </p>
+      <p class="shloka-source">— Kiratarjuniya, Bharavi</p>
+    </div>
+
+    <!-- WAR CRY 1 -->
+    <div class="shloka-card" data-tag="war-cry">
+      <span class="card-number">#14</span>
+      <span class="card-tag war-cry">War Cry</span>
+      <p class="shloka-sanskrit">
+        हर हर महादेव।<br/>
+        जय माँ भवानी।<br/>
+        जय माँ काली।
+      </p>
+      <p class="shloka-transliteration">
+        Hara Hara Mahādeva।<br/>
+        Jaya Māṃ Bhavānī।<br/>
+        Jaya Māṃ Kālī।
+      </p>
+      <div class="shloka-divider"></div>
+      <p class="shloka-meaning">
+        "Hara Hara Mahadeva" — the thunder-cry of Shiva's warriors, meaning "O destroyer, O great God." "Jai Maa Bhavani" — victory to the Mother Goddess, the supreme Shakti who empowers all warriors. "Jai Maa Kali" — victory to the dark divine mother, slayer of all evil.
+      </p>
+      <p class="shloka-source">— Traditional Hindu Battle Invocations</p>
+    </div>
+
+    <!-- WAR CRY 2 -->
+    <div class="shloka-card" data-tag="war-cry">
+      <span class="card-number">#15</span>
+      <span class="card-tag war-cry">War Cry</span>
+      <p class="shloka-sanskrit">
+        सत्यमेव जयते नानृतं<br/>
+        सत्येन पन्था विततो देवयानः।
+      </p>
+      <p class="shloka-transliteration">
+        Satyameva jayate nānṛtaṃ<br/>
+        satyena panthā vitato devayānaḥ।
+      </p>
+      <div class="shloka-divider"></div>
+      <p class="shloka-meaning">
+        Truth alone triumphs, not falsehood. By truth the divine path is spread out — the path by which the sages, their desires fulfilled, ascend to where Truth resides supreme.
+      </p>
+      <p class="shloka-source">— Mundaka Upanishad 3.1.6</p>
+    </div>
+
+    <!-- WAR CRY 3 -->
+    <div class="shloka-card" data-tag="war-cry">
+      <span class="card-number">#16</span>
+      <span class="card-tag war-cry">War Cry</span>
+      <p class="shloka-sanskrit">
+        तेजस्वि नावधीतमस्तु।<br/>
+        मा विद्विषावहै।
+      </p>
+      <p class="shloka-transliteration">
+        Tejasvī nāvadhītamastu।<br/>
+        Mā vidviṣāvahai।
+      </p>
+      <div class="shloka-divider"></div>
+      <p class="shloka-meaning">
+        May our study be filled with brilliance and power. May we never hate each other. Let the knowledge we gain become a blazing sword — sharp, pure, and indestructible.
+      </p>
+      <p class="shloka-source">— Taittiriya Upanishad</p>
+    </div>
+
+    <!-- KRISHNA 1 -->
+    <div class="shloka-card" data-tag="krishna">
+      <span class="card-number">#17</span>
+      <span class="card-tag krishna">Shri Krishna</span>
+      <p class="shloka-sanskrit">
+        हतो वा प्राप्स्यसि स्वर्गं<br/>
+        जित्वा वा भोक्ष्यसे महीम्।<br/>
+        तस्मादुत्तिष्ठ कौन्तेय<br/>
+        युद्धाय कृतनिश्चयः॥
+      </p>
+      <p class="shloka-transliteration">
+        Hato vā prāpsyasi svargaṃ<br/>
+        jitvā vā bhokṣyase mahīm।<br/>
+        Tasmāduttiṣṭha kaunteya<br/>
+        yuddhāya kṛtaniścayaḥ॥
+      </p>
+      <div class="shloka-divider"></div>
+      <p class="shloka-meaning">
+        If you are slain in battle, you shall attain heaven. If you are victorious, you shall enjoy the earth. Therefore, arise, O son of Kunti, and fight with firm resolve!
+      </p>
+      <p class="shloka-source">— Bhagavad Gita 2.37</p>
+    </div>
+
+    <!-- KRISHNA 2 -->
+    <div class="shloka-card" data-tag="krishna">
+      <span class="card-number">#18</span>
+      <span class="card-tag krishna">Shri Krishna</span>
+      <p class="shloka-sanskrit">
+        नैनं छिन्दन्ति शस्त्राणि<br/>
+        नैनं दहति पावकः।<br/>
+        न चैनं क्लेदयन्त्यापो<br/>
+        न शोषयति मारुतः॥
+      </p>
+      <p class="shloka-transliteration">
+        Nainaṃ chindanti śastrāṇi<br/>
+        nainaṃ dahati pāvakaḥ।<br/>
+        Na cainaṃ kledayantyāpo<br/>
+        na śoṣayati mārutaḥ॥
+      </p>
+      <div class="shloka-divider"></div>
+      <p class="shloka-meaning">
+        Weapons cannot cut this soul, fire cannot burn it, water cannot wet it, and wind cannot dry it. The soul is eternal, indestructible — this is the knowledge of the true warrior.
+      </p>
+      <p class="shloka-source">— Bhagavad Gita 2.23</p>
+    </div>
+
+    <!-- KRISHNA 3 -->
+    <div class="shloka-card" data-tag="krishna">
+      <span class="card-number">#19</span>
+      <span class="card-tag krishna">Shri Krishna</span>
+      <p class="shloka-sanskrit">
+        स्वधर्ममपि चावेक्ष्य<br/>
+        न विकम्पितुमर्हसि।<br/>
+        धर्म्याद्धि युद्धाच्छ्रेयोऽन्यत्<br/>
+        क्षत्रियस्य न विद्यते॥
+      </p>
+      <p class="shloka-transliteration">
+        Svadharmamapi cāvekṣya<br/>
+        na vikampitumarhasi।<br/>
+        Dharmyāddhi yuddhācchreyo'nyat<br/>
+        kṣatriyasya na vidyate॥
+      </p>
+      <div class="shloka-divider"></div>
+      <p class="shloka-meaning">
+        Considering your own dharma, you should not waver. For a Kshatriya, there is nothing greater than a righteous war. It is his supreme duty and highest honor.
+      </p>
+      <p class="shloka-source">— Bhagavad Gita 2.31</p>
+    </div>
+
+    <!-- KRISHNA 4 -->
+    <div class="shloka-card" data-tag="krishna">
+      <span class="card-number">#20</span>
+      <span class="card-tag krishna">Shri Krishna</span>
+      <p class="shloka-sanskrit">
+        यदा यदा हि धर्मस्य<br/>
+        ग्लानिर्भवति भारत।<br/>
+        अभ्युत्थानमधर्मस्य<br/>
+        तदात्मानं सृजाम्यहम्॥
+      </p>
+      <p class="shloka-transliteration">
+        Yadā yadā hi dharmasya<br/>
+        glānirbhavati bhārata।<br/>
+        Abhyutthānamadharmasya<br/>
+        tadātmānaṃ sṛjāmyaham॥
+      </p>
+      <div class="shloka-divider"></div>
+      <p class="shloka-meaning">
+        Whenever righteousness declines and unrighteousness rises, O Bharata — at that time, I manifest myself. This is the eternal vow of the cosmic warrior, the lord of all dharma.
+      </p>
+      <p class="shloka-source">— Bhagavad Gita 4.7</p>
+    </div>
+
+
+    <!-- MAHADEV EXTRA 1 -->
+    <div class="shloka-card" data-tag="mahadev">
+      <span class="card-number">#21</span>
+      <span class="card-tag mahadev">Mahadev</span>
+      <p class="shloka-sanskrit">
+        आशुतोषाय शान्ताय देवराजाय धीमते।<br/>
+        भक्तानुग्रहकर्त्रे च नमः शंकरमूर्तये॥
+      </p>
+      <p class="shloka-transliteration">
+        Āśutoṣāya śāntāya devarājāya dhīmate।<br/>
+        Bhaktānugrahakartre ca namaḥ śaṃkaramūrtaye॥
+      </p>
+      <div class="shloka-divider"></div>
+      <p class="shloka-meaning">
+        Salutations to Shankara — the one easily pleased, the peaceful, the king of gods, the supremely wise. He who grants grace to his devotees, I bow to that divine form.
+      </p>
+      <p class="shloka-source">— Shiva Stotram</p>
+    </div>
+
+    <!-- MAHADEV EXTRA 2 -->
+    <div class="shloka-card" data-tag="mahadev">
+      <span class="card-number">#22</span>
+      <span class="card-tag mahadev">Mahadev</span>
+      <p class="shloka-sanskrit">
+        वन्दे शम्भुमुमापतिं सुरगुरुं<br/>
+        वन्दे जगत्कारणम्।<br/>
+        वन्दे पन्नगभूषणं मृगधरं<br/>
+        वन्दे पशूनां पतिम्॥<br/>
+        वन्दे सूर्यशशाङ्कवह्निनयनं<br/>
+        वन्दे मुकुन्दप्रियम्।<br/>
+        वन्दे भक्तजनाश्रयं च वरदं<br/>
+        वन्दे शिवं शंकरम्॥
+      </p>
+      <p class="shloka-transliteration">
+        Vande śambhumumāpatiṃ suraguruṃ<br/>
+        vande jagatkāraṇam।
+      </p>
+      <div class="shloka-divider"></div>
+      <p class="shloka-meaning">
+        I praise Shambhu, the lord of Uma, the guru of gods, the cause of the universe. I praise the one adorned with serpents, holding a deer, the lord of all beings. I praise the one whose eyes are the sun, moon and fire, beloved of Mukunda. I praise the refuge of devotees, the granter of boons — Shiva, Shankara.
+      </p>
+      <p class="shloka-source">— Shiva Vandana</p>
+    </div>
+
+    <!-- RAM EXTRA 1 -->
+    <div class="shloka-card" data-tag="ram">
+      <span class="card-number">#23</span>
+      <span class="card-tag ram">Shri Ram</span>
+      <p class="shloka-sanskrit">
+        मनोजवं मारुततुल्यवेगं<br/>
+        जितेन्द्रियं बुद्धिमतां वरिष्ठम्।<br/>
+        वातात्मजं वानरयूथमुख्यं<br/>
+        श्रीरामदूतं शरणं प्रपद्ये॥
+      </p>
+      <p class="shloka-transliteration">
+        Manojavaṃ mārutatulyavegaṃ<br/>
+        jitendriyaṃ buddhimatāṃ variṣṭham।<br/>
+        Vātātmajaṃ vānarayūthamukhyaṃ<br/>
+        śrīrāmadūtaṃ śaraṇaṃ prapadye॥
+      </p>
+      <div class="shloka-divider"></div>
+      <p class="shloka-meaning">
+        I take refuge in Sri Ram's messenger — swift as thought, fast as the wind, master of the senses, greatest among the wise, son of the wind god, chief of the monkey army. He is Hanuman, the eternal devotee of Rama.
+      </p>
+      <p class="shloka-source">— Hanuman Stuti</p>
+    </div>
+
+    <!-- RAM EXTRA 2 -->
+    <div class="shloka-card" data-tag="ram">
+      <span class="card-number">#24</span>
+      <span class="card-tag ram">Shri Ram</span>
+      <p class="shloka-sanskrit">
+        श्रीराम राम रामेति रमे रामे मनोरमे।<br/>
+        सहस्रनाम तत्तुल्यं रामनाम वरानने॥
+      </p>
+      <p class="shloka-transliteration">
+        Śrīrāma rāma rāmeti rame rāme manorame।<br/>
+        Sahasranāma tattulyaṃ rāmanāma varānane॥
+      </p>
+      <div class="shloka-divider"></div>
+      <p class="shloka-meaning">
+        "Rama, Rama, Rama" — I delight in Rama, the one who is delightful to the mind. The name of Rama alone equals a thousand names of Vishnu. Such is the supreme power of Ram Naam.
+      </p>
+      <p class="shloka-source">— Shiva to Parvati, Padma Purana</p>
+    </div>
+
+    <!-- KSHATRIYA EXTRA 1 -->
+    <div class="shloka-card" data-tag="kshatriya">
+      <span class="card-number">#25</span>
+      <span class="card-tag kshatriya">Kshatriya</span>
+      <p class="shloka-sanskrit">
+        यो ध्रुवाणि परित्यज्य<br/>
+        अध्रुवाणि निषेवते।<br/>
+        ध्रुवाणि तस्य नश्यन्ति<br/>
+        अध्रुवं नष्टमेव च॥
+      </p>
+      <p class="shloka-transliteration">
+        Yo dhruvāṇi parityajya<br/>
+        adhruvāṇi niṣevate।<br/>
+        Dhruvāṇi tasya naśyanti<br/>
+        adhruvam naṣṭameva ca॥
+      </p>
+      <div class="shloka-divider"></div>
+      <p class="shloka-meaning">
+        One who abandons the permanent and chases the impermanent loses both — the certain is destroyed, and the uncertain was already lost. A true warrior never abandons dharma for momentary gain.
+      </p>
+      <p class="shloka-source">— Hitopadesa</p>
+    </div>
+
+    <!-- KSHATRIYA EXTRA 2 -->
+    <div class="shloka-card" data-tag="kshatriya">
+      <span class="card-number">#26</span>
+      <span class="card-tag kshatriya">Kshatriya</span>
+      <p class="shloka-sanskrit">
+        उत्तिष्ठत जाग्रत<br/>
+        प्राप्य वरान्निबोधत।<br/>
+        क्षुरस्य धारा निशिता दुरत्यया<br/>
+        दुर्गं पथस्तत्कवयो वदन्ति॥
+      </p>
+      <p class="shloka-transliteration">
+        Uttiṣṭhata jāgrata<br/>
+        prāpya varānnibodhata।<br/>
+        Kṣurasya dhārā niśitā duratyayā<br/>
+        durgaṃ pathastat kavayo vadanti॥
+      </p>
+      <div class="shloka-divider"></div>
+      <p class="shloka-meaning">
+        Arise! Awake! Having reached the great ones, learn from them. The path of dharma is sharp as a razor's edge — hard to traverse. So the wise have always declared. Let no warrior sleep when duty calls.
+      </p>
+      <p class="shloka-source">— Katha Upanishad 1.3.14</p>
+    </div>
+
+    <!-- WAR CRY EXTRA 1 -->
+    <div class="shloka-card" data-tag="war-cry">
+      <span class="card-number">#27</span>
+      <span class="card-tag war-cry">War Cry</span>
+      <p class="shloka-sanskrit">
+        जयतु जयतु हिन्दुराष्ट्रं।<br/>
+        जयतु जयतु सनातनम्।<br/>
+        नमो नमः श्री महाकाल।<br/>
+        जय भवानी जय शिवाजी॥
+      </p>
+      <p class="shloka-transliteration">
+        Jayatu jayatu hindurāṣṭram।<br/>
+        Jayatu jayatu sanātanam।<br/>
+        Namo namaḥ śrī mahākāla।<br/>
+        Jaya bhavānī jaya śivājī॥
+      </p>
+      <div class="shloka-divider"></div>
+      <p class="shloka-meaning">
+        Victory to the eternal nation, victory to Sanatana Dharma! Salutations to Mahakala — the great conqueror of time. Victory to Bhavani, victory to Shivaji — the immortal battle cry of the Maratha warriors before every campaign.
+      </p>
+      <p class="shloka-source">— Maratha War Invocation</p>
+    </div>
+
+    <!-- KRISHNA 5 -->
+    <div class="shloka-card" data-tag="krishna">
+      <span class="card-number">#28</span>
+      <span class="card-tag krishna">Shri Krishna</span>
+      <p class="shloka-sanskrit">
+        सुखदुःखे समे कृत्वा<br/>
+        लाभालाभौ जयाजयौ।<br/>
+        ततो युद्धाय युज्यस्व<br/>
+        नैवं पापमवाप्स्यसि॥
+      </p>
+      <p class="shloka-transliteration">
+        Sukhaduḥkhe same kṛtvā<br/>
+        lābhālābhau jayājayau।<br/>
+        Tato yuddhāya yujyasva<br/>
+        naivaṃ pāpamavāpsyasi॥
+      </p>
+      <div class="shloka-divider"></div>
+      <p class="shloka-meaning">
+        Treat pleasure and pain, gain and loss, victory and defeat as equal — then enter the battle. In this way you shall not incur sin. This is the warrior's equation, the secret of fearless action.
+      </p>
+      <p class="shloka-source">— Bhagavad Gita 2.38</p>
+    </div>
+
+    <!-- KRISHNA 6 -->
+    <div class="shloka-card" data-tag="krishna">
+      <span class="card-number">#29</span>
+      <span class="card-tag krishna">Shri Krishna</span>
+      <span class="card-tag gita">Bhagavad Gita</span>
+      <p class="shloka-sanskrit">
+        क्लैब्यं मा स्म गमः पार्थ<br/>
+        नैतत्त्वय्युपपद्यते।<br/>
+        क्षुद्रं हृदयदौर्बल्यं<br/>
+        त्यक्त्वोत्तिष्ठ परन्तप॥
+      </p>
+      <p class="shloka-transliteration">
+        Klaibyaṃ mā sma gamaḥ pārtha<br/>
+        naitattvayyupapadyate।<br/>
+        Kṣudraṃ hṛdayadaurbalyaṃ<br/>
+        tyaktvottiṣṭha parantapa॥
+      </p>
+      <div class="shloka-divider"></div>
+      <p class="shloka-meaning">
+        Do not yield to cowardice, O Partha — it does not befit you. Shake off this faint-heartedness and arise, O scorcher of enemies! These are perhaps the most powerful words ever spoken to a warrior.
+      </p>
+      <p class="shloka-source">— Bhagavad Gita 2.3</p>
+    </div>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- DEVI DURGA SECTION                      -->
+    <!-- ═══════════════════════════════════════ -->
+
+    <!-- DURGA 1 -->
+    <div class="shloka-card" data-tag="durga">
+      <span class="card-number">#30</span>
+      <span class="card-tag durga">Devi Durga</span>
+      <p class="shloka-sanskrit">
+        या देवी सर्वभूतेषु शक्तिरूपेण संस्थिता।<br/>
+        नमस्तस्यै नमस्तस्यै नमस्तस्यै नमो नमः॥
+      </p>
+      <p class="shloka-transliteration">
+        Yā devī sarvabhūteṣu śaktirūpeṇa saṃsthitā।<br/>
+        Namastasyai namastasyai namastasyai namo namaḥ॥
+      </p>
+      <div class="shloka-divider"></div>
+      <p class="shloka-meaning">
+        To that goddess who abides in all beings in the form of power — salutations, salutations, salutations again and again. She is the primal Shakti — the force that moves all creation, the invincible energy behind every atom.
+      </p>
+      <p class="shloka-source">— Devi Mahatmya (Durga Saptashati) 5.12</p>
+    </div>
+
+    <!-- DURGA 2 -->
+    <div class="shloka-card" data-tag="durga">
+      <span class="card-number">#31</span>
+      <span class="card-tag durga">Devi Durga</span>
+      <p class="shloka-sanskrit">
+        सर्वमङ्गलमाङ्गल्ये शिवे सर्वार्थसाधिके।<br/>
+        शरण्ये त्र्यम्बके गौरि नारायणि नमोऽस्तु ते॥
+      </p>
+      <p class="shloka-transliteration">
+        Sarvamaṅgalamāṅgalye śive sarvārthasādhike।<br/>
+        Śaraṇye tryambake gauri nārāyaṇi namo'stu te॥
+      </p>
+      <div class="shloka-divider"></div>
+      <p class="shloka-meaning">
+        O Narayani — the most auspicious of all auspicious things, the Shiva herself, the fulfiller of all desires, the refuge of all, the three-eyed Gauri — salutations unto you. She who is both the destroyer of evil and the mother of all grace.
+      </p>
+      <p class="shloka-source">— Devi Mahatmya 11.10</p>
+    </div>
+
+    <!-- DURGA 3 -->
+    <div class="shloka-card" data-tag="durga">
+      <span class="card-number">#32</span>
+      <span class="card-tag durga">Devi Durga</span>
+      <p class="shloka-sanskrit">
+        जयन्ती मङ्गला काली भद्रकाली कपालिनी।<br/>
+        दुर्गा क्षमा शिवा धात्री स्वाहा स्वधा नमोऽस्तु ते॥
+      </p>
+      <p class="shloka-transliteration">
+        Jayantī maṅgalā kālī bhadrakālī kapālinī।<br/>
+        Durgā kṣamā śivā dhātrī svāhā svadhā namo'stu te॥
+      </p>
+      <div class="shloka-divider"></div>
+      <p class="shloka-meaning">
+        Salutations to you — Jayanti (the victorious), Mangala (the auspicious), Kali (the dark destroyer), Bhadrakali (the benign darkness), Kapalini (the skull-bearer), Durga (the unassailable), Kshama (the forgiving), Shiva (the eternal auspicious), Dhatri (the sustainer), Swaha and Swadha. You are all names, all forms — one Supreme Mother.
+      </p>
+      <p class="shloka-source">— Devi Mahatmya 11.8</p>
+    </div>
+
+    <!-- DURGA 4 -->
+    <div class="shloka-card" data-tag="durga">
+      <span class="card-number">#33</span>
+      <span class="card-tag durga">Devi Durga</span>
+      <p class="shloka-sanskrit">
+        शूलेन पाहि नो देवि पाहि खड्गेन चाम्बिके।<br/>
+        घण्टास्वनेन नः पाहि चापज्यानिःस्वनेन च॥
+      </p>
+      <p class="shloka-transliteration">
+        Śūlena pāhi no devi pāhi khaḍgena cāmbike।<br/>
+        Ghaṇṭāsvanena naḥ pāhi cāpajyāniḥsvanena ca॥
+      </p>
+      <div class="shloka-divider"></div>
+      <p class="shloka-meaning">
+        O Devi, protect us with your trident. O Ambika, protect us with your sword. Protect us with the sound of your bell, and with the twang of your bowstring. She who is armed with every weapon is the ultimate protector of all warriors.
+      </p>
+      <p class="shloka-source">— Devi Mahatmya 4.23</p>
+    </div>
+
+    <!-- DURGA 5 -->
+    <div class="shloka-card" data-tag="durga">
+      <span class="card-number">#34</span>
+      <span class="card-tag durga">Devi Durga</span>
+      <p class="shloka-sanskrit">
+        विद्युद्दामसमप्रभां मृगपतिस्कन्धस्थितां भीषणाम्।<br/>
+        कन्याभिः करवालखेटविलसद्धस्ताभिरासेविताम्।<br/>
+        हस्तैश्चक्रगदासिखेटविशिखांश्चापं गुणं तर्जनीं<br/>
+        बिभ्राणामनलात्मिकां शशिधरां दुर्गां त्रिनेत्रां भजे॥
+      </p>
+      <p class="shloka-transliteration">
+        Vidyuddāmasamaprabhāṃ mṛgapatiSkandhasthitāṃ bhīṣaṇām।
+      </p>
+      <div class="shloka-divider"></div>
+      <p class="shloka-meaning">
+        I worship Durga — blazing like lightning, seated upon the lion, terrifying in form, attended by maidens wielding swords and shields. Her hands hold the discus, mace, sword, shield, arrow, bow and the gesture of warning. She is the embodiment of fire, bearing the crescent moon, the three-eyed supreme goddess.
+      </p>
+      <p class="shloka-source">— Durga Dhyana Shloka</p>
+    </div>
+
+    <!-- DURGA 6 -->
+    <div class="shloka-card" data-tag="durga">
+      <span class="card-number">#35</span>
+      <span class="card-tag durga">Devi Durga</span>
+      <p class="shloka-sanskrit">
+        ॐ जयन्ती मङ्गला काली<br/>
+        नित्या सत्या च शांकरी।<br/>
+        आदिशक्ति महामाया<br/>
+        भगवति नमोऽस्तु ते॥
+      </p>
+      <p class="shloka-transliteration">
+        Om jayantī maṅgalā kālī<br/>
+        nityā satyā ca śāṃkarī।<br/>
+        Ādiśakti mahāmāyā<br/>
+        bhagavati namo'stu te॥
+      </p>
+      <div class="shloka-divider"></div>
+      <p class="shloka-meaning">
+        OM — O Goddess, you are the victorious, the auspicious, the dark destroyer of time. You are eternal, you are truth itself, you are of Shankara. O Adi Shakti — the primordial power, the great illusion, the supreme divine — I bow to you.
+      </p>
+      <p class="shloka-source">— Shakti Vandana</p>
+    </div>
+
+    <!-- DURGA 7 -->
+    <div class="shloka-card" data-tag="durga">
+      <span class="card-number">#36</span>
+      <span class="card-tag durga">Devi Durga</span>
+      <p class="shloka-sanskrit">
+        या देवी सर्वभूतेषु माँ दुर्गारूपेण संस्थिता।<br/>
+        नमस्तस्यै नमस्तस्यै नमस्तस्यै नमो नमः॥<br/>
+        या देवी सर्वभूतेषु बुद्धिरूपेण संस्थिता।<br/>
+        नमस्तस्यै नमस्तस्यै नमस्तस्यै नमो नमः॥
+      </p>
+      <p class="shloka-transliteration">
+        Yā devī sarvabhūteṣu mām durgārūpeṇa saṃsthitā।<br/>
+        Namastasyai namastasyai namastasyai namo namaḥ॥
+      </p>
+      <div class="shloka-divider"></div>
+      <p class="shloka-meaning">
+        To that goddess who dwells in all beings in the form of Durga — salutations again and again. To that goddess who dwells in all beings in the form of intelligence — salutations again and again. She is not merely a deity — she is the very intelligence, courage, and shakti within every living being.
+      </p>
+      <p class="shloka-source">— Devi Mahatmya, Aparajita Stuti</p>
+    </div>
+
+  </div><!-- /shloka-grid -->
+
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-om">ॐ</span>
+  <p>॥ धर्मो रक्षति रक्षितः ॥</p>
+  <p style="margin-top:8px; font-size:11px; opacity:0.5;">Dharma protects those who protect it</p>
+</footer>
+
+<script>
+  // ── FIRE PARTICLE SYSTEM ──
+  const canvas = document.getElementById('fire-canvas');
+  const ctx = canvas.getContext('2d');
+  let W, H, particles = [];
+
+  function resize() {
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  class Particle {
+    constructor() { this.reset(); }
+    reset() {
+      this.x = Math.random() * W;
+      this.y = H + 10;
+      this.vy = -(0.4 + Math.random() * 1.2);
+      this.vx = (Math.random() - 0.5) * 0.5;
+      this.life = 0;
+      this.maxLife = 80 + Math.random() * 120;
+      this.size = 1 + Math.random() * 3;
+    }
+    update() {
+      this.x += this.vx;
+      this.y += this.vy;
+      this.life++;
+      if (this.life > this.maxLife) this.reset();
+    }
+    draw() {
+      const t = this.life / this.maxLife;
+      const alpha = Math.sin(t * Math.PI) * 0.6;
+      const r = Math.floor(255);
+      const g = Math.floor(80 + 120 * (1 - t));
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size * (1 - t * 0.5), 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${r},${g},0,${alpha})`;
+      ctx.fill();
+    }
+  }
+
+  for (let i = 0; i < 120; i++) {
+    const p = new Particle();
+    p.life = Math.random() * p.maxLife;
+    particles.push(p);
+  }
+
+  function loop() {
+    ctx.clearRect(0, 0, W, H);
+    particles.forEach(p => { p.update(); p.draw(); });
+    requestAnimationFrame(loop);
+  }
+  loop();
+
+  // ── FILTER ──
+  const headingMap = {
+    all:       { title: '🕉 All Shlokas',                  desc: 'The sacred verses of Dharma — Mahadev, Shri Ram, Devi Durga, Kshatriya, War Cries & Shri Krishna.' },
+    mahadev:   { title: '🔱 Mahadev — The Supreme Truth',  desc: 'He who was, is, and shall always be. The destroyer and the liberator.' },
+    ram:       { title: '🏹 Shri Ram — The Eternal King',  desc: 'The lord of Ayodhya, embodiment of dharma, the greatest among men.' },
+    durga:     { title: '🌺 Devi Durga — The Invincible Shakti', desc: 'She who is beyond all reach — the primal power, the mother of the universe.' },
+    kshatriya: { title: '⚔️ Kshatriya — The Warrior Code', desc: 'The eternal duty of the warrior — courage, sacrifice, and the protection of dharma.' },
+    'war-cry': { title: '🔥 War Cries — Yuddha Naad',     desc: 'The battle cries that shook the heavens — spoken before blades met and armies clashed.' },
+    krishna:   { title: '🪈 Shri Krishna — The Supreme Charioteer', desc: 'The words of God himself, spoken on the battlefield of Kurukshetra to Arjuna.' },
+  };
+
+  function filterCards(tag) {
+    document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+    event.target.classList.add('active');
+    document.querySelectorAll('.shloka-card').forEach(card => {
+      if (tag === 'all' || card.dataset.tag === tag) {
+        card.style.display = '';
+        setTimeout(() => card.classList.add('visible'), 50);
+      } else {
+        card.classList.remove('visible');
+        card.style.display = 'none';
+      }
+    });
+    const h = headingMap[tag] || headingMap['all'];
+    document.getElementById('section-heading').textContent = h.title;
+    document.getElementById('section-desc').textContent = h.desc;
+  }
+
+  // ── SCROLL REVEAL ──
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.shloka-card').forEach(card => observer.observe(card));
+</script>
+
+</body>
+</html>

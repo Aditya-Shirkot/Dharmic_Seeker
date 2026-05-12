@@ -1,0 +1,1694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>देवभाषा — The Eternal Language of Bharat</title>
+<link href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Tiro+Devanagari+Sanskrit:ital@0;1&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ivory: #F5F0E8;
+  --parchment: #E8DCC8;
+  --saffron: #E8891A;
+  --saffron-light: #F4A840;
+  --gold: #C8960C;
+  --gold-light: #E8B830;
+  --deep-brown: #2C1810;
+  --medium-brown: #5C3D2E;
+  --rust: #8B3A1C;
+  --crimson: #7B1E1E;
+  --dark-bg: #0E0906;
+  --card-bg: rgba(245,240,232,0.05);
+  --glass: rgba(232,220,200,0.08);
+  --depth-1: rgba(200,150,12,0.06);
+  --depth-2: rgba(232,137,26,0.04);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+
+body{
+  font-family:'Cormorant Garamond',serif;
+  background:var(--dark-bg);
+  color:var(--ivory);
+  overflow-x:hidden;
+  cursor:default;
+}
+
+/* NOISE + GRAIN OVERLAY */
+body::before{
+  content:'';
+  position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  opacity:0.5;
+}
+
+/* AMBIENT LIGHT LAYERS */
+body::after{
+  content:'';
+  position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 60% 40% at 15% 20%, rgba(200,150,12,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 35% at 85% 75%, rgba(123,30,30,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 30% at 50% 50%, rgba(232,137,26,0.03) 0%, transparent 70%);
+}
+
+section,nav,footer{position:relative;z-index:1;}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:var(--dark-bg);}
+::-webkit-scrollbar-thumb{background:linear-gradient(180deg,var(--saffron),var(--gold));border-radius:2px;}
+
+/* ─── NAV ─── */
+nav{
+  position:fixed;top:0;width:100%;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.1rem 4rem;
+  background:linear-gradient(180deg,rgba(14,9,6,0.97) 0%,rgba(14,9,6,0.6) 100%);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(200,150,12,0.15);
+  transition:all 0.4s;
+}
+.nav-logo{
+  font-family:'Tiro Devanagari Sanskrit',serif;
+  font-size:1.7rem;
+  color:var(--gold-light);
+  letter-spacing:2px;
+  text-shadow:0 0 30px rgba(200,150,12,0.4);
+}
+.nav-links{display:flex;gap:2.5rem;list-style:none;}
+.nav-links a{
+  font-family:'Cinzel',serif;
+  font-size:0.68rem;letter-spacing:2.5px;
+  color:rgba(232,220,200,0.6);
+  text-decoration:none;text-transform:uppercase;
+  transition:color 0.3s,text-shadow 0.3s;
+  position:relative;
+}
+.nav-links a::after{
+  content:'';position:absolute;left:0;bottom:-4px;
+  width:0;height:1px;background:var(--gold);
+  transition:width 0.3s;
+}
+.nav-links a:hover{color:var(--gold-light);text-shadow:0 0 15px rgba(200,150,12,0.4);}
+.nav-links a:hover::after{width:100%;}
+
+/* ─── HERO ─── */
+#hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;
+  padding:6rem 2rem 4rem;
+  position:relative;
+  background:
+    radial-gradient(ellipse 90% 70% at 50% 45%,rgba(200,150,12,0.1) 0%,transparent 65%),
+    radial-gradient(ellipse 60% 40% at 20% 80%,rgba(232,137,26,0.07) 0%,transparent 60%),
+    radial-gradient(ellipse 50% 30% at 80% 15%,rgba(123,30,30,0.09) 0%,transparent 60%),
+    var(--dark-bg);
+}
+
+/* SACRED PARTICLES */
+.particles{
+  position:absolute;inset:0;overflow:hidden;pointer-events:none;
+}
+.particle{
+  position:absolute;
+  width:1px;height:1px;
+  background:var(--gold);
+  border-radius:50%;
+  opacity:0;
+  animation:particleFloat var(--dur) ease-in infinite;
+  animation-delay:var(--delay);
+  left:var(--x);
+  top:var(--y);
+}
+@keyframes particleFloat{
+  0%{opacity:0;transform:translateY(0) scale(1);}
+  20%{opacity:0.8;}
+  80%{opacity:0.3;}
+  100%{opacity:0;transform:translateY(-120px) scale(0.5);}
+}
+
+/* OM SYMBOL — static sacred, subtle breathing glow */
+.hero-om{
+  font-family:'Tiro Devanagari Sanskrit',serif;
+  font-size:5rem;
+  color:var(--gold);
+  opacity:0.7;
+  margin-bottom:1.5rem;
+  display:inline-block;
+  text-shadow:0 0 40px rgba(200,150,12,0.3),0 0 80px rgba(200,150,12,0.1);
+  animation:breatheGlow 6s ease-in-out infinite;
+  transition:transform 0.1s ease-out;
+  will-change:transform;
+}
+@keyframes breatheGlow{
+  0%,100%{text-shadow:0 0 30px rgba(200,150,12,0.25),0 0 60px rgba(200,150,12,0.08);opacity:0.65;}
+  50%{text-shadow:0 0 60px rgba(200,150,12,0.5),0 0 120px rgba(200,150,12,0.2);opacity:0.85;}
+}
+
+.hero-sanskrit{
+  font-family:'Tiro Devanagari Sanskrit',serif;
+  font-size:clamp(3.5rem,9vw,8rem);
+  color:var(--gold-light);
+  line-height:1;
+  text-shadow:0 0 80px rgba(200,150,12,0.3),0 0 160px rgba(200,150,12,0.12);
+  margin-bottom:0.75rem;
+  letter-spacing:-1px;
+}
+.hero-title{
+  font-family:'Cinzel',serif;
+  font-size:clamp(0.8rem,2.5vw,1.3rem);
+  letter-spacing:5px;
+  color:var(--saffron-light);
+  text-transform:uppercase;
+  margin-bottom:1.5rem;
+  font-weight:600;
+  opacity:0.9;
+}
+.hero-sub{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.1rem,2vw,1.4rem);
+  color:var(--parchment);
+  max-width:650px;
+  line-height:1.9;
+  margin-bottom:3rem;
+  font-style:italic;
+  opacity:0.8;
+}
+
+.hero-divider{
+  display:flex;align-items:center;gap:1rem;
+  margin-bottom:3rem;opacity:0.3;
+}
+.hero-divider-line{width:80px;height:1px;background:linear-gradient(90deg,transparent,var(--gold));}
+.hero-divider-line.r{background:linear-gradient(90deg,var(--gold),transparent);}
+.hero-divider span{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:3px;color:var(--gold);}
+
+.hero-quote{
+  margin-top:3rem;
+  font-family:'Tiro Devanagari Sanskrit',serif;
+  font-size:0.95rem;
+  color:var(--gold);
+  opacity:0.45;
+  letter-spacing:1px;
+}
+
+.cta-btn{
+  display:inline-block;
+  padding:0.9rem 2.8rem;
+  background:linear-gradient(135deg,var(--saffron) 0%,var(--gold) 100%);
+  color:var(--dark-bg);
+  font-family:'Cinzel',serif;
+  font-size:0.78rem;font-weight:700;letter-spacing:3px;
+  text-transform:uppercase;
+  text-decoration:none;
+  border-radius:2px;
+  box-shadow:0 4px 40px rgba(232,137,26,0.35),inset 0 1px 0 rgba(255,255,255,0.15);
+  transition:all 0.35s cubic-bezier(0.34,1.56,0.64,1);
+  position:relative;overflow:hidden;margin:0.4rem;
+  cursor:pointer;border:none;
+}
+.cta-btn::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,0.18) 0%,transparent 55%);
+}
+.cta-btn:hover{
+  transform:translateY(-3px) scale(1.02);
+  box-shadow:0 12px 60px rgba(232,137,26,0.55);
+}
+.cta-btn.outline{
+  background:transparent;
+  color:var(--gold-light);
+  border:1px solid rgba(200,150,12,0.5);
+  box-shadow:0 0 20px rgba(200,150,12,0.15),inset 0 0 20px rgba(200,150,12,0.03);
+}
+.cta-btn.outline:hover{
+  background:rgba(200,150,12,0.08);
+  border-color:var(--gold);
+  box-shadow:0 8px 40px rgba(200,150,12,0.2);
+}
+
+/* ─── SCROLL INDICATOR ─── */
+.scroll-indicator{
+  position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:0.5rem;
+  opacity:0.35;
+  animation:scrollBob 2s ease-in-out infinite;
+}
+@keyframes scrollBob{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(6px);}}
+.scroll-indicator span{font-family:'Cinzel',serif;font-size:0.55rem;letter-spacing:3px;color:var(--gold);}
+.scroll-indicator svg{width:20px;height:20px;color:var(--gold);}
+
+/* ─── SECTION STYLES ─── */
+section{padding:7rem 2rem;}
+.section-inner{max-width:1200px;margin:0 auto;}
+
+.section-label{
+  font-family:'Cinzel',serif;
+  font-size:0.65rem;letter-spacing:5px;
+  text-transform:uppercase;
+  color:var(--saffron);
+  margin-bottom:0.75rem;
+  display:block;
+  opacity:0.8;
+}
+.section-title{
+  font-family:'Cinzel',serif;
+  font-size:clamp(1.8rem,4vw,3rem);
+  color:var(--gold-light);
+  margin-bottom:0.5rem;line-height:1.15;
+}
+.section-title-dev{
+  font-family:'Tiro Devanagari Sanskrit',serif;
+  font-size:clamp(1rem,2.5vw,1.7rem);
+  color:var(--saffron-light);
+  margin-bottom:1.5rem;opacity:0.75;
+}
+.section-desc{
+  font-size:1.1rem;
+  color:var(--parchment);
+  max-width:680px;line-height:2;
+  margin-bottom:3rem;opacity:0.8;
+}
+.gold-rule{
+  width:60px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  margin:1.5rem 0;
+}
+
+/* ─── WORD OF THE DAY ─── */
+#wotd-wrap{padding:2.5rem 2rem 0;}
+#wotd{
+  background:
+    linear-gradient(135deg,rgba(200,150,12,0.08) 0%,rgba(232,137,26,0.04) 100%);
+  border:1px solid rgba(200,150,12,0.25);
+  border-radius:6px;
+  padding:3rem 4rem;
+  text-align:center;
+  position:relative;overflow:hidden;
+  transition:border-color 0.4s;
+}
+#wotd::before{
+  content:'';position:absolute;top:-60%;left:-60%;
+  width:220%;height:220%;
+  background:radial-gradient(ellipse at center,rgba(200,150,12,0.05) 0%,transparent 55%);
+  pointer-events:none;
+}
+#wotd:hover{border-color:rgba(200,150,12,0.4);}
+.wotd-label{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:4px;color:var(--saffron);margin-bottom:1.25rem;display:block;text-transform:uppercase;opacity:0.8;}
+.wotd-word{font-family:'Tiro Devanagari Sanskrit',serif;font-size:4.5rem;color:var(--gold-light);line-height:1;margin-bottom:0.5rem;}
+.wotd-trans{font-family:'Cinzel',serif;font-size:0.9rem;color:var(--parchment);letter-spacing:3px;margin-bottom:0.75rem;opacity:0.7;}
+.wotd-meaning{font-style:italic;color:var(--saffron-light);font-size:1.1rem;max-width:500px;margin:0 auto;}
+.tag{display:inline-block;font-family:'Cinzel',serif;font-size:0.58rem;letter-spacing:2px;padding:0.2rem 0.7rem;border:1px solid rgba(200,150,12,0.2);border-radius:20px;color:var(--saffron);text-transform:uppercase;margin:0.25rem;}
+
+/* ─── ALPHABET SECTION ─── */
+.alphabet-tabs{display:flex;gap:0.75rem;margin-bottom:2.5rem;flex-wrap:wrap;}
+.tab-btn{
+  font-family:'Cinzel',serif;font-size:0.68rem;letter-spacing:2px;
+  padding:0.55rem 1.5rem;border:1px solid rgba(200,150,12,0.25);
+  background:transparent;color:rgba(232,220,200,0.55);cursor:pointer;
+  text-transform:uppercase;transition:all 0.3s;border-radius:2px;
+}
+.tab-btn.active,.tab-btn:hover{background:var(--gold);color:var(--dark-bg);border-color:var(--gold);}
+
+.alphabet-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(155px,1fr));
+  gap:1rem;
+}
+
+/* 3D ALPHA CARD */
+.alpha-card{
+  background:var(--card-bg);
+  border:1px solid rgba(200,150,12,0.18);
+  border-radius:6px;
+  padding:1.4rem 1rem 1rem;
+  text-align:center;
+  cursor:pointer;
+  transition:all 0.35s cubic-bezier(0.34,1.56,0.64,1);
+  backdrop-filter:blur(8px);
+  position:relative;overflow:hidden;
+  transform-style:preserve-3d;
+  will-change:transform;
+}
+.alpha-card::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(200,150,12,0.07) 0%,transparent 60%);
+  opacity:0;transition:opacity 0.3s;border-radius:6px;
+}
+.alpha-card::after{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(200,150,12,0.4),transparent);
+  opacity:0;transition:opacity 0.3s;
+}
+.alpha-card:hover{
+  border-color:rgba(200,150,12,0.5);
+  transform:translateY(-6px) rotateX(3deg);
+  box-shadow:0 16px 50px rgba(0,0,0,0.5),0 0 30px rgba(200,150,12,0.12),inset 0 1px 0 rgba(200,150,12,0.1);
+}
+.alpha-card:hover::before,.alpha-card:hover::after{opacity:1;}
+
+.alpha-deva{
+  font-family:'Tiro Devanagari Sanskrit',serif;
+  font-size:2.8rem;color:var(--gold-light);
+  line-height:1;margin-bottom:0.3rem;
+  transition:text-shadow 0.3s;
+}
+.alpha-card:hover .alpha-deva{text-shadow:0 0 20px rgba(200,150,12,0.5);}
+.alpha-roman{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:2px;color:var(--saffron-light);margin-bottom:0.35rem;}
+.alpha-hindi{font-family:'Tiro Devanagari Sanskrit',serif;font-size:0.9rem;color:var(--parchment);opacity:0.65;margin-bottom:0.5rem;}
+.alpha-example{font-size:0.75rem;color:rgba(245,240,232,0.4);font-style:italic;margin-top:0.6rem;border-top:1px solid rgba(200,150,12,0.1);padding-top:0.6rem;line-height:1.5;}
+
+/* PREMIUM AUDIO BUTTON */
+.audio-btn{
+  display:inline-flex;align-items:center;gap:5px;
+  font-family:'Cinzel',serif;font-size:0.58rem;letter-spacing:1.5px;
+  padding:0.28rem 0.65rem;
+  border:1px solid rgba(200,150,12,0.35);
+  background:rgba(200,150,12,0.06);
+  color:var(--saffron-light);cursor:pointer;
+  border-radius:20px;margin-top:0.5rem;
+  text-transform:uppercase;
+  transition:all 0.25s;position:relative;overflow:hidden;
+}
+.audio-btn:hover{
+  background:rgba(200,150,12,0.15);
+  border-color:var(--gold);
+  box-shadow:0 0 12px rgba(200,150,12,0.2);
+}
+.audio-btn.playing{
+  background:rgba(200,150,12,0.2);
+  border-color:var(--gold-light);
+  color:var(--gold-light);
+}
+
+/* WAVEFORM ANIMATION */
+.waveform{
+  display:none;align-items:center;gap:1.5px;height:12px;
+}
+.waveform.active{display:inline-flex;}
+.wave-bar{
+  width:2px;height:4px;
+  background:var(--gold-light);border-radius:1px;
+  animation:wave 0.8s ease-in-out infinite;
+}
+.wave-bar:nth-child(2){animation-delay:0.1s;height:8px;}
+.wave-bar:nth-child(3){animation-delay:0.2s;height:12px;}
+.wave-bar:nth-child(4){animation-delay:0.3s;height:6px;}
+.wave-bar:nth-child(5){animation-delay:0.4s;height:10px;}
+@keyframes wave{
+  0%,100%{transform:scaleY(0.4);}
+  50%{transform:scaleY(1);}
+}
+
+/* ─── NUMBERS SECTION ─── */
+#numbers{
+  background:linear-gradient(180deg,rgba(14,9,6,0.3) 0%,rgba(44,24,16,0.15) 50%,rgba(14,9,6,0.3) 100%);
+}
+
+.num-filter{
+  display:flex;gap:0.6rem;margin-bottom:2.5rem;flex-wrap:wrap;
+}
+.num-filter-btn{
+  font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:1.5px;
+  padding:0.45rem 1.1rem;border:1px solid rgba(200,150,12,0.2);
+  background:transparent;color:rgba(232,220,200,0.5);cursor:pointer;
+  text-transform:uppercase;transition:all 0.3s;border-radius:20px;
+}
+.num-filter-btn.active,.num-filter-btn:hover{
+  background:rgba(200,150,12,0.15);border-color:var(--gold);color:var(--gold-light);
+}
+
+/* NUMBERS GRID — horizontal multi-column */
+.number-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:0.9rem;
+}
+@media(max-width:1024px){.number-grid{grid-template-columns:repeat(4,1fr);}}
+@media(max-width:768px){.number-grid{grid-template-columns:repeat(3,1fr);gap:0.7rem;}}
+@media(max-width:480px){.number-grid{grid-template-columns:repeat(2,1fr);gap:0.6rem;}}
+
+/* 3D NUMBER CARD */
+.num-card{
+  background:rgba(245,240,232,0.04);
+  border:1px solid rgba(200,150,12,0.12);
+  border-radius:6px;
+  padding:1.2rem 0.8rem;
+  text-align:center;
+  transition:all 0.35s cubic-bezier(0.34,1.56,0.64,1);
+  cursor:pointer;
+  position:relative;overflow:hidden;
+  transform-style:preserve-3d;
+}
+.num-card::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 0%,rgba(200,150,12,0.08) 0%,transparent 70%);
+  opacity:0;transition:opacity 0.3s;
+}
+.num-card:hover{
+  border-color:rgba(200,150,12,0.45);
+  transform:translateY(-5px) rotateX(4deg);
+  box-shadow:0 15px 40px rgba(0,0,0,0.5),0 0 25px rgba(200,150,12,0.1);
+}
+.num-card:hover::before{opacity:1;}
+
+.num-val{
+  font-family:'Cinzel',serif;
+  font-size:1.8rem;font-weight:700;
+  color:var(--gold-light);
+  margin-bottom:0.3rem;line-height:1;
+  transition:text-shadow 0.3s;
+}
+.num-card:hover .num-val{text-shadow:0 0 20px rgba(200,150,12,0.5);}
+.num-deva{font-family:'Tiro Devanagari Sanskrit',serif;font-size:1.15rem;color:var(--saffron-light);margin-bottom:0.1rem;}
+.num-eng{font-size:0.72rem;color:var(--parchment);opacity:0.55;margin-top:0.2rem;font-family:'Cinzel',serif;letter-spacing:1px;}
+.num-audio{
+  margin-top:0.65rem;
+  display:flex;align-items:center;justify-content:center;gap:4px;
+  font-family:'Cinzel',serif;font-size:0.5rem;letter-spacing:1px;
+  padding:0.2rem 0.5rem;
+  border:1px solid rgba(200,150,12,0.2);
+  background:transparent;
+  color:var(--saffron);cursor:pointer;
+  border-radius:10px;text-transform:uppercase;
+  transition:all 0.2s;width:fit-content;margin-left:auto;margin-right:auto;
+}
+.num-audio:hover{background:rgba(200,150,12,0.1);border-color:var(--gold);}
+.num-spiritual{
+  font-size:0.6rem;color:rgba(245,240,232,0.3);
+  font-style:italic;margin-top:0.5rem;
+  border-top:1px solid rgba(200,150,12,0.08);padding-top:0.5rem;
+  line-height:1.4;display:none;
+}
+.num-card:hover .num-spiritual{display:block;}
+
+/* ─── VOCAB SECTION ─── */
+#vocab{background:linear-gradient(180deg,var(--dark-bg) 0%,rgba(44,24,16,0.2) 50%,var(--dark-bg) 100%);}
+.vocab-categories{display:flex;gap:0.6rem;margin-bottom:2.5rem;flex-wrap:wrap;}
+.vocab-cat-btn{
+  font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:2px;
+  padding:0.38rem 0.9rem;border:1px solid rgba(200,150,12,0.2);
+  background:transparent;color:rgba(232,220,200,0.5);cursor:pointer;
+  text-transform:uppercase;transition:all 0.3s;border-radius:20px;
+}
+.vocab-cat-btn.active,.vocab-cat-btn:hover{background:rgba(200,150,12,0.18);border-color:var(--gold);color:var(--gold-light);}
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.25rem;}
+.vocab-card{
+  background:rgba(245,240,232,0.03);
+  border:1px solid rgba(200,150,12,0.12);
+  border-radius:6px;padding:1.5rem;
+  transition:all 0.3s;cursor:pointer;
+}
+.vocab-card:hover{border-color:rgba(200,150,12,0.4);background:rgba(245,240,232,0.06);transform:translateY(-3px);}
+.vocab-english{font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:3px;color:var(--saffron);text-transform:uppercase;margin-bottom:0.5rem;opacity:0.8;}
+.vocab-deva{font-family:'Tiro Devanagari Sanskrit',serif;font-size:2rem;color:var(--gold-light);line-height:1.2;margin-bottom:0.2rem;}
+.vocab-roman{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;color:var(--saffron-light);margin-bottom:0.5rem;}
+.vocab-row{display:flex;gap:2rem;margin-top:0.75rem;border-top:1px solid rgba(200,150,12,0.08);padding-top:0.75rem;}
+.vocab-lang{flex:1;}
+.vocab-lang-label{font-size:0.6rem;letter-spacing:2px;color:rgba(245,240,232,0.35);text-transform:uppercase;font-family:'Cinzel',serif;margin-bottom:0.2rem;}
+.vocab-lang-word{font-family:'Tiro Devanagari Sanskrit',serif;font-size:1rem;color:var(--parchment);}
+.vocab-sentence{margin-top:0.75rem;font-size:0.85rem;color:rgba(245,240,232,0.4);font-style:italic;line-height:1.6;}
+
+/* ─── SENTENCES ─── */
+#sentences{background:radial-gradient(ellipse at 30% 50%,rgba(123,30,30,0.08) 0%,transparent 60%),var(--dark-bg);}
+.sentences-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+@media(max-width:700px){.sentences-grid{grid-template-columns:1fr;}}
+.sentence-card{
+  background:rgba(245,240,232,0.03);
+  border-left:2px solid var(--saffron);
+  padding:1.5rem 2rem;
+  border-radius:0 6px 6px 0;
+  transition:all 0.3s;
+}
+.sentence-card:hover{background:rgba(245,240,232,0.06);border-left-color:var(--gold);}
+.sent-english{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:2px;color:var(--saffron);text-transform:uppercase;margin-bottom:0.5rem;opacity:0.8;}
+.sent-sanskrit{font-family:'Tiro Devanagari Sanskrit',serif;font-size:1.5rem;color:var(--gold-light);margin-bottom:0.2rem;}
+.sent-roman{font-style:italic;color:var(--saffron-light);margin-bottom:0.4rem;font-size:0.95rem;}
+.sent-hindi{font-family:'Tiro Devanagari Sanskrit',serif;font-size:0.9rem;color:var(--parchment);opacity:0.6;}
+
+/* ─── HISTORY TIMELINE ─── */
+#history{background:linear-gradient(180deg,rgba(44,24,16,0.15) 0%,var(--dark-bg) 100%);}
+.timeline{position:relative;padding-left:2rem;}
+.timeline::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;
+  width:1px;background:linear-gradient(180deg,transparent,var(--gold) 15%,var(--gold) 85%,transparent);
+}
+.timeline-item{position:relative;margin-bottom:3rem;padding-left:2.5rem;}
+.timeline-dot{
+  position:absolute;left:-2.6rem;top:0.3rem;
+  width:14px;height:14px;border-radius:50%;
+  background:var(--dark-bg);border:2px solid var(--gold);
+  box-shadow:0 0 15px rgba(200,150,12,0.4);
+  transition:all 0.3s;
+}
+.timeline-item:hover .timeline-dot{background:var(--gold);box-shadow:0 0 25px rgba(200,150,12,0.7);}
+.timeline-era{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:3px;color:var(--saffron);text-transform:uppercase;margin-bottom:0.4rem;opacity:0.75;}
+.timeline-title{font-family:'Cinzel',serif;font-size:1.2rem;color:var(--gold-light);margin-bottom:0.65rem;}
+.timeline-body{font-size:1.05rem;color:var(--parchment);line-height:1.9;opacity:0.8;}
+
+/* ─── INFO CARDS ─── */
+.info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem;}
+.info-card{
+  background:var(--card-bg);
+  border:1px solid rgba(200,150,12,0.12);
+  border-radius:6px;padding:2rem;
+  transition:all 0.35s;
+}
+.info-card:hover{border-color:rgba(200,150,12,0.35);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.3);}
+.info-icon{font-size:1.8rem;margin-bottom:1rem;}
+.info-title{font-family:'Cinzel',serif;font-size:0.95rem;color:var(--gold-light);margin-bottom:0.75rem;letter-spacing:1px;}
+.info-body{font-size:0.98rem;color:var(--parchment);line-height:1.85;opacity:0.75;}
+
+/* ─── MYTHS ─── */
+.myth-card{border:1px solid rgba(200,150,12,0.12);border-radius:6px;margin-bottom:0.75rem;overflow:hidden;}
+.myth-header{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 1.5rem;cursor:pointer;background:rgba(245,240,232,0.02);transition:background 0.3s;}
+.myth-header:hover{background:rgba(245,240,232,0.05);}
+.myth-label{display:flex;align-items:center;gap:1rem;}
+.myth-icon{font-size:1.1rem;}
+.myth-q{font-family:'Cinzel',serif;font-size:0.88rem;color:var(--parchment);letter-spacing:0.3px;}
+.myth-chevron{color:var(--gold);font-size:1.1rem;transition:transform 0.3s;}
+.myth-body{max-height:0;overflow:hidden;transition:max-height 0.4s ease;}
+.myth-body.open{max-height:500px;}
+.myth-inner{padding:1.25rem 1.5rem;border-top:1px solid rgba(200,150,12,0.08);}
+.fact-label{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:3px;color:var(--saffron);text-transform:uppercase;margin-bottom:0.4rem;}
+.fact-body{font-size:0.98rem;color:var(--parchment);line-height:1.85;opacity:0.8;}
+
+/* ─── QUOTES ─── */
+#quotes{
+  background:linear-gradient(135deg,rgba(200,150,12,0.07) 0%,rgba(123,30,30,0.06) 100%);
+  border-top:1px solid rgba(200,150,12,0.1);border-bottom:1px solid rgba(200,150,12,0.1);
+}
+.quote-display{text-align:center;max-width:780px;margin:0 auto;padding:3rem 2rem;}
+.quote-text{font-family:'Tiro Devanagari Sanskrit',serif;font-size:clamp(1.5rem,4vw,2.4rem);color:var(--gold-light);line-height:1.6;margin-bottom:1rem;}
+.quote-roman{font-style:italic;font-size:1.1rem;color:var(--saffron-light);margin-bottom:0.75rem;}
+.quote-meaning{font-size:0.98rem;color:var(--parchment);opacity:0.65;margin-bottom:2rem;line-height:1.8;}
+.quote-source{font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:3px;color:var(--saffron);text-transform:uppercase;}
+.quote-nav{display:flex;justify-content:center;gap:0.75rem;margin-top:2rem;}
+.quote-dot{width:6px;height:6px;border-radius:50%;background:rgba(200,150,12,0.25);cursor:pointer;transition:all 0.3s;}
+.quote-dot.active{background:var(--gold);width:20px;border-radius:3px;}
+
+/* ─── PATH / ROADMAP ─── */
+.path-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.5rem;}
+.path-card{
+  background:var(--card-bg);border:1px solid rgba(200,150,12,0.12);
+  border-radius:6px;padding:2rem;text-align:center;
+  position:relative;transition:all 0.35s;
+}
+.path-card:hover{border-color:rgba(200,150,12,0.4);transform:translateY(-5px);}
+.path-num{font-family:'Cinzel',serif;font-size:2.8rem;font-weight:700;color:rgba(200,150,12,0.1);position:absolute;top:1rem;right:1rem;line-height:1;}
+.path-icon{font-size:2.2rem;margin-bottom:1rem;}
+.path-title{font-family:'Cinzel',serif;font-size:0.88rem;color:var(--gold-light);margin-bottom:0.5rem;letter-spacing:1px;}
+.path-desc{font-size:0.88rem;color:var(--parchment);opacity:0.65;line-height:1.7;}
+
+/* ─── ROOTS TABLE ─── */
+.roots-table{width:100%;border-collapse:collapse;}
+.roots-table th{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:3px;color:var(--saffron);text-transform:uppercase;text-align:left;padding:0.75rem 1rem;border-bottom:1px solid rgba(200,150,12,0.25);}
+.roots-table td{padding:0.7rem 1rem;border-bottom:1px solid rgba(200,150,12,0.06);font-size:1rem;color:var(--parchment);line-height:1.6;}
+.roots-table tr:hover td{background:rgba(245,240,232,0.02);}
+.roots-table .deva-cell{font-family:'Tiro Devanagari Sanskrit',serif;font-size:1.15rem;color:var(--gold-light);}
+.roots-table .desc-cell{font-size:0.88rem;opacity:0.65;}
+
+/* ─── FAQ ─── */
+.faq-item{border-bottom:1px solid rgba(200,150,12,0.08);padding:1.5rem 0;cursor:pointer;}
+.faq-q{display:flex;justify-content:space-between;align-items:center;}
+.faq-q-text{font-family:'Cinzel',serif;font-size:0.9rem;color:var(--parchment);letter-spacing:0.3px;max-width:88%;}
+.faq-toggle{color:var(--gold);font-size:1.4rem;min-width:24px;text-align:center;transition:transform 0.3s;}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.4s ease;}
+.faq-a.open{max-height:300px;}
+.faq-a-inner{padding-top:1rem;font-size:0.98rem;color:var(--parchment);line-height:1.9;opacity:0.75;}
+
+/* ─── FLASHCARD ─── */
+.flashcard-wrap{perspective:1200px;width:100%;max-width:380px;margin:0 auto;cursor:pointer;}
+.flashcard{width:100%;height:240px;position:relative;transform-style:preserve-3d;transition:transform 0.65s cubic-bezier(0.4,0,0.2,1);}
+.flashcard.flipped{transform:rotateY(180deg);}
+.card-face{
+  position:absolute;inset:0;backface-visibility:hidden;
+  background:rgba(245,240,232,0.05);border:1px solid rgba(200,150,12,0.22);
+  border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:2rem;text-align:center;
+  transition:box-shadow 0.3s;
+}
+.flashcard-wrap:hover .card-face{box-shadow:0 12px 40px rgba(0,0,0,0.4);}
+.card-back{transform:rotateY(180deg);background:rgba(200,150,12,0.08);}
+.card-hint{font-family:'Cinzel',serif;font-size:0.58rem;letter-spacing:3px;color:var(--saffron);text-transform:uppercase;margin-bottom:1rem;opacity:0.55;}
+
+/* ─── UTILITY ─── */
+.dark-section{background:rgba(14,9,6,0.4);}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:3rem;}
+.highlight-box{
+  background:linear-gradient(135deg,rgba(200,150,12,0.08) 0%,rgba(232,137,26,0.04) 100%);
+  border:1px solid rgba(200,150,12,0.2);border-radius:6px;padding:2rem;margin:2rem 0;
+}
+.highlight-box p{font-size:1.05rem;color:var(--parchment);line-height:1.9;opacity:0.8;}
+
+/* ─── SECTION DIVIDERS ─── */
+.sacred-divider{
+  display:flex;align-items:center;gap:1.5rem;
+  padding:0 2rem;max-width:1200px;margin:0 auto;
+  opacity:0.2;
+}
+.sacred-divider-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold));}
+.sacred-divider-line.r{background:linear-gradient(90deg,var(--gold),transparent);}
+.sacred-divider-sym{font-family:'Tiro Devanagari Sanskrit',serif;font-size:1.2rem;color:var(--gold);}
+
+/* ─── SCROLL REVEAL ─── */
+.reveal{
+  opacity:0;transform:translateY(24px);
+  transition:opacity 0.7s ease,transform 0.7s ease;
+}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* ─── FOOTER ─── */
+footer{
+  background:rgba(14,9,6,0.95);
+  border-top:1px solid rgba(200,150,12,0.15);
+  padding:3rem 4rem;text-align:center;
+}
+.footer-om{font-family:'Tiro Devanagari Sanskrit',serif;font-size:3rem;color:var(--gold);opacity:0.5;margin-bottom:1rem;animation:breatheGlow 6s ease-in-out infinite;}
+.footer-text{font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:3px;color:var(--parchment);opacity:0.3;text-transform:uppercase;}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:768px){
+  nav{padding:0.9rem 1.5rem;}
+  .nav-links{display:none;}
+  section{padding:5rem 1.5rem;}
+  footer{padding:2rem 1.5rem;}
+  .two-col{grid-template-columns:1fr;}
+  #wotd{padding:2rem 1.5rem;}
+  .alphabet-grid{grid-template-columns:repeat(auto-fill,minmax(130px,1fr));}
+  nav{padding:0.9rem 1.25rem;}
+}
+@media(max-width:480px){
+  .alphabet-grid{grid-template-columns:repeat(2,1fr);}
+  .hero-om{font-size:3.5rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- SACRED PARTICLE FIELD -->
+<div class="particles" id="particles"></div>
+
+<!-- ─── NAV ─── -->
+<nav>
+  <span class="nav-logo">देवभाषा</span>
+  <ul class="nav-links">
+    <li><a href="#alphabet">Alphabet</a></li>
+    <li><a href="#numbers">Numbers</a></li>
+    <li><a href="#vocab">Vocabulary</a></li>
+    <li><a href="#sentences">Sentences</a></li>
+    <li><a href="#history">History</a></li>
+    <li><a href="#misconceptions">Myths</a></li>
+    <li><a href="#path">Learn</a></li>
+  </ul>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section id="hero">
+  <div class="hero-om" id="heroOm">ॐ</div>
+  <div class="hero-sanskrit">देवभाषा</div>
+  <div class="hero-title">Devabhāṣā — The Eternal Language of Bharat</div>
+  <div class="hero-divider">
+    <div class="hero-divider-line"></div>
+    <span>✦</span>
+    <div class="hero-divider-line r"></div>
+  </div>
+  <p class="hero-sub">Sanskrit is not a dead language — it is the sleeping giant of human civilization. Rediscover the mother tongue of philosophy, science, and spirit.</p>
+  <div>
+    <button class="cta-btn" onclick="document.getElementById('alphabet').scrollIntoView({behavior:'smooth'})">Begin Learning</button>
+    <button class="cta-btn outline" onclick="document.getElementById('path').scrollIntoView({behavior:'smooth'})">View Roadmap</button>
+  </div>
+  <p class="hero-quote">विद्या ददाति विनयम् — Knowledge brings humility</p>
+
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M12 5v14M5 12l7 7 7-7"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ─── WORD OF THE DAY ─── -->
+<section id="wotd-wrap" style="padding:2rem 2rem 0;">
+  <div class="section-inner">
+    <div id="wotd" class="reveal">
+      <span class="wotd-label">✦ Word of the Day ✦</span>
+      <div class="wotd-word" id="wotd-word">ज्ञान</div>
+      <div class="wotd-trans" id="wotd-roman">Jñāna</div>
+      <div class="wotd-meaning" id="wotd-meaning">Knowledge — the light that dispels the darkness of ignorance</div>
+      <div style="margin-top:1.25rem">
+        <span class="tag">Hindi: ज्ञान (gyān)</span>
+        <span class="tag">English: Knowledge / Wisdom</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sacred-divider" style="margin-top:4rem;">
+  <div class="sacred-divider-line"></div>
+  <span class="sacred-divider-sym">॥</span>
+  <div class="sacred-divider-line r"></div>
+</div>
+
+<!-- ─── ALPHABET ─── -->
+<section id="alphabet">
+  <div class="section-inner">
+    <span class="section-label">✦ Module 01</span>
+    <div class="section-title">The Sanskrit Alphabet</div>
+    <div class="section-title-dev">वर्णमाला — Varṇamālā</div>
+    <div class="gold-rule"></div>
+    <p class="section-desc">Sanskrit's alphabet is scientifically arranged by phonetics — from the throat (guttural) to the lips (labial). Each sound has a precise place of articulation, making it the most structured phonetic system ever devised.</p>
+
+    <div class="alphabet-tabs">
+      <button class="tab-btn active" onclick="showAlpha('vowels',this)">Vowels (Svara)</button>
+      <button class="tab-btn" onclick="showAlpha('consonants',this)">Consonants (Vyañjana)</button>
+    </div>
+
+    <div id="alpha-vowels" class="alphabet-grid">
+      <div class="alpha-card reveal">
+        <div class="alpha-deva">अ</div>
+        <div class="alpha-roman">a</div>
+        <div class="alpha-hindi">Hindi: अ</div>
+        <button class="audio-btn" onclick="playAudio(this,'a')">
+          <span class="btn-text">▶ Hear</span>
+          <span class="waveform"><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span></span>
+        </button>
+        <div class="alpha-example">अग्नि — Agni (Fire)</div>
+      </div>
+      <div class="alpha-card reveal">
+        <div class="alpha-deva">आ</div>
+        <div class="alpha-roman">ā (long a)</div>
+        <div class="alpha-hindi">Hindi: आ</div>
+        <button class="audio-btn" onclick="playAudio(this,'aa')">
+          <span class="btn-text">▶ Hear</span>
+          <span class="waveform"><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span></span>
+        </button>
+        <div class="alpha-example">आकाश — Ākāśa (Sky)</div>
+      </div>
+      <div class="alpha-card reveal">
+        <div class="alpha-deva">इ</div>
+        <div class="alpha-roman">i</div>
+        <div class="alpha-hindi">Hindi: इ</div>
+        <button class="audio-btn" onclick="playAudio(this,'i')">
+          <span class="btn-text">▶ Hear</span>
+          <span class="waveform"><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span></span>
+        </button>
+        <div class="alpha-example">इन्द्र — Indra (God of Rain)</div>
+      </div>
+      <div class="alpha-card reveal">
+        <div class="alpha-deva">ई</div>
+        <div class="alpha-roman">ī (long i)</div>
+        <div class="alpha-hindi">Hindi: ई</div>
+        <button class="audio-btn" onclick="playAudio(this,'ii')">
+          <span class="btn-text">▶ Hear</span>
+          <span class="waveform"><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span></span>
+        </button>
+        <div class="alpha-example">ईश्वर — Īśvara (God)</div>
+      </div>
+      <div class="alpha-card reveal">
+        <div class="alpha-deva">उ</div>
+        <div class="alpha-roman">u</div>
+        <div class="alpha-hindi">Hindi: उ</div>
+        <button class="audio-btn" onclick="playAudio(this,'u')">
+          <span class="btn-text">▶ Hear</span>
+          <span class="waveform"><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span></span>
+        </button>
+        <div class="alpha-example">उत्तर — Uttara (North/Answer)</div>
+      </div>
+      <div class="alpha-card reveal">
+        <div class="alpha-deva">ऊ</div>
+        <div class="alpha-roman">ū (long u)</div>
+        <div class="alpha-hindi">Hindi: ऊ</div>
+        <button class="audio-btn" onclick="playAudio(this,'uu')">
+          <span class="btn-text">▶ Hear</span>
+          <span class="waveform"><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span></span>
+        </button>
+        <div class="alpha-example">ऊर्जा — Ūrjā (Energy)</div>
+      </div>
+      <div class="alpha-card reveal">
+        <div class="alpha-deva">ए</div>
+        <div class="alpha-roman">e</div>
+        <div class="alpha-hindi">Hindi: ए</div>
+        <button class="audio-btn" onclick="playAudio(this,'e')">
+          <span class="btn-text">▶ Hear</span>
+          <span class="waveform"><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span></span>
+        </button>
+        <div class="alpha-example">एकम् — Ekam (One)</div>
+      </div>
+      <div class="alpha-card reveal">
+        <div class="alpha-deva">ऐ</div>
+        <div class="alpha-roman">ai</div>
+        <div class="alpha-hindi">Hindi: ऐ</div>
+        <button class="audio-btn" onclick="playAudio(this,'ai')">
+          <span class="btn-text">▶ Hear</span>
+          <span class="waveform"><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span></span>
+        </button>
+        <div class="alpha-example">ऐश्वर्य — Aiśvarya (Wealth)</div>
+      </div>
+      <div class="alpha-card reveal">
+        <div class="alpha-deva">ओ</div>
+        <div class="alpha-roman">o</div>
+        <div class="alpha-hindi">Hindi: ओ</div>
+        <button class="audio-btn" onclick="playAudio(this,'o')">
+          <span class="btn-text">▶ Hear</span>
+          <span class="waveform"><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span></span>
+        </button>
+        <div class="alpha-example">ओषध — Oṣadha (Medicine)</div>
+      </div>
+      <div class="alpha-card reveal">
+        <div class="alpha-deva">औ</div>
+        <div class="alpha-roman">au</div>
+        <div class="alpha-hindi">Hindi: औ</div>
+        <button class="audio-btn" onclick="playAudio(this,'au')">
+          <span class="btn-text">▶ Hear</span>
+          <span class="waveform"><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span></span>
+        </button>
+        <div class="alpha-example">औषधि — Auṣadhi (Herb)</div>
+      </div>
+      <div class="alpha-card reveal">
+        <div class="alpha-deva">ऋ</div>
+        <div class="alpha-roman">ṛ</div>
+        <div class="alpha-hindi">No Hindi equiv.</div>
+        <button class="audio-btn" onclick="playAudio(this,'ri')">
+          <span class="btn-text">▶ Hear</span>
+          <span class="waveform"><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span></span>
+        </button>
+        <div class="alpha-example">ऋषि — Ṛṣi (Sage)</div>
+      </div>
+      <div class="alpha-card reveal">
+        <div class="alpha-deva">अं</div>
+        <div class="alpha-roman">aṃ (anusvāra)</div>
+        <div class="alpha-hindi">Hindi: ं</div>
+        <button class="audio-btn" onclick="playAudio(this,'am')">
+          <span class="btn-text">▶ Hear</span>
+          <span class="waveform"><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span></span>
+        </button>
+        <div class="alpha-example">संस्कृत — Saṃskṛta</div>
+      </div>
+    </div>
+
+    <div id="alpha-consonants" class="alphabet-grid" style="display:none;">
+      <div class="alpha-card reveal"><div class="alpha-deva">क</div><div class="alpha-roman">ka</div><div class="alpha-hindi">Guttural</div><button class="audio-btn" onclick="playAudio(this,'ka')"><span class="btn-text">▶ Hear</span><span class="waveform"><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span></span></button><div class="alpha-example">कमल — Kamala (Lotus)</div></div>
+      <div class="alpha-card reveal"><div class="alpha-deva">ख</div><div class="alpha-roman">kha</div><div class="alpha-hindi">Guttural (asp.)</div><button class="audio-btn" onclick="playAudio(this,'kha')"><span class="btn-text">▶ Hear</span><span class="waveform"><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span></span></button><div class="alpha-example">खग — Khaga (Bird)</div></div>
+      <div class="alpha-card reveal"><div class="alpha-deva">ग</div><div class="alpha-roman">ga</div><div class="alpha-hindi">Guttural</div><button class="audio-btn" onclick="playAudio(this,'ga')"><span class="btn-text">▶ Hear</span><span class="waveform"><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span></span></button><div class="alpha-example">गज — Gaja (Elephant)</div></div>
+      <div class="alpha-card reveal"><div class="alpha-deva">घ</div><div class="alpha-roman">gha</div><div class="alpha-hindi">Guttural (asp.)</div><button class="audio-btn" onclick="playAudio(this,'gha')"><span class="btn-text">▶ Hear</span><span class="waveform"><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span></span></button><div class="alpha-example">घट — Ghaṭa (Pot)</div></div>
+      <div class="alpha-card reveal"><div class="alpha-deva">च</div><div class="alpha-roman">ca</div><div class="alpha-hindi">Palatal</div><button class="audio-btn" onclick="playAudio(this,'ca')"><span class="btn-text">▶ Hear</span><span class="waveform"><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span></span></button><div class="alpha-example">चन्द्र — Candra (Moon)</div></div>
+      <div class="alpha-card reveal"><div class="alpha-deva">ज</div><div class="alpha-roman">ja</div><div class="alpha-hindi">Palatal</div><button class="audio-btn" onclick="playAudio(this,'ja')"><span class="btn-text">▶ Hear</span><span class="waveform"><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span></span></button><div class="alpha-example">जल — Jala (Water)</div></div>
+      <div class="alpha-card reveal"><div class="alpha-deva">ट</div><div class="alpha-roman">ṭa</div><div class="alpha-hindi">Retroflex</div><button class="audio-btn" onclick="playAudio(this,'ta')"><span class="btn-text">▶ Hear</span><span class="waveform"><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span></span></button><div class="alpha-example">टङ्क — Ṭaṅka (Axe)</div></div>
+      <div class="alpha-card reveal"><div class="alpha-deva">त</div><div class="alpha-roman">ta</div><div class="alpha-hindi">Dental</div><button class="audio-btn" onclick="playAudio(this,'da')"><span class="btn-text">▶ Hear</span><span class="waveform"><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span></span></button><div class="alpha-example">तारा — Tārā (Star)</div></div>
+      <div class="alpha-card reveal"><div class="alpha-deva">द</div><div class="alpha-roman">da</div><div class="alpha-hindi">Dental</div><button class="audio-btn" onclick="playAudio(this,'da2')"><span class="btn-text">▶ Hear</span><span class="waveform"><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span></span></button><div class="alpha-example">दान — Dāna (Gift)</div></div>
+      <div class="alpha-card reveal"><div class="alpha-deva">न</div><div class="alpha-roman">na</div><div class="alpha-hindi">Dental nasal</div><button class="audio-btn" onclick="playAudio(this,'na')"><span class="btn-text">▶ Hear</span><span class="waveform"><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span></span></button><div class="alpha-example">नाम — Nāma (Name)</div></div>
+      <div class="alpha-card reveal"><div class="alpha-deva">प</div><div class="alpha-roman">pa</div><div class="alpha-hindi">Labial</div><button class="audio-btn" onclick="playAudio(this,'pa')"><span class="btn-text">▶ Hear</span><span class="waveform"><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span></span></button><div class="alpha-example">पुष्प — Puṣpa (Flower)</div></div>
+      <div class="alpha-card reveal"><div class="alpha-deva">म</div><div class="alpha-roman">ma</div><div class="alpha-hindi">Labial nasal</div><button class="audio-btn" onclick="playAudio(this,'ma')"><span class="btn-text">▶ Hear</span><span class="waveform"><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span></span></button><div class="alpha-example">मातृ — Mātṛ (Mother)</div></div>
+      <div class="alpha-card reveal"><div class="alpha-deva">य</div><div class="alpha-roman">ya</div><div class="alpha-hindi">Semi-vowel</div><button class="audio-btn" onclick="playAudio(this,'ya')"><span class="btn-text">▶ Hear</span><span class="waveform"><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span></span></button><div class="alpha-example">यज्ञ — Yajña (Sacrifice)</div></div>
+      <div class="alpha-card reveal"><div class="alpha-deva">र</div><div class="alpha-roman">ra</div><div class="alpha-hindi">Semi-vowel</div><button class="audio-btn" onclick="playAudio(this,'ra')"><span class="btn-text">▶ Hear</span><span class="waveform"><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span></span></button><div class="alpha-example">राज — Rāja (King)</div></div>
+      <div class="alpha-card reveal"><div class="alpha-deva">ल</div><div class="alpha-roman">la</div><div class="alpha-hindi">Semi-vowel</div><button class="audio-btn" onclick="playAudio(this,'la')"><span class="btn-text">▶ Hear</span><span class="waveform"><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span></span></button><div class="alpha-example">लक्ष्मी — Lakṣmī (Goddess)</div></div>
+      <div class="alpha-card reveal"><div class="alpha-deva">व</div><div class="alpha-roman">va</div><div class="alpha-hindi">Semi-vowel</div><button class="audio-btn" onclick="playAudio(this,'va')"><span class="btn-text">▶ Hear</span><span class="waveform"><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span></span></button><div class="alpha-example">वायु — Vāyu (Wind)</div></div>
+      <div class="alpha-card reveal"><div class="alpha-deva">श</div><div class="alpha-roman">śa</div><div class="alpha-hindi">Sibilant</div><button class="audio-btn" onclick="playAudio(this,'sha')"><span class="btn-text">▶ Hear</span><span class="waveform"><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span></span></button><div class="alpha-example">शक्ति — Śakti (Power)</div></div>
+      <div class="alpha-card reveal"><div class="alpha-deva">ष</div><div class="alpha-roman">ṣa</div><div class="alpha-hindi">Retroflex sib.</div><button class="audio-btn" onclick="playAudio(this,'ssa')"><span class="btn-text">▶ Hear</span><span class="waveform"><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span></span></button><div class="alpha-example">षट् — Ṣaṭ (Six)</div></div>
+      <div class="alpha-card reveal"><div class="alpha-deva">स</div><div class="alpha-roman">sa</div><div class="alpha-hindi">Dental sib.</div><button class="audio-btn" onclick="playAudio(this,'sa')"><span class="btn-text">▶ Hear</span><span class="waveform"><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span></span></button><div class="alpha-example">सूर्य — Sūrya (Sun)</div></div>
+      <div class="alpha-card reveal"><div class="alpha-deva">ह</div><div class="alpha-roman">ha</div><div class="alpha-hindi">Glottal</div><button class="audio-btn" onclick="playAudio(this,'ha')"><span class="btn-text">▶ Hear</span><span class="waveform"><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span><span class="wave-bar"></span></span></button><div class="alpha-example">हरि — Hari (Vishnu)</div></div>
+    </div>
+
+    <div class="highlight-box" style="margin-top:3rem;">
+      <p><strong style="color:var(--gold-light)">Pronunciation Tip:</strong> Sanskrit consonants are categorized by place of articulation — throat (kaṇṭhya), palate (tālavya), roof (mūrdhanya), teeth (dantya), and lips (oṣṭhya). This scientific arrangement, described by Pāṇini ~500 BCE, anticipated modern phonetics by millennia.</p>
+    </div>
+  </div>
+</section>
+
+<div class="sacred-divider">
+  <div class="sacred-divider-line"></div>
+  <span class="sacred-divider-sym">ॐ</span>
+  <div class="sacred-divider-line r"></div>
+</div>
+
+<!-- ─── SANSKRIT NUMBERS ─── -->
+<section id="numbers">
+  <div class="section-inner">
+    <span class="section-label">✦ Module 02</span>
+    <div class="section-title">Sanskrit Numbers</div>
+    <div class="section-title-dev">संख्या — Saṃkhyā</div>
+    <div class="gold-rule"></div>
+    <p class="section-desc">Sanskrit numerals gave the world the concept of zero and the decimal system — a gift from ancient India to all of mathematics and science.</p>
+
+    <div class="num-filter">
+      <button class="num-filter-btn active" onclick="filterNums('all',this)">All (1–100)</button>
+      <button class="num-filter-btn" onclick="filterNums('1-10',this)">1–10</button>
+      <button class="num-filter-btn" onclick="filterNums('11-20',this)">11–20</button>
+      <button class="num-filter-btn" onclick="filterNums('21-30',this)">21–30</button>
+      <button class="num-filter-btn" onclick="filterNums('31-50',this)">31–50</button>
+      <button class="num-filter-btn" onclick="filterNums('51-100',this)">51–100</button>
+    </div>
+
+    <div class="number-grid" id="number-grid">
+      <!-- 1-10 -->
+      <div class="num-card reveal" data-range="1-10">
+        <div class="num-val">1</div>
+        <div class="num-deva">एक</div>
+        <div class="num-eng">Eka</div>
+        <button class="num-audio" onclick="playAudio(this,'eka')">▶ Eka</button>
+        <div class="num-spiritual">Unity — the Absolute, Brahman</div>
+      </div>
+      <div class="num-card reveal" data-range="1-10">
+        <div class="num-val">2</div>
+        <div class="num-deva">द्वि</div>
+        <div class="num-eng">Dvi</div>
+        <button class="num-audio" onclick="playAudio(this,'dvi')">▶ Dvi</button>
+        <div class="num-spiritual">Duality — Purusha &amp; Prakriti</div>
+      </div>
+      <div class="num-card reveal" data-range="1-10">
+        <div class="num-val">3</div>
+        <div class="num-deva">त्रि</div>
+        <div class="num-eng">Tri</div>
+        <button class="num-audio" onclick="playAudio(this,'tri')">▶ Tri</button>
+        <div class="num-spiritual">Trimurti — Brahma, Vishnu, Shiva</div>
+      </div>
+      <div class="num-card reveal" data-range="1-10">
+        <div class="num-val">4</div>
+        <div class="num-deva">चतुर्</div>
+        <div class="num-eng">Catur</div>
+        <button class="num-audio" onclick="playAudio(this,'catur')">▶ Catur</button>
+        <div class="num-spiritual">Four Vedas — Rig, Sama, Yajur, Atharva</div>
+      </div>
+      <div class="num-card reveal" data-range="1-10">
+        <div class="num-val">5</div>
+        <div class="num-deva">पञ्च</div>
+        <div class="num-eng">Pañca</div>
+        <button class="num-audio" onclick="playAudio(this,'panca')">▶ Pañca</button>
+        <div class="num-spiritual">Five elements — Earth, Water, Fire, Air, Space</div>
+      </div>
+      <div class="num-card reveal" data-range="1-10">
+        <div class="num-val">6</div>
+        <div class="num-deva">षट्</div>
+        <div class="num-eng">Ṣaṭ</div>
+        <button class="num-audio" onclick="playAudio(this,'sat')">▶ Ṣaṭ</button>
+        <div class="num-spiritual">Six darśanas — schools of philosophy</div>
+      </div>
+      <div class="num-card reveal" data-range="1-10">
+        <div class="num-val">7</div>
+        <div class="num-deva">सप्त</div>
+        <div class="num-eng">Sapta</div>
+        <button class="num-audio" onclick="playAudio(this,'sapta')">▶ Sapta</button>
+        <div class="num-spiritual">Seven sages — Saptarishi</div>
+      </div>
+      <div class="num-card reveal" data-range="1-10">
+        <div class="num-val">8</div>
+        <div class="num-deva">अष्ट</div>
+        <div class="num-eng">Aṣṭa</div>
+        <button class="num-audio" onclick="playAudio(this,'asta')">▶ Aṣṭa</button>
+        <div class="num-spiritual">Eight limbs of Yoga — Ashtanga</div>
+      </div>
+      <div class="num-card reveal" data-range="1-10">
+        <div class="num-val">9</div>
+        <div class="num-deva">नव</div>
+        <div class="num-eng">Nava</div>
+        <button class="num-audio" onclick="playAudio(this,'nava')">▶ Nava</button>
+        <div class="num-spiritual">Nine planets — Navagraha</div>
+      </div>
+      <div class="num-card reveal" data-range="1-10">
+        <div class="num-val">10</div>
+        <div class="num-deva">दश</div>
+        <div class="num-eng">Daśa</div>
+        <button class="num-audio" onclick="playAudio(this,'dasa')">▶ Daśa</button>
+        <div class="num-spiritual">Ten avatars of Vishnu — Dashavatara</div>
+      </div>
+      <!-- 11-20 -->
+      <div class="num-card reveal" data-range="11-20"><div class="num-val">11</div><div class="num-deva">एकादश</div><div class="num-eng">Ekādaśa</div><button class="num-audio" onclick="playAudio(this,'11')">▶ Hear</button></div>
+      <div class="num-card reveal" data-range="11-20"><div class="num-val">12</div><div class="num-deva">द्वादश</div><div class="num-eng">Dvādaśa</div><button class="num-audio" onclick="playAudio(this,'12')">▶ Hear</button></div>
+      <div class="num-card reveal" data-range="11-20"><div class="num-val">13</div><div class="num-deva">त्रयोदश</div><div class="num-eng">Trayodaśa</div><button class="num-audio" onclick="playAudio(this,'13')">▶ Hear</button></div>
+      <div class="num-card reveal" data-range="11-20"><div class="num-val">14</div><div class="num-deva">चतुर्दश</div><div class="num-eng">Caturdaśa</div><button class="num-audio" onclick="playAudio(this,'14')">▶ Hear</button></div>
+      <div class="num-card reveal" data-range="11-20"><div class="num-val">15</div><div class="num-deva">पञ्चदश</div><div class="num-eng">Pañcadaśa</div><button class="num-audio" onclick="playAudio(this,'15')">▶ Hear</button></div>
+      <div class="num-card reveal" data-range="11-20"><div class="num-val">16</div><div class="num-deva">षोडश</div><div class="num-eng">Ṣoḍaśa</div><button class="num-audio" onclick="playAudio(this,'16')">▶ Hear</button></div>
+      <div class="num-card reveal" data-range="11-20"><div class="num-val">17</div><div class="num-deva">सप्तदश</div><div class="num-eng">Saptadaśa</div><button class="num-audio" onclick="playAudio(this,'17')">▶ Hear</button></div>
+      <div class="num-card reveal" data-range="11-20"><div class="num-val">18</div><div class="num-deva">अष्टादश</div><div class="num-eng">Aṣṭādaśa</div><button class="num-audio" onclick="playAudio(this,'18')">▶ Hear</button></div>
+      <div class="num-card reveal" data-range="11-20"><div class="num-val">19</div><div class="num-deva">नवदश</div><div class="num-eng">Navadaśa</div><button class="num-audio" onclick="playAudio(this,'19')">▶ Hear</button></div>
+      <div class="num-card reveal" data-range="11-20"><div class="num-val">20</div><div class="num-deva">विंशति</div><div class="num-eng">Viṃśati</div><button class="num-audio" onclick="playAudio(this,'20')">▶ Hear</button></div>
+      <!-- 21-30 -->
+      <div class="num-card reveal" data-range="21-30"><div class="num-val">21</div><div class="num-deva">एकविंश</div><div class="num-eng">Ekaviṃśa</div><button class="num-audio" onclick="playAudio(this,'21')">▶ Hear</button></div>
+      <div class="num-card reveal" data-range="21-30"><div class="num-val">22</div><div class="num-deva">द्वाविंश</div><div class="num-eng">Dvāviṃśa</div><button class="num-audio" onclick="playAudio(this,'22')">▶ Hear</button></div>
+      <div class="num-card reveal" data-range="21-30"><div class="num-val">23</div><div class="num-deva">त्रयोविंश</div><div class="num-eng">Trayoviṃśa</div><button class="num-audio" onclick="playAudio(this,'23')">▶ Hear</button></div>
+      <div class="num-card reveal" data-range="21-30"><div class="num-val">24</div><div class="num-deva">चतुर्विंश</div><div class="num-eng">Caturviṃśa</div><button class="num-audio" onclick="playAudio(this,'24')">▶ Hear</button></div>
+      <div class="num-card reveal" data-range="21-30"><div class="num-val">25</div><div class="num-deva">पञ्चविंश</div><div class="num-eng">Pañcaviṃśa</div><button class="num-audio" onclick="playAudio(this,'25')">▶ Hear</button></div>
+      <div class="num-card reveal" data-range="21-30"><div class="num-val">26</div><div class="num-deva">षड्विंश</div><div class="num-eng">Ṣaḍviṃśa</div><button class="num-audio" onclick="playAudio(this,'26')">▶ Hear</button></div>
+      <div class="num-card reveal" data-range="21-30"><div class="num-val">27</div><div class="num-deva">सप्तविंश</div><div class="num-eng">Saptaviṃśa</div><button class="num-audio" onclick="playAudio(this,'27')">▶ Hear</button></div>
+      <div class="num-card reveal" data-range="21-30"><div class="num-val">28</div><div class="num-deva">अष्टाविंश</div><div class="num-eng">Aṣṭāviṃśa</div><button class="num-audio" onclick="playAudio(this,'28')">▶ Hear</button></div>
+      <div class="num-card reveal" data-range="21-30"><div class="num-val">29</div><div class="num-deva">नवविंश</div><div class="num-eng">Navaviṃśa</div><button class="num-audio" onclick="playAudio(this,'29')">▶ Hear</button></div>
+      <div class="num-card reveal" data-range="21-30"><div class="num-val">30</div><div class="num-deva">त्रिंशत्</div><div class="num-eng">Triṃśat</div><button class="num-audio" onclick="playAudio(this,'30')">▶ Hear</button></div>
+      <!-- 31-50 -->
+      <div class="num-card reveal" data-range="31-50"><div class="num-val">31</div><div class="num-deva">एकत्रिंश</div><div class="num-eng">Ekatriṃśa</div><button class="num-audio" onclick="playAudio(this,'31')">▶ Hear</button></div>
+      <div class="num-card reveal" data-range="31-50"><div class="num-val">40</div><div class="num-deva">चत्वारिंश</div><div class="num-eng">Catvāriṃśa</div><button class="num-audio" onclick="playAudio(this,'40')">▶ Hear</button></div>
+      <div class="num-card reveal" data-range="31-50"><div class="num-val">50</div><div class="num-deva">पञ्चाशत्</div><div class="num-eng">Pañcāśat</div><button class="num-audio" onclick="playAudio(this,'50')">▶ Hear</button></div>
+      <!-- 51-100 -->
+      <div class="num-card reveal" data-range="51-100"><div class="num-val">60</div><div class="num-deva">षष्टि</div><div class="num-eng">Ṣaṣṭi</div><button class="num-audio" onclick="playAudio(this,'60')">▶ Hear</button></div>
+      <div class="num-card reveal" data-range="51-100"><div class="num-val">70</div><div class="num-deva">सप्तति</div><div class="num-eng">Saptati</div><button class="num-audio" onclick="playAudio(this,'70')">▶ Hear</button></div>
+      <div class="num-card reveal" data-range="51-100"><div class="num-val">80</div><div class="num-deva">अशीति</div><div class="num-eng">Aśīti</div><button class="num-audio" onclick="playAudio(this,'80')">▶ Hear</button></div>
+      <div class="num-card reveal" data-range="51-100"><div class="num-val">90</div><div class="num-deva">नवति</div><div class="num-eng">Navati</div><button class="num-audio" onclick="playAudio(this,'90')">▶ Hear</button></div>
+      <div class="num-card reveal" data-range="51-100"><div class="num-val">100</div><div class="num-deva">शत</div><div class="num-eng">Śata</div><button class="num-audio" onclick="playAudio(this,'100')">▶ Śata</button><div class="num-spiritual">100 — Century of sacred completeness</div></div>
+    </div>
+
+    <div class="highlight-box" style="margin-top:2.5rem;">
+      <p><strong style="color:var(--gold-light)">Did you know?</strong> The Sanskrit decimal system with a symbol for zero (śūnya — शून्य) revolutionized mathematics. Arabic numerals 1–9 and the concept of zero were transmitted from Sanskrit/Brahmi numerals through Arab scholars to the Western world.</p>
+    </div>
+  </div>
+</section>
+
+<div class="sacred-divider">
+  <div class="sacred-divider-line"></div>
+  <span class="sacred-divider-sym">॥</span>
+  <div class="sacred-divider-line r"></div>
+</div>
+
+<!-- ─── VOCABULARY ─── -->
+<section id="vocab">
+  <div class="section-inner">
+    <span class="section-label">✦ Module 03</span>
+    <div class="section-title">Daily Vocabulary</div>
+    <div class="section-title-dev">दैनिक शब्दकोश — Dainika Śabdakośa</div>
+    <div class="gold-rule"></div>
+    <p class="section-desc">From family relations to nature, greetings to spiritual words — build your Sanskrit vocabulary systematically, one word at a time.</p>
+
+    <div class="vocab-categories">
+      <button class="vocab-cat-btn active" onclick="filterVocab('all',this)">All Words</button>
+      <button class="vocab-cat-btn" onclick="filterVocab('greetings',this)">Greetings</button>
+      <button class="vocab-cat-btn" onclick="filterVocab('family',this)">Family</button>
+      <button class="vocab-cat-btn" onclick="filterVocab('nature',this)">Nature</button>
+      <button class="vocab-cat-btn" onclick="filterVocab('body',this)">Body</button>
+      <button class="vocab-cat-btn" onclick="filterVocab('spiritual',this)">Spiritual</button>
+    </div>
+
+    <div class="vocab-grid" id="vocab-grid">
+      <div class="vocab-card reveal" data-cat="greetings">
+        <div class="vocab-english">Hello / Welcome</div>
+        <div class="vocab-deva">नमस्ते</div>
+        <div class="vocab-roman">Namaste</div>
+        <div class="vocab-row">
+          <div class="vocab-lang"><div class="vocab-lang-label">Hindi</div><div class="vocab-lang-word">नमस्ते</div></div>
+          <div class="vocab-lang"><div class="vocab-lang-label">Meaning</div><div class="vocab-lang-word" style="font-family:inherit;font-size:0.9rem;">I bow to the divine in you</div></div>
+        </div>
+        <div class="vocab-sentence">नमस्ते मित्र! — Namaste mitra! — Hello, friend!</div>
+      </div>
+      <div class="vocab-card reveal" data-cat="greetings">
+        <div class="vocab-english">Farewell</div>
+        <div class="vocab-deva">पुनर्मिलामः</div>
+        <div class="vocab-roman">Punarmilāmaḥ</div>
+        <div class="vocab-row">
+          <div class="vocab-lang"><div class="vocab-lang-label">Hindi</div><div class="vocab-lang-word">फिर मिलेंगे</div></div>
+          <div class="vocab-lang"><div class="vocab-lang-label">Meaning</div><div class="vocab-lang-word" style="font-family:inherit;font-size:0.9rem;">We shall meet again</div></div>
+        </div>
+      </div>
+      <div class="vocab-card reveal" data-cat="nature">
+        <div class="vocab-english">The Sun</div>
+        <div class="vocab-deva">सूर्य</div>
+        <div class="vocab-roman">Sūrya</div>
+        <div class="vocab-row">
+          <div class="vocab-lang"><div class="vocab-lang-label">Hindi</div><div class="vocab-lang-word">सूरज</div></div>
+          <div class="vocab-lang"><div class="vocab-lang-label">Root</div><div class="vocab-lang-word" style="font-family:inherit;font-size:0.9rem;">Svar (to shine)</div></div>
+        </div>
+        <div class="vocab-sentence">सूर्य नमस्कार — Sūrya Namaskāra — Salutation to the Sun</div>
+      </div>
+      <div class="vocab-card reveal" data-cat="nature">
+        <div class="vocab-english">The Moon</div>
+        <div class="vocab-deva">चन्द्र</div>
+        <div class="vocab-roman">Candra</div>
+        <div class="vocab-row">
+          <div class="vocab-lang"><div class="vocab-lang-label">Hindi</div><div class="vocab-lang-word">चाँद</div></div>
+          <div class="vocab-lang"><div class="vocab-lang-label">Root</div><div class="vocab-lang-word" style="font-family:inherit;font-size:0.9rem;">Cand (to shine)</div></div>
+        </div>
+      </div>
+      <div class="vocab-card reveal" data-cat="spiritual">
+        <div class="vocab-english">Truth</div>
+        <div class="vocab-deva">सत्य</div>
+        <div class="vocab-roman">Satya</div>
+        <div class="vocab-row">
+          <div class="vocab-lang"><div class="vocab-lang-label">Hindi</div><div class="vocab-lang-word">सत्य / सच</div></div>
+          <div class="vocab-lang"><div class="vocab-lang-label">Root</div><div class="vocab-lang-word" style="font-family:inherit;font-size:0.9rem;">Sat (being/existence)</div></div>
+        </div>
+        <div class="vocab-sentence">सत्यमेव जयते — Satyameva Jayate — Truth alone triumphs</div>
+      </div>
+      <div class="vocab-card reveal" data-cat="spiritual">
+        <div class="vocab-english">Peace</div>
+        <div class="vocab-deva">शान्ति</div>
+        <div class="vocab-roman">Śānti</div>
+        <div class="vocab-row">
+          <div class="vocab-lang"><div class="vocab-lang-label">Hindi</div><div class="vocab-lang-word">शांति</div></div>
+          <div class="vocab-lang"><div class="vocab-lang-label">Feeling</div><div class="vocab-lang-word" style="font-family:inherit;font-size:0.9rem;">Inner stillness</div></div>
+        </div>
+        <div class="vocab-sentence">ॐ शान्तिः शान्तिः शान्तिः — Om Śāntiḥ × 3</div>
+      </div>
+      <div class="vocab-card reveal" data-cat="family">
+        <div class="vocab-english">Mother</div>
+        <div class="vocab-deva">मातृ</div>
+        <div class="vocab-roman">Mātṛ</div>
+        <div class="vocab-row">
+          <div class="vocab-lang"><div class="vocab-lang-label">Hindi</div><div class="vocab-lang-word">माता / माँ</div></div>
+          <div class="vocab-lang"><div class="vocab-lang-label">Root</div><div class="vocab-lang-word" style="font-family:inherit;font-size:0.9rem;">Proto-Indo-European *méh₂tēr</div></div>
+        </div>
+      </div>
+      <div class="vocab-card reveal" data-cat="family">
+        <div class="vocab-english">Teacher</div>
+        <div class="vocab-deva">गुरु</div>
+        <div class="vocab-roman">Guru</div>
+        <div class="vocab-row">
+          <div class="vocab-lang"><div class="vocab-lang-label">Hindi</div><div class="vocab-lang-word">गुरु</div></div>
+          <div class="vocab-lang"><div class="vocab-lang-label">Meaning</div><div class="vocab-lang-word" style="font-family:inherit;font-size:0.9rem;">Gu=darkness, Ru=dispeller</div></div>
+        </div>
+      </div>
+      <div class="vocab-card reveal" data-cat="body">
+        <div class="vocab-english">Hand</div>
+        <div class="vocab-deva">हस्त</div>
+        <div class="vocab-roman">Hasta</div>
+        <div class="vocab-row">
+          <div class="vocab-lang"><div class="vocab-lang-label">Hindi</div><div class="vocab-lang-word">हाथ</div></div>
+          <div class="vocab-lang"><div class="vocab-lang-label">Root</div><div class="vocab-lang-word" style="font-family:inherit;font-size:0.9rem;">Has (to seize)</div></div>
+        </div>
+      </div>
+      <div class="vocab-card reveal" data-cat="body">
+        <div class="vocab-english">Eye</div>
+        <div class="vocab-deva">नेत्र</div>
+        <div class="vocab-roman">Netra</div>
+        <div class="vocab-row">
+          <div class="vocab-lang"><div class="vocab-lang-label">Hindi</div><div class="vocab-lang-word">आँख</div></div>
+          <div class="vocab-lang"><div class="vocab-lang-label">Root</div><div class="vocab-lang-word" style="font-family:inherit;font-size:0.9rem;">Nī (to lead/guide)</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SENTENCES ─── -->
+<section id="sentences" style="background:radial-gradient(ellipse at 30% 50%,rgba(123,30,30,0.08) 0%,transparent 60%),var(--dark-bg);">
+  <div class="section-inner">
+    <span class="section-label">✦ Module 04</span>
+    <div class="section-title">Useful Sentences</div>
+    <div class="section-title-dev">उपयोगी वाक्यानि — Upayogī Vākyāni</div>
+    <div class="gold-rule"></div>
+    <p class="section-desc">Begin speaking Sanskrit immediately with these foundational phrases — greetings, questions, and responses used in everyday conversation.</p>
+    <div class="sentences-grid">
+      <div class="sentence-card reveal"><div class="sent-english">What is your name?</div><div class="sent-sanskrit">भवतः नाम किम्?</div><div class="sent-roman">Bhavataḥ nāma kim?</div><div class="sent-hindi">आपका नाम क्या है?</div></div>
+      <div class="sentence-card reveal"><div class="sent-english">My name is...</div><div class="sent-sanskrit">मम नाम ... अस्ति</div><div class="sent-roman">Mama nāma ... asti</div><div class="sent-hindi">मेरा नाम ... है</div></div>
+      <div class="sentence-card reveal"><div class="sent-english">How are you?</div><div class="sent-sanskrit">भवान् कथम् अस्ति?</div><div class="sent-roman">Bhavān katham asti?</div><div class="sent-hindi">आप कैसे हैं?</div></div>
+      <div class="sentence-card reveal"><div class="sent-english">I am well</div><div class="sent-sanskrit">अहम् कुशलम् अस्मि</div><div class="sent-roman">Aham kuśalam asmi</div><div class="sent-hindi">मैं ठीक हूँ</div></div>
+      <div class="sentence-card reveal"><div class="sent-english">Where do you live?</div><div class="sent-sanskrit">भवान् कुत्र निवसति?</div><div class="sent-roman">Bhavān kutra nivasati?</div><div class="sent-hindi">आप कहाँ रहते हैं?</div></div>
+      <div class="sentence-card reveal"><div class="sent-english">Sanskrit is beautiful</div><div class="sent-sanskrit">संस्कृतं मनोरमम् अस्ति</div><div class="sent-roman">Saṃskṛtaṃ manoramam asti</div><div class="sent-hindi">संस्कृत सुंदर है</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── HISTORY ─── -->
+<section id="history" style="background:linear-gradient(180deg,rgba(44,24,16,0.1) 0%,var(--dark-bg) 100%);">
+  <div class="section-inner">
+    <span class="section-label">✦ The Ancient Story</span>
+    <div class="section-title">Sanskrit Through the Ages</div>
+    <div class="section-title-dev">इतिहास — Itihāsa</div>
+    <div class="gold-rule"></div>
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-era">~1500 BCE — Vedic Period</div>
+        <div class="timeline-title">The Rig Veda — Oldest Known Literature</div>
+        <div class="timeline-body">The Rig Veda, composed in Vedic Sanskrit, is one of humanity's oldest surviving literary works. Its 1,028 hymns preserve a language and cosmology that shaped Indian civilization for millennia.</div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-era">~500 BCE — Classical Period</div>
+        <div class="timeline-title">Pāṇini's Ashtadhyayi — The World's First Grammar</div>
+        <div class="timeline-body">Pāṇini's monumental grammar, the Ashtadhyayi (Eight Chapters), containing 4,000 sūtras, systematized Sanskrit with a precision and efficiency that modern linguists still marvel at — essentially creating the first formal language description.</div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-era">~200 BCE – 400 CE</div>
+        <div class="timeline-title">The Golden Age of Sanskrit Literature</div>
+        <div class="timeline-body">Epics like the Mahābhārata (100,000 verses) and Rāmāyaṇa, Kālidāsa's poetry, and the Arthashastra of Kautilya represent the apex of Sanskrit literary and scientific achievement.</div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-era">~600–1200 CE</div>
+        <div class="timeline-title">Mathematical and Scientific Contributions</div>
+        <div class="timeline-body">Sanskrit texts by Aryabhata, Brahmagupta, and Bhaskara introduced zero, advanced algebra, trigonometry, and astronomical calculations. The decimal positional numeral system spread from Sanskrit through Arabic to the world.</div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-era">1786 CE — Modern Era</div>
+        <div class="timeline-title">Sir William Jones &amp; the Birth of Linguistics</div>
+        <div class="timeline-body">Jones's observation that Sanskrit shared remarkable similarities with Latin and Greek launched the science of comparative linguistics. Sanskrit became the cornerstone of Proto-Indo-European studies, revealing the common ancestry of most European and Indian languages.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── QUOTES ─── -->
+<section id="quotes" style="background:linear-gradient(135deg,rgba(200,150,12,0.07) 0%,rgba(123,30,30,0.06) 100%);border-top:1px solid rgba(200,150,12,0.1);border-bottom:1px solid rgba(200,150,12,0.1);">
+  <div class="section-inner">
+    <div class="quote-display">
+      <div class="quote-text" id="q-text">विद्या ददाति विनयम्</div>
+      <div class="quote-roman" id="q-roman">Vidyā dadāti vinayam</div>
+      <div class="quote-meaning" id="q-meaning">"Knowledge brings humility; from humility comes worthiness; from worthiness, wealth; from wealth, righteous deeds; from deeds, joy."</div>
+      <div class="quote-source" id="q-source">— Hitopadeśa</div>
+      <div class="quote-nav" id="q-nav"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── MISCONCEPTIONS ─── -->
+<section id="misconceptions" style="background:rgba(14,9,6,0.5);">
+  <div class="section-inner">
+    <span class="section-label">✦ Setting the Record Straight</span>
+    <div class="section-title">Common Myths About Sanskrit</div>
+    <div class="section-title-dev">भ्रान्तिनिवारण — Bhrānti-nivāraṇa</div>
+    <div class="gold-rule"></div>
+    <div class="myth-card reveal">
+      <div class="myth-header" onclick="toggleMyth(this)">
+        <div class="myth-label"><span class="myth-icon">🔍</span><span class="myth-q">Sanskrit is a dead language with no practical use</span></div>
+        <span class="myth-chevron">›</span>
+      </div>
+      <div class="myth-body">
+        <div class="myth-inner">
+          <div class="fact-label">✦ The Reality</div>
+          <div class="fact-body">Sanskrit is an official language of India (8th Schedule), used in religious ceremonies across South Asia, studied by thousands of scholars worldwide, and spoken conversationally in villages like Mattur, Karnataka. New Sanskrit literature continues to be created. NASA has investigated Sanskrit for AI language processing due to its unambiguous grammatical structure.</div>
+        </div>
+      </div>
+    </div>
+    <div class="myth-card reveal">
+      <div class="myth-header" onclick="toggleMyth(this)">
+        <div class="myth-label"><span class="myth-icon">🔍</span><span class="myth-q">You must know Hindi to learn Sanskrit</span></div>
+        <span class="myth-chevron">›</span>
+      </div>
+      <div class="myth-body">
+        <div class="myth-inner">
+          <div class="fact-label">✦ The Reality</div>
+          <div class="fact-body">While Hindi speakers have advantages (shared script, vocabulary), thousands of Western scholars have mastered Sanskrit. Many English-speaking academics are leading Sanskrit researchers. The script (Devanagari) typically takes 2–4 weeks to learn for motivated learners of any background.</div>
+        </div>
+      </div>
+    </div>
+    <div class="myth-card reveal">
+      <div class="myth-header" onclick="toggleMyth(this)">
+        <div class="myth-label"><span class="myth-icon">🔍</span><span class="myth-q">Sanskrit grammar is impossibly complex</span></div>
+        <span class="myth-chevron">›</span>
+      </div>
+      <div class="myth-body">
+        <div class="myth-inner">
+          <div class="fact-label">✦ The Reality</div>
+          <div class="fact-body">Sanskrit is complex but extraordinarily systematic — it has virtually no exceptions to its rules, unlike English. Once you understand the underlying system, patterns become intuitive. Pāṇini's grammar is so precise that it can be expressed as a formal generative grammar, something few natural languages achieve.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CULTURE ─── -->
+<section id="culture">
+  <div class="section-inner">
+    <span class="section-label">✦ Living Heritage</span>
+    <div class="section-title">Sanskrit's Global Influence</div>
+    <div class="section-title-dev">विश्वप्रभाव — Viśvaprabhāva</div>
+    <div class="gold-rule"></div>
+    <p class="section-desc">Sanskrit's reach extends far beyond India — its roots touch languages, sciences, and philosophies across the entire world.</p>
+    <div class="info-grid">
+      <div class="info-card reveal">
+        <div class="info-icon">🔢</div>
+        <div class="info-title">Mathematics &amp; Science</div>
+        <div class="info-body">Zero (śūnya), the decimal system, algebra (bījaganita), trigonometry, and advanced astronomy all originated or were significantly advanced in Sanskrit texts by scholars like Aryabhata and Brahmagupta.</div>
+      </div>
+      <div class="info-card reveal">
+        <div class="info-icon">🌍</div>
+        <div class="info-title">Indo-European Connections</div>
+        <div class="info-body">Sanskrit reveals the common ancestry of over 400 languages. Father/Pitṛ, mother/Mātṛ, name/Nāman — these connections trace the ancient migration of peoples from a Proto-Indo-European homeland.</div>
+      </div>
+      <div class="info-card reveal">
+        <div class="info-icon">🧘</div>
+        <div class="info-title">Philosophy &amp; Yoga</div>
+        <div class="info-body">Yoga, meditation, Vedanta, Buddhism, and Ayurveda — their technical vocabularies are Sanskrit. Words like karma, dharma, yoga, guru, mantra, and avatar have entered global consciousness directly from Sanskrit.</div>
+      </div>
+      <div class="info-card reveal">
+        <div class="info-icon">💻</div>
+        <div class="info-title">Modern Computing</div>
+        <div class="info-body">Pāṇini's metalanguage for describing Sanskrit grammar anticipated formal language theory by 2,500 years. Linguist Frits Staal called the Ashtadhyayi "the world's first generative grammar." NASA has studied Sanskrit for AI disambiguation.</div>
+      </div>
+      <div class="info-card reveal">
+        <div class="info-icon">⚕️</div>
+        <div class="info-title">Ayurveda &amp; Medicine</div>
+        <div class="info-body">The Charaka Samhita and Sushruta Samhita, written in Sanskrit, contain sophisticated medical knowledge including surgical techniques, pharmacology, and preventive medicine that were millennia ahead of Western medicine.</div>
+      </div>
+      <div class="info-card reveal">
+        <div class="info-icon">🎵</div>
+        <div class="info-title">Music &amp; Arts</div>
+        <div class="info-body">Classical Indian music theory (Raga system), Bharatanatyam dance, and Sanskrit drama (Natya Shastra by Bharata) form complete aesthetic systems that profoundly influenced all South and Southeast Asian art forms.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── LEARNING PATH ─── -->
+<section id="path" style="background:linear-gradient(180deg,var(--dark-bg) 0%,rgba(44,24,16,0.2) 50%,var(--dark-bg) 100%);">
+  <div class="section-inner">
+    <span class="section-label">✦ Your Journey</span>
+    <div class="section-title">The Sanskrit Learning Roadmap</div>
+    <div class="section-title-dev">अध्ययनमार्ग — Adhyayana Mārga</div>
+    <div class="gold-rule"></div>
+    <p class="section-desc">A systematic path from complete beginner to reading classical texts — designed for the modern learner with ancient wisdom in mind.</p>
+    <div class="path-grid">
+      <div class="path-card reveal"><div class="path-num">1</div><div class="path-icon">📜</div><div class="path-title">Script Mastery</div><div class="path-desc">Learn Devanagari letters, vowel signs, and conjuncts. Target: 2–4 weeks.</div></div>
+      <div class="path-card reveal"><div class="path-num">2</div><div class="path-icon">🔤</div><div class="path-title">Alphabet &amp; Phonetics</div><div class="path-desc">Master pronunciation of all 48+ phonemes with proper articulation points.</div></div>
+      <div class="path-card reveal"><div class="path-num">3</div><div class="path-icon">📚</div><div class="path-title">Core Vocabulary</div><div class="path-desc">Build a 500-word foundation covering everyday objects, actions, and concepts.</div></div>
+      <div class="path-card reveal"><div class="path-num">4</div><div class="path-icon">⚙️</div><div class="path-title">Basic Grammar</div><div class="path-desc">Introduction to noun declensions, verb roots, and simple sentence structure.</div></div>
+      <div class="path-card reveal"><div class="path-num">5</div><div class="path-icon">💬</div><div class="path-title">Simple Sentences</div><div class="path-desc">Construct and understand simple declarative and interrogative sentences.</div></div>
+      <div class="path-card reveal"><div class="path-num">6</div><div class="path-icon">🏛️</div><div class="path-title">Classical Texts</div><div class="path-desc">Begin reading simple classical texts — Subhashitas, Hitopadesha, and Panchatantra.</div></div>
+      <div class="path-card reveal"><div class="path-num">7</div><div class="path-icon">📖</div><div class="path-title">Advanced Texts</div><div class="path-desc">Approach the Gita, Ramayana excerpts, and Upanishads with commentary.</div></div>
+      <div class="path-card reveal"><div class="path-num">8</div><div class="path-icon">🎓</div><div class="path-title">Mastery</div><div class="path-desc">Read original Sanskrit literature and contribute to the living tradition.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FLASHCARD ─── -->
+<section style="background:rgba(14,9,6,0.4);">
+  <div class="section-inner">
+    <span class="section-label">✦ Practice</span>
+    <div class="section-title">Vocabulary Flashcards</div>
+    <div class="section-title-dev">शब्दपरीक्षा — Śabdaparīkṣā</div>
+    <div class="gold-rule"></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;" class="two-col">
+      <div>
+        <div class="flashcard-wrap" onclick="flipCard(this)">
+          <div class="flashcard" id="flashcard">
+            <div class="card-face card-front">
+              <span class="card-hint">Sanskrit Word</span>
+              <div style="font-family:'Tiro Devanagari Sanskrit',serif;font-size:3.5rem;color:var(--gold-light);margin-bottom:0.5rem;" id="fc-front">ज्ञान</div>
+              <div class="alpha-roman" style="font-size:0.9rem;">Jñāna</div>
+              <div style="margin-top:1.5rem;font-size:0.7rem;color:rgba(245,240,232,0.35);letter-spacing:2px;font-family:'Cinzel',serif;">TAP TO REVEAL</div>
+            </div>
+            <div class="card-face card-back">
+              <span class="card-hint">Meaning</span>
+              <div style="font-family:'Cinzel',serif;font-size:1.8rem;color:var(--gold-light);margin-bottom:0.5rem;" id="fc-back">Knowledge</div>
+              <div style="font-size:0.9rem;color:rgba(245,240,232,0.6);margin-top:0.5rem;">Hindi: ज्ञान (gyān)</div>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex;justify-content:center;gap:1rem;margin-top:1.5rem;">
+          <button class="cta-btn outline" onclick="prevFlash()" style="padding:0.6rem 1.5rem;font-size:0.7rem;">← Prev</button>
+          <button class="cta-btn outline" onclick="nextFlash()" style="padding:0.6rem 1.5rem;font-size:0.7rem;">Next →</button>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-family:'Cinzel',serif;font-size:1.2rem;color:var(--gold-light);margin-bottom:1.5rem;letter-spacing:1px;">Daily Word of Practice</h3>
+        <div id="wotd2">
+          <div style="font-family:'Tiro Devanagari Sanskrit',serif;font-size:3rem;color:var(--gold-light);" id="wotd-word2">ज्ञान</div>
+          <div style="font-family:'Cinzel',serif;font-size:0.85rem;color:var(--parchment);letter-spacing:2px;margin:0.5rem 0;" id="wotd-roman2">Jñāna</div>
+          <div style="font-style:italic;color:var(--saffron-light);font-size:1rem;line-height:1.8;" id="wotd-meaning2">Knowledge — the light that dispels the darkness of ignorance</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FAQ ─── -->
+<section id="faq" style="background:rgba(14,9,6,0.5);">
+  <div class="section-inner">
+    <span class="section-label">✦ Common Questions</span>
+    <div class="section-title">Frequently Asked Questions</div>
+    <div class="gold-rule"></div>
+    <div id="faq-list">
+      <div class="faq-item reveal" onclick="toggleFaq(this)">
+        <div class="faq-q"><span class="faq-q-text">How long does it take to learn basic Sanskrit?</span><span class="faq-toggle">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">With 30 minutes of daily practice, a Hindi speaker can read Devanagari script in 2–4 weeks. Basic conversational phrases take 2–3 months. To read simple classical texts comfortably takes 1–2 years of dedicated study.</div></div>
+      </div>
+      <div class="faq-item reveal" onclick="toggleFaq(this)">
+        <div class="faq-q"><span class="faq-q-text">Do I need to know Hindi to learn Sanskrit?</span><span class="faq-toggle">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">No, but Hindi speakers have a significant advantage — shared script, vocabulary, and intuitive structural understanding. English speakers can absolutely learn Sanskrit, and many Western scholars have become exceptional Sanskrit scholars.</div></div>
+      </div>
+      <div class="faq-item reveal" onclick="toggleFaq(this)">
+        <div class="faq-q"><span class="faq-q-text">Is Sanskrit really a dead language?</span><span class="faq-toggle">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Sanskrit is classified as a "classical language" rather than truly dead. It has no native speaker community but is actively used in religious rituals, studied academically worldwide, and spoken conversationally in communities like Mattur, Karnataka.</div></div>
+      </div>
+      <div class="faq-item reveal" onclick="toggleFaq(this)">
+        <div class="faq-q"><span class="faq-q-text">What is the hardest part of learning Sanskrit?</span><span class="faq-toggle">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Sanskrit's grammatical complexity — noun declensions (8 cases × 3 genders × 3 numbers), verb conjugations, sandhi rules, and compound formation — is the primary challenge. However, the language is entirely rule-based with very few exceptions, so progress accelerates significantly once the system clicks.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-om">ॐ</div>
+  <p class="footer-text">देवभाषा — The Eternal Language of Bharat</p>
+  <p style="margin-top:0.5rem;font-family:'Cinzel',serif;font-size:0.55rem;letter-spacing:2px;color:rgba(245,240,232,0.2);">सर्वे भवन्तु सुखिनः — May all beings be happy</p>
+</footer>
+
+<!-- ─── JAVASCRIPT ─── -->
+<script>
+// ── SACRED PARTICLES ──
+(function(){
+  const container = document.getElementById('particles');
+  for(let i = 0; i < 40; i++){
+    const p = document.createElement('div');
+    p.className = 'particle';
+    p.style.setProperty('--dur', (8 + Math.random() * 12) + 's');
+    p.style.setProperty('--delay', (Math.random() * 15) + 's');
+    p.style.setProperty('--x', (Math.random() * 100) + '%');
+    p.style.setProperty('--y', (20 + Math.random() * 70) + '%');
+    p.style.width = (Math.random() > 0.7 ? 2 : 1) + 'px';
+    p.style.height = p.style.width;
+    container.appendChild(p);
+  }
+})();
+
+// ── OM MOUSE TILT ──
+const heroOm = document.getElementById('heroOm');
+document.addEventListener('mousemove', e => {
+  const cx = window.innerWidth / 2;
+  const cy = window.innerHeight * 0.3;
+  const dx = (e.clientX - cx) / cx;
+  const dy = (e.clientY - cy) / (window.innerHeight * 0.3);
+  heroOm.style.transform = `rotateX(${dy * -6}deg) rotateY(${dx * 6}deg)`;
+});
+
+// ── SCROLL REVEAL ──
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if(entry.isIntersecting){
+      setTimeout(() => {
+        entry.target.classList.add('visible');
+      }, 60 * (entry.target.dataset.delay || 0));
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.reveal').forEach((el, i) => {
+  el.dataset.delay = i % 6;
+  revealObserver.observe(el);
+});
+
+// ── ALPHA CARDS 3D TILT ──
+document.querySelectorAll('.alpha-card, .num-card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const rect = card.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    card.style.transform = `translateY(-6px) rotateX(${-y * 8}deg) rotateY(${x * 8}deg)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+  });
+});
+
+// ── AUDIO SIMULATION (waveform UX) ──
+let currentAudioBtn = null;
+let audioTimeout = null;
+
+function playAudio(btn, sound) {
+  if(currentAudioBtn && currentAudioBtn !== btn){
+    stopAudio(currentAudioBtn);
+  }
+  if(btn.classList.contains('playing')){
+    stopAudio(btn);
+    return;
+  }
+
+  const btnText = btn.querySelector('.btn-text');
+  const waveform = btn.querySelector('.waveform');
+  
+  btn.classList.add('playing');
+  if(btnText) btnText.textContent = '■ Stop';
+  if(waveform) waveform.classList.add('active');
+  
+  currentAudioBtn = btn;
+  
+  // Simulate pronunciation duration (1.5–2.5s)
+  const duration = 1500 + Math.random() * 1000;
+  audioTimeout = setTimeout(() => {
+    stopAudio(btn);
+  }, duration);
+}
+
+function stopAudio(btn) {
+  if(!btn) return;
+  const btnText = btn.querySelector('.btn-text');
+  const waveform = btn.querySelector('.waveform');
+  
+  btn.classList.remove('playing');
+  if(btnText) btnText.textContent = '▶ Hear';
+  if(waveform) waveform.classList.remove('active');
+  
+  if(audioTimeout) clearTimeout(audioTimeout);
+  if(currentAudioBtn === btn) currentAudioBtn = null;
+}
+
+// ── ALPHABET TABS ──
+function showAlpha(type, btn) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('alpha-vowels').style.display = type === 'vowels' ? 'grid' : 'none';
+  document.getElementById('alpha-consonants').style.display = type === 'consonants' ? 'grid' : 'none';
+  // Re-observe new cards
+  document.querySelectorAll('#alpha-' + type + ' .alpha-card').forEach(el => {
+    if(!el.classList.contains('visible')){
+      el.classList.add('visible');
+    }
+  });
+}
+
+// ── NUMBER FILTER ──
+function filterNums(range, btn) {
+  document.querySelectorAll('.num-filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.num-card').forEach(c => {
+    if(range === 'all' || c.dataset.range === range){
+      c.style.display = '';
+    } else {
+      c.style.display = 'none';
+    }
+  });
+}
+
+// ── VOCAB FILTER ──
+function filterVocab(cat, btn) {
+  document.querySelectorAll('.vocab-cat-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.vocab-card').forEach(c => {
+    c.style.display = (cat === 'all' || c.dataset.cat === cat) ? '' : 'none';
+  });
+}
+
+// ── MYTH ACCORDION ──
+function toggleMyth(header) {
+  const body = header.nextElementSibling;
+  const chevron = header.querySelector('.myth-chevron');
+  const isOpen = body.classList.contains('open');
+  document.querySelectorAll('.myth-body').forEach(b => b.classList.remove('open'));
+  document.querySelectorAll('.myth-chevron').forEach(c => c.style.transform = '');
+  if(!isOpen){
+    body.classList.add('open');
+    chevron.style.transform = 'rotate(90deg)';
+  }
+}
+
+// ── FAQ ACCORDION ──
+function toggleFaq(item) {
+  const ans = item.querySelector('.faq-a');
+  const tog = item.querySelector('.faq-toggle');
+  const isOpen = ans.classList.contains('open');
+  document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('open'));
+  document.querySelectorAll('.faq-toggle').forEach(t => t.textContent = '+');
+  if(!isOpen){ ans.classList.add('open'); tog.textContent = '−'; }
+}
+
+// ── FLASHCARD ──
+const flashcards = [
+  { front:'ज्ञान', roman:'Jñāna', back:'Knowledge', hindi:'ज्ञान (gyān)' },
+  { front:'शान्ति', roman:'Śānti', back:'Peace', hindi:'शांति' },
+  { front:'सत्य', roman:'Satya', back:'Truth', hindi:'सत्य / सच' },
+  { front:'धर्म', roman:'Dharma', back:'Righteous duty', hindi:'धर्म' },
+  { front:'आनन्द', roman:'Ānanda', back:'Bliss / Joy', hindi:'आनंद' },
+  { front:'प्रेम', roman:'Prema', back:'Love', hindi:'प्रेम' },
+  { front:'गुरु', roman:'Guru', back:'Teacher / Master', hindi:'गुरु' },
+  { front:'शक्ति', roman:'Śakti', back:'Power / Energy', hindi:'शक्ति' },
+];
+let fcIdx = 0;
+function updateFlash(){
+  const card = flashcards[fcIdx];
+  document.getElementById('fc-front').textContent = card.front;
+  document.getElementById('fc-back').textContent = card.back;
+  document.querySelector('#flashcard .alpha-roman').textContent = card.roman;
+  document.querySelector('.card-back [style*="0.9rem"]').textContent = 'Hindi: ' + card.hindi;
+  document.getElementById('flashcard').classList.remove('flipped');
+}
+function nextFlash(){ fcIdx = (fcIdx + 1) % flashcards.length; updateFlash(); }
+function prevFlash(){ fcIdx = (fcIdx - 1 + flashcards.length) % flashcards.length; updateFlash(); }
+function flipCard(wrap){ wrap.querySelector('.flashcard').classList.toggle('flipped'); }
+
+// ── QUOTES ──
+const quotes = [
+  { text:'विद्या ददाति विनयम्', roman:'Vidyā dadāti vinayam', meaning:'"Knowledge brings humility; from humility comes worthiness; from worthiness, wealth; from wealth, righteous deeds; from deeds, joy."', source:'— Hitopadeśa' },
+  { text:'सत्यमेव जयते', roman:'Satyameva jayate', meaning:'"Truth alone triumphs, not falsehood. Through truth, the divine path is stretched out by which the sages ascend."', source:'— Muṇḍaka Upaniṣad 3.1.6' },
+  { text:'योगः कर्मसु कौशलम्', roman:'Yogaḥ karmasu kauśalam', meaning:'"Yoga is excellence in action." — skill and mindfulness applied to all work is itself a form of yoga.', source:'— Bhagavad Gītā 2.50' },
+  { text:'तमसो मा ज्योतिर्गमय', roman:'Tamaso mā jyotirgamaya', meaning:'"Lead me from darkness to light." One of the three great Vedic prayers for awakening.', source:'— Bṛhadāraṇyaka Upaniṣad 1.3.28' },
+  { text:'अहं ब्रह्मास्मि', roman:'Ahaṃ Brahmāsmi', meaning:'"I am Brahman" — one of the four Mahāvākyas expressing the unity of individual consciousness with universal reality.', source:'— Bṛhadāraṇyaka Upaniṣad 1.4.10' },
+];
+let qIdx = 0;
+function renderQuote(){
+  const q = quotes[qIdx];
+  const el = {
+    text: document.getElementById('q-text'),
+    roman: document.getElementById('q-roman'),
+    meaning: document.getElementById('q-meaning'),
+    source: document.getElementById('q-source'),
+    nav: document.getElementById('q-nav')
+  };
+  [el.text, el.roman, el.meaning, el.source].forEach(e => {
+    if(e){ e.style.opacity = '0'; e.style.transform = 'translateY(8px)'; }
+  });
+  setTimeout(() => {
+    if(el.text) el.text.textContent = q.text;
+    if(el.roman) el.roman.textContent = q.roman;
+    if(el.meaning) el.meaning.textContent = q.meaning;
+    if(el.source) el.source.textContent = q.source;
+    if(el.nav) el.nav.innerHTML = quotes.map((_,i) => `<div class="quote-dot${i===qIdx?' active':''}" onclick="setQuote(${i})" style="cursor:pointer;"></div>`).join('');
+    [el.text, el.roman, el.meaning, el.source].forEach(e => {
+      if(e){
+        e.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        e.style.opacity = '1';
+        e.style.transform = 'translateY(0)';
+      }
+    });
+  }, 250);
+}
+function setQuote(i){ qIdx = i; renderQuote(); }
+renderQuote();
+setInterval(() => { qIdx = (qIdx + 1) % quotes.length; renderQuote(); }, 6500);
+
+// ── WORD OF THE DAY ──
+const wotds = [
+  { word:'ज्ञान', roman:'Jñāna', meaning:'Knowledge — the light that dispels the darkness of ignorance' },
+  { word:'शान्ति', roman:'Śānti', meaning:'Peace — the stillness that exists beyond all thought' },
+  { word:'आनन्द', roman:'Ānanda', meaning:'Bliss — the natural state of pure consciousness' },
+  { word:'धर्म', roman:'Dharma', meaning:'Righteous duty — the cosmic order that sustains all existence' },
+  { word:'भक्ति', roman:'Bhakti', meaning:'Devotion — the path of love as spiritual practice' },
+  { word:'मोक्ष', roman:'Mokṣa', meaning:'Liberation — freedom from the cycle of birth and rebirth' },
+  { word:'गुरु', roman:'Guru', meaning:'Teacher — one who dispels darkness (gu=darkness, ru=dispeller)' },
+];
+const dayIdx = Math.floor(Date.now() / 86400000) % wotds.length;
+const w = wotds[dayIdx];
+['wotd-word','wotd-word2'].forEach(id => { const el = document.getElementById(id); if(el) el.textContent = w.word; });
+['wotd-roman','wotd-roman2'].forEach(id => { const el = document.getElementById(id); if(el) el.textContent = w.roman; });
+['wotd-meaning','wotd-meaning2'].forEach(id => { const el = document.getElementById(id); if(el) el.textContent = w.meaning; });
+
+// ── NAV HIDE ON SCROLL ──
+let lastScroll = 0;
+window.addEventListener('scroll', () => {
+  const current = window.pageYOffset;
+  const nav = document.querySelector('nav');
+  if(current > lastScroll && current > 100){
+    nav.style.transform = 'translateY(-100%)';
+  } else {
+    nav.style.transform = 'translateY(0)';
+  }
+  lastScroll = current;
+}, { passive: true });
+document.querySelector('nav').style.transition = 'transform 0.4s ease';
+</script>
+</body>
+</html>

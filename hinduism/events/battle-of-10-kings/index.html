@@ -1,0 +1,2993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dasarājña Yuddha — The Battle of Ten Kings | Rigvedic War Chronicle</title>
+<meta name="description" content="A comprehensive educational archive on the Battle of Ten Kings (Dasarajna Yuddha) from the Rigveda — exploring Rigvedic references, tribal geography, archaeology, and historiography.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9922A;
+    --gold-light: #E8B84B;
+    --gold-pale: #F5E6C0;
+    --copper: #8B4513;
+    --copper-light: #B5673A;
+    --river: #2A5F7A;
+    --river-light: #4A8FA8;
+    --river-pale: #D0E9F2;
+    --earth: #1A0F05;
+    --earth-mid: #2E1A0A;
+    --earth-warm: #3D2410;
+    --sand: #8C7355;
+    --sand-light: #B09A78;
+    --parchment: #F2E8D0;
+    --parchment-dark: #D9C9A3;
+    --ash: #C4B49A;
+    --smoke: #9A8870;
+    --crimson: #8B1A1A;
+    --crimson-light: #B02020;
+    --text-primary: #F0E6CC;
+    --text-secondary: #C4B090;
+    --text-muted: #8A7560;
+    --border: rgba(201,146,42,0.25);
+    --border-strong: rgba(201,146,42,0.5);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--earth);
+    color: var(--text-primary);
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.75;
+    overflow-x: hidden;
+  }
+
+  /* ─── NOISE TEXTURE OVERLAY ─── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.6;
+  }
+
+  /* ─── NAVIGATION ─── */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(26, 15, 5, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+  }
+
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+  }
+
+  .nav-logo {
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    color: var(--gold);
+    letter-spacing: 0.15em;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.3s;
+    text-transform: uppercase;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ─── HERO ─── */
+  #hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 120px 2rem 80px;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 110%, rgba(139,69,19,0.35) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 20% 50%, rgba(42,95,122,0.2) 0%, transparent 50%),
+      radial-gradient(ellipse 50% 70% at 80% 30%, rgba(201,146,42,0.08) 0%, transparent 50%),
+      linear-gradient(180deg, #0D0703 0%, #1A0F05 40%, #2E1A0A 100%);
+  }
+
+  .hero-sun {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,146,42,0.15) 0%, rgba(201,146,42,0.05) 40%, transparent 70%);
+    border: 1px solid rgba(201,146,42,0.12);
+    animation: pulse-glow 6s ease-in-out infinite;
+  }
+
+  .hero-sun::after {
+    content: '';
+    position: absolute;
+    inset: 20px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,146,42,0.08);
+    animation: pulse-glow 6s ease-in-out infinite reverse;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.03); }
+  }
+
+  .hero-river {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 180px;
+    background: linear-gradient(0deg, rgba(42,95,122,0.4) 0%, rgba(42,95,122,0.15) 50%, transparent 100%);
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 180'%3E%3Cpath d='M0,120 C240,80 480,160 720,100 C960,40 1200,140 1440,90 L1440,180 L0,180Z' fill='white'/%3E%3C/svg%3E");
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 180'%3E%3Cpath d='M0,120 C240,80 480,160 720,100 C960,40 1200,140 1440,90 L1440,180 L0,180Z' fill='white'/%3E%3C/svg%3E");
+    mask-size: cover;
+    -webkit-mask-size: cover;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 900px;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fade-up 1s ease 0.3s forwards;
+  }
+
+  .hero-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(2.8rem, 6vw, 5.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    opacity: 0;
+    animation: fade-up 1s ease 0.6s forwards;
+  }
+
+  .hero-title span { color: var(--gold); }
+
+  .hero-subtitle-devanagari {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.4rem, 3vw, 2.2rem);
+    color: var(--gold-light);
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    animation: fade-up 1s ease 0.9s forwards;
+    opacity: 0;
+  }
+
+  .hero-desc {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    color: var(--text-secondary);
+    max-width: 620px;
+    margin: 0 auto 2.5rem;
+    font-style: italic;
+    line-height: 1.8;
+    opacity: 0;
+    animation: fade-up 1s ease 1.2s forwards;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fade-up 1s ease 1.5s forwards;
+  }
+
+  .btn-primary {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--earth);
+    background: var(--gold);
+    border: none;
+    padding: 14px 28px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  }
+
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+  .btn-secondary {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: transparent;
+    border: 1px solid var(--border-strong);
+    padding: 14px 28px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+
+  .btn-secondary:hover { background: rgba(201,146,42,0.1); border-color: var(--gold); }
+
+  .hero-stats {
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    opacity: 0;
+    animation: fade-up 1s ease 1.8s forwards;
+  }
+
+  .hero-stat {
+    text-align: center;
+  }
+
+  .hero-stat-num {
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--gold);
+    display: block;
+  }
+
+  .hero-stat-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    font-family: 'Cinzel', serif;
+  }
+
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─── DIVIDER ─── */
+  .ornament-divider {
+    text-align: center;
+    color: var(--gold);
+    font-size: 1.5rem;
+    padding: 1.5rem 0;
+    opacity: 0.6;
+    letter-spacing: 0.5rem;
+  }
+
+  /* ─── SECTION BASE ─── */
+  section {
+    position: relative;
+    padding: 5rem 2rem;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-eyebrow {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .section-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-bottom: 3rem;
+    max-width: 700px;
+  }
+
+  p { margin-bottom: 1.2rem; color: var(--text-secondary); }
+
+  strong { color: var(--text-primary); font-weight: 600; }
+
+  em { color: var(--gold-light); font-style: italic; }
+
+  /* ─── INTRO SECTION ─── */
+  #intro {
+    background: linear-gradient(180deg, var(--earth) 0%, var(--earth-mid) 100%);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .intro-quote {
+    border-left: 3px solid var(--gold);
+    padding: 1.5rem 2rem;
+    background: rgba(201,146,42,0.05);
+    margin: 2rem 0;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .intro-quote .sanskrit {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    color: var(--gold-light);
+    display: block;
+    margin-bottom: 0.5rem;
+    font-style: italic;
+  }
+
+  .intro-quote .attribution {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    display: block;
+    margin-top: 0.75rem;
+  }
+
+  .key-facts {
+    background: rgba(201,146,42,0.06);
+    border: 1px solid var(--border);
+    padding: 2rem;
+    border-radius: 4px;
+  }
+
+  .key-facts h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+
+  .fact-item {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .fact-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .fact-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    min-width: 110px;
+    padding-top: 2px;
+  }
+
+  .fact-value {
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    line-height: 1.5;
+  }
+
+  /* ─── SCRIPTURE SECTION ─── */
+  #scripture {
+    background: var(--earth-mid);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .verse-card {
+    background: rgba(15,10,3,0.6);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--gold);
+    padding: 2.5rem;
+    margin-bottom: 2.5rem;
+    border-radius: 0 0 4px 4px;
+    position: relative;
+  }
+
+  .verse-ref {
+    position: absolute;
+    top: -1px;
+    left: 2rem;
+    background: var(--gold);
+    color: var(--earth);
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    padding: 4px 12px;
+    text-transform: uppercase;
+  }
+
+  .verse-sanskrit {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    color: var(--gold-light);
+    font-style: italic;
+    line-height: 1.8;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .verse-transliteration {
+    font-family: 'EB Garamond', serif;
+    font-size: 1rem;
+    color: var(--sand-light);
+    margin-bottom: 1rem;
+    font-style: italic;
+  }
+
+  .verse-translation {
+    font-size: 1.05rem;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    padding-left: 1rem;
+    border-left: 2px solid var(--copper-light);
+  }
+
+  .verse-tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .verse-tab {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    cursor: pointer;
+    color: var(--text-muted);
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    background: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+  }
+
+  .verse-tab.active, .verse-tab:hover {
+    color: var(--gold);
+    border-bottom-color: var(--gold);
+  }
+
+  .verse-panel { display: none; }
+  .verse-panel.active { display: block; }
+
+  /* ─── GEOGRAPHY ─── */
+  #geography {
+    background: linear-gradient(180deg, var(--earth-mid) 0%, var(--earth-warm) 50%, var(--earth-mid) 100%);
+  }
+
+  .geo-grid {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 3rem;
+    align-items: start;
+    margin-top: 3rem;
+  }
+
+  .map-container {
+    position: relative;
+    background: rgba(42,95,122,0.08);
+    border: 1px solid rgba(42,95,122,0.3);
+    border-radius: 4px;
+    padding: 2rem;
+    overflow: hidden;
+  }
+
+  .svg-map {
+    width: 100%;
+    height: auto;
+  }
+
+  .geo-sidebar h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .river-item {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .river-item:last-child { border-bottom: none; }
+
+  .river-name {
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    color: var(--river-light);
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .river-modern {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-style: italic;
+    display: block;
+    margin-bottom: 0.5rem;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.05em;
+  }
+
+  /* ─── TRIBES ─── */
+  #tribes {
+    background: var(--earth);
+    border-top: 1px solid var(--border);
+  }
+
+  .tribes-intro {
+    max-width: 760px;
+    margin-bottom: 4rem;
+  }
+
+  .confederation-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    padding: 8px 16px;
+    display: inline-block;
+    border: 1px solid;
+  }
+
+  .label-enemy { color: var(--crimson-light); border-color: rgba(139,26,26,0.4); background: rgba(139,26,26,0.08); }
+  .label-bharata { color: var(--gold); border-color: var(--border-strong); background: rgba(201,146,42,0.08); }
+
+  .tribes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .tribe-card {
+    background: rgba(15,10,3,0.5);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.75rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .tribe-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+  }
+
+  .tribe-card.enemy::before { background: linear-gradient(90deg, var(--crimson), transparent); }
+  .tribe-card.bharata::before { background: linear-gradient(90deg, var(--gold), transparent); }
+  .tribe-card.ally::before { background: linear-gradient(90deg, var(--river), transparent); }
+
+  .tribe-card:hover {
+    border-color: var(--border-strong);
+    background: rgba(201,146,42,0.06);
+    transform: translateY(-2px);
+  }
+
+  .tribe-card h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+  }
+
+  .tribe-card .tribe-meaning {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.9rem;
+    color: var(--gold-light);
+    font-style: italic;
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  .tribe-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 1rem;
+  }
+
+  .tribe-tag {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    padding: 3px 10px;
+    border-radius: 2px;
+    text-transform: uppercase;
+  }
+
+  .tag-geo { background: rgba(42,95,122,0.2); color: var(--river-light); border: 1px solid rgba(42,95,122,0.3); }
+  .tag-role { background: rgba(201,146,42,0.1); color: var(--gold); border: 1px solid var(--border); }
+  .tag-identity { background: rgba(139,26,26,0.15); color: #D06060; border: 1px solid rgba(139,26,26,0.3); }
+
+  .tribe-expand {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    display: none;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .tribe-card.open .tribe-expand { display: block; }
+
+  .tribe-toggle {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 0.75rem;
+    display: inline-block;
+  }
+
+  /* ─── SUDAS SECTION ─── */
+  #sudas {
+    background: linear-gradient(135deg, var(--earth-mid) 0%, var(--earth-warm) 100%);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .sudas-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .lineage-tree {
+    background: rgba(0,0,0,0.3);
+    border: 1px solid var(--border);
+    padding: 2rem;
+    border-radius: 4px;
+    margin-top: 2rem;
+  }
+
+  .lineage-tree h4 {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+
+  .lineage-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 0;
+  }
+
+  .lineage-connector {
+    color: var(--text-muted);
+    font-size: 1.2rem;
+  }
+
+  .lineage-name {
+    font-family: 'Cinzel', serif;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+  }
+
+  .lineage-role {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  /* ─── CAUSES ─── */
+  #causes {
+    background: var(--earth);
+  }
+
+  .causes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .cause-card {
+    border: 1px solid var(--border);
+    padding: 2rem;
+    border-radius: 4px;
+    background: rgba(15,8,2,0.4);
+    position: relative;
+  }
+
+  .cause-number {
+    font-family: 'Cinzel', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: rgba(201,146,42,0.12);
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    line-height: 1;
+  }
+
+  .cause-card h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+    padding-right: 3rem;
+  }
+
+  .evidence-badge {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    padding: 3px 10px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-top: 0.75rem;
+  }
+
+  .badge-scripture { background: rgba(201,146,42,0.12); color: var(--gold); border: 1px solid var(--border); }
+  .badge-scholarly { background: rgba(42,95,122,0.15); color: var(--river-light); border: 1px solid rgba(42,95,122,0.3); }
+  .badge-speculative { background: rgba(139,26,26,0.1); color: #D06060; border: 1px solid rgba(139,26,26,0.3); }
+
+  /* ─── WARFARE ─── */
+  #warfare {
+    background: var(--earth-mid);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .warfare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+    margin-top: 3rem;
+  }
+
+  .battle-diagram {
+    background: rgba(0,0,0,0.4);
+    border: 1px solid rgba(42,95,122,0.4);
+    padding: 2rem;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    color: var(--river-light);
+    line-height: 1.8;
+    overflow-x: auto;
+  }
+
+  .battle-diagram pre {
+    white-space: pre;
+    color: var(--river-light);
+  }
+
+  .warfare-points h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+    margin-top: 1.5rem;
+  }
+
+  /* ─── OUTCOME ─── */
+  #outcome {
+    background: linear-gradient(180deg, var(--earth-warm) 0%, var(--earth) 100%);
+  }
+
+  .timeline {
+    position: relative;
+    padding-left: 3rem;
+    margin-top: 3rem;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(180deg, var(--gold) 0%, var(--border) 100%);
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 2.5rem;
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -3rem;
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--gold);
+    box-shadow: 0 0 12px rgba(201,146,42,0.4);
+  }
+
+  .timeline-period {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+
+  .timeline-item h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  /* ─── MIGRATION ─── */
+  #migration {
+    background: var(--earth);
+    border-top: 1px solid var(--border);
+  }
+
+  .migration-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .migration-card {
+    background: rgba(15,8,2,0.5);
+    border: 1px solid var(--border);
+    padding: 2rem;
+    border-radius: 4px;
+  }
+
+  .migration-card h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .status-pill {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    padding: 3px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 0.75rem;
+  }
+
+  .pill-accepted { background: rgba(42,95,122,0.2); color: var(--river-light); border: 1px solid rgba(42,95,122,0.4); }
+  .pill-debated { background: rgba(201,146,42,0.12); color: var(--gold); border: 1px solid var(--border); }
+  .pill-speculative { background: rgba(139,26,26,0.12); color: #D06060; border: 1px solid rgba(139,26,26,0.3); }
+
+  /* ─── ARCHAEOLOGY ─── */
+  #archaeology {
+    background: var(--earth-mid);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .arch-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .arch-card {
+    background: rgba(10,6,2,0.5);
+    border: 1px solid var(--border);
+    padding: 2rem;
+    border-radius: 4px;
+  }
+
+  .arch-card h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 0.95rem;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .evidence-grid {
+    margin-top: 1rem;
+  }
+
+  .evidence-row {
+    display: flex;
+    gap: 1rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(201,146,42,0.1);
+    font-size: 0.9rem;
+  }
+
+  .evidence-row:last-child { border-bottom: none; }
+
+  .evidence-status {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 6px;
+  }
+
+  .status-confirmed { background: #4A9A6A; }
+  .status-probable { background: var(--gold); }
+  .status-speculative { background: var(--crimson-light); }
+
+  /* ─── SCHOLARS ─── */
+  #scholars {
+    background: var(--earth);
+  }
+
+  .scholars-intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .school-card {
+    border: 1px solid var(--border);
+    padding: 2rem;
+    border-radius: 4px;
+    background: rgba(10,6,2,0.4);
+  }
+
+  .school-card h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .school-card.mainstream h3 { color: var(--river-light); }
+  .school-card.nationalist h3 { color: var(--gold); }
+  .school-card.revisionist h3 { color: #D06060; }
+
+  .scholar-name {
+    font-family: 'Cinzel', serif;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .scholar-position {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+    font-style: italic;
+    padding-left: 0.75rem;
+    border-left: 2px solid var(--border);
+  }
+
+  /* ─── COMPARISON TABLE ─── */
+  #comparison {
+    background: var(--earth-mid);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    overflow-x: auto;
+  }
+
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    margin-top: 2.5rem;
+  }
+
+  .comparison-table th {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border-bottom: 1px solid var(--border-strong);
+    padding: 0.75rem 1rem;
+    text-align: left;
+    background: rgba(201,146,42,0.06);
+  }
+
+  .comparison-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-secondary);
+    vertical-align: top;
+  }
+
+  .comparison-table tr:hover td {
+    background: rgba(201,146,42,0.04);
+  }
+
+  .comparison-table td:first-child {
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+
+  .dot-confirm { color: #4A9A6A; margin-right: 6px; }
+  .dot-partial { color: var(--gold-light); margin-right: 6px; }
+  .dot-no { color: #D06060; margin-right: 6px; }
+
+  /* ─── FAQ ─── */
+  #faq {
+    background: var(--earth);
+  }
+
+  .faq-list {
+    max-width: 800px;
+    margin-top: 3rem;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 1.5rem 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    color: var(--text-primary);
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    transition: color 0.2s;
+  }
+
+  .faq-question:hover { color: var(--gold); }
+
+  .faq-question .faq-arrow {
+    color: var(--gold);
+    font-size: 1.2rem;
+    transition: transform 0.3s;
+    flex-shrink: 0;
+  }
+
+  .faq-item.open .faq-arrow { transform: rotate(45deg); }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    padding-left: 0;
+  }
+
+  .faq-item.open .faq-answer {
+    max-height: 500px;
+  }
+
+  .faq-answer-inner {
+    padding-bottom: 1.5rem;
+  }
+
+  /* ─── BOOKS SECTION ─── */
+  #resources {
+    background: var(--earth-warm);
+    border-top: 1px solid var(--border);
+  }
+
+  .books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .book-card {
+    background: rgba(10,6,2,0.5);
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    border-radius: 4px;
+    border-left: 3px solid var(--gold);
+  }
+
+  .book-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .book-author {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-style: italic;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .book-note {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  /* ─── SUMMARY ─── */
+  #summary {
+    background: linear-gradient(180deg, var(--earth-mid) 0%, var(--earth) 100%);
+    border-top: 1px solid var(--border);
+  }
+
+  .summary-box {
+    background: rgba(201,146,42,0.06);
+    border: 1px solid var(--border-strong);
+    padding: 3rem;
+    border-radius: 4px;
+    max-width: 900px;
+    margin: 0 auto 3rem;
+  }
+
+  .summary-box h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.6rem;
+    color: var(--gold);
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--earth);
+    border-top: 1px solid var(--border);
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+
+  .footer-logo {
+    font-family: 'Cinzel', serif;
+    font-size: 1.4rem;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .footer-text {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  .footer-divider {
+    margin: 2rem auto;
+    max-width: 200px;
+    border: none;
+    border-top: 1px solid var(--border);
+  }
+
+  /* ─── RARE FACTS ─── */
+  #rarefacts {
+    background: var(--earth-mid);
+    border-top: 1px solid var(--border);
+  }
+
+  .facts-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .rare-fact {
+    background: rgba(10,5,1,0.5);
+    border: 1px solid var(--border);
+    padding: 1.75rem;
+    border-radius: 4px;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .rare-fact-number {
+    font-family: 'Cinzel', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: rgba(201,146,42,0.25);
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .rare-fact h4 {
+    font-family: 'Cinzel', serif;
+    font-size: 0.9rem;
+    color: var(--gold);
+    margin-bottom: 0.4rem;
+  }
+
+  /* ─── SEARCH BAR ─── */
+  .search-container {
+    background: rgba(201,146,42,0.05);
+    border: 1px solid var(--border);
+    padding: 2rem;
+    border-radius: 4px;
+    margin-bottom: 3rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  #search-input {
+    flex: 1;
+    background: rgba(0,0,0,0.3);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    padding: 10px 16px;
+    font-family: 'EB Garamond', serif;
+    font-size: 1rem;
+    border-radius: 2px;
+    outline: none;
+  }
+
+  #search-input:focus { border-color: var(--gold); }
+
+  #search-input::placeholder { color: var(--text-muted); }
+
+  .search-btn {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    background: var(--gold);
+    color: var(--earth);
+    border: none;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all 0.2s;
+  }
+
+  .search-btn:hover { background: var(--gold-light); }
+
+  /* ─── SCROLL REVEAL ─── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─── UTILITY ─── */
+  .text-gold { color: var(--gold); }
+  .text-muted { color: var(--text-muted); font-size: 0.85rem; font-style: italic; }
+  .cinzel { font-family: 'Cinzel', serif; }
+
+  .section-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    max-width: 200px;
+    margin: 2rem 0;
+  }
+
+  .note-box {
+    background: rgba(42,95,122,0.1);
+    border: 1px solid rgba(42,95,122,0.3);
+    border-left: 3px solid var(--river-light);
+    padding: 1.25rem 1.5rem;
+    border-radius: 0 4px 4px 0;
+    margin: 1.5rem 0;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+  }
+
+  .warning-box {
+    background: rgba(139,26,26,0.08);
+    border-left: 3px solid var(--crimson-light);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    .intro-grid, .geo-grid, .sudas-grid, .warfare-grid, .scholars-intro {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .nav-links { display: none; }
+
+    .hero-stats {
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-stat-num { font-size: 1.5rem; }
+
+    section { padding: 3rem 1.5rem; }
+
+    .verse-card { padding: 1.5rem; }
+
+    .summary-box { padding: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">Dasarājña Yuddha</a>
+    <ul class="nav-links">
+      <li><a href="#intro">Introduction</a></li>
+      <li><a href="#scripture">Rigveda</a></li>
+      <li><a href="#geography">Geography</a></li>
+      <li><a href="#tribes">Tribes</a></li>
+      <li><a href="#sudas">Sudas</a></li>
+      <li><a href="#archaeology">Archaeology</a></li>
+      <li><a href="#scholars">Scholars</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════ HERO ═══ -->
+<section id="hero" aria-label="Hero banner">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-sun" aria-hidden="true"></div>
+  <div class="hero-river" aria-hidden="true"></div>
+
+  <div class="hero-content">
+    <span class="hero-eyebrow">Rigveda · Mandala VII · c. 1400–1000 BCE</span>
+    <h1 class="hero-title">The Battle of<br><span>Ten Kings</span></h1>
+    <div class="hero-subtitle-devanagari" aria-label="Dasarajna Yuddha in Devanagari transliteration">Daśarājña Yuddha</div>
+    <p class="hero-desc">
+      Where the river Parushni ran red — the oldest recorded war on the Indian subcontinent, sung into memory by Vasistha, and preserved across three thousand years in the hymns of the Rigveda.
+    </p>
+    <div class="hero-ctas">
+      <a href="#intro" class="btn-primary">Explore the Battle</a>
+      <a href="#tribes" class="btn-secondary">The Ten Kings</a>
+      <a href="#archaeology" class="btn-secondary">View Evidence</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="hero-stat-num">10</span>
+        <span class="hero-stat-label">Allied Kings</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">RV VII</span>
+        <span class="hero-stat-label">Primary Source</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">~1200</span>
+        <span class="hero-stat-label">BCE Estimated</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">Parushni</span>
+        <span class="hero-stat-label">River Ravi, Punjab</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ornament-divider" aria-hidden="true">✦ ✦ ✦</div>
+
+<!-- ═══════════════════════════════════════════ INTRODUCTION ═══ -->
+<section id="intro">
+  <div class="container">
+    <span class="section-eyebrow">Foundation</span>
+    <h2 class="section-title">What Was the Dasarājña Yuddha?</h2>
+    <p class="section-subtitle">The oldest war described in South Asian literary memory — and one of the most debated events in Vedic historiography.</p>
+
+    <div class="intro-grid">
+      <div>
+        <p>The <strong>Daśarājña Yuddha</strong> — literally "the war of ten kings" (daśa: ten; rājā: king; yuddha: war) — is a military conflict described in the hymns of the <em>Rigveda</em>, the oldest of the four Vedic texts. It is primarily recorded in <strong>Maṇḍala VII</strong> (hymns 18, 33, and 83), the "Family Book" attributed to the Vasiṣṭha clan of priests, composed in a form of Old Vedic Sanskrit whose linguistic features are analyzed by scholars for relative chronology.</p>
+
+        <p>The war pitted <strong>King Sudās of the Bharata tribe</strong> — supported by the priestly guidance of <em>Vasiṣṭha</em> — against a large confederation of ten rival kings. Ancient testimony and later Vedic memory consistently credit Sudās with victory. This outcome is considered pivotal in the political formation of what would later become the <em>Kuru</em> confederacy — arguably the most important political formation in early Indian history — which itself gave rise to the civilization that produced the Mahābhārata and the later Vedic corpus.</p>
+
+        <div class="intro-quote">
+          <span class="sanskrit">"Indra who rules with those who sing his praises… smote down the ten kings in battle for Sudās"</span>
+          <span class="attribution">— Rigveda VII.83.7 (paraphrase after Griffith / Jamison-Brereton)</span>
+        </div>
+
+        <p>Scholars debate nearly every aspect of this event: whether it is primarily a mythological narrative, a political hymn, or a reliable account of historical events. The <strong>key interpretive divide</strong> is between those who read the Rigvedic references as authentic if stylized historical memory, and those who view them primarily as ritual-political propaganda composed to legitimize Bharata supremacy.</p>
+
+        <div class="note-box">
+          <strong>Important scholarly caveat:</strong> The Rigveda is not a history text. It is a collection of ritual hymns. Historical reconstruction from Vedic texts requires triangulation with linguistics, archaeology, and comparative mythology — and the results are inevitably partial and probabilistic.
+        </div>
+
+        <p>What makes the Daśarājña historically significant is not just the war itself but what it reveals: the structure of <em>Vedic tribal politics</em>, the role of priestly competition in shaping military alliances, the geography of Bronze Age Punjab, and the mechanisms by which one tribe — the Bharatas — came to dominate the Vedic literary tradition so thoroughly that subsequent civilization was named for them (<em>Bhārata</em>, the Sanskrit name of India).</p>
+      </div>
+
+      <div>
+        <div class="key-facts">
+          <h3>Key Facts at a Glance</h3>
+          <div class="fact-item">
+            <span class="fact-label">Event Name</span>
+            <span class="fact-value">Daśarājña Yuddha (दशराज्ञ युद्ध)</span>
+          </div>
+          <div class="fact-item">
+            <span class="fact-label">Primary Sources</span>
+            <span class="fact-value">Rigveda VII.18, VII.33, VII.83; also VII.19, VII.53, IV.24</span>
+          </div>
+          <div class="fact-item">
+            <span class="fact-label">Estimated Date</span>
+            <span class="fact-value">c. 1400–1000 BCE (scholarly range varies significantly)</span>
+          </div>
+          <div class="fact-item">
+            <span class="fact-label">Location</span>
+            <span class="fact-value">River Parushni (modern Ravi), Punjab region</span>
+          </div>
+          <div class="fact-item">
+            <span class="fact-label">Victor</span>
+            <span class="fact-value">King Sudās of the Bharatas</span>
+          </div>
+          <div class="fact-item">
+            <span class="fact-label">Bharata Priest</span>
+            <span class="fact-value">Vasiṣṭha (replaced Viśvāmitra, who switched sides)</span>
+          </div>
+          <div class="fact-item">
+            <span class="fact-label">Enemy Coalition</span>
+            <span class="fact-value">~10 kings including Pūrus, Anus, Druhyus, and allied tribes</span>
+          </div>
+          <div class="fact-item">
+            <span class="fact-label">Historical Significance</span>
+            <span class="fact-value">Foundational to Kuru state formation; Bharata dominance of Vedic tradition</span>
+          </div>
+          <div class="fact-item">
+            <span class="fact-label">Source Tradition</span>
+            <span class="fact-value">Vasiṣṭha family book (Maṇḍala VII) — composed by winning side's priests</span>
+          </div>
+          <div class="fact-item">
+            <span class="fact-label">Archaeological Culture</span>
+            <span class="fact-value">Possibly Late Harappan transition / Early Painted Grey Ware</span>
+          </div>
+        </div>
+
+        <div class="note-box" style="margin-top: 1.5rem;">
+          <strong>On the "ten kings" number:</strong> The term Daśarājña is the traditional name, but the Rigvedic texts themselves list varying numbers of tribes and leaders across hymns. Some scholars count the confederate kings as more than ten; the number "ten" may be a formulaic or ceremonial figure in Vedic enumeration, not a literal count.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ SCRIPTURE ═══ -->
+<section id="scripture">
+  <div class="container">
+    <span class="section-eyebrow">Rigvedic Textual Analysis</span>
+    <h2 class="section-title">The Hymns of the Battle</h2>
+    <p class="section-subtitle">Three primary hymns in Maṇḍala VII preserve the battle's memory — each composing a distinct literary and theological layer.</p>
+
+    <div class="reveal">
+      <!-- VERSE CARD 1 -->
+      <div class="verse-card">
+        <span class="verse-ref">RV VII.18.5–7</span>
+        <span class="verse-sanskrit">tváṃ hí viśvā yuddhā codáyase svayúk<br>
+        rājanvantaṃ vajriṇaṃ saṃ gṛṇīhi</span>
+        <div class="verse-transliteration">tvaṃ hi viśvā yuddhā codayase svayuk — rājanvantaṃ vajriṇaṃ saṃ gṛṇīhi</div>
+        <div class="verse-translation">"You drive on all battles by your own will — praise the Vajrin (Indra) who wields the bolt on behalf of the king."</div>
+        <div class="verse-tabs">
+          <button class="verse-tab active" onclick="switchTab(this, 'hist-1')">Historical</button>
+          <button class="verse-tab" onclick="switchTab(this, 'theol-1')">Theological</button>
+          <button class="verse-tab" onclick="switchTab(this, 'debate-1')">Scholarly Debate</button>
+        </div>
+        <div id="hist-1" class="verse-panel active">
+          <p><strong>Historical Interpretation:</strong> This verse frames the battle as divinely sanctioned warfare — Indra's agency is invoked to legitimate Sudās's military campaign. Historically, this reflects the standard Vedic practice of <em>royal yajna</em> (sacrifice) before warfare, where the king's violence is consecrated through ritual and divine invocation. The priestly composer (Vasiṣṭha or his lineage) thus functions as both theologian and political propagandist. The hymn was likely composed to be recited at a post-victory celebration (<em>rājasūya</em> or similar ritual).</p>
+        </div>
+        <div id="theol-1" class="verse-panel">
+          <p><strong>Theological Meaning:</strong> In Vedic cosmology, Indra is the deva of storms, strength, and battles. His alliance with Sudās represents the cosmic order (<em>ṛta</em>) aligning with the righteous king. The vajra (thunderbolt) is both a physical weapon and a metaphysical force — Sudās's victory is thus not merely military but a demonstration of cosmic righteousness. The priest's recitation of this hymn enacts the alliance between divine and human realms.</p>
+        </div>
+        <div id="debate-1" class="verse-panel">
+          <p><strong>Scholarly Debate:</strong> Witzel (1995) views Mandala VII as composed in close temporal proximity to the events described, possibly within one or two generations. Jamison and Brereton (2014) caution that even if the composition is early, its reference to a specific historical conflict is difficult to isolate from generic battle-poetry conventions. The phrase "ten kings" (daśa rājānaḥ) may reflect a traditional formula for "many enemies" rather than a precise enumeration.</p>
+        </div>
+      </div>
+
+      <!-- VERSE CARD 2 -->
+      <div class="verse-card">
+        <span class="verse-ref">RV VII.18.6</span>
+        <span class="verse-sanskrit">pra yé gṛṇanti sūnṛtā maghony<br>
+        indra devebhyaḥ sumatim vṛṇānaḥ</span>
+        <div class="verse-transliteration">pra yé gṛṇanti sūnṛtā maghoni — indra devebhyaḥ sumatim vṛṇānaḥ</div>
+        <div class="verse-translation">"Those who sing praises full of truth to the bountiful Indra — choosing his favor above that of the gods."</div>
+        <div class="verse-tabs">
+          <button class="verse-tab active" onclick="switchTab(this, 'hist-2')">Historical</button>
+          <button class="verse-tab" onclick="switchTab(this, 'theol-2')">Theological</button>
+          <button class="verse-tab" onclick="switchTab(this, 'debate-2')">Scholarly Debate</button>
+        </div>
+        <div id="hist-2" class="verse-panel active">
+          <p><strong>Historical Interpretation:</strong> The reference to "those who sing praises" (the Vasiṣṭha priests) establishes the political contract: the priestly lineage provides ritual services to Sudās in exchange for royal patronage. The phrase <em>sumatim vṛṇānaḥ</em> (choosing his favor) may encode the moment when Sudās switched allegiance from Viśvāmitra's priestly tradition to Vasiṣṭha's — a key political turning point the hymn celebrates without explicitly narrating.</p>
+        </div>
+        <div id="theol-2" class="verse-panel">
+          <p><strong>Theological Meaning:</strong> The verse emphasizes truth-speech (<em>sūnṛtā</em>) as the core virtue of proper hymn-singing. In Vedic theology, the hymn's power derives from its phonetic and semantic precision — a correctly composed and recited hymn <em>is</em> the divine act, not merely a description of it. The priest's political loyalty is thus inseparable from theological correctness.</p>
+        </div>
+        <div id="debate-2" class="verse-panel">
+          <p><strong>Scholarly Debate:</strong> The Viśvāmitra-Vasiṣṭha rivalry is one of the most discussed subplots of the Daśarājña narrative. Talageri (2008) and Pargiter see this as an historical priestly schism with real political consequences. Witzel argues that the rivalry is partially literary and that its narrative elaboration in the Mahābhārata represents generations of mythologization layered onto a kernel of political memory.</p>
+        </div>
+      </div>
+
+      <!-- VERSE CARD 3 -->
+      <div class="verse-card">
+        <span class="verse-ref">RV VII.83.7–8 — The Victory Verse</span>
+        <span class="verse-sanskrit">índraś ca yó varuṇaś ca medhirā<br>
+        daśabhiḥ kṣipraśyena sudásam ávataṃ</span>
+        <div class="verse-transliteration">índraś ca yó varuṇaś ca medhirā — daśabhiḥ kṣipra-śyena sudásam ávataṃ</div>
+        <div class="verse-translation">"The wise Indra and Varuṇa — swiftly as the hawk, they protected Sudās against the ten."</div>
+        <div class="verse-tabs">
+          <button class="verse-tab active" onclick="switchTab(this, 'hist-3')">Historical</button>
+          <button class="verse-tab" onclick="switchTab(this, 'theol-3')">Theological</button>
+          <button class="verse-tab" onclick="switchTab(this, 'debate-3')">Scholarly Debate</button>
+        </div>
+        <div id="hist-3" class="verse-panel active">
+          <p><strong>Historical Interpretation:</strong> RV VII.83 is a joint hymn to Indra-Varuṇa, a paired divine force rarely addressed together — suggesting it was composed for a particularly momentous occasion, likely a post-battle thanksgiving. The phrase "against the ten" (<em>daśabhiḥ</em>) is the closest the text comes to explicitly naming the battle's configuration. The "swiftness of the hawk" (<em>kṣipra-śyena</em>) may allude to Sudās's tactical speed in deploying against the crossing confederation at the Parushni.</p>
+        </div>
+        <div id="theol-3" class="verse-panel">
+          <p><strong>Theological Meaning:</strong> Indra-Varuṇa as a pair represents the union of martial power (Indra) with cosmic law and binding oaths (Varuṇa). Invoking both together frames Sudās's victory as simultaneously militarily decisive and cosmically legitimate — a complete divine endorsement. Varuṇa's inclusion is notable because he oversees contracts; the enemies may have violated some treaty (<em>vratya</em>) that justified divine punishment.</p>
+        </div>
+        <div id="debate-3" class="verse-panel">
+          <p><strong>Scholarly Debate:</strong> The most serious philological question about VII.83 concerns its compositional unity. Some scholars (following Oldenberg) argue that portions of this hymn are late interpolations that retrospectively consolidated the battle's narrative. Stephanie Jamison's 2014 translation (with Brereton) treats the hymn as formally coherent while acknowledging its references remain "tantalizingly allusive" about actual events.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="note-box reveal">
+      <strong>On Mandala IV:</strong> RV IV.24 and related hymns are sometimes associated with the battle's background, particularly in describing territorial disputes along the Sapta Sindhava (Seven Rivers). However, the attribution is indirect — these hymns are from a different family book (Vāmadeva) and their connection to Daśarājña events is inferred rather than explicit.
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ GEOGRAPHY ═══ -->
+<section id="geography">
+  <div class="container">
+    <span class="section-eyebrow">Historical Geography</span>
+    <h2 class="section-title">The River Parushni & the Sapta Sindhava</h2>
+    <p class="section-subtitle">The battle was fought on the banks of a river. Identifying which river — and understanding what it meant — is foundational to reconstructing events.</p>
+
+    <div class="geo-grid reveal">
+      <div>
+        <div class="map-container">
+          <svg class="svg-map" viewBox="0 0 560 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Map of the Sapta Sindhava region showing river systems">
+            <title>Sapta Sindhava River System — Late Bronze Age Punjab</title>
+            <!-- Background terrain -->
+            <rect width="560" height="420" fill="#1A0F05"/>
+            <!-- Mountains (north) -->
+            <path d="M0,0 L560,0 L560,80 Q480,40 420,60 Q360,80 300,45 Q240,10 180,55 Q120,90 60,50 Q30,30 0,60 Z" fill="#2A1A08" opacity="0.8"/>
+            <!-- Land masses -->
+            <rect x="0" y="60" width="560" height="360" fill="#2E1A08" opacity="0.6"/>
+
+            <!-- SINDHU / INDUS (westernmost) -->
+            <path d="M40,70 Q50,120 45,180 Q40,240 55,300 Q70,360 80,410" stroke="#4A8FA8" stroke-width="3.5" fill="none" opacity="0.8"/>
+            <text x="20" y="200" fill="#6AAAC0" font-size="10" font-family="serif" transform="rotate(-80,20,200)" opacity="0.9">Sindhu</text>
+
+            <!-- VITASTA (Jhelum) -->
+            <path d="M110,70 Q120,130 115,190 Q110,250 125,310 Q140,370 150,410" stroke="#4A8FA8" stroke-width="2.5" fill="none" opacity="0.7"/>
+            <text x="90" y="210" fill="#6AAAC0" font-size="10" font-family="serif" transform="rotate(-80,90,210)" opacity="0.8">Vitasta</text>
+
+            <!-- ASIKNI (Chenab) -->
+            <path d="M185,70 Q195,130 190,200 Q185,265 200,325 Q215,380 225,420" stroke="#4A8FA8" stroke-width="2.5" fill="none" opacity="0.7"/>
+            <text x="165" y="220" fill="#6AAAC0" font-size="10" font-family="serif" transform="rotate(-80,165,220)" opacity="0.8">Asiknī</text>
+
+            <!-- PARUSHNI (Ravi) — BATTLE RIVER — highlighted -->
+            <path d="M265,65 Q280,130 270,200 Q260,270 280,330 Q300,390 310,420" stroke="#C9922A" stroke-width="4" fill="none"/>
+            <path d="M265,65 Q280,130 270,200 Q260,270 280,330 Q300,390 310,420" stroke="#E8B84B" stroke-width="1.5" fill="none" opacity="0.5" stroke-dasharray="4,4"/>
+            <text x="320" y="200" fill="#E8B84B" font-size="12" font-family="serif" font-weight="bold">Paruṣṇī</text>
+            <text x="316" y="214" fill="#C9922A" font-size="9" font-family="serif">(modern Ravi)</text>
+            <!-- Battle marker -->
+            <circle cx="275" cy="225" r="12" fill="rgba(201,146,42,0.15)" stroke="#C9922A" stroke-width="1.5"/>
+            <circle cx="275" cy="225" r="5" fill="#C9922A"/>
+            <text x="293" y="220" fill="#E8B84B" font-size="9" font-family="serif">Battle Site</text>
+            <text x="293" y="231" fill="#C9922A" font-size="8" font-family="serif">(approx.)</text>
+
+            <!-- VIPAS (Beas) -->
+            <path d="M360,68 Q375,130 365,200 Q355,268 375,330 Q395,390 400,420" stroke="#4A8FA8" stroke-width="2.5" fill="none" opacity="0.7"/>
+            <text x="408" y="210" fill="#6AAAC0" font-size="10" font-family="serif" opacity="0.8">Vipāś</text>
+
+            <!-- SHUTUDRI (Sutlej) -->
+            <path d="M460,68 Q475,140 465,210 Q455,278 470,340 Q485,400 490,420" stroke="#4A8FA8" stroke-width="2.5" fill="none" opacity="0.7"/>
+            <text x="496" y="220" fill="#6AAAC0" font-size="10" font-family="serif" opacity="0.8">Śutudrī</text>
+
+            <!-- Tribal territories (shaded) -->
+            <ellipse cx="120" cy="290" rx="60" ry="35" fill="rgba(139,26,26,0.12)" stroke="rgba(139,26,26,0.3)" stroke-width="1"/>
+            <text x="70" y="293" fill="#C05050" font-size="9" font-family="serif">Anu / Druhyu</text>
+            <text x="73" y="304" fill="#A04040" font-size="8" font-family="serif">territories</text>
+
+            <ellipse cx="320" cy="310" rx="55" ry="30" fill="rgba(201,146,42,0.1)" stroke="rgba(201,146,42,0.3)" stroke-width="1"/>
+            <text x="282" y="314" fill="#C9922A" font-size="9" font-family="serif">Bharata core</text>
+
+            <ellipse cx="430" cy="290" rx="55" ry="32" fill="rgba(42,95,122,0.1)" stroke="rgba(42,95,122,0.3)" stroke-width="1"/>
+            <text x="398" y="294" fill="#6AAAC0" font-size="9" font-family="serif">Pūru territory</text>
+
+            <!-- Himalayan annotation -->
+            <text x="160" y="30" fill="#8A7560" font-size="11" font-family="serif" font-style="italic">Himālaya (mountains, north)</text>
+
+            <!-- Compass rose -->
+            <g transform="translate(520,380)">
+              <text x="0" y="0" fill="#8A7560" font-size="9" text-anchor="middle" font-family="serif">N</text>
+              <line x1="0" y1="3" x2="0" y2="12" stroke="#8A7560" stroke-width="1"/>
+            </g>
+
+            <!-- Legend -->
+            <rect x="5" y="360" width="170" height="55" fill="rgba(10,5,1,0.7)" rx="2"/>
+            <line x1="12" y1="373" x2="28" y2="373" stroke="#C9922A" stroke-width="2.5"/>
+            <text x="32" y="376" fill="#C9922A" font-size="9" font-family="serif">Paruṣṇī — battle river</text>
+            <line x1="12" y1="388" x2="28" y2="388" stroke="#4A8FA8" stroke-width="2"/>
+            <text x="32" y="391" fill="#6AAAC0" font-size="9" font-family="serif">Other Sapta Sindhava rivers</text>
+            <circle cx="18" cy="403" r="3" fill="#C9922A"/>
+            <text x="32" y="406" fill="#C9922A" font-size="9" font-family="serif">Approximate battle location</text>
+          </svg>
+        </div>
+        <p class="text-muted" style="margin-top:0.75rem; text-align:center;">Schematic only — Bronze Age river courses differed from modern. River identifications follow Witzel (1995) and Lal (1997).</p>
+      </div>
+
+      <div class="geo-sidebar">
+        <h3>The Seven Rivers (Sapta Sindhava)</h3>
+
+        <div class="river-item">
+          <span class="river-name">Paruṣṇī ⚔</span>
+          <span class="river-modern">Modern: Ravi River, Punjab</span>
+          <p style="font-size:0.9rem;">The battle river. Named in RV VII.18.8 ("the Paruṣṇī and the Śipāla came to his aid"). The flood of the Paruṣṇī appears to have played a tactical role — possibly drowning enemy troops. Identification with the Ravi is near-universal among scholars.</p>
+        </div>
+
+        <div class="river-item">
+          <span class="river-name">Sindhu</span>
+          <span class="river-modern">Modern: Indus River</span>
+          <p style="font-size:0.9rem;">The great river that gives the region its name. The westernmost of the Sapta Sindhava. Boundary marker between the Vedic heartland and the territories beyond.</p>
+        </div>
+
+        <div class="river-item">
+          <span class="river-name">Vitastā</span>
+          <span class="river-modern">Modern: Jhelum</span>
+          <p style="font-size:0.9rem;">Associated with Pūru territories in several hymns. Likely site of earlier Bharata-Pūru disputes before the Daśarājña conflict.</p>
+        </div>
+
+        <div class="river-item">
+          <span class="river-name">Asiknī</span>
+          <span class="river-modern">Modern: Chenab</span>
+          <p style="font-size:0.9rem;">Important tributary, likely tribal boundary between Anu and Druhyu groups. The route armies would have taken toward the Paruṣṇī.</p>
+        </div>
+
+        <div class="river-item">
+          <span class="river-name">Śutudrī</span>
+          <span class="river-modern">Modern: Sutlej</span>
+          <p style="font-size:0.9rem;">Southeastern boundary of the Sapta Sindhava region. Later became important in the Kuru-Pañcāla territorial configuration.</p>
+        </div>
+
+        <div class="note-box" style="margin-top: 1.5rem; font-size:0.85rem;">
+          <strong>Key geographic argument:</strong> Witzel (1995) established that Mandala VII's geography corresponds to a central Punjab setting. This helps date the hymns earlier than other Mandalas, which reference territories further east — consistent with a gradual eastward movement of Vedic culture over centuries.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ TRIBES ═══ -->
+<section id="tribes">
+  <div class="container">
+    <span class="section-eyebrow">The Peoples of the War</span>
+    <h2 class="section-title">Tribes, Kings, and Confederations</h2>
+    <p class="section-subtitle">The Rigveda names more than a dozen groups. Here is what we know — and what remains contested — about each.</p>
+
+    <div class="tribes-intro reveal">
+      <p>The names of the tribal confederacy against Sudās vary slightly across the hymns of Maṇḍala VII. The most frequently cited list, drawn from RV VII.18 and VII.83, includes the <strong>Pūrus, Anus, Druhyus, Yadus, Turvaśas</strong> (the five classical tribes of Vedic tradition, the <em>Pañcajana</em>), plus the <strong>Alinas, Pakthas, Bhalānas, Śivas</strong>, and <strong>Viṣāṇins</strong>. Some hymns add further groups, and some names appear only once. The precise count of "ten" may be literary rather than literal.</p>
+    </div>
+
+    <div style="margin-bottom: 1.5rem;">
+      <span class="confederation-label label-bharata">Bharata Side (Victor)</span>
+    </div>
+    <div class="tribes-grid">
+      <!-- BHARATAS -->
+      <div class="tribe-card bharata reveal" onclick="toggleTribe(this)">
+        <h3>Bharatas</h3>
+        <span class="tribe-meaning">"Those who are maintained / carried" — possibly related to bharaṇa (support)</span>
+        <div class="tribe-tags">
+          <span class="tribe-tag tag-geo">Central Punjab</span>
+          <span class="tribe-tag tag-role">Victors</span>
+          <span class="tribe-tag tag-identity">Vedic Dominant</span>
+        </div>
+        <p style="font-size:0.95rem;">Led by Sudās, son of Pijavana, the Bharatas are the central tribe of Mandala VII and the winners of the war. Their priestly alliance with the Vasiṣṭha family shaped the entire subsequent Vedic literary tradition. The name "Bhārata" eventually became the Sanskrit designation for the entire Indian subcontinent.</p>
+        <span class="tribe-toggle">Read more ↓</span>
+        <div class="tribe-expand">
+          <p><strong>Vedic references:</strong> RV III.23, VII.8, VII.18, VII.33, VII.83. The Bharatas are among the best-attested tribes in the Rigveda.</p>
+          <p><strong>Priestly connection:</strong> Originally allied with Viśvāmitra (Maṇḍala III), Sudās switched to Vasiṣṭha (Maṇḍala VII), which is one of the underlying political tensions the hymns encode.</p>
+          <p><strong>Later trajectory:</strong> The Bharatas merged with the Pūrus (their main enemy) to form the <em>Kuru</em> confederation — one of the most important political developments in Indian history, linking these war-era rivals into the civilization that produced the Mahābhārata.</p>
+          <p><strong>Modern claims:</strong> The name "Bhārata" as India's Sanskrit name (officially <em>Bhārata Gaṇarājya</em>) derives from this tribe. Some historians trace the name through the legendary Bharata of the Mahābhārata, who is himself linked to this tribal lineage.</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-bottom: 1.5rem; margin-top: 2rem;">
+      <span class="confederation-label label-enemy">Ten-King Coalition (Defeated)</span>
+    </div>
+    <div class="tribes-grid">
+      <!-- PURUS -->
+      <div class="tribe-card enemy reveal" onclick="toggleTribe(this)">
+        <h3>Pūrus</h3>
+        <span class="tribe-meaning">"Humans" or "men" — one of the oldest tribal designations</span>
+        <div class="tribe-tags">
+          <span class="tribe-tag tag-geo">Vitastā / Chenab region</span>
+          <span class="tribe-tag tag-role">Main Enemy</span>
+          <span class="tribe-tag tag-identity">Pañcajana</span>
+        </div>
+        <p style="font-size:0.95rem;">The Pūrus were among Sudās's most significant adversaries — and yet, within a century or two, they merged with the Bharatas to form the Kuru confederation. This paradox — enemies becoming the foundation of a joint civilization — is one of the most telling aspects of post-Daśarājña political history.</p>
+        <span class="tribe-toggle">Read more ↓</span>
+        <div class="tribe-expand">
+          <p><strong>Vedic standing:</strong> The Pūrus are mentioned across many Maṇḍalas and appear to have been among the most politically significant groups in the early Rigvedic world. They had their own priestly traditions.</p>
+          <p><strong>Scholarly debate:</strong> Witzel identifies the Pūrus as closely related to the Bharatas linguistically and culturally — their conflict may have been a civil war between closely related groups competing for the same resource-rich territory rather than a clash between alien civilizations.</p>
+          <p><strong>Later trajectory:</strong> The Kuru kingdom is formed from a Bharata-Pūru merger, possibly through intermarriage and political absorption. The Mahābhārata's Kuru dynasty traces its lineage through both traditions.</p>
+        </div>
+      </div>
+
+      <!-- ANUS -->
+      <div class="tribe-card enemy reveal" onclick="toggleTribe(this)">
+        <h3>Anus</h3>
+        <span class="tribe-meaning">Meaning disputed — possibly "those who are behind / following"</span>
+        <div class="tribe-tags">
+          <span class="tribe-tag tag-geo">Northwestern Punjab / beyond</span>
+          <span class="tribe-tag tag-role">Coalition Member</span>
+          <span class="tribe-tag tag-identity">Pañcajana</span>
+        </div>
+        <p style="font-size:0.95rem;">One of the five classical Vedic tribes (Pañcajana), the Anus are associated in multiple hymns with northwestern regions. Some scholars propose connections to the later <em>Madras</em> of the northern Punjab.</p>
+        <span class="tribe-toggle">Read more ↓</span>
+        <div class="tribe-expand">
+          <p><strong>Migration theories:</strong> Some researchers, including Talageri, have proposed that certain branches of the Anus migrated westward and may be ancestral to some Iranian or Central Asian populations. This remains highly speculative and lacks strong genetic or archaeological support.</p>
+          <p><strong>Caution:</strong> Tribal-to-modern-ethnic mappings derived solely from Vedic name-similarities are methodologically weak. Ancient tribe names and modern ethnic identifiers are separated by millennia and many transformations.</p>
+        </div>
+      </div>
+
+      <!-- DRUHYUS -->
+      <div class="tribe-card enemy reveal" onclick="toggleTribe(this)">
+        <h3>Druhyus</h3>
+        <span class="tribe-meaning">"Injurers" or "harmers" — from droha (hostility)</span>
+        <div class="tribe-tags">
+          <span class="tribe-tag tag-geo">Far Northwest</span>
+          <span class="tribe-tag tag-role">Coalition Member</span>
+          <span class="tribe-tag tag-identity">Pañcajana</span>
+        </div>
+        <p style="font-size:0.95rem;">Among the most poorly-attested of the Pañcajana in the Rigveda itself, the Druhyus appear frequently in later texts like the Purāṇas, which associate them with far northwestern or even European regions in highly mythologized genealogies.</p>
+        <span class="tribe-toggle">Read more ↓</span>
+        <div class="tribe-expand">
+          <p><strong>Out-of-India interpretations:</strong> Some proponents of the Out-of-India theory (OIT) identify the Druhyus as ancestors of various European or Central Asian peoples who migrated outward from the Indian subcontinent. This view, associated with scholars like Talageri, is rejected by the mainstream Indo-European linguistics community as lacking evidential support.</p>
+          <p><strong>Mainstream view:</strong> The Druhyus were likely a northwestern Vedic tribe. Their Purāṇic associations with distant lands may reflect later mythological elaboration of forgotten migrations or simply the Purāṇic habit of mapping all peoples onto a single genealogical framework.</p>
+        </div>
+      </div>
+
+      <!-- YADUS -->
+      <div class="tribe-card enemy reveal" onclick="toggleTribe(this)">
+        <h3>Yadus</h3>
+        <span class="tribe-meaning">Meaning uncertain — possibly a personal name become tribal</span>
+        <div class="tribe-tags">
+          <span class="tribe-tag tag-geo">Southern Punjab / Sindh region</span>
+          <span class="tribe-tag tag-role">Coalition Member</span>
+          <span class="tribe-tag tag-identity">Pañcajana / Krishṇa lineage</span>
+        </div>
+        <p style="font-size:0.95rem;">The Yadus are notable as the tribe from which the Mahābhārata's Kṛṣṇa descends. This later mythological significance makes them among the most recognizable names in the Daśarājña list, though their Rigvedic status as enemies of Sudās is often forgotten in popular consciousness.</p>
+        <span class="tribe-toggle">Read more ↓</span>
+        <div class="tribe-expand">
+          <p><strong>Rigvedic vs. Epic tradition:</strong> In the Rigveda, Yadus are minor coalition members against Sudās. By the Epic period, the Yādava clan has become one of the most celebrated lineages in Indian tradition. This transformation over roughly a millennium illustrates how radically tribal political configurations changed in the Vedic-to-Epic transition.</p>
+          <p><strong>Geographic debate:</strong> The Yadus are variably placed in southern Punjab, Sindh, or Rajasthan in different scholarly reconstructions. The Mahābhārata associates them with Mathura and later Dvārakā (Gujarat).</p>
+        </div>
+      </div>
+
+      <!-- ALINAS -->
+      <div class="tribe-card enemy reveal" onclick="toggleTribe(this)">
+        <h3>Alinas</h3>
+        <span class="tribe-meaning">Possibly related to Sanskrit alī (bee) — or a non-Sanskrit name</span>
+        <div class="tribe-tags">
+          <span class="tribe-tag tag-geo">Far North / Kafiristan?</span>
+          <span class="tribe-tag tag-role">Coalition Member</span>
+          <span class="tribe-tag tag-identity">Non-Aryan contested</span>
+        </div>
+        <p style="font-size:0.95rem;">The Alinas are one of the more obscure tribes in the Daśarājña account. Witzel tentatively identifies them with the Nuristani (Kafiri) peoples of the Hindu Kush, based on the root and geographic context.</p>
+        <span class="tribe-toggle">Read more ↓</span>
+        <div class="tribe-expand">
+          <p><strong>Linguistic analysis:</strong> The name Alina does not fit the standard Sanskrit morphology cleanly, which has led some scholars to propose it is a borrowing or adaptation from a non-Aryan language. This would suggest the coalition against Sudās included non-Vedic or partially-Vedic peoples from the northern periphery.</p>
+          <p><strong>Speculative note:</strong> The identification with Nuristanis or with a Bronze Age group called "Alinus" in external sources is not established. It remains an intriguing hypothesis.</p>
+        </div>
+      </div>
+
+      <!-- PAKTHAS -->
+      <div class="tribe-card enemy reveal" onclick="toggleTribe(this)">
+        <h3>Pakthas</h3>
+        <span class="tribe-meaning">Possibly cognate with Pakhtūn / Pashtun</span>
+        <div class="tribe-tags">
+          <span class="tribe-tag tag-geo">Sulaiman Range / Pakhtunkhwa</span>
+          <span class="tribe-tag tag-role">Coalition Member</span>
+          <span class="tribe-tag tag-identity">Pashtun ancestor claim</span>
+        </div>
+        <p style="font-size:0.95rem;">The Pakthas generate significant interest because their name is phonetically close to "Pakhtūn" (Pashtun). This has led to popular and some scholarly claims that the Pashtun people are descended from this Rigvedic tribe.</p>
+        <span class="tribe-toggle">Read more ↓</span>
+        <div class="tribe-expand">
+          <p><strong>Pashtun descent claim:</strong> The phonetic similarity between Paktha and Pakhtūn is real but not sufficient as genealogical evidence. Name-similarity across 3,000+ years, through multiple language transformations, is not proof of descent. However, the geographic location of Pakthas in the northwestern frontier (which aligns with modern Pashtun territories) makes the hypothesis at least geographically plausible.</p>
+          <p><strong>Mainstream caution:</strong> Most scholars treat the Paktha-Pashtun connection as a suggestive but unproven folk etymology. The Pashtuns have their own complex origin traditions (including the "Bani Israel" legend) that are historically separate.</p>
+          <p><strong>Bhalanās connection:</strong> The Bhalānas mentioned alongside the Pakthas may correspond to Bolan Pass peoples, also in the northwestern frontier zone.</p>
+        </div>
+      </div>
+
+      <!-- TURVASHAS -->
+      <div class="tribe-card enemy reveal" onclick="toggleTribe(this)">
+        <h3>Turvaśas</h3>
+        <span class="tribe-meaning">"Swift" or "overcoming quickly" — from turv (to overcome)</span>
+        <div class="tribe-tags">
+          <span class="tribe-tag tag-geo">Southern Punjab / North India</span>
+          <span class="tribe-tag tag-role">Coalition Member</span>
+          <span class="tribe-tag tag-identity">Pañcajana</span>
+        </div>
+        <p style="font-size:0.95rem;">The Turvaśas are frequently paired with the Yadus in Rigvedic hymns — they are often invoked together and seem to have had a close political or geographic relationship. Both tribes were recipients of Indra's patronage in various hymns, which makes their opposition to Sudās (who also had Indra's favor) a fascinating tension in the theological logic of the texts.</p>
+        <span class="tribe-toggle">Read more ↓</span>
+        <div class="tribe-expand">
+          <p><strong>Religious complexity:</strong> The Turvaśas are described in some hymns as Indra-worshippers — which makes their presence in the coalition against Sudās (also an Indra-patron) theologically paradoxical. This may indicate that the "divine patron" system was contested, with multiple tribes claiming Indra's favor.</p>
+          <p><strong>Later trajectory:</strong> By the Epic period the Turvaśas seem to have disappeared as a distinct political entity, possibly absorbed into broader confederacies or regional kingdoms.</p>
+        </div>
+      </div>
+
+      <!-- BHALANAS -->
+      <div class="tribe-card enemy reveal" onclick="toggleTribe(this)">
+        <h3>Bhalānas</h3>
+        <span class="tribe-meaning">Possibly related to Bolan Pass / Baluchistan region</span>
+        <div class="tribe-tags">
+          <span class="tribe-tag tag-geo">Northwestern frontier</span>
+          <span class="tribe-tag tag-role">Coalition Member</span>
+          <span class="tribe-tag tag-identity">Frontier people</span>
+        </div>
+        <p style="font-size:0.95rem;">The Bhalānas are typically associated with the Bolan Pass area in what is now Baluchistan-Khyber Pakhtunkhwa. Their inclusion in the coalition alongside the Pakthas suggests that the anti-Sudās alliance reached far into the northwestern frontier, drawing in peoples who were geographically and possibly culturally distant from the Vedic core.</p>
+        <span class="tribe-toggle">Read more ↓</span>
+        <div class="tribe-expand">
+          <p><strong>Geographic significance:</strong> If the Bhalānas were indeed from the Bolan Pass region, the Daśarājña coalition spanned a vast geographic area — from south-central Punjab to the Hindu Kush foothills. This would suggest either a very large and well-organized confederacy, or that the Rigvedic list aggregates enemies from multiple encounters rather than a single battle.</p>
+        </div>
+      </div>
+
+      <!-- SIVAS -->
+      <div class="tribe-card enemy reveal" onclick="toggleTribe(this)">
+        <h3>Śivas</h3>
+        <span class="tribe-meaning">"Auspicious" — or a pre-Vedic tribal name</span>
+        <div class="tribe-tags">
+          <span class="tribe-tag tag-geo">Upper Punjab</span>
+          <span class="tribe-tag tag-role">Coalition Member</span>
+          <span class="tribe-tag tag-identity">Obscure</span>
+        </div>
+        <p style="font-size:0.95rem;">Among the less-attested tribes in the coalition, the Śivas appear only in the Daśarājña context and leave minimal trace in later Vedic literature. Their name's coincidence with the deity Śiva is almost certainly incidental — the deity Śiva as known from later Hinduism postdates these tribal designations considerably.</p>
+        <span class="tribe-toggle">Read more ↓</span>
+        <div class="tribe-expand">
+          <p><strong>Scholarly note:</strong> The Śivas are sometimes identified with the region of modern Shivālik Hills (Himalayan foothills) but this identification is speculative. Their disappearance from later texts suggests they were a minor tribal unit absorbed into larger confederacies after their defeat.</p>
+        </div>
+      </div>
+
+      <!-- VISHANINS -->
+      <div class="tribe-card enemy reveal" onclick="toggleTribe(this)">
+        <h3>Viṣāṇins</h3>
+        <span class="tribe-meaning">"Horn-wearers" — possibly referring to a totemic or martial custom</span>
+        <div class="tribe-tags">
+          <span class="tribe-tag tag-geo">Northern Punjab</span>
+          <span class="tribe-tag tag-role">Coalition Member</span>
+          <span class="tribe-tag tag-identity">Obscure</span>
+        </div>
+        <p style="font-size:0.95rem;">The Viṣāṇins are identified by their distinctive name — viṣāṇa means horn — which may refer to a warrior-marking practice, an animal totem, or simply a geographic feature of their territory. They appear in Rigvedic enemy-lists but are otherwise entirely absent from the textual record.</p>
+        <span class="tribe-toggle">Read more ↓</span>
+        <div class="tribe-expand">
+          <p><strong>Interpretation note:</strong> The "horn-wearing" interpretation connects to Bronze Age warrior iconography, where horned helmets appear in the archaeology of both South Asian and Near Eastern contexts. However, applying this visual culture to the Viṣāṇins specifically is highly speculative.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ SUDAS ═══ -->
+<section id="sudas">
+  <div class="container">
+    <span class="section-eyebrow">The Victor King</span>
+    <h2 class="section-title">Sudās and the Bharata Kingdom</h2>
+    <p class="section-subtitle">Understanding why Sudās won requires understanding who he was — and the political machinery that surrounded him.</p>
+
+    <div class="sudas-grid reveal">
+      <div>
+        <p>Sudās (full Rigvedic name: <strong>Sudās Paijavana</strong>, son of Pijavana) is the only king directly named as the protagonist of the Daśarājña in the Rigvedic texts. His name means <em>"he who gives well"</em> or <em>"the good giver"</em> — a typical royal epithet emphasizing patronage and generosity, virtues that were politically essential for maintaining priestly and tribal loyalty in the Vedic world.</p>
+
+        <p>The Rigvedic evidence suggests Sudās was not simply a local chief who stumbled into a great battle. He appears to have been a <strong>maharāja-level figure</strong> — a king of sufficient standing to attract the priestly services of both Viśvāmitra (Maṇḍala III) and Vasiṣṭha (Maṇḍala VII), and capable of defeating a confederation that, if the texts are taken at face value, encompassed most of the major tribes of the Vedic world.</p>
+
+        <div class="intro-quote">
+          <span class="sanskrit">"Sudās, the beloved of the gods, whom Vasiṣṭha and Indra strengthened in battle"</span>
+          <span class="attribution">— Paraphrase of Rigvedic panegyric on Sudās's post-battle status</span>
+        </div>
+
+        <h3 class="cinzel" style="font-size:1rem; color:var(--gold); margin:2rem 0 0.75rem; letter-spacing:0.1em; text-transform:uppercase;">The Priestly Switch: Viśvāmitra to Vasiṣṭha</h3>
+
+        <p>The most politically charged subtext of the Daśarājña narrative is the <em>purohita</em> (royal priest) rivalry. Sudās originally employed Viśvāmitra as his court priest. At some point — the texts do not explain why — he dismissed Viśvāmitra and replaced him with Vasiṣṭha. Viśvāmitra then aligned with the coalition against Sudās.</p>
+
+        <p>This switch had enormous consequences. In Vedic political theology, the <em>purohita</em> was not merely a religious functionary but the king's ritual technician whose hymns and sacrifices directly influenced the outcome of battles. By securing Vasiṣṭha, Sudās gained the services of one of the most powerful priestly lineages in the Rigvedic world — and the hymns they composed celebrate his victory in texts that have endured three millennia.</p>
+
+        <div class="warning-box">
+          <strong>Bias warning:</strong> All primary sources on this conflict come from the Vasiṣṭha family tradition — the priests who worked for Sudās. We have no texts from the other side. The "objective" reading of the Rigvedic account is the victor's account, composed by professionals whose livelihood depended on celebrating their patron.
+        </div>
+
+        <h3 class="cinzel" style="font-size:1rem; color:var(--gold); margin:2rem 0 0.75rem; letter-spacing:0.1em; text-transform:uppercase;">Military Character</h3>
+
+        <p>The Rigvedic descriptions attribute to Sudās a combination of <em>military intelligence and divine favor</em>. The flooding of the Paruṣṇī — which appears to have drowned part of the enemy force attempting to cross — is presented as Indra's intervention, but may reflect Sudās's tactical awareness of river hydrology and seasonal flood patterns, choosing the battle timing deliberately.</p>
+      </div>
+
+      <div>
+        <div class="lineage-tree">
+          <h4>Bharata Royal Lineage (Rigvedic)</h4>
+          <div class="lineage-item">
+            <span class="lineage-name">Bharata</span>
+            <span class="lineage-connector">↓</span>
+          </div>
+          <div class="lineage-item">
+            <span style="width:1rem;"></span>
+            <span class="lineage-name">Devavāta</span>
+            <span class="lineage-role"> — ancestral king</span>
+          </div>
+          <div class="lineage-item">
+            <span style="width:1rem;"></span>
+            <span class="lineage-connector">↓</span>
+          </div>
+          <div class="lineage-item">
+            <span style="width:1rem;"></span>
+            <span class="lineage-name">Srinjaya</span>
+            <span class="lineage-role"> — intermediate ruler</span>
+          </div>
+          <div class="lineage-item">
+            <span style="width:1rem;"></span>
+            <span class="lineage-connector">↓</span>
+          </div>
+          <div class="lineage-item">
+            <span style="width:1rem;"></span>
+            <span class="lineage-name">Pijavana (Divodāsa)</span>
+            <span class="lineage-role"> — Sudās's father</span>
+          </div>
+          <div class="lineage-item">
+            <span style="width:1rem;"></span>
+            <span class="lineage-connector">↓</span>
+          </div>
+          <div class="lineage-item" style="background:rgba(201,146,42,0.08); padding: 0.5rem; border-radius:2px; border:1px solid var(--border);">
+            <span class="lineage-name text-gold">Sudās Paijavana</span>
+            <span class="lineage-role"> — the Daśarājña king</span>
+          </div>
+          <div class="lineage-item">
+            <span style="width:1rem;"></span>
+            <span class="lineage-connector">↓</span>
+          </div>
+          <div class="lineage-item">
+            <span style="width:1rem;"></span>
+            <span class="lineage-name">Sahadeva (attested)</span>
+            <span class="lineage-role"> — successor</span>
+          </div>
+          <div class="lineage-item">
+            <span style="width:1rem;"></span>
+            <span class="lineage-connector">↓</span>
+          </div>
+          <div class="lineage-item">
+            <span style="width:1rem;"></span>
+            <span class="lineage-name">→ Kuru confederation</span>
+            <span class="lineage-role"> — ~300–400 years later</span>
+          </div>
+          <p class="text-muted" style="margin-top:1rem; font-size:0.8rem;">Note: The exact genealogy is reconstructed from scattered Rigvedic references and later Purāṇic texts, which often disagree. Treat as indicative, not definitive.</p>
+        </div>
+
+        <div class="key-facts" style="margin-top:2rem;">
+          <h3>Sudās's Political Assets</h3>
+          <div class="fact-item">
+            <span class="fact-label">Purohita</span>
+            <span class="fact-value">Vasiṣṭha — most prestigious priestly lineage of the era</span>
+          </div>
+          <div class="fact-item">
+            <span class="fact-label">Territory</span>
+            <span class="fact-value">Central Punjab heartland — agriculturally and strategically optimal</span>
+          </div>
+          <div class="fact-item">
+            <span class="fact-label">Military</span>
+            <span class="fact-value">Chariot warfare; advantage in river-terrain knowledge</span>
+          </div>
+          <div class="fact-item">
+            <span class="fact-label">Divine patron</span>
+            <span class="fact-value">Indra and Varuṇa — joint divine sanction unprecedented in hymn tradition</span>
+          </div>
+          <div class="fact-item">
+            <span class="fact-label">Weakness</span>
+            <span class="fact-value">Numerically outnumbered; fragile alliance coherence</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ CAUSES ═══ -->
+<section id="causes">
+  <div class="container">
+    <span class="section-eyebrow">Why the War Was Fought</span>
+    <h2 class="section-title">Causes of the Daśarājña War</h2>
+    <p class="section-subtitle">Multiple explanatory frameworks — scriptural, political, economic, religious — have been proposed. Each captures something real; none is complete.</p>
+
+    <div class="causes-grid reveal">
+      <div class="cause-card">
+        <span class="cause-number">01</span>
+        <h3>Control of River Resources</h3>
+        <p style="font-size:0.9rem;">The Sapta Sindhava (Seven Rivers) region was the most agriculturally productive zone in Bronze Age northwest India. Control of river crossings, irrigation access, and pasture land along the Paruṣṇī was likely the most immediate economic motive for the conflict. The positioning of the battle <em>at</em> the river is consistent with a dispute over its resources.</p>
+        <span class="evidence-badge badge-scholarly">Scholarly Consensus</span>
+      </div>
+
+      <div class="cause-card">
+        <span class="cause-number">02</span>
+        <h3>Priestly Rivalry & Political Legitimacy</h3>
+        <p style="font-size:0.9rem;">The switch of Sudās's allegiance from Viśvāmitra to Vasiṣṭha was not merely personal — it was a profound political realignment. Viśvāmitra's prestige and network depended on royal patronage. Losing Sudās meant losing his most powerful royal backer, which could have destabilized the entire Viśvāmitra lineage's influence. The rival coalition may have been partly assembled through Viśvāmitra's diplomatic network.</p>
+        <span class="evidence-badge badge-scripture">Scriptural Support</span>
+        <span class="evidence-badge badge-scholarly">Scholarly Interpretation</span>
+      </div>
+
+      <div class="cause-card">
+        <span class="cause-number">03</span>
+        <h3>Territorial Expansion of Bharatas</h3>
+        <p style="font-size:0.9rem;">Rigvedic evidence suggests the Bharatas were in an expansionary phase under Sudās's father Pijavana (Divodāsa) and continuing under Sudās. Neighboring tribes may have formed a defensive confederation to resist what they perceived as Bharata aggression or territorial encroachment. The coalition's formation can be read as collective self-defense rather than unprovoked aggression.</p>
+        <span class="evidence-badge badge-scholarly">Scholarly Inference</span>
+      </div>
+
+      <div class="cause-card">
+        <span class="cause-number">04</span>
+        <h3>Trade Route Supremacy</h3>
+        <p style="font-size:0.9rem;">The Punjab river system was not only agricultural — it was a critical corridor for Bronze Age trade between the BMAC (Bactria-Margiana Archaeological Complex), Central Asia, and the Indian subcontinent. Tribal dominance of river crossings was commercial dominance. Sudās's victory may have redirected substantial trade wealth to the Bharatas.</p>
+        <span class="evidence-badge badge-scholarly">Archaeological Support</span>
+        <span class="evidence-badge badge-speculative">Partially Inferred</span>
+      </div>
+
+      <div class="cause-card">
+        <span class="cause-number">05</span>
+        <h3>Cattle and Pastoral Competition</h3>
+        <p style="font-size:0.9rem;">The Rigveda is suffused with references to cattle-raiding and livestock competition — these were not peripheral concerns but central to Bronze Age Vedic political economy. The term <em>gavyā</em> (cattle pasture) appears in territorial disputes. Competition for grazing land along seasonal flood plains was a chronic source of inter-tribal conflict in this period.</p>
+        <span class="evidence-badge badge-scripture">Scriptural Evidence</span>
+      </div>
+
+      <div class="cause-card">
+        <span class="cause-number">06</span>
+        <h3>Cosmic / Ritual Competition</h3>
+        <p style="font-size:0.9rem;">In Vedic political theology, a king who performed more impressive sacrifices (<em>yajnas</em>) and attracted more prestigious priests gained not just theological but political capital. Sudās's relationship with Vasiṣṭha may have been perceived by rival kings as an illegitimate monopolization of divine favor, provoking a counter-coalition seeking to restore "balance" in the ritual economy.</p>
+        <span class="evidence-badge badge-scripture">Vedic Worldview</span>
+        <span class="evidence-badge badge-speculative">Modern Interpretation</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ WARFARE ═══ -->
+<section id="warfare">
+  <div class="container">
+    <span class="section-eyebrow">Military History</span>
+    <h2 class="section-title">The Battle — Strategy and Tactics</h2>
+    <p class="section-subtitle">A reconstruction of Bronze Age riverine warfare on the Paruṣṇī, drawing on Rigvedic references and comparative archaeology.</p>
+
+    <div class="warfare-grid reveal">
+      <div>
+        <div class="battle-diagram">
+          <pre>
+DASARAJNA — BATTLE OF PARUSHNI
+Schematic Reconstruction (c. 1200 BCE)
+
+NORTH BANK (enemy approach)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[PURUS] [ANUS] [DRUHYUS]
+  ▼        ▼        ▼
+[Alinas] [Pakthas] [Bhalanas]
+  ▼        ▼        ▼
+    COALITION CROSSING ATTEMPT
+          ↓↓↓↓↓
+══════════════════════════════
+       ~PARUSHNI RIVER~
+       (flood season)
+══════════════════════════════
+         ↑↑ FLOOD ↑↑
+   (hymn: Indra released waters)
+  ↑                        ↑
+[BHARATA CHARIOTS] [BHARATA INFANTRY]
+  ←——— Flanking maneuver ———→
+
+BHARATA POSITION — SOUTH BANK
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+King SUDAS — command position
+Purohita VASISHTHA — ritual support
+
+OUTCOME: Coalition fragmented mid-crossing
+         Many drowned; survivors scattered
+</pre>
+        </div>
+        <p class="text-muted" style="text-align:center; margin-top:0.5rem;">Schematic reconstruction — not archaeological plan. Based on RV VII.18.5–7 and Witzel (1995).</p>
+      </div>
+
+      <div class="warfare-points">
+        <h3>Chariot Warfare in Late Bronze Age Punjab</h3>
+        <p style="font-size:0.9rem;">The spoke-wheeled war chariot is among the most transformative technologies of the Bronze Age. Introduced to the Indian subcontinent likely between 2000–1500 BCE, it provided decisive tactical advantages: speed, shock power, and elevated archer position. The Rigveda is saturated with chariot imagery and chariot-racing contests (<em>aśvamedha</em> rituals).</p>
+        <p style="font-size:0.9rem; margin-bottom:0;">Sudās's chariots operating on the south bank against a crossing enemy force would have been devastating — infantry mid-river cannot maneuver or form defensive lines.</p>
+
+        <h3>The River as Weapon</h3>
+        <p style="font-size:0.9rem;">RV VII.18.5 explicitly credits the flooding of the Paruṣṇī with destroying the enemy. This may be poetic hyperbole (Indra "loosing" the river), a description of a deliberately broken dam upstream, or an accurate account of seasonal flooding that Sudās timed deliberately. All three interpretations are found in the literature.</p>
+
+        <h3>Vedic Military Organization</h3>
+        <p style="font-size:0.9rem;">Bronze Age Vedic armies were organized around:<br>
+        <strong>Rathins</strong> — chariot warriors (elite)<br>
+        <strong>Aśvins</strong> — cavalry (less common, less decisive)<br>
+        <strong>Padātis</strong> — infantry (mass force)<br>
+        <strong>Purohita</strong> — the priest, present at battle, performing real-time ritual</p>
+
+        <h3>Coalition Fragility</h3>
+        <p style="font-size:0.9rem;">The ten-king coalition's greatest military weakness was coordination. Tribal alliances forged by political convenience rather than shared culture are inherently fragile — particularly in battle, where communication breaks down. A successful river-crossing required precise coordination that the dispersed coalition may not have achieved.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ OUTCOME ═══ -->
+<section id="outcome">
+  <div class="container">
+    <span class="section-eyebrow">Historical Consequences</span>
+    <h2 class="section-title">Outcome and Long-Term Impact</h2>
+    <p class="section-subtitle">The battle's consequences rippled through Vedic civilization for centuries — reshaping politics, religion, and identity.</p>
+
+    <div class="timeline reveal">
+      <div class="timeline-item">
+        <span class="timeline-period">Immediate Aftermath — c. 1200 BCE</span>
+        <h3>Bharata Supremacy in Central Punjab</h3>
+        <p style="font-size:0.9rem;">Sudās's victory eliminated or severely weakened the major tribal powers that had challenged Bharata expansion. Captured enemies are mentioned in the hymns as receiving both punishment and, in some cases, reconciliation — suggesting Sudās consolidated power through a combination of force and political integration rather than annihilation.</p>
+      </div>
+
+      <div class="timeline-item">
+        <span class="timeline-period">Post-Battle — c. 1100–900 BCE</span>
+        <h3>Composition of Mandala VII Victory Hymns</h3>
+        <p style="font-size:0.9rem;">The Vasiṣṭha family composed and preserved the battle hymns that have transmitted this event to us. The process of hymn composition, recitation, and memorization transformed a political-military event into sacred literature, embedding it in a ritual tradition that would be maintained for millennia.</p>
+      </div>
+
+      <div class="timeline-item">
+        <span class="timeline-period">c. 1000–800 BCE</span>
+        <h3>Kuru Confederation Formation</h3>
+        <p style="font-size:0.9rem;">Perhaps the most consequential long-term effect: the Bharatas and Pūrus — the war's victors and their chief enemies — merged politically into the <em>Kuru</em> confederation. This union created the political entity that would produce the Atharva Veda, develop the <em>śrauta</em> ritual system, and serve as the setting for the Mahābhārata.</p>
+      </div>
+
+      <div class="timeline-item">
+        <span class="timeline-period">c. 800–500 BCE</span>
+        <h3>Eastward Migration of Vedic Culture</h3>
+        <p style="font-size:0.9rem;">The political stability created partly by Bharata dominance facilitated the eastward expansion of Vedic civilization into the Gangetic plain — the transition from the Rigvedic to the Yajurvedic and Atharvanic cultural zones. The "Kurukṣetra" (land of the Kurus) became the sacred center of this expanded civilization.</p>
+      </div>
+
+      <div class="timeline-item">
+        <span class="timeline-period">Epic Period — c. 400 BCE – 400 CE</span>
+        <h3>Mythologization in the Mahābhārata</h3>
+        <p style="font-size:0.9rem;">The tribes and kings of the Daśarājña period were absorbed into the Epic's vast genealogical framework. The Kuru dynasty of the Mahābhārata traces its roots to the very tribes involved in the battle. The Yadava-Kṛṣṇa tradition incorporates the Yadu tribe. The priestly rivalry between Vasiṣṭha and Viśvāmitra became one of the most elaborated conflicts in all of Sanskrit literature.</p>
+      </div>
+
+      <div class="timeline-item">
+        <span class="timeline-period">Modern Legacy</span>
+        <h3>"Bhārata" — India's Sanskrit Name</h3>
+        <p style="font-size:0.9rem;">The name <em>Bhārata</em> as the official Sanskrit name of the Republic of India derives through a long chain of tradition from the Bharata tribe of Sudās's era. This is both historically significant and worth qualifying: the connection passes through many centuries, mythological elaborations, and political reinventions. The name's modern use does not imply direct ethnic continuity with the Rigvedic Bharatas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ MIGRATION ═══ -->
+<section id="migration">
+  <div class="container">
+    <span class="section-eyebrow">Post-Battle Dispersal</span>
+    <h2 class="section-title">Migration Theories & Modern Descendant Claims</h2>
+    <p class="section-subtitle">Did defeated tribes leave the subcontinent? Which modern communities claim descent from these ancient peoples?</p>
+
+    <div class="warning-box reveal">
+      <strong>Critical methodological note:</strong> Tribal-to-ethnic continuity claims spanning 3,000+ years require convergent evidence from linguistics, genetics, archaeology, and textual tradition. Name-similarity alone is not evidence. Community origin stories are culturally valuable but not automatically historically accurate. The following are presented with explicit status labels (accepted / debated / speculative).
+    </div>
+
+    <div class="migration-grid reveal">
+      <div class="migration-card">
+        <h3>Pashtun / Pakhtūn descent from Pakthas</h3>
+        <span class="status-pill pill-debated">Debated</span>
+        <p style="font-size:0.9rem;"><strong>Claim:</strong> The Pashtun people of Afghanistan and northwestern Pakistan descend from the Paktha tribe mentioned in the Daśarājña coalition.<br>
+        <strong>Basis:</strong> Phonetic similarity (Paktha → Pakhtūn), geographic overlap with northwestern frontier.<br>
+        <strong>Evidence:</strong> Phonetic similarity is suggestive but not conclusive. Archaeological continuity in the Khyber-Pakhtunkhwa region is possible but not proven for this specific lineage.<br>
+        <strong>Problem:</strong> The Pashtun people have multiple origin traditions; genetic studies show complex South/Central Asian ancestry that doesn't uniquely support this specific claim.</p>
+      </div>
+
+      <div class="migration-card">
+        <h3>Kuru dynasty linkage to Bharata-Pūru merger</h3>
+        <span class="status-pill pill-accepted">Widely Accepted</span>
+        <p style="font-size:0.9rem;"><strong>Claim:</strong> The Kuru kingdom of the later Vedic period represents a merger of the Bharata and Pūru tribes, both involved in the Daśarājña conflict.<br>
+        <strong>Basis:</strong> Textual genealogies in the Mahābhārata and late Vedic texts; Witzel's detailed linguistic-historical analysis.<br>
+        <strong>Evidence:</strong> Strong textual support. Witzel (1995) provides the most systematic reconstruction.<br>
+        <strong>Qualification:</strong> The merger process was likely gradual, over generations, not a single political act.</p>
+      </div>
+
+      <div class="migration-card">
+        <h3>Druhyu migration to Europe / Central Asia</h3>
+        <span class="status-pill pill-speculative">Highly Speculative</span>
+        <p style="font-size:0.9rem;"><strong>Claim:</strong> The Druhyus migrated westward after their defeat and eventually became ancestral to various European or Central Asian Indo-European peoples.<br>
+        <strong>Basis:</strong> Out-of-India Theory (OIT) advocates, primarily Talageri.<br>
+        <strong>Evidence:</strong> No direct archaeological, linguistic, or genetic evidence supports this specific migration.<br>
+        <strong>Assessment:</strong> Rejected by mainstream Indo-European linguistics and archaeogenetics. The OIT framework itself lacks broad scholarly support.</p>
+      </div>
+
+      <div class="migration-card">
+        <h3>Iranian connection to Anu/Anus tribe</h3>
+        <span class="status-pill pill-speculative">Speculative</span>
+        <p style="font-size:0.9rem;"><strong>Claim:</strong> Some branches of the Anu tribe migrated to the Iranian plateau and contributed to early Iranian (Avestan) culture.<br>
+        <strong>Basis:</strong> Etymological speculation; the Avestan language's close relationship to Vedic Sanskrit; geographic proximity.<br>
+        <strong>Evidence:</strong> The relationship between Vedic and Avestan is linguistic, not tribal — it reflects shared ancestral population, not a specific Anu migration.<br>
+        <strong>Assessment:</strong> The Vedic-Avestan split predates the Daśarājña by several centuries in most reconstructions.</p>
+      </div>
+
+      <div class="migration-card">
+        <h3>Nuristani connection to Alinas</h3>
+        <span class="status-pill pill-speculative">Speculative</span>
+        <p style="font-size:0.9rem;"><strong>Claim:</strong> The Alinas tribe corresponds to ancestors of the Nuristani (Kafiri) peoples of the Hindu Kush mountains.<br>
+        <strong>Basis:</strong> Witzel's tentative linguistic identification; geographic location in the far north.<br>
+        <strong>Evidence:</strong> Nuristani languages do represent an archaic branch of Indo-Aryan that diverged early. Geographic overlap is plausible.<br>
+        <strong>Assessment:</strong> Among the more linguistically defensible speculations, but remains unproven.</p>
+      </div>
+
+      <div class="migration-card">
+        <h3>Yādava connection to Mathura-Dvārakā Yādavas</h3>
+        <span class="status-pill pill-accepted">Textually Accepted</span>
+        <p style="font-size:0.9rem;"><strong>Claim:</strong> The Yadu tribe of the Daśarājña became the Yādava clan of the Mahābhārata, associated with Kṛṣṇa and the cities of Mathura and Dvārakā.<br>
+        <strong>Basis:</strong> Explicit Epic genealogies connecting the Yadu tribe to Yādava lineage.<br>
+        <strong>Evidence:</strong> Strong in the textual tradition; the Purāṇas elaborate this connection in detail.<br>
+        <strong>Qualification:</strong> Textual genealogies can reflect political legitimation rather than literal genealogical truth.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ ARCHAEOLOGY ═══ -->
+<section id="archaeology">
+  <div class="container">
+    <span class="section-eyebrow">Material Evidence</span>
+    <h2 class="section-title">Archaeology & Genetics — What the Ground Reveals</h2>
+    <p class="section-subtitle">The archaeological and genetic record for this period is rich — but its connection to specific Rigvedic events is harder to establish than popular accounts suggest.</p>
+
+    <div class="arch-cards reveal">
+      <div class="arch-card">
+        <h3>Painted Grey Ware (PGW) Culture</h3>
+        <div class="evidence-grid">
+          <div class="evidence-row">
+            <div class="evidence-status status-confirmed"></div>
+            <span>PGW phase (c. 1200–600 BCE) succeeds Late Harappan in Punjab-Gangetic zone</span>
+          </div>
+          <div class="evidence-row">
+            <div class="evidence-status status-confirmed"></div>
+            <span>Distribution matches early Kuru-Pañcāla territory</span>
+          </div>
+          <div class="evidence-row">
+            <div class="evidence-status status-probable"></div>
+            <span>Associated with iron use, horse-riding, chariot components</span>
+          </div>
+          <div class="evidence-row">
+            <div class="evidence-status status-speculative"></div>
+            <span>Direct connection to Bharata tribe specifically — unproven</span>
+          </div>
+          <div class="evidence-row">
+            <div class="evidence-status status-speculative"></div>
+            <span>PGW = "Aryan" or "Vedic" — overly simplistic equation</span>
+          </div>
+        </div>
+        <p class="text-muted" style="margin-top:1rem;">Key scholars: B.B. Lal (1954 excavations identified PGW with Mahābhārata sites), Vibha Tripathi, D.K. Chakrabarti.</p>
+      </div>
+
+      <div class="arch-card">
+        <h3>Cemetery H Culture</h3>
+        <div class="evidence-grid">
+          <div class="evidence-row">
+            <div class="evidence-status status-confirmed"></div>
+            <span>Distinct Late Harappan burial tradition in Punjab (c. 1900–1300 BCE)</span>
+          </div>
+          <div class="evidence-row">
+            <div class="evidence-status status-confirmed"></div>
+            <span>Contemporaneous with early Rigvedic period</span>
+          </div>
+          <div class="evidence-row">
+            <div class="evidence-status status-probable"></div>
+            <span>Shows cultural continuity with mature Harappan, not a break</span>
+          </div>
+          <div class="evidence-row">
+            <div class="evidence-status status-speculative"></div>
+            <span>Represents incoming "Aryans" — contested and largely rejected</span>
+          </div>
+          <div class="evidence-row">
+            <div class="evidence-status status-speculative"></div>
+            <span>Directly correlated with Daśarājña events — no evidence</span>
+          </div>
+        </div>
+        <p class="text-muted" style="margin-top:1rem;">The "Cemetery H = Aryan arrival" hypothesis (Wheeler, 1947) has been largely abandoned in modern scholarship following Shereen Ratnagar and others.</p>
+      </div>
+
+      <div class="arch-card">
+        <h3>Chariot Evidence</h3>
+        <div class="evidence-grid">
+          <div class="evidence-row">
+            <div class="evidence-status status-confirmed"></div>
+            <span>Spoked wheel chariots attested in Central Asia by c. 2000 BCE (Sintashta)</span>
+          </div>
+          <div class="evidence-row">
+            <div class="evidence-status status-confirmed"></div>
+            <span>Rigveda has extensive chariot terminology and imagery</span>
+          </div>
+          <div class="evidence-row">
+            <div class="evidence-status status-probable"></div>
+            <span>Chariots in South Asian use by c. 1500–1200 BCE</span>
+          </div>
+          <div class="evidence-row">
+            <div class="evidence-status status-speculative"></div>
+            <span>Direct archaeological evidence of chariots in Punjab battle contexts — absent</span>
+          </div>
+        </div>
+        <p class="text-muted" style="margin-top:1rem;">The absence of chariot burials in South Asia (unlike the Steppe) complicates direct archaeological confirmation of chariot warfare at Daśarājña.</p>
+      </div>
+
+      <div class="arch-card">
+        <h3>Population Genetics</h3>
+        <div class="evidence-grid">
+          <div class="evidence-row">
+            <div class="evidence-status status-confirmed"></div>
+            <span>Steppe ancestry (associated with Yamnaya) present in South Asian populations</span>
+          </div>
+          <div class="evidence-row">
+            <div class="evidence-status status-confirmed"></div>
+            <span>Steppe ancestry higher in groups with Brahmin / North Indian ancestry (Narasimhan et al. 2019)</span>
+          </div>
+          <div class="evidence-row">
+            <div class="evidence-status status-probable"></div>
+            <span>Migration from Steppe into South Asia occurred c. 2000–1500 BCE</span>
+          </div>
+          <div class="evidence-row">
+            <div class="evidence-status status-speculative"></div>
+            <span>Caste groups map directly onto Rigvedic tribes — too simplistic</span>
+          </div>
+          <div class="evidence-row">
+            <div class="evidence-status status-speculative"></div>
+            <span>Genetic data establishes racial hierarchy claims — rejected</span>
+          </div>
+        </div>
+        <p class="text-muted" style="margin-top:1rem;">Narasimhan et al. (2019) in <em>Science</em> is the landmark genetic study; Shinde et al. (2019) is important for Harappan-era DNA. Both are cautious about mapping genetics to specific tribal identities.</p>
+      </div>
+
+      <div class="arch-card">
+        <h3>Fire Altars & Ritual Archaeology</h3>
+        <div class="evidence-grid">
+          <div class="evidence-row">
+            <div class="evidence-status status-confirmed"></div>
+            <span>Fire altars (agnikuṇḍas) attested at Kalibangan (c. 2600 BCE) in Harappan context</span>
+          </div>
+          <div class="evidence-row">
+            <div class="evidence-status status-probable"></div>
+            <span>Post-Harappan ritual fire sites across Punjab corridor</span>
+          </div>
+          <div class="evidence-row">
+            <div class="evidence-status status-speculative"></div>
+            <span>Specific connection to Vasiṣṭha-era Vedic ritual — undemonstrated</span>
+          </div>
+        </div>
+        <p class="text-muted" style="margin-top:1rem;">The Kalibangan fire altars are significant but their identification as "Vedic" fire altars is disputed. They may represent a convergent ritual tradition rather than a directly ancestral one.</p>
+      </div>
+
+      <div class="arch-card">
+        <h3>BMAC & Northwestern Connections</h3>
+        <div class="evidence-grid">
+          <div class="evidence-row">
+            <div class="evidence-status status-confirmed"></div>
+            <span>BMAC (Bactria-Margiana, c. 2200–1700 BCE) had extensive trade links with both Harappan civilization and Steppe cultures</span>
+          </div>
+          <div class="evidence-row">
+            <div class="evidence-status status-confirmed"></div>
+            <span>BMAC material culture found in Punjab archaeological sites</span>
+          </div>
+          <div class="evidence-row">
+            <div class="evidence-status status-probable"></div>
+            <span>BMAC as cultural interface between Steppe migrants and Harappan world</span>
+          </div>
+          <div class="evidence-row">
+            <div class="evidence-status status-speculative"></div>
+            <span>BMAC peoples directly map onto Rigvedic tribal identities — not established</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="note-box reveal" style="margin-top:2rem;">
+      <strong>The Core Archaeological Problem:</strong> No battle site has been identified, no mass grave from a Rigvedic-era river battle has been excavated, and no inscription or physical object can be unambiguously connected to the Daśarājña. The battle is known solely through textual transmission. This doesn't mean it didn't happen — it means we cannot currently verify or falsify it archaeologically. We are in the domain of textual history, not physical confirmation.
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ SCHOLARS ═══ -->
+<section id="scholars">
+  <div class="container">
+    <span class="section-eyebrow">Academic Perspectives</span>
+    <h2 class="section-title">Historiography & Scholarly Debate</h2>
+    <p class="section-subtitle">The Daśarājña is one of the most contested events in Vedic studies. Here is where the major scholars stand — and why they disagree.</p>
+
+    <div class="scholars-intro reveal">
+      <div class="school-card mainstream">
+        <h3>Mainstream Academic</h3>
+
+        <span class="scholar-name">Michael Witzel</span>
+        <p class="scholar-position">Harvard; Indo-Iranian philology. The most detailed reconstruction of Rigvedic geography and the Daśarājña. Treats VII as historically proximate to events; identifies battle site on the Ravi. Key work: <em>Rigvedic History</em> (1995).</p>
+
+        <span class="scholar-name">Stephanie Jamison & Joel Brereton</span>
+        <p class="scholar-position">UCLA / UT Austin. Authors of the landmark 2014 critical translation of the complete Rigveda. Cautious about historical specifics; treat battle hymns as ritual-political poetry with historical kernels. Emphasize literary analysis over historical reconstruction.</p>
+
+        <span class="scholar-name">Asko Parpola</span>
+        <p class="scholar-position">Helsinki; Indus script, Indo-Aryan migration. Argues for gradual, multi-wave Indo-Aryan migration; connects BMAC with early Rigvedic culture. Cautious about specific historical events from Vedic texts alone.</p>
+
+        <span class="scholar-name">Romila Thapar</span>
+        <p class="scholar-position">JNU; Ancient Indian history. Emphasizes the composite, layered nature of Vedic "historical" memory; argues against treating Rigvedic hymns as reliable chronicles. Situates the battle in broader social and economic context.</p>
+      </div>
+
+      <div class="school-card nationalist">
+        <h3>Traditionalist / Nationalist</h3>
+
+        <span class="scholar-name">Shrikant Talageri</span>
+        <p class="scholar-position">Independent researcher; Out-of-India Theory advocate. Argues Rigvedic events reflect an Indian homeland for Indo-European languages. Identifies Druhyus with westward migrations. Controversial; not accepted in mainstream comparative linguistics.</p>
+
+        <span class="scholar-name">David Frawley (Vāmadeva Śāstrī)</span>
+        <p class="scholar-position">American Institute of Vedic Studies. Argues for much earlier dating of Rigvedic events (3000+ BCE); connects Vedic civilization with Harappan culture as its direct expression. Proponent of astronomical dating methods whose calibration is disputed.</p>
+
+        <span class="scholar-name">B.B. Lal</span>
+        <p class="scholar-position">ASI Director General; pioneered PGW-Mahābhārata connection. Later became more sympathetic to the view that Vedic culture was indigenous and continuous with Harappan civilization. His earlier PGW work is widely cited; his later positions are more contested.</p>
+      </div>
+
+      <div class="school-card revisionist">
+        <h3>Revisionist / Critical</h3>
+
+        <span class="scholar-name">Edwin Bryant</span>
+        <p class="scholar-position">Rutgers; <em>The Quest for the Origins of Vedic Culture</em> (2001). Provides a balanced overview of the Indo-Aryan migration debate; neither fully endorses mainstream nor indigenous-origins view. Valuable for understanding the range of positions.</p>
+
+        <span class="scholar-name">Shereen Ratnagar</span>
+        <p class="scholar-position">Critical of over-interpretation of archaeological evidence for Vedic-Harappan connections. Argues that the absence of evidence for "Aryan invasion" does not validate its opposite (indigenous Aryan civilization).</p>
+
+        <span class="scholar-name">Wendy Doniger</span>
+        <p class="scholar-position">U Chicago; emphasizes the literary, mythological, and performative dimensions of Vedic texts. Cautions against literal historical reading of hymn collections that were primarily liturgical documents.</p>
+      </div>
+    </div>
+
+    <div class="note-box reveal" style="margin-top: 2.5rem;">
+      <strong>The Core Academic Consensus (2024):</strong> There was a large-scale Indo-Aryan migration into South Asia from the Eurasian Steppe, with significant mixing with existing populations. The Rigveda's core hymns were composed in the Punjab region, c. 1500–1000 BCE. The Daśarājña battle preserves authentic historical memory in poetic form, but precise reconstruction remains impossible. Genetic, linguistic, and archaeological evidence broadly converge on migration-admixture models, not an indigenous-origin model or a violent "Aryan invasion" model.
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ RARE FACTS ═══ -->
+<section id="rarefacts">
+  <div class="container">
+    <span class="section-eyebrow">Lesser Known</span>
+    <h2 class="section-title">Rare Facts Most People Don't Know</h2>
+
+    <div class="facts-list reveal">
+      <div class="rare-fact">
+        <span class="rare-fact-number">01</span>
+        <div>
+          <h4>Viśvāmitra May Have Led the Coalition</h4>
+          <p style="font-size:0.9rem;">Dismissed by Sudās and replaced by Vasiṣṭha, Viśvāmitra may have been the organizational mind behind assembling the ten-king coalition — turning personal political loss into a military alliance against his former royal patron. This reading, drawn from the hymn subtext, inverts the usual framing of the battle as "Indian tribes vs. Bharatas."</p>
+        </div>
+      </div>
+
+      <div class="rare-fact">
+        <span class="rare-fact-number">02</span>
+        <div>
+          <h4>The Battle May Have Been Two Separate Engagements</h4>
+          <p style="font-size:0.9rem;">Some scholars (including Oldenberg) argue that RV VII.18 and RV VII.83 describe different battles: one on the Paruṣṇī against a large coalition, and an earlier or later engagement against a smaller group including the Pūrus and Bhṛgus. The conflation into a single "Daśarājña" narrative may be a later editorial synthesis.</p>
+        </div>
+      </div>
+
+      <div class="rare-fact">
+        <span class="rare-fact-number">03</span>
+        <div>
+          <h4>The "Ten" in Ten Kings Is Probably Not Literal</h4>
+          <p style="font-size:0.9rem;">In Vedic numerology, ten (daśa) is a significant formulaic number — appearing in "ten fingers," "ten months," "ten directions." The "Battle of Ten Kings" may originally have meant "the great battle against many kings" rather than precisely ten. The canonical list of ten tribes is a later editorial systematization.</p>
+        </div>
+      </div>
+
+      <div class="rare-fact">
+        <span class="rare-fact-number">04</span>
+        <div>
+          <h4>The Bhṛgus Were Also Enemies</h4>
+          <p style="font-size:0.9rem;">RV VII.18.6 mentions the Bhṛgus — a prominent priestly lineage, not a tribal group — as opponents of Sudās. This suggests the conflict was not purely inter-tribal but also involved factional splits within the priestly order itself, reflecting competition between different Vedic priestly traditions.</p>
+        </div>
+      </div>
+
+      <div class="rare-fact">
+        <span class="rare-fact-number">05</span>
+        <div>
+          <h4>Sudās's Victory Was Celebrated with a Soma Ritual</h4>
+          <p style="font-size:0.9rem;">The Vasiṣṭha hymns were almost certainly composed for and performed at a post-battle <em>soma</em> sacrifice — a ritual combining psychoactive drink (the identity and effects of Vedic soma remain debated), fire offerings, and hymn recitation. The battle and its ritual celebration were inseparable events in the Vedic worldview.</p>
+        </div>
+      </div>
+
+      <div class="rare-fact">
+        <span class="rare-fact-number">06</span>
+        <div>
+          <h4>The Paruṣṇī Flooding May Be Historically Exact</h4>
+          <p style="font-size:0.9rem;">Modern hydrological research confirms that the Ravi River (Paruṣṇī) has dramatic seasonal flood pulses that can render it uncrossable within hours of rainfall in the Himalayan catchment. Sudās may have used intelligence about monsoon patterns to time his engagement precisely when the enemy crossing would be disrupted by natural flood — a sophisticated military strategy encoded as divine intervention.</p>
+        </div>
+      </div>
+
+      <div class="rare-fact">
+        <span class="rare-fact-number">07</span>
+        <div>
+          <h4>Proto-State Formation Began Here</h4>
+          <p style="font-size:0.9rem;">The Daśarājña is not just a war — it represents one of the earliest documented steps toward state formation in South Asia. Sudās's consolidation of power across multiple tribal territories, with a professional priestly bureaucracy (the Vasiṣṭhas) providing ideological legitimation, is essentially the prototype of the later <em>mahājanapada</em> (great realm) political structure.</p>
+        </div>
+      </div>
+
+      <div class="rare-fact">
+        <span class="rare-fact-number">08</span>
+        <div>
+          <h4>The Battle Is Older Than Homer's Iliad</h4>
+          <p style="font-size:0.9rem;">If the mainstream dating of Mandala VII is accepted (c. 1200–1000 BCE), the Daśarājña battle and the earliest composition of its hymns predate or are contemporary with the Homeric Trojan War tradition (c. 1180 BCE traditional date) — making it among humanity's oldest documented armed conflicts.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ COMPARISON TABLE ═══ -->
+<section id="comparison">
+  <div class="container">
+    <span class="section-eyebrow">Reference Table</span>
+    <h2 class="section-title">Tribe Comparison Chart</h2>
+    <p class="section-subtitle">A condensed reference across the major groups involved — their alignment, geographic zone, later trajectory, and modern claim status.</p>
+
+    <div style="overflow-x:auto;">
+      <table class="comparison-table reveal">
+        <thead>
+          <tr>
+            <th>Tribe</th>
+            <th>Alignment</th>
+            <th>Geographic Zone</th>
+            <th>Rigvedic Standing</th>
+            <th>Later Trajectory</th>
+            <th>Modern Claim</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Bharatas</td>
+            <td><span style="color:#C9922A;">Victor</span></td>
+            <td>Central Punjab</td>
+            <td>Dominant — Maṇḍala III, VII</td>
+            <td>→ Kuru confederation; gave name "Bhārata" to India</td>
+            <td><span class="dot-confirm">●</span>India's Sanskrit name</td>
+          </tr>
+          <tr>
+            <td>Pūrus</td>
+            <td><span style="color:#D06060;">Coalition</span></td>
+            <td>Vitastā / Chenab</td>
+            <td>Major — many hymns</td>
+            <td>→ Merged with Bharatas → Kuru kingdom</td>
+            <td><span class="dot-partial">●</span>Kuru dynasty connection (textual)</td>
+          </tr>
+          <tr>
+            <td>Anus</td>
+            <td><span style="color:#D06060;">Coalition</span></td>
+            <td>Northwest Punjab</td>
+            <td>Moderate — Pañcajana</td>
+            <td>Obscure after Rigvedic period</td>
+            <td><span class="dot-no">●</span>Speculative Iran connection</td>
+          </tr>
+          <tr>
+            <td>Druhyus</td>
+            <td><span style="color:#D06060;">Coalition</span></td>
+            <td>Far Northwest</td>
+            <td>Minor in RV; major in Purāṇas</td>
+            <td>Mythologized in Purāṇas as European ancestors</td>
+            <td><span class="dot-no">●</span>OIT claim — rejected by mainstream</td>
+          </tr>
+          <tr>
+            <td>Yadus</td>
+            <td><span style="color:#D06060;">Coalition</span></td>
+            <td>S. Punjab / Sindh</td>
+            <td>Moderate — Pañcajana</td>
+            <td>→ Yādava / Kṛṣṇa tradition</td>
+            <td><span class="dot-confirm">●</span>Mahābhārata genealogy (textual)</td>
+          </tr>
+          <tr>
+            <td>Turvaśas</td>
+            <td><span style="color:#D06060;">Coalition</span></td>
+            <td>S. Punjab</td>
+            <td>Moderate — paired with Yadus</td>
+            <td>Disappear from later record</td>
+            <td><span class="dot-no">●</span>None significant</td>
+          </tr>
+          <tr>
+            <td>Alinas</td>
+            <td><span style="color:#D06060;">Coalition</span></td>
+            <td>Far North</td>
+            <td>Minor — one battle reference</td>
+            <td>Untraced</td>
+            <td><span class="dot-no">●</span>Speculative Nuristani link</td>
+          </tr>
+          <tr>
+            <td>Pakthas</td>
+            <td><span style="color:#D06060;">Coalition</span></td>
+            <td>Northwestern frontier</td>
+            <td>Minor — one battle reference</td>
+            <td>Untraced</td>
+            <td><span class="dot-partial">●</span>Pashtun phonetic claim (debated)</td>
+          </tr>
+          <tr>
+            <td>Bhalānas</td>
+            <td><span style="color:#D06060;">Coalition</span></td>
+            <td>Bolan / Baluchistan?</td>
+            <td>Minor — one battle reference</td>
+            <td>Untraced</td>
+            <td><span class="dot-no">●</span>None established</td>
+          </tr>
+          <tr>
+            <td>Śivas</td>
+            <td><span style="color:#D06060;">Coalition</span></td>
+            <td>Upper Punjab?</td>
+            <td>Obscure</td>
+            <td>Untraced</td>
+            <td><span class="dot-no">●</span>None</td>
+          </tr>
+          <tr>
+            <td>Viṣāṇins</td>
+            <td><span style="color:#D06060;">Coalition</span></td>
+            <td>Northern Punjab?</td>
+            <td>Obscure</td>
+            <td>Untraced</td>
+            <td><span class="dot-no">●</span>None</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="text-muted" style="margin-top:0.75rem;"><span class="dot-confirm">●</span> Accepted &nbsp;&nbsp; <span class="dot-partial">●</span> Debated &nbsp;&nbsp; <span class="dot-no">●</span> Speculative / Rejected</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ FAQ ═══ -->
+<section id="faq">
+  <div class="container">
+    <span class="section-eyebrow">Common Questions</span>
+    <h2 class="section-title">Frequently Asked Questions</h2>
+
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          Did the Battle of Ten Kings actually happen, or is it purely mythological?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>The mainstream scholarly view is that the battle probably reflects a real historical conflict, preserved in the form of contemporary or near-contemporary court poetry. The geographic specificity (the Paruṣṇī River, the Sapta Sindhava region), the named participants, and the level of detail suggest a kernel of authentic historical memory. However, the texts are ritual hymns, not chronicles, and they were composed by the winning side's priests. The events described cannot be verified archaeologically. The honest answer is: probably yes, but we cannot confirm it, and the details we have are filtered through ideological and theological layers.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          Why did Sudās win against such overwhelming numbers?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>Several factors likely contributed: (1) <strong>Terrain advantage</strong> — fighting from the south bank of the Paruṣṇī against a crossing force is a significant tactical advantage. (2) <strong>Flood timing</strong> — the river flood described in the hymns may reflect real military intelligence about seasonal hydrological conditions. (3) <strong>Coalition fragility</strong> — a ten-tribe coalition united by political convenience is harder to coordinate in battle than a unified army. (4) <strong>Priestly legitimacy</strong> — the Vasiṣṭha connection gave Sudās enormous ideological capital, potentially affecting morale and tribal loyalty. (5) The "overwhelming numbers" framing comes from the victor's account — the actual disproportion of forces is unknown.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          What happened to the defeated tribes after the battle?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>The Rigvedic texts record some defeated leaders receiving tribute obligations rather than annihilation. The Pūrus — the coalition's most significant group — eventually merged with the Bharatas to form the Kuru confederation, suggesting political integration rather than destruction. Most of the smaller coalition tribes (Alinas, Viṣāṇins, Śivas) disappear from the textual record after this period, likely absorbed into larger political entities or rendered too marginal to merit priestly attention. The dramatic migration theories (tribes fleeing to Central Asia or Europe) lack evidential support.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          Was this connected to the Aryan migration / invasion debate?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>The Daśarājña is set in a period after any "migration" event would have occurred — the conflict is between already-settled Vedic tribes, not between newcomers and indigenous peoples. The battle itself is not directly evidence for or against the Indo-Aryan migration. However, its setting in the Punjab Sapta Sindhava region, the linguistic features of Mandala VII, and the tribal names are all part of the broader reconstruction of early Vedic history that overlaps with the migration debate. The current genetic consensus (Narasimhan et al. 2019) supports a Steppe-origin migration for the Indo-Aryan component of South Asian ancestry, occurring well before the Daśarājña period.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          Why is the battle called "Ten Kings" if the list has more groups?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>The traditional name Daśarājña Yuddha comes from later Vedic and post-Vedic tradition systematizing the conflict. The Rigvedic hymns themselves name varying numbers of enemies across different verses. "Ten" in Vedic numerology is a formulaic number signifying completeness or abundance rather than a precise count. Different hymns list different tribes. The canonical "ten kings" list (Pūrus, Anus, Druhyus, Yadus, Turvaśas + Alinas, Pakthas, Bhalānas, Śivas, Viṣāṇins) is a reconstruction — possibly editorial — rather than a single consistent Rigvedic enumeration.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          What is the connection between this battle and the Mahābhārata?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>The connection is real but indirect and mediated by centuries. The Kuru dynasty of the Mahābhārata traces its lineage through the Bharata-Pūru merger that occurred in the generations after the Daśarājña. The Yādava clan of Kṛṣṇa descends from the Yadu tribe that fought against Sudās. The priestly rivalry between Vasiṣṭha and Viśvāmitra, which structures the Daśarājña's political backstory, becomes one of the Mahābhārata's most developed enmities. However, the Epic's narrative is set hundreds of years after the Daśarājña, and the connections have passed through extensive mythological transformation. Do not read the Mahābhārata as a sequel to the battle.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)">
+          Is it true that India got its name from this battle?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>Indirectly, through a long chain of tradition. The Republic of India's official Sanskrit name is Bhārata (Bhārata Gaṇarājya), which derives from the Bharata tribal name — the same tribe led by Sudās. But the connection passes through the legendary king Bharata of the Mahābhārata (a descendant of the original tribal name), through many centuries of mythological elaboration, and through the political decisions of modern Indian nationalists who chose this name at independence. It is a genuine etymological connection, but it does not mean India is named directly or literally for the Daśarājña warriors.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ RESOURCES ═══ -->
+<section id="resources">
+  <div class="container">
+    <span class="section-eyebrow">Further Study</span>
+    <h2 class="section-title">Recommended Books & Research</h2>
+    <p class="section-subtitle">Curated primary and secondary sources — from critical translations to specialist archaeology.</p>
+
+    <div class="books-grid reveal">
+      <div class="book-card">
+        <span class="book-title">The Rigveda: The Earliest Religious Poetry of India (3 vols.)</span>
+        <span class="book-author">Stephanie W. Jamison & Joel P. Brereton (2014)</span>
+        <p class="book-note">The definitive modern critical translation. Essential starting point. Volume II contains the battle hymns of Maṇḍala VII with extensive philological notes.</p>
+      </div>
+
+      <div class="book-card">
+        <span class="book-title">Rigvedic History: Poets, Chieftains and Polities</span>
+        <span class="book-author">Michael Witzel (1995, in Language, Material Culture and Ethnicity)</span>
+        <p class="book-note">The most detailed historical reconstruction of the Daśarājña. Establishes geographic identification of tribes and rivers. Difficult but essential reading.</p>
+      </div>
+
+      <div class="book-card">
+        <span class="book-title">The Quest for the Origins of Vedic Culture</span>
+        <span class="book-author">Edwin Bryant (2001)</span>
+        <p class="book-note">Balanced, accessible overview of the Indo-Aryan origins debate. Presents all sides fairly. Best introduction for non-specialists entering this field.</p>
+      </div>
+
+      <div class="book-card">
+        <span class="book-title">Deciphering the Indus Script</span>
+        <span class="book-author">Asko Parpola (1994, rev. 2015)</span>
+        <p class="book-note">Essential for understanding the archaeological context. Parpola's reconstruction of the relationship between Harappan and Indo-Aryan cultures informs the battle's background.</p>
+      </div>
+
+      <div class="book-card">
+        <span class="book-title">A History of Ancient and Early Medieval India</span>
+        <span class="book-author">Upinder Singh (2008)</span>
+        <p class="book-note">The best single-volume academic overview of ancient Indian history for students. Solid chapters on Rigvedic culture, PGW archaeology, and the transition to the Kuru period.</p>
+      </div>
+
+      <div class="book-card">
+        <span class="book-title">The Indo-Aryan Controversy (Essays)</span>
+        <span class="book-author">Ed. Edwin Bryant & Laurie Patton (2005)</span>
+        <p class="book-note">Collection of essays by leading scholars representing multiple positions. Witzel, Bryant, Frawley, Parpola, and others in direct dialogue. Excellent for understanding the stakes of the debate.</p>
+      </div>
+
+      <div class="book-card">
+        <span class="book-title">Genomic Formation of South and Central Asia (Narasimhan et al.)</span>
+        <span class="book-author">Science, 2019 (open access)</span>
+        <p class="book-note">The landmark genetic study establishing Steppe ancestry in South Asian populations. Direct scientific bearing on the migration debate that contextualizes the Daśarājña world.</p>
+      </div>
+
+      <div class="book-card">
+        <span class="book-title">The Rigveda: A Historical Analysis</span>
+        <span class="book-author">Shrikant Talageri (2000)</span>
+        <p class="book-note">Representative of the Out-of-India Theory perspective. Important to read critically and alongside mainstream scholarship. Identifies Druhyus and Anus with westward migrations. <em>Note: rejected by mainstream linguistics.</em></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ SUMMARY ═══ -->
+<section id="summary">
+  <div class="container">
+    <span class="section-eyebrow">Synthesis</span>
+    <h2 class="section-title">Final Academic Summary</h2>
+
+    <div class="summary-box reveal">
+      <h2>The Battle of Ten Kings — What We Know</h2>
+
+      <p><strong>The battle was real</strong>, in the sense that the hymns of Maṇḍala VII almost certainly preserve genuine historical memory of significant military and political events in Bronze Age Punjab, probably datable to c. 1200–1000 BCE.</p>
+
+      <p><strong>King Sudās of the Bharatas</strong> defeated a coalition of multiple tribes at or near the Paruṣṇī River (modern Ravi). The river flood, probably seasonal, contributed to the coalition's defeat. Sudās was supported by the Vasiṣṭha priestly lineage, who composed the victory hymns that preserved the event.</p>
+
+      <p><strong>The coalition's defeat</strong> did not mean annihilation. The Pūrus — the most significant adversaries — were politically absorbed into the Bharata sphere. This merger eventually produced the Kuru confederation, one of the most politically consequential formations in South Asian history.</p>
+
+      <p><strong>The tribal names</strong> (Pūrus, Anus, Druhyus, Yadus, Turvaśas, and others) are real Rigvedic designations, not inventions. Their geographic locations are approximately reconstructible through Witzel's analysis. Most modern claims of descent from these specific tribes are speculative at best.</p>
+
+      <p><strong>The archaeological and genetic evidence</strong> for the broader Vedic world is strong. The evidence for the specific Daśarājña battle is entirely textual. No battle site, no mass graves, no inscriptions corroborate it materially. This doesn't invalidate it — it simply means we are working with literary evidence alone.</p>
+
+      <p><strong>The historiographical debate</strong> is real and ongoing. Mainstream academia accepts migration models and treats the hymns as sources of historical memory requiring careful critical analysis. Nationalist and OIT interpretations read the same texts very differently. Both the arrogance of dismissing all Vedic tradition as myth and the naivety of reading it as literal chronicle should be avoided.</p>
+    </div>
+
+    <div class="ornament-divider" aria-hidden="true">✦ ✦ ✦</div>
+
+    <div style="max-width: 700px; margin: 0 auto; text-align:center; padding: 2rem 0;">
+      <p class="section-subtitle" style="margin-bottom: 2rem;">What the Daśarājña Yuddha ultimately teaches is not simply who won a battle three thousand years ago — but how a people's memory of its past becomes its identity. The Bharatas won the war. They also won the right to name the civilization that followed. And in the hymns of Vasiṣṭha, their poets ensured that even their enemies would be remembered — embedded forever in the verses that defined India's oldest literature.</p>
+      <a href="#hero" class="btn-secondary">↑ Return to the Beginning</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">Daśarājña Yuddha Archive</span>
+  <p class="footer-text">
+    An educational platform on the Battle of Ten Kings as recorded in the Rigveda. All content draws on peer-reviewed scholarship and is clearly labeled by evidential status. This platform does not endorse racial, nationalist, or pseudo-scientific interpretations of Vedic history.
+  </p>
+  <hr class="footer-divider">
+  <p class="footer-text" style="font-size:0.8rem;">
+    Sources: Jamison & Brereton (2014) · Witzel (1995) · Bryant (2001) · Parpola (2015) · Narasimhan et al. (2019) · Singh (2008) · Thapar (2004) · Doniger (2009)
+  </p>
+</footer>
+
+<script>
+  // ─── SCROLL REVEAL ───
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(el => {
+      if (el.isIntersecting) {
+        el.target.classList.add('visible');
+        observer.unobserve(el.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  revealEls.forEach(el => observer.observe(el));
+
+  // ─── TRIBE CARD TOGGLE ───
+  function toggleTribe(card) {
+    const isOpen = card.classList.contains('open');
+    card.classList.toggle('open', !isOpen);
+    const toggle = card.querySelector('.tribe-toggle');
+    if (toggle) toggle.textContent = isOpen ? 'Read more ↓' : 'Read less ↑';
+  }
+
+  // ─── FAQ TOGGLE ───
+  function toggleFAQ(btn) {
+    const item = btn.closest('.faq-item');
+    item.classList.toggle('open');
+  }
+
+  // ─── VERSE TABS ───
+  function switchTab(btn, panelId) {
+    const card = btn.closest('.verse-card');
+    card.querySelectorAll('.verse-tab').forEach(t => t.classList.remove('active'));
+    card.querySelectorAll('.verse-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    const panel = document.getElementById(panelId);
+    if (panel) panel.classList.add('active');
+  }
+
+  // ─── SMOOTH NAV HIGHLIGHT ───
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  const navObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(link => {
+          link.style.color = link.getAttribute('href') === '#' + entry.target.id
+            ? 'var(--gold)' : '';
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+
+  sections.forEach(s => navObserver.observe(s));
+</script>
+</body>
+</html>

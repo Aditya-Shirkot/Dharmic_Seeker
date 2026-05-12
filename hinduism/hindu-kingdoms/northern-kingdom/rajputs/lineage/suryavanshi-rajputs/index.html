@@ -1,0 +1,1963 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suryavansha — The Solar Dynasty of Aryavarta</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #C9993A;
+  --gold-light: #F0C96A;
+  --gold-pale: #F5E4B0;
+  --saffron: #E8650A;
+  --saffron-light: #FF8C2A;
+  --crimson: #8B1A1A;
+  --deep-red: #5C0D0D;
+  --bg-darkest: #080604;
+  --bg-dark: #0F0B07;
+  --bg-mid: #1A1208;
+  --bg-card: #1E1508;
+  --bg-card2: #241A0A;
+  --text-primary: #F0E8D0;
+  --text-secondary: #C8B89A;
+  --text-muted: #8A7A62;
+  --border: rgba(201,153,58,0.25);
+  --border-bright: rgba(201,153,58,0.6);
+  --shadow-gold: 0 0 40px rgba(201,153,58,0.15);
+  --font-display: 'Cinzel Decorative', serif;
+  --font-heading: 'Cinzel', serif;
+  --font-body: 'EB Garamond', serif;
+  --font-devanagari: 'Noto Serif Devanagari', serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--bg-darkest);color:var(--text-primary);font-family:var(--font-body);font-size:1.1rem;line-height:1.75;overflow-x:hidden}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg-darkest)}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px}
+
+/* SELECTION */
+::selection{background:rgba(201,153,58,0.3);color:var(--gold-light)}
+
+/* ── NOISE TEXTURE OVERLAY ── */
+body::before{
+  content:'';position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:9999;opacity:.4
+}
+
+/* ── GEOMETRIC PATTERN ── */
+.geo-bg{
+  position:absolute;inset:0;overflow:hidden;pointer-events:none;
+  background-image:
+    repeating-linear-gradient(0deg,transparent,transparent 60px,rgba(201,153,58,0.03) 60px,rgba(201,153,58,0.03) 61px),
+    repeating-linear-gradient(90deg,transparent,transparent 60px,rgba(201,153,58,0.03) 60px,rgba(201,153,58,0.03) 61px);
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  background:rgba(8,6,4,0.92);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px;
+  transition:all .3s ease
+}
+nav.scrolled{background:rgba(8,6,4,0.98);box-shadow:0 4px 30px rgba(0,0,0,0.5)}
+.nav-brand{
+  font-family:var(--font-display);font-size:.85rem;
+  color:var(--gold-light);letter-spacing:.05em;text-decoration:none;
+  display:flex;align-items:center;gap:.7rem
+}
+.nav-brand .sun-icon{font-size:1.4rem;animation:spin-slow 20s linear infinite}
+@keyframes spin-slow{to{transform:rotate(360deg)}}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{
+  font-family:var(--font-heading);font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--text-secondary);text-decoration:none;transition:color .2s
+}
+.nav-links a:hover{color:var(--gold-light)}
+.nav-search{
+  background:rgba(201,153,58,0.1);border:1px solid var(--border);
+  color:var(--text-primary);font-family:var(--font-body);font-size:.9rem;
+  padding:.4rem 1rem;border-radius:2px;outline:none;width:200px;transition:all .3s
+}
+.nav-search:focus{border-color:var(--gold);width:260px;background:rgba(201,153,58,0.15)}
+.nav-search::placeholder{color:var(--text-muted)}
+
+/* ── HERO ── */
+#hero{
+  position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;
+  text-align:center;overflow:hidden;padding:6rem 2rem 4rem
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 30%,rgba(232,101,10,0.12) 0%,transparent 70%),
+    radial-gradient(ellipse 60% 40% at 50% 50%,rgba(201,153,58,0.08) 0%,transparent 60%),
+    radial-gradient(ellipse 100% 80% at 50% 100%,rgba(92,13,13,0.3) 0%,transparent 50%),
+    var(--bg-darkest);
+}
+.hero-sun{
+  position:absolute;top:8%;left:50%;transform:translateX(-50%);
+  width:300px;height:300px;
+  background:radial-gradient(circle,rgba(232,101,10,0.3) 0%,rgba(201,153,58,0.15) 30%,transparent 70%);
+  border-radius:50%;
+  animation:pulse-sun 4s ease-in-out infinite
+}
+@keyframes pulse-sun{0%,100%{transform:translateX(-50%) scale(1);opacity:.8}50%{transform:translateX(-50%) scale(1.1);opacity:1}}
+.sun-rays{
+  position:absolute;top:8%;left:50%;transform:translateX(-50%);
+  width:300px;height:300px;
+  background:conic-gradient(from 0deg,transparent 0deg,rgba(201,153,58,0.15) 5deg,transparent 10deg,transparent 20deg,rgba(201,153,58,0.1) 25deg,transparent 30deg,transparent 40deg,rgba(201,153,58,0.15) 45deg,transparent 50deg,transparent 60deg,rgba(201,153,58,0.1) 65deg,transparent 70deg,transparent 80deg,rgba(201,153,58,0.15) 85deg,transparent 90deg,transparent 100deg,rgba(201,153,58,0.1) 105deg,transparent 110deg,transparent 120deg,rgba(201,153,58,0.15) 125deg,transparent 130deg,transparent 140deg,rgba(201,153,58,0.1) 145deg,transparent 150deg,transparent 160deg,rgba(201,153,58,0.15) 165deg,transparent 170deg,transparent 180deg,rgba(201,153,58,0.1) 185deg,transparent 190deg,transparent 200deg,rgba(201,153,58,0.15) 205deg,transparent 210deg,transparent 220deg,rgba(201,153,58,0.1) 225deg,transparent 230deg,transparent 240deg,rgba(201,153,58,0.15) 245deg,transparent 250deg,transparent 260deg,rgba(201,153,58,0.1) 265deg,transparent 270deg,transparent 280deg,rgba(201,153,58,0.15) 285deg,transparent 290deg,transparent 300deg,rgba(201,153,58,0.1) 305deg,transparent 310deg,transparent 320deg,rgba(201,153,58,0.15) 325deg,transparent 330deg,transparent 340deg,rgba(201,153,58,0.1) 345deg,transparent 350deg,transparent 360deg);
+  border-radius:50%;
+  width:500px;height:500px;top:4%;left:50%;transform:translateX(-50%);
+  animation:spin-slow 60s linear infinite;opacity:.6
+}
+.hero-content{position:relative;z-index:2;max-width:900px}
+.hero-devanagari{
+  font-family:var(--font-devanagari);font-size:1.5rem;color:var(--saffron-light);
+  letter-spacing:.1em;margin-bottom:1rem;opacity:.85;
+  animation:fade-up .8s ease both;
+}
+.hero-title{
+  font-family:var(--font-display);font-size:clamp(2.2rem,6vw,4.5rem);
+  color:var(--gold-light);font-weight:900;
+  line-height:1.05;letter-spacing:.02em;
+  text-shadow:0 0 80px rgba(201,153,58,0.4);
+  animation:fade-up .8s .2s ease both
+}
+.hero-subtitle{
+  font-family:var(--font-heading);font-size:clamp(1rem,2.5vw,1.4rem);
+  color:var(--saffron);letter-spacing:.3em;text-transform:uppercase;
+  margin-top:.7rem;animation:fade-up .8s .4s ease both
+}
+.hero-desc{
+  font-size:1.15rem;color:var(--text-secondary);max-width:680px;margin:2rem auto;
+  line-height:1.8;animation:fade-up .8s .6s ease both
+}
+.hero-quote{
+  border-left:3px solid var(--gold);padding:.8rem 1.5rem;
+  font-style:italic;color:var(--text-secondary);font-size:1rem;
+  max-width:600px;margin:2rem auto;text-align:left;
+  background:rgba(201,153,58,0.06);animation:fade-up .8s .7s ease both
+}
+.hero-quote cite{display:block;margin-top:.4rem;font-style:normal;font-family:var(--font-heading);font-size:.75rem;letter-spacing:.1em;color:var(--gold)}
+.hero-stats{
+  display:flex;justify-content:center;gap:3rem;margin-top:3rem;flex-wrap:wrap;
+  animation:fade-up .8s .8s ease both
+}
+.hero-stat{text-align:center}
+.hero-stat .num{
+  font-family:var(--font-display);font-size:2.5rem;color:var(--gold-light);
+  display:block;line-height:1
+}
+.hero-stat .lbl{font-family:var(--font-heading);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-muted);margin-top:.3rem;display:block}
+.hero-cta{
+  display:inline-flex;align-items:center;gap:.7rem;
+  margin-top:2.5rem;padding:.9rem 2.5rem;
+  background:linear-gradient(135deg,var(--saffron),var(--gold));
+  color:#000;font-family:var(--font-heading);font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;
+  text-decoration:none;border:none;cursor:pointer;
+  transition:all .3s;
+  animation:fade-up .8s 1s ease both
+}
+.hero-cta:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(232,101,10,0.4)}
+.scroll-indicator{
+  position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:.5rem;
+  color:var(--text-muted);font-family:var(--font-heading);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;
+  animation:bounce 2s ease infinite
+}
+.scroll-indicator::after{content:'↓';font-size:1.2rem;color:var(--gold)}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+@keyframes fade-up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── DIVIDERS ── */
+.section-divider{
+  text-align:center;padding:1rem 0;position:relative;
+  display:flex;align-items:center;gap:1rem;max-width:800px;margin:0 auto
+}
+.section-divider::before,.section-divider::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.divider-symbol{color:var(--gold);font-size:1.2rem}
+
+/* ── SECTIONS ── */
+.section{padding:6rem 2rem;position:relative}
+.section.alt{background:rgba(201,153,58,0.03)}
+.container{max-width:1200px;margin:0 auto}
+.section-header{text-align:center;margin-bottom:4rem}
+.section-tag{
+  font-family:var(--font-heading);font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--saffron);margin-bottom:.8rem;display:block
+}
+.section-title{
+  font-family:var(--font-display);font-size:clamp(1.8rem,4vw,3rem);
+  color:var(--gold-light);font-weight:700;line-height:1.1
+}
+.section-subtitle{
+  font-size:1rem;color:var(--text-secondary);margin-top:1rem;
+  max-width:600px;margin-left:auto;margin-right:auto
+}
+
+/* ── INTRO CARDS ── */
+.intro-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+.intro-card{
+  background:var(--bg-card);border:1px solid var(--border);
+  padding:2rem;position:relative;overflow:hidden;
+  transition:all .3s ease
+}
+.intro-card::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(201,153,58,0.08) 0%,transparent 60%);
+  opacity:0;transition:opacity .3s
+}
+.intro-card:hover{border-color:var(--border-bright);transform:translateY(-4px);box-shadow:var(--shadow-gold)}
+.intro-card:hover::before{opacity:1}
+.intro-card .icon{font-size:2.5rem;margin-bottom:1rem;display:block}
+.intro-card h3{font-family:var(--font-heading);font-size:1.1rem;color:var(--gold-light);margin-bottom:.8rem}
+.intro-card p{font-size:.95rem;color:var(--text-secondary);line-height:1.7}
+.badge{
+  display:inline-block;padding:.2rem .8rem;
+  border:1px solid;font-family:var(--font-heading);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;
+  margin-top:1rem
+}
+.badge.scripture{border-color:var(--gold);color:var(--gold)}
+.badge.history{border-color:var(--saffron);color:var(--saffron)}
+.badge.bardic{border-color:var(--text-muted);color:var(--text-muted)}
+
+/* ── LINEAGE TREE ── */
+.lineage-section{padding:6rem 2rem;background:var(--bg-dark)}
+.lineage-tree{
+  max-width:900px;margin:0 auto;
+  font-family:var(--font-heading);font-size:.8rem
+}
+.tree-node{
+  display:flex;flex-direction:column;align-items:center;position:relative
+}
+.tree-card{
+  background:var(--bg-card2);border:1px solid var(--border);
+  padding:1rem 2rem;text-align:center;min-width:200px;
+  position:relative;transition:all .3s;cursor:default
+}
+.tree-card:hover{border-color:var(--gold);box-shadow:0 0 20px rgba(201,153,58,0.2)}
+.tree-card .king{font-family:var(--font-heading);font-size:.85rem;color:var(--gold-light);letter-spacing:.1em}
+.tree-card .era{font-size:.65rem;color:var(--text-muted);margin-top:.2rem;letter-spacing:.1em;text-transform:uppercase}
+.tree-card .desc{font-size:.75rem;color:var(--text-secondary);margin-top:.4rem;font-family:var(--font-body)}
+.tree-connector{width:2px;height:32px;background:linear-gradient(to bottom,var(--gold),rgba(201,153,58,0.3));margin:0 auto}
+.tree-branch{
+  display:flex;gap:2rem;margin-top:0;justify-content:center;flex-wrap:wrap;
+  position:relative
+}
+.tree-branch::before{
+  content:'';position:absolute;top:0;left:20%;right:20%;height:2px;
+  background:linear-gradient(90deg,transparent,var(--gold),var(--gold),transparent)
+}
+.tree-branch-node{display:flex;flex-direction:column;align-items:center}
+.tree-branch-connector{width:2px;height:24px;background:rgba(201,153,58,0.4);margin:0 auto}
+.tree-card.branch{min-width:160px;padding:.8rem 1.2rem}
+.tree-root{
+  background:linear-gradient(135deg,rgba(232,101,10,0.2),rgba(201,153,58,0.15));
+  border-color:var(--saffron) !important
+}
+
+/* ── CLAN CARDS ── */
+.clans-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1.5rem}
+.clan-card{
+  background:var(--bg-card);border:1px solid var(--border);
+  overflow:hidden;transition:all .3s;
+  position:relative
+}
+.clan-card:hover{border-color:var(--border-bright);box-shadow:0 8px 40px rgba(0,0,0,0.4),0 0 30px rgba(201,153,58,0.1)}
+.clan-header{
+  background:linear-gradient(135deg,var(--bg-card2),rgba(201,153,58,0.08));
+  padding:1.5rem;border-bottom:1px solid var(--border);
+  display:flex;align-items:flex-start;gap:1rem;cursor:pointer
+}
+.clan-emblem{
+  width:56px;height:56px;border-radius:50%;
+  background:radial-gradient(circle,var(--saffron) 0%,var(--gold) 40%,var(--crimson) 100%);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.6rem;flex-shrink:0;
+  box-shadow:0 0 20px rgba(201,153,58,0.3)
+}
+.clan-header-text{flex:1}
+.clan-name{font-family:var(--font-heading);font-size:1.2rem;color:var(--gold-light)}
+.clan-alt{font-size:.75rem;color:var(--saffron);font-family:var(--font-heading);letter-spacing:.05em;margin-top:.2rem}
+.clan-ancestor{font-size:.8rem;color:var(--text-muted);margin-top:.3rem;font-style:italic}
+.clan-toggle{
+  margin-left:auto;width:28px;height:28px;
+  border:1px solid var(--border);background:rgba(201,153,58,0.1);
+  color:var(--gold);font-size:1rem;display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:all .2s;flex-shrink:0;border-radius:50%
+}
+.clan-toggle:hover{background:rgba(201,153,58,0.2)}
+.clan-body{display:none;padding:1.5rem}
+.clan-body.open{display:block;animation:fade-in .3s ease}
+@keyframes fade-in{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+.clan-info-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-bottom:1.2rem}
+.clan-info-item{}
+.clan-info-item .label{font-family:var(--font-heading);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.2rem}
+.clan-info-item .value{font-size:.88rem;color:var(--text-secondary);line-height:1.5}
+.clan-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin:1rem 0}
+.clan-tag{
+  background:rgba(201,153,58,0.1);border:1px solid rgba(201,153,58,0.2);
+  padding:.2rem .6rem;font-family:var(--font-heading);font-size:.6rem;letter-spacing:.1em;
+  color:var(--text-secondary)
+}
+.clan-tag.red{background:rgba(139,26,26,0.2);border-color:rgba(139,26,26,0.4);color:#E87070}
+.clan-section-title{
+  font-family:var(--font-heading);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gold);margin:1.2rem 0 .6rem;padding-bottom:.4rem;border-bottom:1px solid var(--border)
+}
+.clan-list{list-style:none;padding:0}
+.clan-list li{
+  font-size:.85rem;color:var(--text-secondary);padding:.3rem 0;
+  border-bottom:1px solid rgba(201,153,58,0.06);display:flex;align-items:flex-start;gap:.5rem
+}
+.clan-list li::before{content:'◆';color:var(--gold);font-size:.5rem;margin-top:.35rem;flex-shrink:0}
+.kings-list{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.4rem}
+.king-chip{
+  background:rgba(92,13,13,0.4);border:1px solid rgba(139,26,26,0.4);
+  padding:.2rem .7rem;font-family:var(--font-heading);font-size:.65rem;
+  color:#E8A0A0;letter-spacing:.05em
+}
+.source-badges{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.6rem}
+.src-badge{
+  padding:.2rem .6rem;font-size:.6rem;font-family:var(--font-heading);letter-spacing:.08em;
+  border-radius:2px
+}
+.src-badge.puranic{background:rgba(201,153,58,0.2);color:var(--gold-light)}
+.src-badge.historic{background:rgba(232,101,10,0.2);color:var(--saffron-light)}
+.src-badge.bardic{background:rgba(100,100,100,0.2);color:#AAA}
+.clan-card.highlight .clan-header{background:linear-gradient(135deg,rgba(92,13,13,0.4),rgba(201,153,58,0.12))}
+
+/* ── TIMELINE ── */
+.timeline-wrap{max-width:900px;margin:0 auto;position:relative}
+.timeline-wrap::before{
+  content:'';position:absolute;left:50%;top:0;bottom:0;width:2px;
+  background:linear-gradient(to bottom,var(--saffron),var(--gold),rgba(201,153,58,0.2));
+  transform:translateX(-50%)
+}
+.tl-item{
+  display:flex;margin-bottom:3rem;
+  align-items:flex-start;position:relative
+}
+.tl-item:nth-child(odd){flex-direction:row-reverse}
+.tl-content{
+  width:44%;background:var(--bg-card);border:1px solid var(--border);
+  padding:1.5rem;position:relative;transition:all .3s
+}
+.tl-content:hover{border-color:var(--border-bright);box-shadow:var(--shadow-gold)}
+.tl-item:nth-child(odd) .tl-content{margin-right:3.5rem}
+.tl-item:nth-child(even) .tl-content{margin-left:3.5rem}
+.tl-dot{
+  position:absolute;left:50%;top:1.5rem;transform:translateX(-50%);
+  width:18px;height:18px;border-radius:50%;
+  background:radial-gradient(circle,var(--gold-light),var(--saffron));
+  border:3px solid var(--bg-darkest);
+  box-shadow:0 0 15px rgba(201,153,58,0.5)
+}
+.tl-era{
+  font-family:var(--font-heading);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--saffron);margin-bottom:.4rem
+}
+.tl-name{font-family:var(--font-heading);font-size:1.05rem;color:var(--gold-light)}
+.tl-detail{font-size:.88rem;color:var(--text-secondary);margin-top:.5rem;line-height:1.6}
+
+/* ── COMPARISON TABLE ── */
+.table-wrap{overflow-x:auto;border:1px solid var(--border);margin-top:2rem}
+table{width:100%;border-collapse:collapse;min-width:900px}
+thead tr{background:linear-gradient(135deg,rgba(92,13,13,0.6),rgba(201,153,58,0.15))}
+th{
+  font-family:var(--font-heading);font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--gold-light);padding:1rem .8rem;text-align:left;
+  border-bottom:1px solid var(--border-bright)
+}
+td{
+  padding:.85rem .8rem;font-size:.85rem;color:var(--text-secondary);
+  border-bottom:1px solid rgba(201,153,58,0.07);vertical-align:top;line-height:1.5
+}
+tr:hover td{background:rgba(201,153,58,0.04);color:var(--text-primary)}
+td:first-child{font-family:var(--font-heading);color:var(--gold-light);font-size:.9rem}
+.power-bar{
+  height:4px;background:linear-gradient(90deg,var(--saffron),var(--gold));
+  border-radius:2px;margin-top:.4rem
+}
+
+/* ── KINGS SECTION ── */
+.kings-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.5rem}
+.king-card{
+  background:var(--bg-card);border:1px solid var(--border);padding:1.8rem;
+  position:relative;overflow:hidden;transition:all .3s
+}
+.king-card::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--saffron),var(--gold))
+}
+.king-card:hover{transform:translateY(-4px);border-color:var(--border-bright);box-shadow:var(--shadow-gold)}
+.king-card .rank{
+  font-family:var(--font-display);font-size:3rem;color:rgba(201,153,58,0.1);
+  position:absolute;top:.5rem;right:1rem;line-height:1;pointer-events:none
+}
+.king-card .kname{font-family:var(--font-heading);font-size:1.1rem;color:var(--gold-light)}
+.king-card .kclan{font-family:var(--font-heading);font-size:.65rem;letter-spacing:.15em;color:var(--saffron);text-transform:uppercase;margin-top:.2rem}
+.king-card .kera{font-size:.75rem;color:var(--text-muted);margin-top:.2rem}
+.king-card .kdesc{font-size:.88rem;color:var(--text-secondary);margin-top:.8rem;line-height:1.6}
+.king-card .kfeat{margin-top:.8rem}
+.king-card .kfeat span{
+  display:inline-block;background:rgba(201,153,58,0.1);border:1px solid rgba(201,153,58,0.2);
+  padding:.15rem .5rem;font-family:var(--font-heading);font-size:.6rem;
+  color:var(--text-secondary);margin:.2rem .2rem 0 0
+}
+
+/* ── RARE FACTS ── */
+.facts-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem}
+.fact-card{
+  background:var(--bg-card);border:1px solid var(--border);padding:2rem;
+  border-left:4px solid var(--gold);transition:all .3s
+}
+.fact-card:hover{border-left-color:var(--saffron);background:rgba(201,153,58,0.04)}
+.fact-num{font-family:var(--font-display);font-size:2.5rem;color:rgba(201,153,58,0.2);line-height:1}
+.fact-text{font-size:.95rem;color:var(--text-secondary);margin-top:.5rem;line-height:1.7}
+.fact-source{font-family:var(--font-heading);font-size:.65rem;letter-spacing:.1em;color:var(--gold);margin-top:.8rem}
+
+/* ── FAQ / ACCORDION ── */
+.faq-list{max-width:800px;margin:0 auto}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-q{
+  width:100%;background:none;border:none;
+  padding:1.3rem 0;display:flex;justify-content:space-between;align-items:center;
+  cursor:pointer;text-align:left;color:var(--text-primary);
+  font-family:var(--font-heading);font-size:.95rem;gap:1rem;
+  transition:color .2s
+}
+.faq-q:hover{color:var(--gold-light)}
+.faq-q .faq-icon{
+  width:24px;height:24px;border:1px solid var(--border);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--gold);font-size:.8rem;flex-shrink:0;transition:transform .3s
+}
+.faq-q.open .faq-icon{transform:rotate(45deg);border-color:var(--gold)}
+.faq-a{
+  display:none;padding:.5rem 0 1.5rem;
+  font-size:.9rem;color:var(--text-secondary);line-height:1.8
+}
+.faq-a.open{display:block;animation:fade-in .3s ease}
+
+/* ── TEMPLES ── */
+.temples-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem}
+.temple-card{
+  background:var(--bg-card);border:1px solid var(--border);
+  overflow:hidden;transition:all .3s
+}
+.temple-card:hover{border-color:var(--border-bright);transform:translateY(-3px)}
+.temple-top{
+  height:140px;
+  background:linear-gradient(135deg,rgba(92,13,13,0.6) 0%,rgba(30,21,8,0.8) 100%);
+  display:flex;align-items:center;justify-content:center;
+  font-size:3.5rem;position:relative;overflow:hidden
+}
+.temple-top::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at center,rgba(201,153,58,0.15) 0%,transparent 70%)
+}
+.temple-info{padding:1.3rem}
+.temple-name{font-family:var(--font-heading);font-size:1rem;color:var(--gold-light)}
+.temple-loc{font-size:.75rem;color:var(--saffron);font-family:var(--font-heading);letter-spacing:.05em;margin-top:.2rem}
+.temple-desc{font-size:.82rem;color:var(--text-secondary);margin-top:.6rem;line-height:1.6}
+
+/* ── SUBCLAN HIERARCHY ── */
+.subclan-section{max-width:1100px;margin:0 auto}
+.subclan-clan{margin-bottom:2rem;border:1px solid var(--border);background:var(--bg-card)}
+.subclan-clan-header{
+  background:linear-gradient(135deg,rgba(201,153,58,0.1),transparent);
+  padding:1.2rem 1.5rem;border-bottom:1px solid var(--border);
+  font-family:var(--font-heading);font-size:1.05rem;color:var(--gold-light);
+  display:flex;align-items:center;gap:1rem
+}
+.subclan-clan-header span{font-size:.7rem;color:var(--text-muted);font-weight:400}
+.subclan-branches{display:flex;flex-wrap:wrap;gap:.8rem;padding:1.2rem 1.5rem}
+.subclan-chip{
+  background:rgba(201,153,58,0.08);border:1px solid rgba(201,153,58,0.2);
+  padding:.4rem 1rem;font-family:var(--font-heading);font-size:.7rem;
+  color:var(--text-secondary);letter-spacing:.05em;transition:all .2s;cursor:default
+}
+.subclan-chip:hover{background:rgba(201,153,58,0.18);color:var(--gold-light);border-color:var(--gold)}
+
+/* ── SCRIPTURE PANEL ── */
+.scripture-panel{
+  background:linear-gradient(135deg,rgba(92,13,13,0.3),rgba(30,21,8,0.6));
+  border:1px solid rgba(139,26,26,0.4);padding:2.5rem;
+  max-width:800px;margin:2rem auto;text-align:center;position:relative
+}
+.scripture-panel::before,.scripture-panel::after{
+  content:'॥';font-family:var(--font-devanagari);font-size:2rem;
+  color:rgba(201,153,58,0.3);position:absolute;top:1rem
+}
+.scripture-panel::before{left:1.5rem}
+.scripture-panel::after{right:1.5rem}
+.scripture-devanagari{
+  font-family:var(--font-devanagari);font-size:1.4rem;color:var(--saffron-light);
+  line-height:1.8;margin-bottom:1rem
+}
+.scripture-translation{font-style:italic;color:var(--text-secondary);font-size:.95rem;line-height:1.7}
+.scripture-ref{font-family:var(--font-heading);font-size:.65rem;letter-spacing:.15em;color:var(--gold);margin-top:1rem;text-transform:uppercase}
+
+/* ── SEARCH RESULTS ── */
+#search-results{
+  position:fixed;top:64px;right:2rem;background:var(--bg-card);
+  border:1px solid var(--border-bright);padding:1rem;
+  width:320px;z-index:999;display:none;
+  box-shadow:0 8px 30px rgba(0,0,0,0.6)
+}
+#search-results.active{display:block}
+.search-result-item{
+  padding:.6rem 0;border-bottom:1px solid var(--border);cursor:pointer;
+  font-family:var(--font-heading);font-size:.8rem;color:var(--text-secondary);
+  transition:color .2s
+}
+.search-result-item:hover{color:var(--gold-light)}
+.search-result-item:last-child{border-bottom:none}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--bg-dark);border-top:1px solid var(--border);
+  padding:4rem 2rem 2rem;text-align:center
+}
+.footer-brand{
+  font-family:var(--font-display);font-size:1.2rem;color:var(--gold);margin-bottom:1rem
+}
+.footer-devanagari{font-family:var(--font-devanagari);font-size:1.1rem;color:var(--saffron-light);margin-bottom:1.5rem}
+.footer-links{display:flex;justify-content:center;gap:2rem;margin-bottom:2rem;flex-wrap:wrap}
+.footer-links a{font-family:var(--font-heading);font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--gold)}
+.footer-copy{font-size:.8rem;color:var(--text-muted);font-family:var(--font-heading)}
+.footer-sources{max-width:700px;margin:2rem auto;font-size:.78rem;color:var(--text-muted);line-height:1.9;text-align:left;border-top:1px solid var(--border);padding-top:1.5rem}
+.footer-sources h4{font-family:var(--font-heading);font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem}
+
+/* ── UTILITY ── */
+.gold{color:var(--gold-light)}
+.saffron{color:var(--saffron-light)}
+.muted{color:var(--text-muted)}
+.italic{font-style:italic}
+.mt1{margin-top:.5rem}
+.mt2{margin-top:1rem}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  .nav-links{display:none}
+  .tree-branch{gap:1rem}
+  .tl-item,.tl-item:nth-child(odd){flex-direction:column;align-items:flex-start}
+  .tl-content,.tl-item:nth-child(odd) .tl-content,.tl-item:nth-child(even) .tl-content{width:100%;margin:0 0 0 1.5rem}
+  .timeline-wrap::before{left:0}
+  .tl-dot{left:0}
+  .clan-info-grid{grid-template-columns:1fr}
+  .hero-stats{gap:1.5rem}
+}
+
+/* ── SCROLL ANIMATIONS ── */
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}
+.reveal-delay-2{transition-delay:.2s}
+.reveal-delay-3{transition-delay:.3s}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a class="nav-brand" href="#hero">
+    <span class="sun-icon">☀</span> Suryavansha Portal
+  </a>
+  <ul class="nav-links">
+    <li><a href="#lineage">Lineage</a></li>
+    <li><a href="#clans">Clans</a></li>
+    <li><a href="#timeline">Timeline</a></li>
+    <li><a href="#kings">Great Kings</a></li>
+    <li><a href="#temples">Temples</a></li>
+    <li><a href="#facts">Rare Facts</a></li>
+    <li><a href="#faq">Scriptures</a></li>
+  </ul>
+  <input class="nav-search" type="text" id="siteSearch" placeholder="Search clans, kings…" autocomplete="off">
+  <div id="search-results"></div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="geo-bg"></div>
+  <div class="hero-bg"></div>
+  <div class="sun-rays"></div>
+  <div class="hero-sun"></div>
+  <div class="hero-content">
+    <div class="hero-devanagari">सूर्यवंश — इक्ष्वाकु कुल</div>
+    <h1 class="hero-title">Suryavansha</h1>
+    <div class="hero-subtitle">The Eternal Solar Dynasty of Aryavarta</div>
+    <p class="hero-desc">
+      Born from the divine radiance of <strong>Surya Deva</strong>, the Solar Dynasty produced the greatest kings of Hindu civilization — from the immortal Ikshvaku to Maryada Purushottama Rama, and the valiant Rajput clans who carried its flame across millennia.
+    </p>
+    <div class="hero-quote">
+      <em>"Ikshvākavo mahāvīryāḥ sūryavaṃśasamudbhavāḥ — The mighty Ikshvakus, born of the Solar lineage, are the lords of the three worlds."</em>
+      <cite>— Valmiki Ramayana, Bala Kanda 1.70</cite>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><span class="num" data-target="36">0</span><span class="lbl">Royal Clans</span></div>
+      <div class="hero-stat"><span class="num" data-target="5000">0</span><span class="lbl">Years of History</span></div>
+      <div class="hero-stat"><span class="num" data-target="400">0</span><span class="lbl">Kings Documented</span></div>
+      <div class="hero-stat"><span class="num" data-target="120">0</span><span class="lbl">Forts & Citadels</span></div>
+    </div>
+    <a class="hero-cta" href="#lineage">Explore the Dynasty ↓</a>
+  </div>
+  <div class="scroll-indicator">Scroll to Discover</div>
+</section>
+
+<!-- INTRO -->
+<section class="section" id="intro">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">Foundation of Knowledge</span>
+      <h2 class="section-title">Understanding Suryavansha</h2>
+      <p class="section-subtitle">Before exploring the clans, we must understand what Suryavansha means and how different traditions speak of it.</p>
+    </div>
+    <div class="intro-grid">
+      <div class="intro-card reveal reveal-delay-1">
+        <span class="icon">☀️</span>
+        <h3>Meaning of Suryavansha</h3>
+        <p><strong>Surya</strong> (सूर्य, the Sun God) + <strong>Vamsha</strong> (वंश, lineage/dynasty). Literally "Solar Lineage." The dynasty traces descent from <strong>Vivasvan</strong> (Surya), through <strong>Vaivasvata Manu</strong>, to <strong>Ikshvaku</strong> — first king of Ayodhya. Every Suryavanshi clan claims this sacred celestial origin.</p>
+        <span class="badge scripture">Puranic Origin</span>
+      </div>
+      <div class="intro-card reveal reveal-delay-2">
+        <span class="icon">🌿</span>
+        <h3>Itihasa vs. Bardic Tradition</h3>
+        <p><strong>Itihasa</strong> (इतिहास) — "Thus indeed it happened" — refers to Ramayana & Mahabharata as sacred historical memory. <strong>Bardic tradition</strong> (Bhat/Charan chronicles) are medieval genealogies composed for political legitimacy. <strong>Epigraphy</strong> (copper plates, stone inscriptions) and <strong>numismatics</strong> provide verifiable historical evidence.</p>
+        <span class="badge history">Historical Layer</span>
+      </div>
+      <div class="intro-card reveal reveal-delay-3">
+        <span class="icon">🔱</span>
+        <h3>Connection to Lord Rama</h3>
+        <p>Rama is the <strong>65th king</strong> in Ikshvaku's line per Valmiki Ramayana. He is the supreme embodiment of Suryavanshi dharma — Maryada Purushottama (मर्यादा पुरुषोत्तम). After Rama, the line continued through <strong>Kusha</strong> and <strong>Lava</strong>, whose descendants became the progenitors of later Rajput clans.</p>
+        <span class="badge scripture">Scriptural</span>
+      </div>
+      <div class="intro-card reveal reveal-delay-1">
+        <span class="icon">⚔️</span>
+        <h3>36 Royal Clans of Rajputana</h3>
+        <p>Medieval texts like <em>Kumarpala Charita</em> and bard chronicles enumerate 36 royal clans (Chhattis Rajkul) of Rajputana. Among these, several — including Sisodias, Kachwahas, Rathores — claim Suryavanshi origin. Others claim Chandravansha or Agnivansha. James Tod's <em>Annals & Antiquities of Rajasthan</em> (1829) is the classic Western documentation.</p>
+        <span class="badge bardic">Bardic + Historic</span>
+      </div>
+      <div class="intro-card reveal reveal-delay-2">
+        <span class="icon">📜</span>
+        <h3>Key Scriptural Sources</h3>
+        <p>Primary: <strong>Valmiki Ramayana</strong> (Bala Kanda genealogies), <strong>Vishnu Purana</strong> (Ikshvaku Vamsha, 4th Amsham), <strong>Bhagavata Purana</strong> (Skandha 9), <strong>Harivamsha</strong>. Secondary: <strong>Raghuvansha</strong> by Kalidasa, <strong>Kumarasambhava</strong>. Rajput-era: copper plate grants, prasastis, bardic chronicles.</p>
+        <span class="badge scripture">Textual Basis</span>
+      </div>
+      <div class="intro-card reveal reveal-delay-3">
+        <span class="icon">🏛️</span>
+        <h3>Historical Continuity</h3>
+        <p>Suryavanshi kingdoms are attested archaeologically from the <strong>Maurya period</strong> onward. The <strong>Gupta dynasty</strong> (320–550 CE) claimed Suryavanshi ties. The <strong>Gahlot/Sisodia</strong> lineage has verifiable inscriptions from 7th century CE. The <strong>Kachwaha</strong> of Amber/Jaipur are documented from 11th century. These are not mere myths — they are living histories.</p>
+        <span class="badge history">Verified History</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCRIPTURE PANEL -->
+<div style="padding:0 2rem">
+  <div class="scripture-panel reveal">
+    <div class="scripture-devanagari">
+      इक्ष्वाकूणां कुले जातो रामो नाम जनैः श्रुतः।<br>
+      नित्यात्मा सर्वभूतानां विष्णुरेव सनातनः॥
+    </div>
+    <div class="scripture-translation">
+      "Born in the lineage of Ikshvaku, known to all as Rama — He is the eternal soul of all beings, Vishnu himself, the imperishable."
+    </div>
+    <div class="scripture-ref">— Valmiki Ramayana, Bala Kanda 1.18–19</div>
+  </div>
+</div>
+
+<!-- LINEAGE TREE -->
+<section class="lineage-section" id="lineage">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">Divine Genealogy</span>
+      <h2 class="section-title">The Ikshvaku Lineage Tree</h2>
+      <p class="section-subtitle">From the cosmic Sun God to the Rajput clans of the medieval age — a 5,000-year chain of solar sovereignty.</p>
+    </div>
+    <div class="lineage-tree reveal">
+      <div class="tree-node">
+        <div class="tree-card tree-root">
+          <div class="king">☀ Vivasvan (Surya Deva)</div>
+          <div class="era">Cosmic Origin | Aditya Mandala</div>
+          <div class="desc">Twelfth Aditya, father of Manu. "Vivasvat" means "brilliant/radiant." Source of all solar dynasties.</div>
+        </div>
+        <div class="tree-connector"></div>
+        <div class="tree-card">
+          <div class="king">Vaivasvata Manu (7th Manu)</div>
+          <div class="era">Post-deluge Progenitor</div>
+          <div class="desc">Son of Surya, progenitor of humanity in this Manvantara. Saved by Vishnu (Matsya avatara). His son Ikshvaku founded Ayodhya.</div>
+        </div>
+        <div class="tree-connector"></div>
+        <div class="tree-card">
+          <div class="king">Ikshvaku — First King of Ayodhya</div>
+          <div class="era">Treta Yuga | Founder</div>
+          <div class="desc">Son of Vaivasvata Manu. Founded the Solar Dynasty's earthly seat at Ayodhya (Kosal). All Suryavanshi kings descend from him. Named for Iksha (sugarcane) — first king of his epoch.</div>
+        </div>
+        <div class="tree-connector"></div>
+        <div class="tree-card">
+          <div class="king">Kakutstha → Raghu → Aja → Dasharatha</div>
+          <div class="era">Treta Yuga | Intermediary Kings</div>
+          <div class="desc">Notable ancestors: Kakutstha (rode Indra in bull form), Raghu (conqueror of three worlds, gave name to Raghuvansha), Aja (son, grief-stricken poet-king), Dasharatha (chariot-warrior of ten directions).</div>
+        </div>
+        <div class="tree-connector"></div>
+        <div class="tree-card tree-root">
+          <div class="king">🔱 Maryada Purushottama Rama</div>
+          <div class="era">~7th–5th millennium BCE (Puranic) | 65th King in Line</div>
+          <div class="desc">Son of Dasharatha. Supreme embodiment of Dharma. 7th avatar of Vishnu. Conquered Lanka, established Ramarajya. Sons: Kusha (ruled Kushavati/North) & Lava (ruled Sravasti/South).</div>
+        </div>
+        <div class="tree-connector"></div>
+        <div class="tree-branch">
+          <div class="tree-branch-node">
+            <div class="tree-branch-connector"></div>
+            <div class="tree-card branch">
+              <div class="king">Kusha</div>
+              <div class="era">Kushavati → Ayodhya</div>
+              <div class="desc">Elder son of Rama. Ancestor of later Suryavanshi kings continuing the Ayodhya line. Ultimate progenitor of Sisodias, Kachwahas per bardic tradition.</div>
+            </div>
+          </div>
+          <div class="tree-branch-node">
+            <div class="tree-branch-connector"></div>
+            <div class="tree-card branch">
+              <div class="king">Lava</div>
+              <div class="era">Sravasti → Lavapuri (Lahore?)</div>
+              <div class="desc">Younger son of Rama. Founder of Lavapuri. Progenitor of several Rajput clans of Punjab region per some bardic accounts.</div>
+            </div>
+          </div>
+        </div>
+        <div class="tree-connector"></div>
+        <div class="tree-card">
+          <div class="king">Sumitra → Agnivarna… → Last Ayodhya Kings</div>
+          <div class="era">Vishnu Purana records 29 kings after Rama</div>
+          <div class="desc">Vishnu Purana (4.4) lists the complete post-Rama Ayodhya succession ending with Sumitra, after whom Ayodhya's royal line is said to have dispersed. Bhagavata Purana concurs with slight variations.</div>
+        </div>
+        <div class="tree-connector"></div>
+        <div class="tree-branch">
+          <div class="tree-branch-node">
+            <div class="tree-branch-connector"></div>
+            <div class="tree-card branch">
+              <div class="king">Guhila / Guhaditya</div>
+              <div class="era">~6th–7th Century CE</div>
+              <div class="desc">Eponymous ancestor of Guhilots/Sisodias. Earliest copper-plate evidence 8th century CE, Mewar region.</div>
+            </div>
+          </div>
+          <div class="tree-branch-node">
+            <div class="tree-branch-connector"></div>
+            <div class="tree-card branch">
+              <div class="king">Nala / Dulha Rao</div>
+              <div class="era">~10th–11th Century CE</div>
+              <div class="desc">Ancestor of Kachwahas. Settled Dhundhar (Amber region). Built the Kachwaha foothold in eastern Rajasthan.</div>
+            </div>
+          </div>
+          <div class="tree-branch-node">
+            <div class="tree-branch-connector"></div>
+            <div class="tree-card branch">
+              <div class="king">Siyaji / Rao Siyaji</div>
+              <div class="era">~13th Century CE</div>
+              <div class="desc">Progenitor of Rathore dynasty. Moved from Kanauj to Rajputana. Rathore claim of Suryavanshi origin contested — they also claim Gahadavala/Rashtrakuta connection.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLAN CARDS -->
+<section class="section" id="clans">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">The Great Houses</span>
+      <h2 class="section-title">Suryavanshi Rajput Clans</h2>
+      <p class="section-subtitle">Detailed profiles of the major clans claiming Solar Dynasty origin — with scriptural backing, historical evidence, and clear distinction of bardic claims.</p>
+    </div>
+
+    <!-- Filter Bar -->
+    <div style="display:flex;gap:.8rem;flex-wrap:wrap;margin-bottom:2rem" class="reveal">
+      <button class="clan-filter-btn active" data-filter="all" onclick="filterClans('all',this)">All Clans</button>
+      <button class="clan-filter-btn" data-filter="confirmed" onclick="filterClans('confirmed',this)">Historically Confirmed</button>
+      <button class="clan-filter-btn" data-filter="rajasthan" onclick="filterClans('rajasthan',this)">Rajasthan</button>
+      <button class="clan-filter-btn" data-filter="north" onclick="filterClans('north',this)">North India</button>
+    </div>
+
+    <style>
+    .clan-filter-btn{
+      background:rgba(201,153,58,0.1);border:1px solid var(--border);
+      color:var(--text-secondary);font-family:var(--font-heading);font-size:.65rem;
+      letter-spacing:.12em;text-transform:uppercase;padding:.5rem 1.2rem;cursor:pointer;transition:all .2s
+    }
+    .clan-filter-btn.active,.clan-filter-btn:hover{background:rgba(201,153,58,0.25);color:var(--gold-light);border-color:var(--gold)}
+    </style>
+
+    <div class="clans-grid" id="clansGrid">
+
+      <!-- SISODIA -->
+      <div class="clan-card highlight" data-region="rajasthan" data-status="confirmed">
+        <div class="clan-header" onclick="toggleClan(this)">
+          <div class="clan-emblem">⚔️</div>
+          <div class="clan-header-text">
+            <div class="clan-name">Sisodia (Guhilot)</div>
+            <div class="clan-alt">Also: Guhila, Ahariya, Rawal</div>
+            <div class="clan-ancestor">Ancestor: Guhila (Guhaditya) → Kusha → Rama → Ikshvaku</div>
+          </div>
+          <div class="clan-toggle">+</div>
+        </div>
+        <div class="clan-body">
+          <div class="source-badges">
+            <span class="src-badge puranic">Puranic Claim</span>
+            <span class="src-badge historic">Epigraphic Evidence</span>
+            <span class="src-badge bardic">Tod Documentation</span>
+          </div>
+          <div class="clan-info-grid mt2">
+            <div class="clan-info-item"><div class="label">Founded</div><div class="value">~6th–7th Century CE, Mewar</div></div>
+            <div class="clan-info-item"><div class="label">First Capital</div><div class="value">Nagda (near Udaipur)</div></div>
+            <div class="clan-info-item"><div class="label">Peak Kingdom</div><div class="value">Mewar — Rajasthan</div></div>
+            <div class="clan-info-item"><div class="label">Ruling Period</div><div class="value">6th century CE – 1949 (Integration)</div></div>
+            <div class="clan-info-item"><div class="label">Major Fort</div><div class="value">Chittorgarh Fort (7th century+)</div></div>
+            <div class="clan-info-item"><div class="label">Clan Symbol</div><div class="value">Sun (Surya) — "Garh Chittor toh Garh Nahin"</div></div>
+          </div>
+          <div class="clan-section-title">Lineage Claim</div>
+          <p style="font-size:.85rem;color:var(--text-secondary);line-height:1.7">
+            The Sisodias claim descent from <strong>Guhila</strong> (c. 566 CE per Tod), son of a Brahmin-protected Kshatriya prince. The earliest epigraphic evidence is the <em>Atpur inscriptions</em> (8th century CE), referencing the Guhila dynasty. Tod records an unbroken 77-generation lineage to Rama in bard chronicles, though historians treat the pre-8th century portion as legendary.
+          </p>
+          <div class="clan-section-title">Main Kings</div>
+          <div class="kings-list">
+            <span class="king-chip">Guhila (founder)</span>
+            <span class="king-chip">Bappa Rawal (c.734 CE)</span>
+            <span class="king-chip">Khuman I</span>
+            <span class="king-chip">Hammir Singh</span>
+            <span class="king-chip">Rana Kumbha</span>
+            <span class="king-chip">Rana Sanga</span>
+            <span class="king-chip">Maharana Pratap (1572–97)</span>
+            <span class="king-chip">Amar Singh I</span>
+          </div>
+          <div class="clan-section-title">Major Battles & Achievements</div>
+          <ul class="clan-list">
+            <li>Bappa Rawal defeated Arab invaders at Battle of Rajasthan (c. 738 CE), halting Islamic expansion</li>
+            <li>Rana Hammir recaptured Chittorgarh from Delhi Sultanate (1326 CE)</li>
+            <li>Rana Kumbha built 32 forts including Kumbhalgarh; composed the Sangitaratnakara commentary</li>
+            <li>Rana Sanga fought 18 major battles, lost an arm and eye, nearly unified Rajputana (Battle of Khanwa, 1527)</li>
+            <li>Maharana Pratap's guerrilla warfare from Haldighati (1576) to Dewar (1582) — reclaimed most of Mewar</li>
+            <li>Three Jauhars (mass self-immolation) at Chittorgarh: 1303, 1535, 1568</li>
+          </ul>
+          <div class="clan-section-title">Temples Built</div>
+          <ul class="clan-list">
+            <li>Eklingji Temple (Udaipur) — consecrated by Bappa Rawal, Lakulisha Shaivism</li>
+            <li>Chittorgarh complex: Kalika Mata, Kumbha Shyama, Meera Bai temple</li>
+            <li>Ranakpur Jain Temples (Dharna Shah under Rana Kumbha's patronage, 1437–58)</li>
+            <li>Jagdish Temple, Udaipur (Maharana Jagat Singh I, 1651)</li>
+          </ul>
+          <div class="clan-section-title">Subclans</div>
+          <div class="clan-tags">
+            <span class="clan-tag">Ahariya</span><span class="clan-tag">Rawal branch</span><span class="clan-tag">Chandrawat</span><span class="clan-tag">Chundawat</span><span class="clan-tag">Shahpura branch</span><span class="clan-tag">Shahji</span><span class="clan-tag">Sagawat</span>
+          </div>
+          <div class="clan-section-title">Present Royal House</div>
+          <p style="font-size:.82rem;color:var(--text-secondary)">The House of Mewar, headed by Shriji Arvind Singh Mewar of Udaipur, continues the Sisodia lineage. The Maharana title is no longer official since 1949 but is ceremonially maintained. The City Palace, Udaipur remains their ancestral seat.</p>
+        </div>
+      </div>
+
+      <!-- KACHWAHA -->
+      <div class="clan-card" data-region="rajasthan" data-status="confirmed">
+        <div class="clan-header" onclick="toggleClan(this)">
+          <div class="clan-emblem">🦅</div>
+          <div class="clan-header-text">
+            <div class="clan-name">Kachwaha (Kachhwaha)</div>
+            <div class="clan-alt">Also: Kushwaha, Kuchela, Amber/Jaipur clan</div>
+            <div class="clan-ancestor">Ancestor: Kusha (son of Rama) → Kushavati line</div>
+          </div>
+          <div class="clan-toggle">+</div>
+        </div>
+        <div class="clan-body">
+          <div class="source-badges">
+            <span class="src-badge puranic">Kusha Lineage Claim</span>
+            <span class="src-badge historic">11th Cent. Inscriptions</span>
+          </div>
+          <div class="clan-info-grid mt2">
+            <div class="clan-info-item"><div class="label">Founded</div><div class="value">~966 CE, Amber (Dhundhar)</div></div>
+            <div class="clan-info-item"><div class="label">First Capital</div><div class="value">Amber (Amer), near Jaipur</div></div>
+            <div class="clan-info-item"><div class="label">Later Capital</div><div class="value">Jaipur (founded 1727 by Sawai Jai Singh II)</div></div>
+            <div class="clan-info-item"><div class="label">Ruling Period</div><div class="value">c. 10th century CE – 1949</div></div>
+            <div class="clan-info-item"><div class="label">Major Forts</div><div class="value">Amer Fort, Nahargarh, Jaigarh</div></div>
+            <div class="clan-info-item"><div class="label">Patron Deity</div><div class="value">Shila Devi (Amber) & Govind Devji</div></div>
+          </div>
+          <div class="clan-section-title">Lineage & Historical Note</div>
+          <p style="font-size:.85rem;color:var(--text-secondary);line-height:1.7">
+            The Kachwahas claim descent from <strong>Kusha</strong>, Rama's son. Their eponymous ancestor is <strong>Kushabahadra</strong> or <strong>Kachhua</strong> (symbolically a tortoise — sturdy, patient). Dulha Rao or Deoraj (c. 966 CE) is the historical founder in Amber. The clan expanded massively under <strong>Man Singh I</strong> (Akbar's general) and reached its architectural apex under <strong>Sawai Jai Singh II</strong>.
+          </p>
+          <div class="clan-section-title">Main Kings</div>
+          <div class="kings-list">
+            <span class="king-chip">Dulha Rao (c.966)</span>
+            <span class="king-chip">Prithviraj I</span>
+            <span class="king-chip">Man Singh I (1589–1614)</span>
+            <span class="king-chip">Mirza Raja Jai Singh</span>
+            <span class="king-chip">Sawai Jai Singh II (1700–43)</span>
+            <span class="king-chip">Sawai Ram Singh II</span>
+            <span class="king-chip">Sawai Man Singh II</span>
+          </div>
+          <div class="clan-section-title">Major Achievements</div>
+          <ul class="clan-list">
+            <li>Amer Fort: massive hilltop citadel combining Rajput and Mughal architecture (begun 16th century)</li>
+            <li>Jaipur — India's first planned city, grid-layout on Vedic Vastu principles, founded 1727</li>
+            <li>Five Jantar Mantar astronomical observatories built by Sawai Jai Singh II (Delhi, Jaipur, Ujjain, Mathura, Varanasi)</li>
+            <li>Zij-i Muhammad Shahi — revised astronomical tables commissioned by Jai Singh II</li>
+            <li>Man Singh I's military campaigns across Bengal, Afghanistan, Deccan for Mughals — raised Rajput prestige</li>
+          </ul>
+          <div class="clan-section-title">Temples Built</div>
+          <ul class="clan-list">
+            <li>Govind Devji Temple, Vrindavan (Man Singh I, 1590) — largest temple of its era</li>
+            <li>Shila Mata Temple, Amber Fort</li>
+            <li>Galta Ji (Monkey Temple), Jaipur — ancient Vaishnava site restored by Kachwahas</li>
+            <li>Birla Mandir patronage traditions continuing into modern period</li>
+          </ul>
+          <div class="clan-section-title">Subclans</div>
+          <div class="clan-tags">
+            <span class="clan-tag">Rajawat</span><span class="clan-tag">Naruka</span><span class="clan-tag">Shekhawat</span><span class="clan-tag">Nathawat</span><span class="clan-tag">Khangarot</span><span class="clan-tag">Bhanawat</span>
+          </div>
+          <p style="font-size:.82rem;color:var(--text-secondary);margin-top:.8rem">Present royal house: <strong>Maharaja Padmanabh Singh</strong> of Jaipur (b. 2000), son of Diya Kumari. The City Palace, Jaipur remains the seat.</p>
+        </div>
+      </div>
+
+      <!-- RATHORE -->
+      <div class="clan-card" data-region="rajasthan" data-status="confirmed">
+        <div class="clan-header" onclick="toggleClan(this)">
+          <div class="clan-emblem">🦁</div>
+          <div class="clan-header-text">
+            <div class="clan-name">Rathore</div>
+            <div class="clan-alt">Also: Rashtrakuta? or Rashtrikula origin debated</div>
+            <div class="clan-ancestor">Claimed: Rama (Suryavanshi) via Kanauj Gahadavala line</div>
+          </div>
+          <div class="clan-toggle">+</div>
+        </div>
+        <div class="clan-body">
+          <div class="source-badges">
+            <span class="src-badge historic">13th Cent. Historical</span>
+            <span class="src-badge bardic">Bardic Suryavanshi Claim</span>
+          </div>
+          <div class="clan-info-grid mt2">
+            <div class="clan-info-item"><div class="label">Founded</div><div class="value">c. 1226 CE, Mandore (Jodhpur)</div></div>
+            <div class="clan-info-item"><div class="label">First Capital</div><div class="value">Mandore, later Jodhpur (1459)</div></div>
+            <div class="clan-info-item"><div class="label">Major Fort</div><div class="value">Mehrangarh Fort, Jodhpur (1459)</div></div>
+            <div class="clan-info-item"><div class="label">Ruling Period</div><div class="value">13th century – 1949</div></div>
+            <div class="clan-info-item"><div class="label">Territory</div><div class="value">Marwar, Bikaner, Kishangarh</div></div>
+            <div class="clan-info-item"><div class="label">Clan Deity</div><div class="value">Nagnechi Mata</div></div>
+          </div>
+          <div class="clan-section-title">Origins — Critical Note</div>
+          <p style="font-size:.85rem;color:var(--text-secondary);line-height:1.7">
+            The Rathores' Suryavanshi claim is the most historically debated. <strong>Scholarly consensus</strong> (R.B. Singh, G.H. Ojha) traces them to the <strong>Gahadavala dynasty of Kanauj</strong> — who indeed claimed Suryavanshi origin. <strong>Rao Siyaji</strong> (c. 1226 CE) came from Kanauj to Marwar. The name "Rathore" may derive from <em>Rashtrakuta</em> (not the Deccan Rashtrakutas, but a northern branch). James Tod accepted bard genealogies linking them to Rama. Modern historians treat pre-13th century Rathore genealogy as largely bardic.
+          </p>
+          <div class="clan-section-title">Main Kings</div>
+          <div class="kings-list">
+            <span class="king-chip">Rao Siyaji (c.1226)</span>
+            <span class="king-chip">Rao Chanda</span>
+            <span class="king-chip">Rao Jodha (1459)</span>
+            <span class="king-chip">Rao Maldeo (1531–62)</span>
+            <span class="king-chip">Rao Chandrasen</span>
+            <span class="king-chip">Maharaja Jaswant Singh I</span>
+            <span class="king-chip">Maharaja Ajit Singh</span>
+            <span class="king-chip">Maharaja Hanwant Singh</span>
+          </div>
+          <div class="clan-section-title">Major Achievements</div>
+          <ul class="clan-list">
+            <li>Mehrangarh Fort — possibly India's greatest citadel, built 1459 by Rao Jodha on a 125m sheer rock</li>
+            <li>Rao Maldeo controlled the largest Rajput kingdom of his era (extending into Punjab, Sind, and Malwa)</li>
+            <li>Veer Durgadas Rathore's 30-year struggle (1679–1709) to preserve Marwar's independence from Aurangzeb</li>
+            <li>Bikaner founded by Rao Bika (1488) — son of Rao Jodha, establishing a parallel Rathore kingdom</li>
+            <li>"Jodhpuri" breeches and "jodhpur" architectural style — global cultural exports</li>
+          </ul>
+          <div class="clan-section-title">Temples Built</div>
+          <ul class="clan-list">
+            <li>Chamunda Mata Temple, Mehrangarh</li>
+            <li>Nagnechi Mata Temple, Nagana — clan deity shrine</li>
+            <li>Umaid Bhawan area temples, Jodhpur</li>
+          </ul>
+          <div class="clan-section-title">Subclans (150+ branches)</div>
+          <div class="clan-tags">
+            <span class="clan-tag">Jodha branch</span><span class="clan-tag">Bika branch</span><span class="clan-tag">Champawat</span><span class="clan-tag">Mertiya</span><span class="clan-tag">Pokarna</span><span class="clan-tag">Kumpawat</span><span class="clan-tag">Idar Rathores</span><span class="clan-tag">Nagaur branch</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PARMAR (Parmara) -->
+      <div class="clan-card" data-region="rajasthan" data-status="confirmed">
+        <div class="clan-header" onclick="toggleClan(this)">
+          <div class="clan-emblem">🔥</div>
+          <div class="clan-header-text">
+            <div class="clan-name">Parmar (Paramara)</div>
+            <div class="clan-alt">Also: Pramara, Pawara</div>
+            <div class="clan-ancestor">Claimed: Agnivanshi origin (Vashishtha's fire-yajna) — but some branches claim Suryavanshi</div>
+          </div>
+          <div class="clan-toggle">+</div>
+        </div>
+        <div class="clan-body">
+          <div class="source-badges">
+            <span class="src-badge historic">9th Cent. Inscriptions</span>
+            <span class="src-badge bardic">Agni-Kunda Origin Legend</span>
+          </div>
+          <div class="clan-info-grid mt2">
+            <div class="clan-info-item"><div class="label">Founded</div><div class="value">c. 800 CE, Malwa</div></div>
+            <div class="clan-info-item"><div class="label">Capital</div><div class="value">Ujjain, then Dhar, then Mandu</div></div>
+            <div class="clan-info-item"><div class="label">Greatest King</div><div class="value">Raja Bhoja (1010–1055 CE)</div></div>
+            <div class="clan-info-item"><div class="label">Territory</div><div class="value">Malwa, Gujarat, Rajasthan</div></div>
+          </div>
+          <div class="clan-section-title">Historical Note</div>
+          <p style="font-size:.85rem;color:var(--text-secondary);line-height:1.7">
+            The Parmars are primarily considered <strong>Agnivanshi</strong> (fire-born) in bardic tradition, not Suryavanshi. However, some Parmar sub-branches (particularly Abu Parmars) claim Suryavanshi connections. <strong>Raja Bhoja</strong> was the greatest intellectual king of medieval India — philosopher, architect, poet, grammarian. The <strong>Bhoj-patra</strong> (Bhoja's inscription) traditions and the Sarasvati Kanth Abharana Sanskrit grammar are attributed to him.
+          </p>
+          <div class="clan-section-title">Key Achievement</div>
+          <ul class="clan-list">
+            <li>Raja Bhoja founded the <strong>Bhoj Shala</strong> (Sanskrit academy) at Dhar — one of medieval India's greatest learning centers</li>
+            <li>Built the massive <strong>Bhojpur Shiva Temple</strong> (largest Shivalinga in India, 7.5 ft tall)</li>
+            <li>Authored or sponsored: Samarangan Sutradhara (architecture), Yuktikalpataru, Rajmartanda (yoga), Shringara Prakasha</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- CHANDELA -->
+      <div class="clan-card" data-region="north" data-status="confirmed">
+        <div class="clan-header" onclick="toggleClan(this)">
+          <div class="clan-emblem">🌙</div>
+          <div class="clan-header-text">
+            <div class="clan-name">Chandela</div>
+            <div class="clan-alt">Also: Chandratreya</div>
+            <div class="clan-ancestor">Chandravanshi claim, but Khajuraho inscriptions invoke Surya</div>
+          </div>
+          <div class="clan-toggle">+</div>
+        </div>
+        <div class="clan-body">
+          <div class="source-badges">
+            <span class="src-badge historic">9th–13th Cent. CE</span>
+            <span class="src-badge puranic">Chandravanshi Claim</span>
+          </div>
+          <div class="clan-info-grid mt2">
+            <div class="clan-info-item"><div class="label">Founded</div><div class="value">c. 831 CE, Bundelkhand</div></div>
+            <div class="clan-info-item"><div class="label">Capital</div><div class="value">Khajuraho, then Kalinjar</div></div>
+            <div class="clan-info-item"><div class="label">Famous For</div><div class="value">Khajuraho Temples (UNESCO)</div></div>
+            <div class="clan-info-item"><div class="label">Ruling Period</div><div class="value">9th – 13th century CE</div></div>
+          </div>
+          <div class="clan-section-title">Overview</div>
+          <p style="font-size:.85rem;color:var(--text-secondary);line-height:1.7">Primarily Chandravanshi, but the Khajuraho complex includes <strong>Surya Temples</strong> and Chandela kings bore solar epithets. Their 85 temples built over 200 years (950–1150 CE) represent the pinnacle of Nagara architecture. King <strong>Dhanga</strong> (950–1008 CE) was the greatest Chandela king, defending against Mahmud of Ghazni.</p>
+          <div class="clan-section-title">Temples</div>
+          <ul class="clan-list">
+            <li>Khajuraho temple complex — 85 temples originally, 25 surviving (Lakshmana, Kandariya Mahadeva, Chaturbhuja)</li>
+            <li>Kalinjar Fort Temple — Neelkantha Mahadeva</li>
+            <li>Duladeo and Chitragupta temples, Khajuraho</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- SOLANKI (Chaulukya) -->
+      <div class="clan-card" data-region="rajasthan" data-status="confirmed">
+        <div class="clan-header" onclick="toggleClan(this)">
+          <div class="clan-emblem">🏺</div>
+          <div class="clan-header-text">
+            <div class="clan-name">Solanki (Chaulukya)</div>
+            <div class="clan-alt">Also: Chalukya of Gujarat</div>
+            <div class="clan-ancestor">Claimed: Suryavanshi via Lava's lineage</div>
+          </div>
+          <div class="clan-toggle">+</div>
+        </div>
+        <div class="clan-body">
+          <div class="source-badges">
+            <span class="src-badge historic">10th–13th Cent.</span>
+            <span class="src-badge bardic">Lava-lineage Claim</span>
+          </div>
+          <div class="clan-info-grid mt2">
+            <div class="clan-info-item"><div class="label">Founded</div><div class="value">c. 940 CE, Anhilwara (Gujarat)</div></div>
+            <div class="clan-info-item"><div class="label">Capital</div><div class="value">Anhilwara (Patan), Gujarat</div></div>
+            <div class="clan-info-item"><div class="label">Greatest King</div><div class="value">Kumar Pal, Siddharaj Jaisinh</div></div>
+            <div class="clan-info-item"><div class="label">Famous For</div><div class="value">Modhera Sun Temple</div></div>
+          </div>
+          <div class="clan-section-title">Overview</div>
+          <p style="font-size:.85rem;color:var(--text-secondary);line-height:1.7">The Solankis (Gujarat Chaulukyas) produced India's golden age of Solanki art (10th–13th century). <strong>Siddharaj Jaisinh</strong> (1094–1143) was the greatest patron of learning and architecture. Their <strong>Modhera Sun Temple</strong> (1026 CE) is one of India's finest examples of Maru-Gurjara temple architecture.</p>
+          <div class="clan-section-title">Temples</div>
+          <ul class="clan-list">
+            <li>Modhera Sun Temple (1026 CE) — exquisite carved step-pond (kund) and sabhamandapa</li>
+            <li>Somnath Temple rebuilt by the Solanki kings after Mahmud's raid</li>
+            <li>Sahastralingha tank, Patan</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- TOMAR -->
+      <div class="clan-card" data-region="north" data-status="confirmed">
+        <div class="clan-header" onclick="toggleClan(this)">
+          <div class="clan-emblem">🗡️</div>
+          <div class="clan-header-text">
+            <div class="clan-name">Tomar (Tomara)</div>
+            <div class="clan-alt">Also: Tanwar</div>
+            <div class="clan-ancestor">Claimed: Suryavanshi via Kuru line — some claim Chandravanshi</div>
+          </div>
+          <div class="clan-toggle">+</div>
+        </div>
+        <div class="clan-body">
+          <div class="source-badges">
+            <span class="src-badge historic">8th–12th Cent.</span>
+          </div>
+          <div class="clan-info-grid mt2">
+            <div class="clan-info-item"><div class="label">Founded</div><div class="value">c. 736 CE, Delhi</div></div>
+            <div class="clan-info-item"><div class="label">Capital</div><div class="value">Dhillika (Delhi) — first builders of Delhi</div></div>
+            <div class="clan-info-item"><div class="label">Later Kingdom</div><div class="value">Gwalior (1394–1516)</div></div>
+            <div class="clan-info-item"><div class="label">Famous King</div><div class="value">Raja Man Singh Tomar (Gwalior)</div></div>
+          </div>
+          <div class="clan-section-title">Overview</div>
+          <p style="font-size:.85rem;color:var(--text-secondary);line-height:1.7">The Tomars founded <strong>Delhi</strong> as Dhillika (c. 736 CE) — they were the original kings of what would become India's capital. Later, the Gwalior Tomars under <strong>Raja Man Singh Tomar</strong> (1486–1516) created the <strong>Gwalior Fort</strong> as a masterpiece, and Man Singh was a celebrated patron of Dhrupad music. He was associated with the legendary singer <strong>Tansen's</strong> predecessor tradition.</p>
+          <div class="clan-section-title">Major Forts & Temples</div>
+          <ul class="clan-list">
+            <li>Gwalior Fort — Man Mandir Palace (painted tile facade, unique medieval landmark)</li>
+            <li>Sas-Bahu Temple complex, Gwalior (11th century)</li>
+            <li>Teli ka Mandir, Gwalior — unique Dravidian-North hybrid architecture (8th century)</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- BAGHEL -->
+      <div class="clan-card" data-region="north" data-status="confirmed">
+        <div class="clan-header" onclick="toggleClan(this)">
+          <div class="clan-emblem">🐯</div>
+          <div class="clan-header-text">
+            <div class="clan-name">Baghel (Vaghela)</div>
+            <div class="clan-alt">Also: Vaghela of Gujarat</div>
+            <div class="clan-ancestor">Suryavanshi — branch of Solanki/Chaulukya</div>
+          </div>
+          <div class="clan-toggle">+</div>
+        </div>
+        <div class="clan-body">
+          <div class="source-badges">
+            <span class="src-badge historic">13th–16th Cent.</span>
+          </div>
+          <div class="clan-info-grid mt2">
+            <div class="clan-info-item"><div class="label">Kingdom</div><div class="value">Rewa, Baghelkhand (MP)</div></div>
+            <div class="clan-info-item"><div class="label">Capital</div><div class="value">Rewa (earlier Bandhogarh)</div></div>
+            <div class="clan-info-item"><div class="label">Ruled</div><div class="value">14th – 20th century</div></div>
+          </div>
+          <div class="clan-section-title">Overview</div>
+          <p style="font-size:.85rem;color:var(--text-secondary);line-height:1.7">Baghels (from Baghela = tiger) are a branch of the Chaulukya/Solanki who migrated to central India. They gave the name to <strong>Baghelkhand</strong> region (modern Madhya Pradesh). Famous for the white tiger of Rewa — <strong>Maharaja Martand Singh</strong> of Rewa captured the first white tiger in modern times (1951). Bandhogarh had an ancient fort mentioned in Naradapurana.</p>
+        </div>
+      </div>
+
+      <!-- BISEN -->
+      <div class="clan-card" data-region="north" data-status="confirmed">
+        <div class="clan-header" onclick="toggleClan(this)">
+          <div class="clan-emblem">🌾</div>
+          <div class="clan-header-text">
+            <div class="clan-name">Bisen</div>
+            <div class="clan-alt">Also: Bisena</div>
+            <div class="clan-ancestor">Suryavanshi — claimed descent from Lava (Rama's son)</div>
+          </div>
+          <div class="clan-toggle">+</div>
+        </div>
+        <div class="clan-body">
+          <div class="source-badges">
+            <span class="src-badge bardic">Lava Lineage Claim</span>
+            <span class="src-badge historic">Eastern UP Records</span>
+          </div>
+          <div class="clan-info-grid mt2">
+            <div class="clan-info-item"><div class="label">Region</div><div class="value">Eastern Uttar Pradesh, Gorakhpur</div></div>
+            <div class="clan-info-item"><div class="label">Founded</div><div class="value">Medieval period</div></div>
+          </div>
+          <p style="font-size:.85rem;color:var(--text-secondary);line-height:1.7;margin-top:.8rem">The Bisen Rajputs of eastern UP claim Suryavanshi descent through Lava. They established minor principalities in the Gorakhpur, Basti, and Azamgarh region. Notable sub-branches: Bansgaon, Majholi. They are one of the few Suryavanshi clans not in Rajasthan.</p>
+        </div>
+      </div>
+
+      <!-- GAUR -->
+      <div class="clan-card" data-region="north" data-status="confirmed">
+        <div class="clan-header" onclick="toggleClan(this)">
+          <div class="clan-emblem">🌞</div>
+          <div class="clan-header-text">
+            <div class="clan-name">Gaur</div>
+            <div class="clan-alt">Also: Gauda Rajput</div>
+            <div class="clan-ancestor">Suryavanshi — claimed descent from Gaud (Bengal) Kshatriyas</div>
+          </div>
+          <div class="clan-toggle">+</div>
+        </div>
+        <div class="clan-body">
+          <div class="source-badges">
+            <span class="src-badge bardic">Bardic Tradition</span>
+          </div>
+          <div class="clan-info-grid mt2">
+            <div class="clan-info-item"><div class="label">Region</div><div class="value">Western UP, Haryana, Rajasthan</div></div>
+            <div class="clan-info-item"><div class="label">Ruling Period</div><div class="value">Medieval onwards</div></div>
+          </div>
+          <p style="font-size:.85rem;color:var(--text-secondary);line-height:1.7;margin-top:.8rem">Gaur Rajputs claim Suryavanshi origin and are widely distributed across North India. They are one of the 36 royal clans of bardic tradition. Not to be confused with the Gaur Brahmins — the Gaur Rajputs are a distinct martial clan.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="section alt" id="timeline">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">Chronology</span>
+      <h2 class="section-title">Dynasty Timeline</h2>
+      <p class="section-subtitle">From the cosmic Treta Yuga origins to the modern era — the unbroken arc of solar sovereignty.</p>
+    </div>
+    <div class="timeline-wrap">
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-era">Treta Yuga | Mythic-Historic Period</div>
+          <div class="tl-name">Ikshvaku founds Solar Kingdom</div>
+          <div class="tl-detail">Son of Vaivasvata Manu, Ikshvaku establishes Ayodhya as capital of the Solar Dynasty. Vishnu Purana names him as the beginning of the earthly Suryavansha. The Bhagavata Purana Skandha 9 lists 28 kings between Ikshvaku and Rama.</div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-era">Treta Yuga | Puranic Chronology</div>
+          <div class="tl-name">Kakutstha, Raghu, Dilipa</div>
+          <div class="tl-detail">The great intermediate kings: Kakutstha (who fought Indra's battle riding Indra-as-bull), the universal conqueror Raghu (who gave the dynasty the name Raghuvansha), and Dilipa/Aja — all celebrated in Kalidasa's Raghuvamsha.</div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-era">Treta Yuga | Itihasa</div>
+          <div class="tl-name">Rama — 65th King of Ikshvaku Line</div>
+          <div class="tl-detail">Maryada Purushottama Shri Rama. 7th avatar of Vishnu. His reign (Ramarajya) is the gold standard of dharmic governance in Hindu civilization. Sons Kusha and Lava inherit divided kingdom — Kusha rebuilds Ayodhya, Lava gets Shravasti region.</div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-era">c. 600–300 BCE | Historical</div>
+          <div class="tl-name">Kosala Mahajanapada</div>
+          <div class="tl-detail">The later Ikshvaku successors rule Kosala Mahajanapada (one of 16 Mahajanapadas). King Prasenajit (Pasenadi) of Kosala is contemporaneous with Buddha. This kingdom is historically verified through Buddhist and Jain texts and archaeological finds at Shravasti.</div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-era">c. 3rd Century BCE</div>
+          <div class="tl-name">Maurya Empire — Suryavanshi Claims Begin</div>
+          <div class="tl-detail">Chandragupta Maurya's Brahmin minister Chanakya is said to have given him Suryavanshi legitimacy claims. The Mahavamsa (Sri Lankan chronicle) records that the Maurya clan was of Moriya (Peacock/Solar) origin from Pippalivana. This is the beginning of political Suryavanshi legitimacy construction.</div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-era">c. 3rd–4th Century CE</div>
+          <div class="tl-name">Ikshvaku Dynasty of Andhra</div>
+          <div class="tl-detail">A historically verified dynasty of Andhra Pradesh (Nagarjunakonda, Amaravati region) that explicitly claimed Ikshvaku origin in their inscriptions. Confirmed by epigraphic evidence — the Nagarjunakonda pillars. They were Shaivite patrons who also built Buddhist monuments.</div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-era">320–550 CE</div>
+          <div class="tl-name">Gupta Empire — Solar Claims</div>
+          <div class="tl-detail">The Guptas claimed Suryavanshi descent in some prasastis. Chandragupta I adopted the solar epithet. Samudragupta's Allahabad Pillar inscription (by Harishena) invokes solar imagery extensively. This is the imperial Indian golden age — art, mathematics, astronomy, Sanskrit literature flourished.</div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-era">c. 566–8th Century CE</div>
+          <div class="tl-name">Guhila Dynasty Founded — Mewar</div>
+          <div class="tl-detail">The Guhilots establish their dynasty in Mewar (modern Rajasthan). The Atpur copper plate (8th century) is the earliest epigraphic confirmation. Bappa Rawal (c. 734 CE) consolidates Mewar, defeats Arab raiders, and makes Eklingji the state deity — traditions verified by multiple sources.</div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-era">c. 736–1060 CE</div>
+          <div class="tl-name">Tomar Dynasty — Founds Delhi</div>
+          <div class="tl-detail">The Tomar Rajputs build Dhillika (Lal Kot) — the first city on Delhi's site (736 CE). This is confirmed by the Lal Kot wall remnants still visible near Qutub Minar. Delhi's multi-layered history begins here, before the Chahamanas, Ghurids, and Sultanate.</div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-era">10th–13th Century CE</div>
+          <div class="tl-name">Golden Age of Rajput Architecture</div>
+          <div class="tl-detail">Khajuraho temples (Chandela), Modhera Sun Temple (Solanki), Dilwara Jain Temples (Paramara patronage), Gwalior Fort complex. This era represents the pinnacle of Rajput artistic and military achievement before the Ghurid invasions.</div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-era">1303, 1535, 1568</div>
+          <div class="tl-name">Three Sieges of Chittorgarh</div>
+          <div class="tl-detail">1303: Alauddin Khalji sieges Chittor — Rani Padmini leads first Jauhar. 1535: Bahadur Shah of Gujarat — Queen Karnavati leads second Jauhar, sends rakhi to Humayun. 1568: Akbar's siege — third Jauhar, 30,000 Rajputs die defending. Chittor becomes the eternal symbol of Rajput honor.</div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-era">1572–1597 CE</div>
+          <div class="tl-name">Maharana Pratap — Last Great Resistance</div>
+          <div class="tl-detail">Battle of Haldighati (June 18, 1576): Pratap vs Akbar's forces (led by Man Singh). Inconclusive but legendary. Pratap survived in Aravalli jungles, subsisted on forest food (chapattis from grass seeds — the famous Ghass ki Roti), and recaptured 36 of 48 lost strongholds by 1582. Died undefeated in his core territory.</div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-era">1459 CE</div>
+          <div class="tl-name">Jodhpur Founded — Mehrangarh Rises</div>
+          <div class="tl-detail">Rao Jodha of the Rathore clan founds Jodhpur and builds Mehrangarh Fort on a 125-metre rock outcrop. The fort is consecrated by a living human sacrifice (Raj Ram Meghwal). The fort has never been conquered and remains one of India's most awe-inspiring military structures.</div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-era">1727 CE</div>
+          <div class="tl-name">Jaipur Founded — India's First Planned City</div>
+          <div class="tl-detail">Sawai Jai Singh II, Kachwaha king of Amber, founded Jaipur on Vastu Shastra principles — an 8-block grid city based on Visvakarmaprakasha. The city was designed by architect Vidyadhar Bhattacharya. The pink color came from a 1876 royal painting for Prince of Wales's visit and stuck permanently.</div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-era">1947–1949 CE</div>
+          <div class="tl-name">Integration into Indian Republic</div>
+          <div class="tl-detail">Rajput kingdoms sign Instruments of Accession with India (1947–48). States' reorganization (1949) formally merges kingdoms. The royal houses retain privy purses until 1971 (abolished by Indira Gandhi's 26th Amendment). The living descendants continue cultural and ceremonial roles.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section class="section" id="compare">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">Comparative Analysis</span>
+      <h2 class="section-title">Suryavanshi Clan Comparison</h2>
+      <p class="section-subtitle">Side-by-side analysis of major Suryavanshi and Solar-claiming Rajput dynasties.</p>
+    </div>
+    <div class="table-wrap reveal">
+      <table>
+        <thead>
+          <tr>
+            <th>Clan</th>
+            <th>Origin Claim</th>
+            <th>Evidence Level</th>
+            <th>Peak Period</th>
+            <th>Territory</th>
+            <th>Signature Achievement</th>
+            <th>Influence</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Sisodia (Guhilot)</td>
+            <td>Rama → Kusha → Guhila</td>
+            <td><span style="color:#4CAF50">★★★★</span> Inscriptions from 8th c.</td>
+            <td>1300–1600 CE</td>
+            <td>Mewar, Rajasthan</td>
+            <td>Unbroken 1,400-year dynasty — longest in world</td>
+            <td><div class="power-bar" style="width:95%"></div></td>
+          </tr>
+          <tr>
+            <td>Kachwaha</td>
+            <td>Rama → Kusha → Kushwaha</td>
+            <td><span style="color:#8BC34A">★★★</span> 11th c. records</td>
+            <td>1600–1800 CE</td>
+            <td>Dhundhar (Amber/Jaipur)</td>
+            <td>Jaipur planned city, Jantar Mantars</td>
+            <td><div class="power-bar" style="width:85%"></div></td>
+          </tr>
+          <tr>
+            <td>Rathore</td>
+            <td>Rama via Kanauj (debated)</td>
+            <td><span style="color:#FF9800">★★</span> 13th c. documented</td>
+            <td>1459–1700 CE</td>
+            <td>Marwar, Bikaner</td>
+            <td>Mehrangarh Fort, Marwar dominance</td>
+            <td><div class="power-bar" style="width:80%"></div></td>
+          </tr>
+          <tr>
+            <td>Solanki (Chaulukya)</td>
+            <td>Suryavanshi via Lava</td>
+            <td><span style="color:#8BC34A">★★★</span> 10th c. inscriptions</td>
+            <td>940–1240 CE</td>
+            <td>Gujarat, Rajasthan</td>
+            <td>Modhera Sun Temple, Solanki art style</td>
+            <td><div class="power-bar" style="width:78%"></div></td>
+          </tr>
+          <tr>
+            <td>Tomar</td>
+            <td>Mixed Surya/Chandra claims</td>
+            <td><span style="color:#8BC34A">★★★</span> 8th c. confirmed</td>
+            <td>736–1150 CE</td>
+            <td>Delhi, Gwalior</td>
+            <td>Founded Delhi (Dhillika)</td>
+            <td><div class="power-bar" style="width:70%"></div></td>
+          </tr>
+          <tr>
+            <td>Chandela</td>
+            <td>Chandravanshi (solar epithets)</td>
+            <td><span style="color:#4CAF50">★★★★</span> 9th c. epigraphic</td>
+            <td>950–1200 CE</td>
+            <td>Bundelkhand</td>
+            <td>Khajuraho temple complex</td>
+            <td><div class="power-bar" style="width:72%"></div></td>
+          </tr>
+          <tr>
+            <td>Parmar (Paramara)</td>
+            <td>Agnivanshi primarily</td>
+            <td><span style="color:#8BC34A">★★★</span> 9th c. records</td>
+            <td>800–1300 CE</td>
+            <td>Malwa, Gujarat</td>
+            <td>Raja Bhoja — philosopher-king</td>
+            <td><div class="power-bar" style="width:75%"></div></td>
+          </tr>
+          <tr>
+            <td>Baghel</td>
+            <td>Solanki branch (Suryavanshi)</td>
+            <td><span style="color:#FF9800">★★</span> Medieval records</td>
+            <td>1400–1900 CE</td>
+            <td>Baghelkhand (MP)</td>
+            <td>Rewa kingdom, White Tiger of Rewa</td>
+            <td><div class="power-bar" style="width:55%"></div></td>
+          </tr>
+          <tr>
+            <td>Ikshvaku (Andhra)</td>
+            <td>Direct Ikshvaku claim</td>
+            <td><span style="color:#4CAF50">★★★★★</span> Nagarjunakonda inscriptions</td>
+            <td>3rd–4th century CE</td>
+            <td>Andhra (Nagarjunakonda)</td>
+            <td>Only epigraphically confirmed Ikshvaku dynasty</td>
+            <td><div class="power-bar" style="width:60%"></div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- SUBCLAN HIERARCHY -->
+<section class="section alt" id="subclans">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">Genealogical Branches</span>
+      <h2 class="section-title">Subclan Hierarchies</h2>
+      <p class="section-subtitle">Every major Suryavanshi clan has branched into numerous subclans over centuries — each with its own territory, gotras, and kuldevi.</p>
+    </div>
+    <div class="subclan-section">
+
+      <div class="subclan-clan reveal">
+        <div class="subclan-clan-header">⚔️ Sisodia / Guhilot <span>— 9 major subclans, 50+ branches</span></div>
+        <div class="subclan-branches">
+          <div class="subclan-chip">Chandrawat (Chandrasen's line)</div>
+          <div class="subclan-chip">Chundawat (Chunda Singh's line)</div>
+          <div class="subclan-chip">Ahariya (Ahar settlement)</div>
+          <div class="subclan-chip">Shahpura Sisodias</div>
+          <div class="subclan-chip">Jagawat</div>
+          <div class="subclan-chip">Sagawat</div>
+          <div class="subclan-chip">Ranawat</div>
+          <div class="subclan-chip">Shaktawat</div>
+          <div class="subclan-chip">Mahecha (Maheshwar branch)</div>
+          <div class="subclan-chip">Bhimawat</div>
+          <div class="subclan-chip">Neemrana Sisodias</div>
+          <div class="subclan-chip">Dhariyawad branch</div>
+        </div>
+      </div>
+
+      <div class="subclan-clan reveal">
+        <div class="subclan-clan-header">🦅 Kachwaha <span>— 12 major shakhas (branches)</span></div>
+        <div class="subclan-branches">
+          <div class="subclan-chip">Shekhawat (Shekha Ji's line — Shekhawati region)</div>
+          <div class="subclan-chip">Rajawat (Raja Ram's line)</div>
+          <div class="subclan-chip">Naruka (Narukas of Alwar)</div>
+          <div class="subclan-chip">Khangarot</div>
+          <div class="subclan-chip">Nathawat</div>
+          <div class="subclan-chip">Bhanawat</div>
+          <div class="subclan-chip">Purawat</div>
+          <div class="subclan-chip">Shedawat</div>
+          <div class="subclan-chip">Isardasot</div>
+          <div class="subclan-chip">Jeetawat</div>
+          <div class="subclan-chip">Udawat</div>
+          <div class="subclan-chip">Saktawat</div>
+        </div>
+      </div>
+
+      <div class="subclan-clan reveal">
+        <div class="subclan-clan-header">🦁 Rathore <span>— 150+ clans / thikanas of Marwar</span></div>
+        <div class="subclan-branches">
+          <div class="subclan-chip">Jodha branch (Jodhpur main line)</div>
+          <div class="subclan-chip">Bika branch (Bikaner state)</div>
+          <div class="subclan-chip">Champawat (Champ Singh's line)</div>
+          <div class="subclan-chip">Mertiya (Merta principality)</div>
+          <div class="subclan-chip">Pokarna</div>
+          <div class="subclan-chip">Kumpawat</div>
+          <div class="subclan-chip">Akhairajot</div>
+          <div class="subclan-chip">Idar Rathores (Gujarat)</div>
+          <div class="subclan-chip">Jodhpur Rajputs of Malwa</div>
+          <div class="subclan-chip">Nagaur branch</div>
+          <div class="subclan-chip">Satlasana Rathores</div>
+          <div class="subclan-chip">Kishangarh branch</div>
+          <div class="subclan-chip">Jhabua Rathores</div>
+          <div class="subclan-chip">Ratlam branch</div>
+        </div>
+      </div>
+
+      <div class="subclan-clan reveal">
+        <div class="subclan-clan-header">🏺 Solanki / Chaulukya <span>— Gujarat + Rajasthan + MP branches</span></div>
+        <div class="subclan-branches">
+          <div class="subclan-chip">Vaghela (Baghel) — central India</div>
+          <div class="subclan-chip">Rajput Chaulukyas of Kathiawar</div>
+          <div class="subclan-chip">Chalukya of Hemavati</div>
+          <div class="subclan-chip">Abu Solankis (Mount Abu)</div>
+          <div class="subclan-chip">Limdi Solankis</div>
+          <div class="subclan-chip">Umeta Solankis</div>
+        </div>
+      </div>
+
+      <div class="subclan-clan reveal">
+        <div class="subclan-clan-header">🗡️ Tomar / Tanwar <span>— Delhi, Gwalior, Eastern branches</span></div>
+        <div class="subclan-branches">
+          <div class="subclan-chip">Gwalior Tomars</div>
+          <div class="subclan-chip">Delhi Tanwars</div>
+          <div class="subclan-chip">Haryana Tanwars (Bahadurgarh thikana)</div>
+          <div class="subclan-chip">Morena Tomars</div>
+          <div class="subclan-chip">Karauli Tomars</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MOST POWERFUL KINGS -->
+<section class="section" id="kings">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">Hall of Valor</span>
+      <h2 class="section-title">Most Powerful Suryavanshi Kings</h2>
+      <p class="section-subtitle">Ranked by military achievement, territorial control, cultural contribution, and historical impact.</p>
+    </div>
+    <div class="kings-grid">
+
+      <div class="king-card reveal">
+        <div class="rank">01</div>
+        <div class="kname">Maharana Pratap</div>
+        <div class="kclan">Sisodia — Mewar</div>
+        <div class="kera">1540–1597 CE | Ruled 1572–97</div>
+        <div class="kdesc">Never surrendered to the Mughal empire. Fought Haldighati (1576), survived in the Aravallis, recaptured 36 of 48 forts by 1582 through guerrilla warfare. Died peacefully having restored Mewar's sovereignty. National hero of India.</div>
+        <div class="kfeat"><span>Guerrilla warfare pioneer</span><span>Never submitted</span><span>Chetak's legend</span></div>
+      </div>
+
+      <div class="king-card reveal reveal-delay-1">
+        <div class="rank">02</div>
+        <div class="kname">Rana Kumbha</div>
+        <div class="kclan">Sisodia — Mewar</div>
+        <div class="kera">1433–1468 CE</div>
+        <div class="kdesc">Built 32 of Rajasthan's 84 medieval forts including the impregnable Kumbhalgarh (36km wall — India's "Great Wall"). Defeated the Gujarat Sultanate and Malwa jointly (1437). Composed Sangitaraja, a massive musicology treatise. A warrior-scholar-architect.</div>
+        <div class="kfeat"><span>32 forts built</span><span>Composer-king</span><span>Kumbhalgarh</span></div>
+      </div>
+
+      <div class="king-card reveal reveal-delay-2">
+        <div class="rank">03</div>
+        <div class="kname">Rana Sanga (Sangram Singh)</div>
+        <div class="kclan">Sisodia — Mewar</div>
+        <div class="kera">1482–1528 CE | Ruled 1508–28</div>
+        <div class="kdesc">Controlled the largest Rajput empire of his era. Lost one eye, one arm, had 100 wounds on his body from 18 major battles — yet never stopped fighting. Invited Babur to help fight Ibrahim Lodi, then opposed Babur himself at Khanwa (1527). The last great Hindu empire-builder.</div>
+        <div class="kfeat"><span>18 major battles</span><span>Last pan-Rajput leader</span><span>100 war wounds</span></div>
+      </div>
+
+      <div class="king-card reveal reveal-delay-3">
+        <div class="rank">04</div>
+        <div class="kname">Bappa Rawal</div>
+        <div class="kclan">Guhilot — Mewar</div>
+        <div class="kera">c. 713–753 CE</div>
+        <div class="kdesc">Defeated Arab armies at the Battle of Rajasthan (c. 738 CE) alongside Nagabhata I, halting the Islamic advance into Rajputana. Acquired Chittorgarh and made it the Mewar capital. Initiated the Eklingji tradition of Shaiva kingship (king as vassal of Shiva).</div>
+        <div class="kfeat"><span>Stopped Arab invasion</span><span>Chittor fortress</span><span>Eklingji tradition</span></div>
+      </div>
+
+      <div class="king-card reveal">
+        <div class="rank">05</div>
+        <div class="kname">Sawai Jai Singh II</div>
+        <div class="kclan">Kachwaha — Amber/Jaipur</div>
+        <div class="kera">1688–1743 CE | Ruled 1700–43</div>
+        <div class="kdesc">Founded Jaipur (India's first planned city, 1727). Built five Jantar Mantar observatories. Revised Mughal-era astronomical tables. Codified Hindu law (Jaisingh Darpan). Patron of mathematics, astronomy, town-planning. A remarkable polymath king in the Mughal twilight era.</div>
+        <div class="kfeat"><span>5 Observatories</span><span>Jaipur city</span><span>Astronomer-king</span></div>
+      </div>
+
+      <div class="king-card reveal reveal-delay-1">
+        <div class="rank">06</div>
+        <div class="kname">Rao Maldeo</div>
+        <div class="kclan">Rathore — Marwar</div>
+        <div class="kera">1511–1562 CE</div>
+        <div class="kdesc">Controlled the largest Rajput state of his era — Marwar stretched from Sind to Delhi borders. Defeated Sher Shah Suri's advance. His military campaigns (50+ battles) covered Punjab, Sind, Malwa, and Gujarat. Even Sher Shah said "I almost lost India for a handful of millet" after his campaign against Maldeo.</div>
+        <div class="kfeat"><span>50+ battles</span><span>Largest Marwar</span><span>Defied Sher Shah</span></div>
+      </div>
+
+      <div class="king-card reveal reveal-delay-2">
+        <div class="rank">07</div>
+        <div class="kname">Raja Bhoja</div>
+        <div class="kclan">Paramara — Malwa</div>
+        <div class="kera">c. 1010–1055 CE</div>
+        <div class="kdesc">The philosopher-warrior king. Authored or sponsored 84 texts on architecture (Samarangan Sutradhara), yoga (Rajmartanda), grammar, poetry, astronomy. Built Bhojpur's giant Shiva temple with the world's largest monolithic Shivalinga. Founded Dhara university — medieval India's Cambridge.</div>
+        <div class="kfeat"><span>84 texts authored</span><span>Bhojpur Temple</span><span>Patron of arts</span></div>
+      </div>
+
+      <div class="king-card reveal reveal-delay-3">
+        <div class="rank">08</div>
+        <div class="kname">Man Singh I</div>
+        <div class="kclan">Kachwaha — Amber</div>
+        <div class="kera">1550–1614 CE</div>
+        <div class="kdesc">Akbar's greatest general. Conquered Bengal, Bengal's zamindars, Afghanistan (Kabul), and the Deccan. As Akbar's "Farzand" (adopted son), he shaped Mughal-Rajput relations. Built the Govind Devji Temple in Vrindavan (1590) — the largest and most ornate temple of its era.</div>
+        <div class="kfeat"><span>Govind Devji Temple</span><span>Bengal conqueror</span><span>Mughal Farzand</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TEMPLES -->
+<section class="section alt" id="temples">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">Sacred Architecture</span>
+      <h2 class="section-title">Temples of the Solar Dynasty</h2>
+      <p class="section-subtitle">Suryavanshi kings were among the greatest temple-builders in Hindu history — their architectural legacy endures across 15 centuries.</p>
+    </div>
+    <div class="temples-grid">
+      <div class="temple-card reveal">
+        <div class="temple-top">🕌</div>
+        <div class="temple-info">
+          <div class="temple-name">Modhera Sun Temple</div>
+          <div class="temple-loc">Modhera, Gujarat | Built by Solankis, 1026 CE</div>
+          <div class="temple-desc">Master work of Maru-Gurjara architecture. The sabhamandapa (assembly hall) and the kund (step-tank) with 108 shrines are among the most intricately carved structures in India. Dedicated to Surya. Built by Bhimdev I of the Solanki dynasty just after Mahmud's Somnath raid.</div>
+        </div>
+      </div>
+      <div class="temple-card reveal reveal-delay-1">
+        <div class="temple-top">🔱</div>
+        <div class="temple-info">
+          <div class="temple-name">Eklingji Temple, Udaipur</div>
+          <div class="temple-loc">Kailashpuri, Udaipur | Founded c. 734 CE by Bappa Rawal</div>
+          <div class="temple-desc">The royal deity of Mewar — the Maharana of Mewar serves as prime minister (diwan) of Eklingji (Shiva), not as absolute king. Built in Lakulisha Pashupata tradition. Current 108-shrine complex expanded over centuries. Unique theological concept of divine overlordship.</div>
+        </div>
+      </div>
+      <div class="temple-card reveal reveal-delay-2">
+        <div class="temple-top">🕍</div>
+        <div class="temple-info">
+          <div class="temple-name">Govind Devji Temple, Vrindavan</div>
+          <div class="temple-loc">Vrindavan, UP | Built 1590 CE by Man Singh I</div>
+          <div class="temple-desc">Originally 7 stories tall (Akbar reportedly had 3 upper stories demolished, fearing the height rivaled his palace). The sandstone architecture combines Rajput and Bengali elements. One of India's largest pre-Mughal-era temples and a central shrine of Vaishnava tradition.</div>
+        </div>
+      </div>
+      <div class="temple-card reveal reveal-delay-3">
+        <div class="temple-top">⛩️</div>
+        <div class="temple-info">
+          <div class="temple-name">Jagdish Temple, Udaipur</div>
+          <div class="temple-loc">Udaipur | Built 1651 CE by Maharana Jagat Singh I</div>
+          <div class="temple-desc">The largest temple in Udaipur. Dedicated to Vishnu (Jagannath). Built in the Indo-Aryan style with a 79-step entrance staircase. The pillared hall (mandapa), ornate shikhara, and the brass image of Garuda at the entrance are highlights of 17th century Rajput sacred architecture.</div>
+        </div>
+      </div>
+      <div class="temple-card reveal">
+        <div class="temple-top">🏛️</div>
+        <div class="temple-info">
+          <div class="temple-name">Bhojpur Shiva Temple</div>
+          <div class="temple-loc">Bhojpur, Madhya Pradesh | Built c. 1010–1055 CE by Raja Bhoja</div>
+          <div class="temple-desc">Houses the world's largest monolithic Shivalinga — 7.5 feet tall, 5.5 feet diameter. The temple was never completed (the ramp used to lift the stones is still intact). A testament to Paramara ambition. The platform's construction engineering from 1,000 years ago still amazes.</div>
+        </div>
+      </div>
+      <div class="temple-card reveal reveal-delay-1">
+        <div class="temple-top">🕌</div>
+        <div class="temple-info">
+          <div class="temple-name">Ranakpur Jain Temples</div>
+          <div class="temple-loc">Ranakpur, Rajasthan | 1437–58 CE | Kumbha-era patronage</div>
+          <div class="temple-desc">Built under the patronage of Rana Kumbha of Mewar (though for a Jain merchant Dharna Shah). 1,444 uniquely carved marble columns — no two alike. The Chaturmukha Dharana Vihara is considered the finest Jain temple in India. A testament to Rajput secular patronage across faiths.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RARE FACTS -->
+<section class="section" id="facts">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">Hidden History</span>
+      <h2 class="section-title">Rare Facts Most People Don't Know</h2>
+      <p class="section-subtitle">Lesser-known truths about the Suryavanshi tradition that challenge popular narratives.</p>
+    </div>
+    <div class="facts-grid">
+      <div class="fact-card reveal">
+        <div class="fact-num">01</div>
+        <div class="fact-text">The <strong>Ikshvaku dynasty of Andhra Pradesh</strong> (3rd–4th century CE) is the <em>only historically verified dynasty</em> to explicitly inscribe "Ikshvaku" in their epigraphs. The Nagarjunakonda pillars confirm this. All medieval Rajput Suryavanshi claims are continuations of a tradition, not direct genetic lineage from Rama's time.</div>
+        <div class="fact-source">Source: Nagarjunakonda Inscriptions; Sircar, D.C., Epigraphia Indica</div>
+      </div>
+      <div class="fact-card reveal reveal-delay-1">
+        <div class="fact-num">02</div>
+        <div class="fact-text"><strong>Bappa Rawal</strong> reportedly took a second wife from an Arab noble family after defeating Arab invaders — indicating diplomatic marriages with former enemies. This is recorded in some bardic accounts but omitted from popular retellings. Mewar's foreign policy was more nuanced than pure resistance narratives suggest.</div>
+        <div class="fact-source">Source: Tod, Annals of Rajasthan; Mewar royal records</div>
+      </div>
+      <div class="fact-card reveal reveal-delay-2">
+        <div class="fact-num">03</div>
+        <div class="fact-text"><strong>Maharana Pratap's horse Chetak</strong> — said to have elephant's toenail sheaths tied to his hooves to disguise him as an elephant in battle (war-elephant disguise tactic). This tactical deception at Haldighati is recorded in bardic poems (Rasas) of the period, though rarely discussed in mainstream accounts.</div>
+        <div class="fact-source">Source: Dursa Adha's Rasas; Ojha, G.H., Mewar ka Itihas</div>
+      </div>
+      <div class="fact-card reveal reveal-delay-3">
+        <div class="fact-num">04</div>
+        <div class="fact-text">The <strong>Kumbhalgarh Fort's</strong> outer wall is 36 kilometers long — earning it the title "Great Wall of India." It took Mughal emperor Akbar THREE military campaigns to breach it (and even then, only by poisoning the water supply, not military conquest). Its construction used a mortar mixture containing ghee, eggs, and opium poppy.</div>
+        <div class="fact-source">Source: Archaeological Survey of India; Kumbhalgarh Fort UNESCO records</div>
+      </div>
+      <div class="fact-card reveal">
+        <div class="fact-num">05</div>
+        <div class="fact-text"><strong>Sawai Jai Singh II</strong> sent a scientific delegation to Europe (via Portugal) to acquire Western astronomical instruments and compare European and Indian astronomical calculations. His Zij-i Muhammad Shahi astronomical tables were so precise that European astronomers in the 1720s referenced them. An 18th-century Indian king was doing comparative international science.</div>
+        <div class="fact-source">Source: Mercier, R., "The Astronomical Tables of Rajah Jai Singh Sawa'i"; Vijaya Sriram</div>
+      </div>
+      <div class="fact-card reveal reveal-delay-1">
+        <div class="fact-num">06</div>
+        <div class="fact-text">The concept of <strong>"Ek Ling ji ki Raj"</strong> (Eklingji's sovereignty) means the Maharana of Mewar was constitutionally a <em>servant</em> (diwan) of Shiva, not an absolute king. This theological-political contract meant the Maharana could not make certain decisions without priestly sanction — a medieval constitutional monarchy concept 500 years before Magna Carta's equivalents.</div>
+        <div class="fact-source">Source: Mewar royal tradition; Harsha Mahendra, "Mewar and the Eklingji Tradition"</div>
+      </div>
+      <div class="fact-card reveal reveal-delay-2">
+        <div class="fact-num">07</div>
+        <div class="fact-text"><strong>James Tod</strong>, the British Political Agent who documented Rajput history (Annals, 1829), was expelled from Rajasthan by the East India Company for being "too sympathetic" to the Rajputs. His multi-volume documentation was partly funded by Rajput nobles. A British officer becoming a champion of Indian royal history — a remarkable irony of colonialism.</div>
+        <div class="fact-source">Source: Tod, James, Annals and Antiquities of Rajasthan (1829); Rajasthan Archives</div>
+      </div>
+      <div class="fact-card reveal reveal-delay-3">
+        <div class="fact-num">08</div>
+        <div class="fact-text">The <strong>Sisodias are considered to hold the longest-running royal lineage in the world</strong> that has maintained uninterrupted dynastic identity — nearly 1,400 years from Guhila (c. 566 CE) to 1949 CE. The House of Mewar claims a descent of over 76 generations. No European royal house approaches this continuity. This claim is supported by both inscriptions and bardic traditions.</div>
+        <div class="fact-source">Source: Mewar Foundation; Majumdar, R.C., History and Culture of the Indian People</div>
+      </div>
+      <div class="fact-card reveal">
+        <div class="fact-num">09</div>
+        <div class="fact-text"><strong>The Govind Devji Temple</strong> in Vrindavan, built by Man Singh I (1590), was reportedly so tall that Akbar could see it from Agra Fort (some 60km away) and demanded its upper 3 stories be removed. Whether legend or fact, it tells us the temple's original scale was meant to challenge imperial sightlines — a deliberate political statement through sacred architecture.</div>
+        <div class="fact-source">Source: Sharma, D., "Govind Devji Temple History"; Vaishnava traditions of Vrindavan</div>
+      </div>
+      <div class="fact-card reveal reveal-delay-1">
+        <div class="fact-num">10</div>
+        <div class="fact-text">The <strong>Battle of Haldighati (1576)</strong> was not actually conclusive. Akbar's own court historian Badauni records that Mughal forces suffered heavy casualties and Pratap escaped. The battle is recorded as a Mughal tactical victory in Mughal sources but as an undefeated resistance in Rajput records. Modern historians largely agree it was a <em>strategic draw</em>, not a Mughal conquest.</div>
+        <div class="fact-source">Source: Badauni, Muntakhab-ut-Tawarikh; Satish Chandra, Medieval India</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ / SCRIPTURES -->
+<section class="section alt" id="faq">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">Scriptural & Academic Questions</span>
+      <h2 class="section-title">Questions on Scriptures & History</h2>
+    </div>
+
+    <div class="scripture-panel reveal" style="margin-bottom:3rem">
+      <div class="scripture-devanagari">
+        सूर्यस्य वंशे राजेन्द्र प्रख्यातः पुरुषर्षभः।<br>
+        तस्मिन् राम इति ख्यातो धर्मज्ञो धर्मकृत् पितुः॥
+      </div>
+      <div class="scripture-translation">
+        "In the lineage of the Sun, O foremost of kings, was born a man of great renown. He was known as Rama — one who knows dharma and performs the dharma of his father."
+      </div>
+      <div class="scripture-ref">— Valmiki Ramayana, Bala Kanda 1.1.8–9</div>
+    </div>
+
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What does Vishnu Purana say about the Ikshvaku lineage?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          Vishnu Purana, 4th Amsham (Chapter on Dynasties) dedicates extensive sections to the Ikshvaku vamsha. It names Ikshvaku as the son of Vaivasvata Manu and lists 28 kings between Ikshvaku and Rama (Vishnu Purana 4.2–4.4). After Rama, it continues the lineage through Kusha, listing 29 more kings ending with Sumitra — after whom the Ayodhya solar line is said to end (kshina — extinguished). Bhagavata Purana Skandha 9 provides a parallel and largely concurring account. These texts are considered itihasa-purana tradition — sacred historiography, not literal genealogy in the modern sense.
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How did Rajput clans construct their Suryavanshi legitimacy?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          Rajput genealogical legitimacy was a complex process involving multiple elements: (1) Brahmin priests (Purohits) issuing vamshavalis (genealogical lists) connecting a clan to sacred lineages; (2) Charan and Bhat bards composing prasastis (eulogies) in prasashti-poetry and vaishali narratives; (3) Copper plate grants issued at yajna ceremonies that proclaimed the donor's lineage; (4) Temple consecrations with inscriptions bearing genealogical claims. The political need for Kshatriya legitimacy in a post-Gupta, post-Harsha fragmented polity drove this. Modern historians like Romila Thapar, B.D. Chattopadhyaya, and Cynthia Talbot have analyzed how "Rajput" as a category was itself partly constructed through such legitimacy narratives from 7th–10th century CE.
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What is the historical evidence for Sisodia's Suryavanshi origin?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          The Atpur stone inscription (8th century CE, Rajasthan) is the earliest epigraphic reference to the Guhila dynasty of Mewar. The Rastrakuta copper plate of Dantidurga (753–754 CE) mentions conflict with the Guhilas. The Kumbhalgarh Prasasti (15th century, composed by Maheshvara) provides a 20-generation Sisodia genealogy but was composed retrospectively. The Chittor inscriptions of Rana Kumbha connect the lineage to Bappa Rawal and thence to "Rama of Ikshvaku." Critical historians (R.C. Majumdar, D.C. Sircar) accept the pre-medieval portion as established, while treating the connection to Rama's time as sacred tradition rather than verifiable genealogy. The key distinction: Guhila as founder is historically reliable; Guhila as a direct descendant of Rama through 30,000 years is Itihasa tradition.
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Did Maharana Pratap actually win or lose the Battle of Haldighati?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          This is one of the most contested questions in Rajput history. The traditional Mughal account (Badauni's Muntakhab-ut-Tawarikh, Abul Fazl's Akbarnama) claims a Mughal tactical victory. However, even these accounts note: (1) Pratap was not captured; (2) Mughal casualties were severe; (3) Akbar himself had to lead three subsequent campaigns (1577, 1578, 1580) — an unusual effort for a supposedly decisive victory. Modern historians like Satish Chandra and G.H. Ojha conclude Haldighati was at best a tactical Mughal advantage but a strategic failure, as Pratap survived to recapture most of Mewar by 1585 (post-Akbar's diversion to the northwest). The Rajasthan government officially changed school textbooks in 2017 to call it a Pratap victory — a politically motivated revision that overstates the case. Honest answer: the battle was inconclusive, and the wider war was won by Pratap who died with his kingdom largely intact.
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What is the difference between Suryavansha, Chandravansha, and Agnivansha?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          Hindu genealogical tradition recognizes three great lineages: (1) <strong>Suryavansha (Solar)</strong> — descended from Surya/Vivasvan via Vaivasvata Manu and Ikshvaku. Clans: Sisodias, Kachwahas, Rathores (claimed), Solankis. (2) <strong>Chandravansha (Lunar)</strong> — descended from Chandra (Moon) via Budha and Pururavas. Includes the Pandavas, Yadavas, Haihayas. Rajput clans: Bhatis, Jadons, Tomars (some claims), Jadeja, Sisodias of some branches. (3) <strong>Agnivansha (Fire-born)</strong> — said to have emerged from Agni (fire) at a yajna on Mount Abu, per medieval bard tradition. Clans: Chahamanas (Chauhans), Pariharas, Pramara (Paramara), Chaulukya (some versions). Modern historians note Agnivansha origin is almost certainly a medieval bardic construct for clans whose pre-7th century origins were uncertain — not found in Puranas.
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What does Harivamsha say about Suryavanshi genealogy?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          The Harivamsha (3rd–4th century CE appendix to Mahabharata) covers both Suryavansha and Chandravansha genealogies in its Vishnu Parva and Harivamsha Parva sections. It is particularly detailed on the Yadava (Chandravansha) lineage because of its focus on Krishna. For the Solar dynasty, it largely parallels Vishnu Purana but with some variant names. The Harivamsha is valuable because it preserves an older stratum of genealogical tradition that predates some Puranas, giving historians a cross-reference. Key insight: the core lineage (Ikshvaku → Kakutstha → Raghu → Aja → Dasharatha → Rama) is consistent across Ramayana, Vishnu Purana, Bhagavata Purana, and Harivamsha, suggesting a genuinely ancient genealogical kernel.
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How reliable is James Tod's "Annals and Antiquities of Rajasthan" as a historical source?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          Tod's Annals (1829) remains essential but must be used critically. Its strengths: (1) First systematic documentation of Rajput history using bardic sources (Charans, Bhats) who possessed oral genealogies; (2) Records court documents, fort measurements, temple descriptions — invaluable for early 19th century baseline; (3) Tod learned Braj Bhasha and Hindi to directly access sources. Its weaknesses: (1) Tod accepted bardic genealogies too uncritically, conflating epic tradition with verifiable history; (2) He approached Rajputs romantically, influenced by Scottish Highland clan ideals (he'd read Walter Scott extensively); (3) Some genealogical chains he records are clearly retrospective compositions; (4) Orientalist framing: he characterized Rajput "decline" partly through colonial tropes. Modern historians (B.D. Chattopadhyaya, Cynthia Talbot, Dirk Kolff) have substantially revised Tod's work. Best approach: use Tod for the 15th–19th century material he observed directly, verify all medieval claims against inscriptions and Persian chronicles.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-devanagari">॥ सूर्य नमस्कार ॥ यतो धर्मस्ततो जयः ॥</div>
+  <div class="footer-brand">Suryavansha Knowledge Portal</div>
+  <div class="footer-links">
+    <a href="#hero">Home</a>
+    <a href="#lineage">Lineage</a>
+    <a href="#clans">Clans</a>
+    <a href="#timeline">Timeline</a>
+    <a href="#kings">Great Kings</a>
+    <a href="#temples">Temples</a>
+    <a href="#facts">Rare Facts</a>
+    <a href="#faq">Scriptures</a>
+  </div>
+  <div class="footer-sources">
+    <h4>Primary Sources & References</h4>
+    <strong>Scriptural:</strong> Valmiki Ramayana (Bala Kanda, Uttara Kanda) · Vishnu Purana (Amsham 4) · Bhagavata Purana (Skandha 9) · Harivamsha · Kalidasa's Raghuvamsha · Brahmanda Purana<br>
+    <strong>Inscriptions & Grants:</strong> Atpur Stone Inscription (8th c. CE) · Kumbhalgarh Prasasti · Ajmer Museum copper plates · Nagarjunakonda Pillar Inscriptions · Gwalior Fort prasastis<br>
+    <strong>Medieval Chronicles:</strong> Abul Fazl, Akbarnama · Badauni, Muntakhab-ut-Tawarikh · Nainsi ri Khyat (Muhnot Nainsi, 17th c.) · Rajputana Gazetteer<br>
+    <strong>Modern Scholarship:</strong> Tod, James — Annals and Antiquities of Rajasthan (1829) · Majumdar, R.C. — History and Culture of the Indian People · Sircar, D.C. — Epigraphia Indica · Chattopadhyaya, B.D. — The Making of Early Medieval India · Ojha, G.H. — Mewar ka Itihas · Talbot, Cynthia — Precolonial India in Practice · Kolff, Dirk — Naukar, Rajput, and Sepoy · Satish Chandra — Medieval India
+  </div>
+  <div class="footer-copy">
+    This portal presents historical, scriptural, and bardic traditions with clear scholarly distinction. Content is educational and research-based.
+  </div>
+</footer>
+
+<script>
+// ── NAV SCROLL ──
+window.addEventListener('scroll', () => {
+  document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// ── COUNTER ANIMATION ──
+const counters = document.querySelectorAll('[data-target]');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const el = e.target;
+      const target = +el.dataset.target;
+      const duration = 1800;
+      const step = target / (duration / 16);
+      let current = 0;
+      const timer = setInterval(() => {
+        current = Math.min(current + step, target);
+        el.textContent = Math.floor(current).toLocaleString() + (target >= 100 ? '+' : '');
+        if (current >= target) clearInterval(timer);
+      }, 16);
+      observer.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+counters.forEach(c => observer.observe(c));
+
+// ── REVEAL ON SCROLL ──
+const reveals = document.querySelectorAll('.reveal');
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+reveals.forEach(r => revealObs.observe(r));
+
+// ── CLAN TOGGLE ──
+function toggleClan(header) {
+  const body = header.nextElementSibling;
+  const btn = header.querySelector('.clan-toggle');
+  const isOpen = body.classList.contains('open');
+  body.classList.toggle('open', !isOpen);
+  btn.textContent = isOpen ? '+' : '–';
+}
+
+// ── FAQ TOGGLE ──
+function toggleFaq(btn) {
+  const answer = btn.nextElementSibling;
+  const isOpen = answer.classList.contains('open');
+  document.querySelectorAll('.faq-a.open').forEach(a => { a.classList.remove('open'); a.previousElementSibling.classList.remove('open'); });
+  if (!isOpen) { answer.classList.add('open'); btn.classList.add('open'); }
+}
+
+// ── FILTER CLANS ──
+function filterClans(filter, btn) {
+  document.querySelectorAll('.clan-filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.clan-card').forEach(card => {
+    if (filter === 'all') { card.style.display = ''; return; }
+    const region = card.dataset.region;
+    const status = card.dataset.status;
+    if (filter === 'confirmed') card.style.display = status === 'confirmed' ? '' : 'none';
+    else card.style.display = region === filter ? '' : 'none';
+  });
+}
+
+// ── SEARCH ──
+const searchData = [
+  { name: 'Sisodia', section: '#clans', desc: 'Mewar Rajputs, Maharana Pratap' },
+  { name: 'Kachwaha', section: '#clans', desc: 'Amber/Jaipur dynasty, Sawai Jai Singh' },
+  { name: 'Rathore', section: '#clans', desc: 'Marwar, Mehrangarh Fort, Jodhpur' },
+  { name: 'Solanki', section: '#clans', desc: 'Gujarat, Modhera Sun Temple' },
+  { name: 'Tomar', section: '#clans', desc: 'Delhi founders, Gwalior Fort' },
+  { name: 'Chandela', section: '#clans', desc: 'Khajuraho temples, Bundelkhand' },
+  { name: 'Parmar', section: '#clans', desc: 'Raja Bhoja, Malwa' },
+  { name: 'Maharana Pratap', section: '#kings', desc: 'Sisodia king, Haldighati 1576' },
+  { name: 'Rana Kumbha', section: '#kings', desc: '32 forts, Kumbhalgarh' },
+  { name: 'Bappa Rawal', section: '#timeline', desc: 'Founded Mewar, defeated Arabs' },
+  { name: 'Ikshvaku', section: '#lineage', desc: 'Son of Manu, founder of Ayodhya' },
+  { name: 'Rama', section: '#lineage', desc: '7th avatar, 65th Ikshvaku king' },
+  { name: 'Modhera', section: '#temples', desc: 'Sun temple 1026 CE Gujarat' },
+  { name: 'Eklingji', section: '#temples', desc: 'Mewar state deity, Udaipur' },
+  { name: 'Haldighati', section: '#faq', desc: 'Battle 1576, Pratap vs Akbar' },
+  { name: 'Chittorgarh', section: '#timeline', desc: 'Three sieges, Jauhar' },
+  { name: 'Jaipur', section: '#timeline', desc: 'Planned city 1727' },
+];
+
+const searchInput = document.getElementById('siteSearch');
+const searchResults = document.getElementById('search-results');
+
+searchInput.addEventListener('input', function() {
+  const q = this.value.trim().toLowerCase();
+  if (!q) { searchResults.classList.remove('active'); return; }
+  const matches = searchData.filter(d => d.name.toLowerCase().includes(q) || d.desc.toLowerCase().includes(q)).slice(0, 6);
+  if (!matches.length) { searchResults.classList.remove('active'); return; }
+  searchResults.innerHTML = matches.map(m => `<div class="search-result-item" onclick="goto('${m.section}')"><strong style="color:var(--gold-light)">${m.name}</strong><br><small>${m.desc}</small></div>`).join('');
+  searchResults.classList.add('active');
+});
+
+function goto(section) {
+  document.querySelector(section)?.scrollIntoView({ behavior: 'smooth' });
+  searchResults.classList.remove('active');
+  searchInput.value = '';
+}
+
+document.addEventListener('click', (e) => { if (!e.target.closest('#siteSearch') && !e.target.closest('#search-results')) searchResults.classList.remove('active'); });
+</script>
+</body>
+</html>

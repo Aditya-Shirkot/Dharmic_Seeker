@@ -1,0 +1,1997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brahmin Origins — A Vedic Civilization Research Archive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ivory: #f5f0e8;
+  --ivory-dark: #ede6d6;
+  --parchment: #d4c5a0;
+  --gold: #c9a84c;
+  --gold-light: #e8c96a;
+  --gold-dark: #8b6914;
+  --saffron: #e07020;
+  --saffron-light: #f09040;
+  --brown-deep: #2a1a08;
+  --brown-mid: #4a2e10;
+  --brown-light: #7a4e28;
+  --ink: #1a0f04;
+  --red-vedic: #8b1a1a;
+  --green-vedic: #2d5a27;
+  --blue-vedic: #1a3a5c;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--brown-deep);
+  color: var(--ivory);
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 18px;
+  line-height: 1.8;
+  overflow-x: hidden;
+}
+
+/* ===== TEXTURE OVERLAY ===== */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1000;
+  opacity: 0.6;
+}
+
+/* ===== NAV ===== */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 900;
+  background: rgba(26,10,4,0.95);
+  border-bottom: 1px solid var(--gold-dark);
+  backdrop-filter: blur(12px);
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+}
+
+.nav-brand {
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  text-decoration: none;
+}
+
+.nav-brand span { color: var(--saffron); }
+
+nav ul {
+  display: flex;
+  gap: 0;
+  list-style: none;
+}
+
+nav ul li a {
+  display: block;
+  padding: 0 0.9rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  color: var(--parchment);
+  text-decoration: none;
+  transition: color 0.2s;
+  text-transform: uppercase;
+}
+
+nav ul li a:hover { color: var(--gold-light); }
+
+/* ===== HERO ===== */
+#hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  padding: 6rem 2rem 4rem;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 30%, rgba(201,168,76,0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 80% at 20% 80%, rgba(224,112,32,0.06) 0%, transparent 60%),
+    linear-gradient(180deg, #1a0f04 0%, #2a1a08 50%, #1a0f04 100%);
+  overflow: hidden;
+}
+
+/* Mandala background */
+#hero::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px; height: 800px;
+  border-radius: 50%;
+  border: 1px solid rgba(201,168,76,0.08);
+  box-shadow:
+    0 0 0 40px rgba(201,168,76,0.04),
+    0 0 0 80px rgba(201,168,76,0.03),
+    0 0 0 140px rgba(201,168,76,0.02),
+    0 0 0 220px rgba(201,168,76,0.015);
+  animation: mandala-spin 60s linear infinite;
+}
+
+@keyframes mandala-spin {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.om-symbol {
+  font-size: 4rem;
+  color: var(--gold);
+  opacity: 0.6;
+  margin-bottom: 2rem;
+  animation: glow-pulse 4s ease-in-out infinite;
+  text-shadow: 0 0 40px rgba(201,168,76,0.4);
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.5; text-shadow: 0 0 30px rgba(201,168,76,0.3); }
+  50% { opacity: 0.8; text-shadow: 0 0 60px rgba(201,168,76,0.6); }
+}
+
+.hero-kicker {
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  color: var(--saffron);
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--ivory);
+  margin-bottom: 1rem;
+  max-width: 900px;
+}
+
+.hero-title em {
+  font-style: italic;
+  color: var(--gold-light);
+}
+
+.hero-subtitle {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--parchment);
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  line-height: 1.7;
+}
+
+.hero-sanskrit {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+  margin-bottom: 3rem;
+  opacity: 0.8;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  color: var(--brown-deep);
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  padding: 0.85rem 2rem;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.3s;
+  display: inline-block;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(201,168,76,0.3);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--parchment);
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  padding: 0.85rem 2rem;
+  border: 1px solid rgba(201,168,76,0.4);
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.3s;
+  display: inline-block;
+}
+
+.btn-secondary:hover {
+  border-color: var(--gold);
+  color: var(--gold-light);
+  transform: translateY(-2px);
+}
+
+.hero-divider {
+  width: 200px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 4rem auto 0;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 4rem;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hero-stat {
+  text-align: center;
+}
+
+.hero-stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  color: var(--gold);
+  display: block;
+}
+
+.hero-stat-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: var(--parchment);
+  text-transform: uppercase;
+}
+
+/* ===== SECTIONS ===== */
+section {
+  padding: 6rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-full {
+  max-width: 100%;
+  padding: 6rem 0;
+}
+
+.section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section-kicker {
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  color: var(--saffron);
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 400;
+  color: var(--ivory);
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.section-title em { color: var(--gold-light); font-style: italic; }
+
+.title-rule {
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--saffron), var(--gold));
+  margin: 1.5rem 0 2.5rem;
+}
+
+.prose {
+  max-width: 720px;
+  color: var(--parchment);
+  font-size: 1rem;
+  line-height: 1.9;
+}
+
+.prose p { margin-bottom: 1.2rem; }
+
+.prose strong { color: var(--gold-light); font-weight: 500; }
+
+/* ===== DARK BAND ===== */
+.band-dark {
+  background: rgba(0,0,0,0.3);
+  border-top: 1px solid rgba(201,168,76,0.1);
+  border-bottom: 1px solid rgba(201,168,76,0.1);
+}
+
+.band-saffron {
+  background: linear-gradient(135deg, rgba(224,112,32,0.06), rgba(201,168,76,0.06));
+  border-top: 1px solid rgba(201,168,76,0.12);
+  border-bottom: 1px solid rgba(201,168,76,0.12);
+}
+
+/* ===== DEFINITION CARDS ===== */
+.def-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.def-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(201,168,76,0.15);
+  padding: 1.8rem;
+  position: relative;
+  transition: border-color 0.3s;
+}
+
+.def-card:hover { border-color: rgba(201,168,76,0.4); }
+
+.def-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px; height: 100%;
+  background: linear-gradient(180deg, var(--saffron), var(--gold));
+}
+
+.def-term {
+  font-family: 'Cinzel', serif;
+  font-size: 0.9rem;
+  color: var(--gold);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.4rem;
+}
+
+.def-sanskrit {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--saffron-light);
+  margin-bottom: 0.8rem;
+}
+
+.def-body {
+  color: var(--parchment);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+/* ===== QUOTE CARDS ===== */
+.scholar-quote {
+  background: rgba(201,168,76,0.04);
+  border-left: 3px solid var(--gold);
+  padding: 1.5rem 2rem;
+  margin: 2rem 0;
+  position: relative;
+}
+
+.scholar-quote::before {
+  content: '"';
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 5rem;
+  color: var(--gold);
+  opacity: 0.15;
+  position: absolute;
+  top: -1rem; left: 0.8rem;
+  line-height: 1;
+}
+
+.scholar-quote p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--ivory);
+  line-height: 1.7;
+  margin-bottom: 0.8rem;
+}
+
+.scholar-quote cite {
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+/* ===== SCRIPTURE CARD ===== */
+.scripture-card {
+  background: rgba(139,26,26,0.06);
+  border: 1px solid rgba(139,26,26,0.2);
+  padding: 2rem;
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.scripture-card .skt {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  color: var(--saffron-light);
+  font-style: italic;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.04em;
+}
+
+.scripture-card .trans {
+  color: var(--parchment);
+  font-size: 0.9rem;
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+.scripture-card .source {
+  font-family: 'Cinzel', serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+/* ===== TIMELINE ===== */
+.timeline {
+  position: relative;
+  padding-left: 3rem;
+  margin-top: 3rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--saffron), var(--gold), transparent);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -3.4rem; top: 0.4rem;
+  width: 10px; height: 10px;
+  background: var(--gold);
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(201,168,76,0.5);
+}
+
+.timeline-date {
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: var(--saffron);
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.timeline-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  color: var(--ivory);
+  margin-bottom: 0.5rem;
+}
+
+.timeline-body {
+  color: var(--parchment);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+/* ===== VARNA CHART ===== */
+.varna-pyramid {
+  max-width: 500px;
+  margin: 3rem auto;
+}
+
+.varna-level {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--brown-deep);
+  font-weight: 600;
+  transition: transform 0.2s;
+  cursor: default;
+}
+
+.varna-level:hover { transform: scaleX(1.02); }
+
+.vl-1 { background: linear-gradient(135deg, #e8c96a, #c9a84c); width: 35%; padding: 1rem; text-align: center; }
+.vl-2 { background: linear-gradient(135deg, #e07020, #b85a10); width: 55%; padding: 0.9rem; text-align: center; }
+.vl-3 { background: linear-gradient(135deg, #6a9e6a, #4a7e4a); width: 75%; padding: 0.9rem; text-align: center; }
+.vl-4 { background: linear-gradient(135deg, #6a7ea8, #4a5e88); width: 95%; padding: 0.9rem; text-align: center; }
+
+.varna-label { font-size: 0.6rem; opacity: 0.75; display: block; margin-top: 0.1rem; }
+
+/* ===== GENETICS SECTION ===== */
+.genetics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.genetics-card {
+  border: 1px solid rgba(201,168,76,0.2);
+  padding: 2rem;
+  background: rgba(255,255,255,0.02);
+  position: relative;
+  overflow: hidden;
+}
+
+.genetics-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; right: 0;
+  width: 60px; height: 60px;
+  background: radial-gradient(circle, rgba(201,168,76,0.08), transparent);
+}
+
+.genetics-haplogroup {
+  font-family: 'Cinzel', serif;
+  font-size: 1.6rem;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+
+.genetics-name {
+  font-size: 0.85rem;
+  color: var(--saffron-light);
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.genetics-bar {
+  height: 6px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 3px;
+  margin-bottom: 0.4rem;
+  overflow: hidden;
+}
+
+.genetics-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--saffron), var(--gold));
+  border-radius: 3px;
+  animation: bar-grow 1.5s ease-out forwards;
+  transform-origin: left;
+}
+
+@keyframes bar-grow {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+.genetics-pct {
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+}
+
+.genetics-desc {
+  color: var(--parchment);
+  font-size: 0.88rem;
+  line-height: 1.6;
+  margin-top: 1rem;
+}
+
+/* ===== DEBATE SECTION ===== */
+.debate-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.debate-card {
+  padding: 2rem;
+  border: 1px solid rgba(201,168,76,0.15);
+  background: rgba(255,255,255,0.02);
+}
+
+.debate-card-title {
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid rgba(201,168,76,0.2);
+}
+
+.debate-card.traditional .debate-card-title { color: var(--saffron); }
+.debate-card.migration .debate-card-title { color: #6a9e6a; }
+.debate-card.indigenous .debate-card-title { color: #6a7ea8; }
+.debate-card.genetics .debate-card-title { color: var(--gold); }
+
+.debate-card ul {
+  list-style: none;
+  color: var(--parchment);
+  font-size: 0.9rem;
+}
+
+.debate-card ul li {
+  padding: 0.4rem 0;
+  padding-left: 1rem;
+  position: relative;
+  line-height: 1.6;
+}
+
+.debate-card ul li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--gold-dark);
+}
+
+/* ===== REGIONAL TABLE ===== */
+.regional-table-wrap {
+  overflow-x: auto;
+  margin-top: 3rem;
+}
+
+.regional-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.regional-table th {
+  font-family: 'Cinzel', serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border-bottom: 1px solid rgba(201,168,76,0.3);
+  padding: 0.8rem 1rem;
+  text-align: left;
+  background: rgba(0,0,0,0.2);
+}
+
+.regional-table td {
+  padding: 0.8rem 1rem;
+  color: var(--parchment);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  vertical-align: top;
+  line-height: 1.5;
+}
+
+.regional-table tr:hover td { background: rgba(201,168,76,0.04); }
+
+.regional-table .name-cell {
+  color: var(--ivory);
+  font-weight: 500;
+}
+
+/* ===== ACCORDION ===== */
+.accordion {
+  margin-top: 2rem;
+}
+
+.acc-item {
+  border-bottom: 1px solid rgba(201,168,76,0.15);
+}
+
+.acc-trigger {
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 1.2rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  color: var(--ivory);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  transition: color 0.2s;
+}
+
+.acc-trigger:hover { color: var(--gold-light); }
+
+.acc-icon {
+  font-size: 1.2rem;
+  color: var(--gold);
+  transition: transform 0.3s;
+  flex-shrink: 0;
+  margin-left: 1rem;
+}
+
+.acc-item.open .acc-icon { transform: rotate(45deg); }
+
+.acc-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.acc-item.open .acc-body { max-height: 800px; }
+
+.acc-content {
+  padding-bottom: 1.5rem;
+  color: var(--parchment);
+  font-size: 0.92rem;
+  line-height: 1.8;
+}
+
+.acc-content strong { color: var(--gold-light); }
+
+/* ===== MISCONCEPTION CARDS ===== */
+.misc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.misc-card {
+  padding: 2rem;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(201,168,76,0.12);
+}
+
+.misc-myth {
+  font-family: 'Cinzel', serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: var(--red-vedic);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.misc-claim {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  color: #c0a0a0;
+  font-style: italic;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.misc-reality-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: #6a9e6a;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.misc-reality {
+  color: var(--parchment);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+/* ===== GLOSSARY ===== */
+.glossary-grid {
+  columns: 2;
+  column-gap: 3rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 700px) { .glossary-grid { columns: 1; } }
+
+.glossary-entry {
+  break-inside: avoid;
+  margin-bottom: 1.5rem;
+}
+
+.glossary-term {
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  color: var(--gold);
+  letter-spacing: 0.08em;
+}
+
+.glossary-def {
+  color: var(--parchment);
+  font-size: 0.88rem;
+  line-height: 1.6;
+  margin-top: 0.2rem;
+}
+
+/* ===== CONTRIBUTION GRID ===== */
+.contrib-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.contrib-card {
+  padding: 1.5rem;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(201,168,76,0.12);
+  text-align: center;
+  transition: border-color 0.3s, transform 0.2s;
+}
+
+.contrib-card:hover {
+  border-color: rgba(201,168,76,0.4);
+  transform: translateY(-3px);
+}
+
+.contrib-icon {
+  font-size: 2rem;
+  margin-bottom: 0.8rem;
+  display: block;
+}
+
+.contrib-name {
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.contrib-desc {
+  color: var(--parchment);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+/* ===== SOURCES BOX ===== */
+.sources-box {
+  background: rgba(0,0,0,0.2);
+  border: 1px solid rgba(201,168,76,0.12);
+  padding: 2rem;
+  margin-top: 3rem;
+  font-size: 0.82rem;
+}
+
+.sources-title {
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.sources-list {
+  list-style: none;
+  columns: 2;
+  column-gap: 2rem;
+}
+
+@media (max-width: 600px) { .sources-list { columns: 1; } }
+
+.sources-list li {
+  color: var(--parchment);
+  margin-bottom: 0.5rem;
+  padding-left: 1rem;
+  position: relative;
+  font-size: 0.82rem;
+  break-inside: avoid;
+}
+
+.sources-list li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: var(--gold-dark);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: rgba(0,0,0,0.5);
+  border-top: 1px solid rgba(201,168,76,0.15);
+  padding: 4rem 2rem 2rem;
+  text-align: center;
+}
+
+.footer-om {
+  font-size: 2.5rem;
+  color: var(--gold);
+  opacity: 0.4;
+  margin-bottom: 1rem;
+}
+
+.footer-disclaimer {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  color: rgba(212,197,160,0.5);
+  font-size: 0.8rem;
+  line-height: 1.7;
+  font-style: italic;
+}
+
+.footer-copy {
+  font-family: 'Cinzel', serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  color: rgba(201,168,76,0.3);
+  text-transform: uppercase;
+}
+
+/* ===== NOTICE BADGE ===== */
+.notice-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(201,168,76,0.08);
+  border: 1px solid rgba(201,168,76,0.25);
+  padding: 0.4rem 1rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  nav ul { display: none; }
+  .hero-stats { gap: 2rem; }
+  .glossary-grid { columns: 1; }
+  .sources-list { columns: 1; }
+}
+
+/* ===== SCROLL ANIMATIONS ===== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== HIGHLIGHT BOX ===== */
+.highlight-box {
+  background: rgba(201,168,76,0.06);
+  border: 1px solid rgba(201,168,76,0.2);
+  padding: 1.5rem 2rem;
+  margin: 2rem 0;
+}
+
+.highlight-box p {
+  color: var(--ivory);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.highlight-box strong { color: var(--gold-light); }
+
+/* ===== ANCESTRY BAR CHART ===== */
+.ancestry-chart {
+  margin: 2rem 0;
+}
+
+.ancestry-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.8rem;
+  gap: 1rem;
+}
+
+.ancestry-label {
+  min-width: 180px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  color: var(--parchment);
+  text-transform: uppercase;
+}
+
+.ancestry-track {
+  flex: 1;
+  height: 20px;
+  background: rgba(255,255,255,0.06);
+  position: relative;
+  display: flex;
+}
+
+.ancestry-seg {
+  height: 100%;
+  transition: width 1s ease;
+}
+
+.ancestry-pct {
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  color: var(--gold);
+  min-width: 40px;
+  text-align: right;
+}
+
+.seg-steppe { background: linear-gradient(90deg, #e07020, #b85a10); }
+.seg-iran { background: linear-gradient(90deg, #c9a84c, #a88030); }
+.seg-anc-sa { background: linear-gradient(90deg, #6a7ea8, #4a5e88); }
+.seg-other { background: rgba(255,255,255,0.15); }
+
+.ancestry-legend {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  color: var(--parchment);
+  text-transform: uppercase;
+}
+
+.legend-dot {
+  width: 12px; height: 12px;
+  flex-shrink: 0;
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-brand">ॐ <span>BRAHMIN ORIGINS</span> ARCHIVE</a>
+  <ul>
+    <li><a href="#who">Who Are Brahmins</a></li>
+    <li><a href="#varna">Varna & Dharma</a></li>
+    <li><a href="#history">History</a></li>
+    <li><a href="#genetics">Genetics</a></li>
+    <li><a href="#debate">Aryan Debate</a></li>
+    <li><a href="#regional">Regional</a></li>
+    <li><a href="#contributions">Contributions</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+</nav>
+
+<!-- ===== HERO ===== -->
+<div id="hero">
+  <div class="om-symbol">ॐ</div>
+  <div class="hero-kicker">A Vedic Civilization Research Archive · Genetics · History · Dharma</div>
+  <h1 class="hero-title">
+    The Origins, Evolution &<br>
+    <em>Identity of the Brahmin</em>
+  </h1>
+  <p class="hero-subtitle">A scholarly synthesis of archaeogenetics, Vedic scripture, anthropology, and population science — examining one of civilization's most continuously documented priestly traditions.</p>
+  <div class="hero-sanskrit">ब्रह्म जानातीति ब्राह्मणः — "One who knows Brahman is a Brahmin"</div>
+  <div class="hero-ctas">
+    <a href="#who" class="btn-primary">Explore the Origins of Brahmins</a>
+    <a href="#varna" class="btn-secondary">Understand Varna & Vedic Society</a>
+    <a href="#genetics" class="btn-secondary">Research Genetics, History & Dharma</a>
+  </div>
+  <div class="hero-divider"></div>
+  <div class="hero-stats">
+    <div class="hero-stat"><span class="hero-stat-num">3500+</span><span class="hero-stat-label">Years of documented history</span></div>
+    <div class="hero-stat"><span class="hero-stat-num">50+</span><span class="hero-stat-label">Distinct regional Brahmin communities</span></div>
+    <div class="hero-stat"><span class="hero-stat-num">4</span><span class="hero-stat-label">Major ancestry components studied</span></div>
+    <div class="hero-stat"><span class="hero-stat-num">12+</span><span class="hero-stat-label">Peer-reviewed genetic studies cited</span></div>
+  </div>
+</div>
+
+<!-- ===== WHO ARE BRAHMINS ===== -->
+<div id="who" class="section-full band-dark" style="padding: 6rem 0;">
+<div class="section-inner">
+  <div class="section-kicker fade-in">I. Introduction</div>
+  <h2 class="section-title fade-in">Who Are <em>Brahmins?</em></h2>
+  <div class="title-rule"></div>
+
+  <div class="notice-badge">⚑ This archive distinguishes Theology · Mythology · History · Genetics at all times</div>
+
+  <div class="prose fade-in">
+    <p>The word <strong>Brahmin</strong> (Sanskrit: ब्राह्मण, <em>Brāhmaṇa</em>) derives from <em>Brahman</em> — the ultimate universal reality or Absolute in Hindu philosophy. A Brahmin is traditionally defined as one whose vocation, character, and life are oriented toward knowing, preserving, and transmitting this knowledge. The Taittiriya Upanishad defines: <em>"Brahma jānātīti Brāhmaṇaḥ"</em> — one who knows Brahman is a Brahmin.</p>
+    <p>In sociological reality, the term refers to a <strong>hereditary varna</strong> — one of the four classical social categories in Hindu civilization — and to thousands of <strong>jatis</strong> (endogamous sub-communities) spread across South Asia with distinct languages, rituals, genealogies, and customs. A Tamil Brahmin from Kumbakonam and a Kashmiri Pandit share the same varna designation but live in worlds separated by language, cuisine, ritual practice, and — as genetics now reveals — to some extent, ancestry.</p>
+  </div>
+
+  <div class="def-grid fade-in">
+    <div class="def-card">
+      <div class="def-term">Brahmin / Brahmana</div>
+      <div class="def-sanskrit">ब्राह्मण (Brāhmaṇa)</div>
+      <div class="def-body">The highest of the four varnas. Traditionally associated with study of the Vedas, teaching, performing yajnas (rituals), and preserving Dharma. In modern usage, refers to thousands of hereditary caste communities across South Asia.</div>
+    </div>
+    <div class="def-card">
+      <div class="def-term">Brahmana Texts</div>
+      <div class="def-sanskrit">ब्राह्मण ग्रन्थ</div>
+      <div class="def-body">A category of ancient prose texts attached to each Veda (e.g., Shatapatha Brahmana, Aitareya Brahmana). These explain rituals, mythology, and the cosmological significance of yajna. Distinct from the social category of Brahmin.</div>
+    </div>
+    <div class="def-card">
+      <div class="def-term">Varna</div>
+      <div class="def-sanskrit">वर्ण</div>
+      <div class="def-body">The fourfold social classification in Vedic thought: Brahmin (priestly/scholarly), Kshatriya (warrior/ruler), Vaishya (merchant/farmer), Shudra (artisan/laborer). Originally described as a division of function; later became increasingly hereditary.</div>
+    </div>
+    <div class="def-card">
+      <div class="def-term">Jati</div>
+      <div class="def-sanskrit">जाति</div>
+      <div class="def-body">Birth-group or subcaste — the thousands of endogamous communities that constitute the actual social reality of caste in India. One Varna (e.g., Brahmin) contains hundreds of distinct Jatis. Jati, not Varna, governs marriage, occupation, and social identity in practice.</div>
+    </div>
+    <div class="def-card">
+      <div class="def-term">Gotra</div>
+      <div class="def-sanskrit">गोत्र</div>
+      <div class="def-body">Patrilineal lineage traced to a founding Vedic sage (e.g., Bharadwaja, Kashyapa, Vasishtha). Marriage within the same Gotra is traditionally prohibited. Gotra system reflects both ritual descent and — partially — biological patrilineal ancestry.</div>
+    </div>
+    <div class="def-card">
+      <div class="def-term">Priesthood vs. Brahmin</div>
+      <div class="def-sanskrit">पुरोहित vs ब्राह्मण</div>
+      <div class="def-body">Not all Brahmins are priests, and not all priests are Brahmins. Brahmin includes scholars, philosophers, administrators, landowners, and teachers. "Purohit" (family priest) is a professional role, not a synonym for the entire Brahmin community.</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ===== VARNA & DHARMA ===== -->
+<div id="varna" class="section-full" style="padding: 6rem 0;">
+<div class="section-inner">
+  <div class="section-kicker fade-in">II. Dharmic Framework</div>
+  <h2 class="section-title fade-in">Varna in <em>Hindu Dharma</em></h2>
+  <div class="title-rule"></div>
+
+  <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;">
+    <div>
+      <div class="prose fade-in">
+        <p>The Vedic texts present the varna system not as a racial hierarchy but as a <strong>functional cosmological order</strong>. The Purusha Sukta (Rigveda 10.90), arguably the earliest textual reference to the fourfold division, frames it as a cosmic sacrifice — the primordial Purusha is divided to produce the universe itself, with different social functions emerging from different parts of the cosmic body.</p>
+        <p>The Bhagavad Gita (4.13) states: <em>"Chātur-varṇyaṃ mayā sṛṣṭaṃ guṇa-karma-vibhāgaśaḥ"</em> — "The four varnas were created by me according to guna (quality) and karma (action)." This verse has been central to the debate about whether varna was originally quality-based or birth-based.</p>
+        <p>The <strong>Mahabharata</strong> (Shanti Parva, 188) explicitly states: "There is no distinction of varnas. This world was at first created by Brahma as all Brahmin. It became divided by action." Manusmriti, by contrast, emphasizes hereditary birth as determinative of varna. This contradiction <em>within</em> the tradition is real and historically significant.</p>
+      </div>
+
+      <div class="scripture-card fade-in">
+        <div class="skt">मुखं किमस्य कौ बाहू का ऊरू पादा उच्येते</div>
+        <div class="trans">"What is his mouth? What are his arms? What are his thighs and feet called?"</div>
+        <div class="source">Purusha Sukta · Rigveda 10.90.11</div>
+      </div>
+
+      <div class="scripture-card fade-in">
+        <div class="skt">ब्राह्मणोऽस्य मुखमासीत् बाहू राजन्यः कृतः। ऊरू तदस्य यद्वैश्यः पद्भ्यां शूद्रो अजायत</div>
+        <div class="trans">"From his mouth came the Brahmin; from his arms, the Kshatriya; from his thighs, the Vaishya; from his feet, the Shudra."</div>
+        <div class="source">Rigveda 10.90.12 · Purusha Sukta</div>
+      </div>
+    </div>
+
+    <div>
+      <p class="prose fade-in" style="margin-bottom: 1.5rem;">The Varna system as idealized in texts — not as it historically functioned:</p>
+      <div class="varna-pyramid fade-in">
+        <div style="text-align:center; font-family: 'Cinzel', serif; font-size:0.6rem; letter-spacing:0.2em; color:var(--parchment); margin-bottom:0.8rem; text-transform:uppercase;">Varna Pyramid (Idealized Textual Model)</div>
+        <div style="display:flex; flex-direction:column; align-items:center;">
+          <div class="varna-level vl-1">Brahmin<span class="varna-label">Priestly · Scholarly</span></div>
+          <div class="varna-level vl-2">Kshatriya<span class="varna-label">Warrior · Ruler</span></div>
+          <div class="varna-level vl-3">Vaishya<span class="varna-label">Merchant · Farmer</span></div>
+          <div class="varna-level vl-4">Shudra<span class="varna-label">Artisan · Laborer</span></div>
+        </div>
+      </div>
+
+      <div class="highlight-box fade-in" style="margin-top: 2rem;">
+        <p><strong>Critical distinction:</strong> The textual Varna system describes four functional categories. The lived caste system (Jati) involves thousands of endogamous communities with complex hierarchies, regional variation, and historical transformations that deviate significantly from the scriptural ideal. Conflating the two leads to both romanticization and misrepresentation.</p>
+      </div>
+
+      <div class="scholar-quote fade-in">
+        <p>The caste system as we know it — endogamous, hereditary, ritually ranked — is a product of historical accretion over millennia, not a simple imposition of a Vedic text.</p>
+        <cite>— Nicholas B. Dirks, Castes of Mind (2001)</cite>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: 4rem;">
+    <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.5rem; color:var(--ivory); margin-bottom:1.5rem; font-weight:400;">Brahmin Duties in Classical Texts</h3>
+    <div class="def-grid">
+      <div class="def-card">
+        <div class="def-term">Adhyayana & Adhyāpana</div>
+        <div class="def-sanskrit">अध्ययन · अध्यापन</div>
+        <div class="def-body">Study of the Vedas and teaching of the Vedas. The core obligation. Manusmriti lists six duties (Shat Karma) of Brahmins, with Vedic study at the top.</div>
+      </div>
+      <div class="def-card">
+        <div class="def-term">Yajana & Yājana</div>
+        <div class="def-sanskrit">यजन · याजन</div>
+        <div class="def-body">Performing yajna (ritual sacrifice) for oneself and officiating yajna for others. Brahmins served as the technical specialists of Vedic ritual.</div>
+      </div>
+      <div class="def-card">
+        <div class="def-term">Dāna & Pratigraha</div>
+        <div class="def-sanskrit">दान · प्रतिग्रह</div>
+        <div class="def-body">Giving gifts and accepting gifts (from righteous people). The traditional means of Brahmin livelihood — Dakshina for ritual services.</div>
+      </div>
+      <div class="def-card">
+        <div class="def-term">Dharma Raksha</div>
+        <div class="def-sanskrit">धर्म रक्षा</div>
+        <div class="def-body">Preservation of cosmic and moral order — maintaining the oral tradition, legal interpretation (Dharmashastra), and judicial functions in traditional society.</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ===== HISTORY ===== -->
+<div id="history" class="section-full band-saffron" style="padding: 6rem 0;">
+<div class="section-inner">
+  <div class="section-kicker fade-in">III. Historical Development</div>
+  <h2 class="section-title fade-in">From Vedic Seers to <em>Temple Brahmin Communities</em></h2>
+  <div class="title-rule"></div>
+
+  <div class="timeline">
+    <div class="timeline-item fade-in">
+      <div class="timeline-date">c. 1500–1000 BCE — Rigvedic Period</div>
+      <div class="timeline-title">The Rishis and Mantra-Composers</div>
+      <div class="timeline-body">The Rigveda preserves hymns composed by a class of seers (Rishis) including Vishvamitra, Vasishtha, Bharadwaja, and Atri — Brahmins who were simultaneously composers, priests, and tribal leaders. Society was more fluid; the Rishi Vishvamitra was born Kshatriya but became the paradigmatic Brahmin sage. The "Brahmin" identity was at this stage more closely tied to ritual specialization and knowledge than to rigid hereditary rules. The concept of the priestly class was emerging, not yet fixed.</div>
+    </div>
+    <div class="timeline-item fade-in">
+      <div class="timeline-date">c. 1000–600 BCE — Late Vedic Period</div>
+      <div class="timeline-title">Brahmana Texts and the Crystallization of Ritual Specialists</div>
+      <div class="timeline-body">The composition of Brahmana texts (Shatapatha, Aitareya, Taittiriya) marks the systematization of Vedic ritual — complex yajnas requiring specialized Brahmin priests in four distinct roles: Hotri, Udgatri, Adhvaryu, and Brahma. Hereditary priesthood became entrenched during this period. The Gurukul system emerged as the primary educational institution, placing Brahmin teachers at the center of knowledge transmission. This period also sees the emergence of the Upanishads, primarily composed by Brahmin and Kshatriya thinkers.</div>
+    </div>
+    <div class="timeline-item fade-in">
+      <div class="timeline-date">c. 600–300 BCE — Mahajanapada Era</div>
+      <div class="timeline-title">Brahmin Power, Buddhist Challenge, and Intellectual Flowering</div>
+      <div class="timeline-body">The rise of Buddhism and Jainism directly challenged Brahmin ritual authority, with both traditions rejecting the Veda's claim to supreme authority and critiquing animal sacrifice. Both Siddhartha Gautama and Mahavira were Kshatriyas. Despite — or because of — this challenge, Brahmin intellectual culture produced the great philosophical texts of the Upanishadic period. Many Brahmins became supporters of Buddhist monasteries. The rigid boundary between traditions was more permeable than later history suggests.</div>
+    </div>
+    <div class="timeline-item fade-in">
+      <div class="timeline-date">c. 300 BCE–400 CE — Maurya to Early Gupta</div>
+      <div class="timeline-title">Brahmin Advisors, Dharmashastra, and Political Integration</div>
+      <div class="timeline-body">Chanakya (Kautilya), the great Brahmin political theorist, authored the Arthashastra. Under Ashoka, Buddhism temporarily overshadowed Brahmin ritual authority. The compilation of Manusmriti (c. 200 BCE–200 CE) represents Brahmin legal scholarship systematizing caste rules in unprecedented detail. Brahmin communities spread southward through royal patronage and Brahmadeya (land grants to Brahmin communities), establishing temples and agrahara settlements across Deccan and South India.</div>
+    </div>
+    <div class="timeline-item fade-in">
+      <div class="timeline-date">c. 320–650 CE — Gupta Period</div>
+      <div class="timeline-title">The Golden Age of Brahmin Sanskrit Culture</div>
+      <div class="timeline-body">The Gupta Empire represented the high-water mark of classical Sanskrit civilization. Brahmin scholars produced works across mathematics (Aryabhata, Brahmagupta), astronomy, Ayurveda (Charaka, Sushruta), drama (Kalidasa), and philosophy (Adi Shankaracharya slightly later). The Puranas — 18 major texts — were compiled and systematized. Temple construction proliferated, and Brahmin priests became the managers of temple economies, endowed with land revenues for their ritual services.</div>
+    </div>
+    <div class="timeline-item fade-in">
+      <div class="timeline-date">c. 700–1200 CE — Medieval Period</div>
+      <div class="timeline-title">Temple Systems, Regional Kingdoms, and Brahmin Migrations</div>
+      <div class="timeline-body">Medieval South Indian kingdoms (Pallava, Chola, Rashtrakuta) used land grants to relocate Brahmin communities as both ritual specialists and administrators. Namboodiri Brahmins dominated Kerala; Tamil Brahmins consolidated around the great Shiva and Vishnu temples; Saraswat Brahmins spread along the Konkan coast. Northern India saw the Kanyakubja and Maithil Brahmin communities consolidate power under the patronage of Gurjara-Pratihara and Pala dynasties. This period marks the peak of Brahmin political influence as advisors, judges, and administrators.</div>
+    </div>
+    <div class="timeline-item fade-in">
+      <div class="timeline-date">1200–1850 CE — Sultanate and Mughal India</div>
+      <div class="timeline-title">Resilience, Adaptation, and Transformation</div>
+      <div class="timeline-body">Brahmin communities adapted to Muslim rule in varied ways. Some served as administrators and revenue managers under the Mughals (the Persian-trained Brahmin scribal class). Regional kingdoms (Vijayanagara, Maratha) revived Brahmin patronage. The Peshwa rulers were themselves Chitpavan Brahmins. Temple-centered Brahmin culture continued largely uninterrupted in the south. The diversity of responses belies a monolithic Brahmin history.</div>
+    </div>
+    <div class="timeline-item fade-in">
+      <div class="timeline-date">1850–1947 CE — Colonial Period</div>
+      <div class="timeline-title">Census, Colonial Categories, and the Hardening of Identity</div>
+      <div class="timeline-body">British colonial census operations (1871 onwards) systematized and rigidified caste categories in ways that significantly altered their social meaning. Nicholas Dirks and Susan Bayly have argued that the modern understanding of caste as a fixed, uniform hierarchy owes much to British administrative needs. Brahmin communities — English-educated and positioned in scribal roles — disproportionately accessed colonial education, entering law, administration, and the nationalist movement. This privilege became a flashpoint for anti-Brahmin social reform movements (e.g., the Non-Brahmin Movement in Madras, Tamil Nadu).</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ===== GENETICS ===== -->
+<div id="genetics" class="section-full band-dark" style="padding: 6rem 0;">
+<div class="section-inner">
+  <div class="section-kicker fade-in">IV. Archaeogenetics & Anthropology</div>
+  <h2 class="section-title fade-in">What the <em>Genetics</em> Actually Says</h2>
+  <div class="title-rule"></div>
+
+  <div class="highlight-box fade-in">
+    <p><strong>Critical framing:</strong> Genetic haplogroups and ancestry components are tools for understanding population movement and relatedness over time. They do <strong>not</strong> imply racial superiority, cultural hierarchy, or social entitlement. All modern Indian populations — including all Brahmin communities — are highly mixed, showing multiple ancestry streams. Genetic overlap between castes is extensive and well-documented.</p>
+  </div>
+
+  <div class="prose fade-in" style="margin-top: 2rem;">
+    <p>The most rigorous genetic studies of South Asian populations in the last two decades — especially David Reich's lab (Harvard), Vagheesh Narasimhan (UT Southwestern), and the Thangaraj group at CCMB Hyderabad — have converged on a model of South Asian ancestry involving multiple distinct population streams. Understanding Brahmin genetics requires understanding this larger model first.</p>
+  </div>
+
+  <!-- ANI/ASI Model -->
+  <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.4rem; color:var(--ivory); margin: 3rem 0 1.5rem; font-weight:400;">The ANI / ASI Ancestry Model</h3>
+
+  <div class="ancestry-chart fade-in">
+    <div style="font-family:'Cinzel',serif; font-size:0.6rem; letter-spacing:0.15em; color:var(--gold); text-transform:uppercase; margin-bottom:1rem;">Approximate Admixture Proportions (Narasimhan et al. 2019 model · illustrative estimates)</div>
+
+    <div class="ancestry-row">
+      <div class="ancestry-label">North Indian Brahmins</div>
+      <div class="ancestry-track">
+        <div class="ancestry-seg seg-steppe" style="width:26%"></div>
+        <div class="ancestry-seg seg-iran" style="width:28%"></div>
+        <div class="ancestry-seg seg-anc-sa" style="width:40%"></div>
+        <div class="ancestry-seg seg-other" style="width:6%"></div>
+      </div>
+      <div class="ancestry-pct">~26% Steppe</div>
+    </div>
+
+    <div class="ancestry-row">
+      <div class="ancestry-label">South Indian Brahmins</div>
+      <div class="ancestry-track">
+        <div class="ancestry-seg seg-steppe" style="width:18%"></div>
+        <div class="ancestry-seg seg-iran" style="width:30%"></div>
+        <div class="ancestry-seg seg-anc-sa" style="width:48%"></div>
+        <div class="ancestry-seg seg-other" style="width:4%"></div>
+      </div>
+      <div class="ancestry-pct">~18% Steppe</div>
+    </div>
+
+    <div class="ancestry-row">
+      <div class="ancestry-label">Kashmiri Pandits</div>
+      <div class="ancestry-track">
+        <div class="ancestry-seg seg-steppe" style="width:30%"></div>
+        <div class="ancestry-seg seg-iran" style="width:35%"></div>
+        <div class="ancestry-seg seg-anc-sa" style="width:30%"></div>
+        <div class="ancestry-seg seg-other" style="width:5%"></div>
+      </div>
+      <div class="ancestry-pct">~30% Steppe</div>
+    </div>
+
+    <div class="ancestry-row">
+      <div class="ancestry-label">Non-Brahmin Upper Castes</div>
+      <div class="ancestry-track">
+        <div class="ancestry-seg seg-steppe" style="width:16%"></div>
+        <div class="ancestry-seg seg-iran" style="width:28%"></div>
+        <div class="ancestry-seg seg-anc-sa" style="width:52%"></div>
+        <div class="ancestry-seg seg-other" style="width:4%"></div>
+      </div>
+      <div class="ancestry-pct">~16% Steppe</div>
+    </div>
+
+    <div class="ancestry-row">
+      <div class="ancestry-label">South Indian Dalits (avg)</div>
+      <div class="ancestry-track">
+        <div class="ancestry-seg seg-steppe" style="width:5%"></div>
+        <div class="ancestry-seg seg-iran" style="width:15%"></div>
+        <div class="ancestry-seg seg-anc-sa" style="width:76%"></div>
+        <div class="ancestry-seg seg-other" style="width:4%"></div>
+      </div>
+      <div class="ancestry-pct">~5% Steppe</div>
+    </div>
+
+    <div class="ancestry-legend">
+      <div class="legend-item"><div class="legend-dot seg-steppe"></div> Steppe (MLBA ancestry)</div>
+      <div class="legend-item"><div class="legend-dot seg-iran"></div> Iranian Farmer-related</div>
+      <div class="legend-item"><div class="legend-dot seg-anc-sa"></div> Ancient South Asian (AASI)</div>
+      <div class="legend-item"><div class="legend-dot seg-other"></div> Other / Unassigned</div>
+    </div>
+    <div style="font-size:0.75rem; color:rgba(212,197,160,0.5); margin-top:0.8rem; font-style:italic;">Note: These are illustrative approximations based on published research. Actual proportions vary widely within each category. Not all researchers agree on methodology or exact values.</div>
+  </div>
+
+  <!-- Haplogroup Cards -->
+  <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.4rem; color:var(--ivory); margin: 3rem 0 1.5rem; font-weight:400;">Key Haplogroups in South Asian Genetics</h3>
+
+  <div class="genetics-grid fade-in">
+    <div class="genetics-card">
+      <div class="genetics-haplogroup">R1a</div>
+      <div class="genetics-name">Y-Chromosome Haplogroup</div>
+      <div class="genetics-bar"><div class="genetics-bar-fill" style="width:70%"></div></div>
+      <div class="genetics-pct">Elevated in North & West Indian Brahmin communities (30–72%)</div>
+      <div class="genetics-desc">Associated with the Bronze Age Steppe migration. Particularly the Z93 subclade is found at high frequency in Indo-Aryan speaking populations. Its presence in South Asian Brahmins is one of the key genetic arguments for ancestral connection to steppe pastoralists. However, R1a is also found in non-Brahmin communities and is not exclusively "Brahmin."</div>
+    </div>
+    <div class="genetics-card">
+      <div class="genetics-haplogroup">J2</div>
+      <div class="genetics-name">Y-Chromosome Haplogroup</div>
+      <div class="genetics-bar"><div class="genetics-bar-fill" style="width:40%"></div></div>
+      <div class="genetics-pct">Common in South Indian Brahmin populations (15–30%)</div>
+      <div class="genetics-desc">J2 is associated with the spread of Neolithic agriculture from the Near East and Iran. Its elevated frequency in some South Indian Brahmin communities reflects the "Iranian farmer" ancestry component — a pre-Aryan Neolithic influence that entered South Asia from the northwest. J2 is not exclusively Brahmin.</div>
+    </div>
+    <div class="genetics-card">
+      <div class="genetics-haplogroup">H</div>
+      <div class="genetics-name">Y-Chromosome Haplogroup</div>
+      <div class="genetics-bar"><div class="genetics-bar-fill" style="width:35%"></div></div>
+      <div class="genetics-pct">Prevalent in South Indian and lower caste communities</div>
+      <div class="genetics-desc">H haplogroup is associated with ancient South Asian ancestry (AASI — Ancient Ancestral South Indians). Its presence varies across all communities. Many Brahmin communities, especially in South India, carry H at varying frequencies — reflecting the genetic continuity of ancient South Asian populations across caste lines.</div>
+    </div>
+    <div class="genetics-card">
+      <div class="genetics-haplogroup">L</div>
+      <div class="genetics-name">Y-Chromosome Haplogroup</div>
+      <div class="genetics-bar"><div class="genetics-bar-fill" style="width:25%"></div></div>
+      <div class="genetics-pct">Present across multiple South Asian communities</div>
+      <div class="genetics-desc">L haplogroup likely originated in South Asia or the Near East. Found across diverse Indian populations without a strong caste-specific pattern. Its presence in Brahmin communities further demonstrates that no single haplogroup defines Brahmin ancestry.</div>
+    </div>
+    <div class="genetics-card">
+      <div class="genetics-haplogroup">R2</div>
+      <div class="genetics-name">Y-Chromosome Haplogroup</div>
+      <div class="genetics-bar"><div class="genetics-bar-fill" style="width:20%"></div></div>
+      <div class="genetics-pct">Found across caste groups in South Asia</div>
+      <div class="genetics-desc">R2 is largely specific to South Asia and likely originated within the subcontinent. Its presence in Brahmin communities supports the argument that Brahmin ancestry incorporates deep indigenous South Asian lineages alongside later steppe-associated lineages.</div>
+    </div>
+    <div class="genetics-card">
+      <div class="genetics-haplogroup">mtDNA</div>
+      <div class="genetics-name">Maternal Lineages (Overview)</div>
+      <div class="genetics-bar"><div class="genetics-bar-fill" style="width:85%"></div></div>
+      <div class="genetics-pct">Predominantly South Asian maternal lineages across all Brahmin groups</div>
+      <div class="genetics-desc">Critically, maternal (mitochondrial) lineages in Indian Brahmin communities are overwhelmingly South Asian — M, R, and other Asian clades dominate. This pattern is consistent with a model of primarily male-mediated migration from the steppe, with local South Asian women contributing most of the maternal ancestry. This is a key finding that complicates any "pure outsider" narrative.</div>
+    </div>
+  </div>
+
+  <div class="scholar-quote fade-in" style="margin-top: 3rem;">
+    <p>Indians today are the result of mixture between two ancient populations — ANI [Ancestral North Indians] and ASI [Ancestral South Indians] — that are as different from each other as Europeans and East Asians. All groups in India are mixtures of these two populations.</p>
+    <cite>— Reich et al., "Reconstructing Indian Population History," Nature 2009</cite>
+  </div>
+
+  <div class="scholar-quote fade-in">
+    <p>We document a major Bronze Age expansion from the Pontic-Caspian Steppe... This migration contributed to the formation of Indo-Aryan speaking populations of South Asia. Upper-caste populations, particularly Brahmins, carry elevated proportions of Steppe ancestry compared to lower-caste groups.</p>
+    <cite>— Narasimhan et al., "The Formation of Human Populations in South and Central Asia," Science 2019</cite>
+  </div>
+</div>
+</div>
+
+<!-- ===== ARYAN DEBATE ===== -->
+<div id="debate" class="section-full" style="padding: 6rem 0;">
+<div class="section-inner">
+  <div class="section-kicker fade-in">V. The Central Debate</div>
+  <h2 class="section-title fade-in">Did Brahmins Come <em>From Outside India?</em></h2>
+  <div class="title-rule"></div>
+
+  <div class="prose fade-in">
+    <p>Few questions in the study of South Asian civilization are as politically charged, historically complex, or scientifically active as this one. Below we present the major positions with their evidentiary basis, without advocacy for any nationalist or political agenda.</p>
+    <p>The question is often framed as "Did Aryans invade India?" — but this framing itself is misleading. Modern scholarship distinguishes between an <strong>Aryan Invasion Theory</strong> (largely discredited in its 19th-century racial form), an <strong>Indo-Aryan Migration Theory</strong> (the current mainstream academic position, supported by genetics, linguistics, and archaeology), and various <strong>Indigenous Aryan</strong> positions (advocated by some Indian scholars). These are separate hypotheses about different things.</p>
+  </div>
+
+  <!-- What "Arya" meant -->
+  <div class="highlight-box fade-in">
+    <p><strong>What did "Arya" actually mean?</strong> In the Rigveda, <em>Arya</em> is a term of social prestige and cultural affiliation — meaning "noble," "civilized," or "of one's own people." It was never a racial or ethnic category in the ancient texts. The Rigveda uses it to distinguish those who follow the Vedic way from those who do not (<em>Dasas/Dasyus</em>). The 19th-century European use of "Aryan" as a racial category — which the Nazi movement later weaponized — was a colonial distortion with no basis in the ancient texts. Modern scholarship categorically rejects "Aryan" as a racial term.</p>
+  </div>
+
+  <div class="debate-grid fade-in">
+    <div class="debate-card traditional">
+      <div class="debate-card-title">A. Traditional Hindu Understanding</div>
+      <ul>
+        <li>Vedas are <em>apaurusheya</em> (not of human authorship) — eternally revealed</li>
+        <li>The Vedic Rishis were indigenous to the Sapta-Sindhu (seven-river) region</li>
+        <li>India (Bharatavarsha) is the original homeland of Vedic civilization</li>
+        <li>Brahmin Gotras trace to Vedic Rishis born and living in India</li>
+        <li>No traditional text describes Brahmin ancestors arriving from outside</li>
+        <li>Sanskrit is considered the primordial language, not a migrant one</li>
+        <li><em>Evidence base:</em> Textual tradition, theological authority of scripture</li>
+      </ul>
+    </div>
+
+    <div class="debate-card migration">
+      <div class="debate-card-title">B. Indo-Aryan Migration Theory (Academic Mainstream)</div>
+      <ul>
+        <li>Bronze Age pastoralists from the Pontic-Caspian Steppe (modern Ukraine/Russia) expanded into Central and South Asia c. 2000–1500 BCE</li>
+        <li>Proto-Indo-Iranian speakers were among these migrants, later differentiating into Indo-Aryan and Iranian branches</li>
+        <li>They brought the ancestral forms of Sanskrit and early Vedic religious practices</li>
+        <li>This was a migration, not an "invasion" — probably gradual, multi-generational</li>
+        <li>Supported by: genetics (Narasimhan 2019), linguistics (Mallory, Ringe), archaeology (BMAC culture)</li>
+        <li>Brahmins carry higher steppe ancestry than lower castes — consistent with this model</li>
+        <li><em>Status:</em> Current academic consensus; not without debate on details</li>
+      </ul>
+    </div>
+
+    <div class="debate-card indigenous">
+      <div class="debate-card-title">C. Out-of-India / Indigenous Aryan Theory</div>
+      <ul>
+        <li>Vedic civilization originated in India and spread outward, not inward</li>
+        <li>Vedic texts describe rivers (Saraswati) consistent with earlier dates</li>
+        <li>Advocates: S.R. Rao, N.S. Rajaram, Shrikant Talageri, Koenraad Elst</li>
+        <li>Points to Harappan Civilization as potentially Vedic or proto-Vedic</li>
+        <li>Challenges: No genetic evidence of a major Indian outward migration in the required timeframe; linguistic reconstruction points to a non-Indian homeland</li>
+        <li>Harappan script remains undeciphered — cannot be confirmed as Sanskrit-related</li>
+        <li><em>Status:</em> Not accepted by mainstream linguistics or genetics; politically significant in India</li>
+      </ul>
+    </div>
+
+    <div class="debate-card genetics">
+      <div class="debate-card-title">D. Modern Archaeogenetics Findings</div>
+      <ul>
+        <li>Ancient DNA from South Asian and Central Asian sites now provides direct evidence</li>
+        <li>Steppe ancestry (Yamnaya/MLBA-related) appears in South Asian populations after ~2000 BCE</li>
+        <li>This ancestry is significantly elevated in upper-caste, especially Brahmin populations</li>
+        <li>Pre-2000 BCE Harappan individuals show zero or minimal steppe ancestry</li>
+        <li>The Harappan Civilization was genetically different from later Brahmin populations</li>
+        <li>Maternal lineages in all Indian castes remain predominantly ancient South Asian</li>
+        <li>Genetics supports migration but cannot determine linguistic or cultural identity with certainty</li>
+        <li><em>Key papers:</em> Narasimhan et al. Science 2019; Reich et al. Nature 2009; Shinde et al. Cell 2019</li>
+      </ul>
+    </div>
+
+    <div class="debate-card" style="border-color: rgba(107,142,107,0.3);">
+      <div class="debate-card-title" style="color: #9aaa9a;">E. Linguistic Evidence</div>
+      <ul>
+        <li>Sanskrit belongs to the Indo-European language family — one of the world's largest</li>
+        <li>Proto-Indo-European (PIE) is reconstructed as originating in the Pontic Steppe (Kurgan hypothesis) or Anatolia</li>
+        <li>The Anatolian hypothesis is linguistically less consistent with Vedic Sanskrit's archaic features</li>
+        <li>Vedic Sanskrit shares ~2,000 cognates with Avestan (Old Iranian) — indicating a very recent common ancestor c. 2000–1800 BCE</li>
+        <li>The Rigveda's oldest stratum shows contact with Iranian languages, consistent with a steppe migration route</li>
+        <li>Dravidian loanwords in the Rigveda suggest contact with indigenous South Asian speakers early in the Indo-Aryan presence in the subcontinent</li>
+      </ul>
+    </div>
+
+    <div class="debate-card" style="border-color: rgba(107,107,162,0.3);">
+      <div class="debate-card-title" style="color: #9a9aaa;">F. Archaeological Evidence</div>
+      <ul>
+        <li>The Harappan (Indus Valley) Civilization (c. 3300–1300 BCE) was large, literate (undeciphered), and urban</li>
+        <li>No clear Vedic altars or horse sacrifice pits found in Harappan sites — a key Vedic marker</li>
+        <li>The Sintashta culture (Ural steppes, c. 2100–1800 BCE) provides the clearest proto-Aryan context: horse remains, spoke-wheeled chariots, fire altars</li>
+        <li>The Bactria-Margiana Archaeological Complex (BMAC) is a possible contact zone between steppe migrants and South Asian populations</li>
+        <li>B.B. Lal and the Revisionist school argue for continuity between Harappan and Vedic material culture</li>
+        <li>Most mainstream archaeologists disagree with this continuity thesis</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="scholar-quote fade-in" style="margin-top: 3rem;">
+    <p>The genetic evidence now strongly supports a migration from the steppe into South Asia, contributing to the ancestry of present-day Indo-Aryan speaking populations. This does not validate colonial racial theories but rather provides a nuanced understanding of population movement.</p>
+    <cite>— Vagheesh M. Narasimhan, Science 2019</cite>
+  </div>
+</div>
+</div>
+
+<!-- ===== REGIONAL DIVERSITY ===== -->
+<div id="regional" class="section-full band-dark" style="padding: 6rem 0;">
+<div class="section-inner">
+  <div class="section-kicker fade-in">VI. Regional Communities</div>
+  <h2 class="section-title fade-in">The Diversity of <em>Brahmin Communities</em></h2>
+  <div class="title-rule"></div>
+
+  <div class="prose fade-in">
+    <p>There is no single "Brahmin community." The approximately 50 million Brahmins in India today are divided into hundreds of endogamous Jati groups, speaking different languages, following different Vedic shakhas (branches), worshipping different deities, and with substantially different genetic profiles. Below are some of the major regional communities.</p>
+  </div>
+
+  <div class="regional-table-wrap fade-in">
+    <table class="regional-table">
+      <thead>
+        <tr>
+          <th>Community</th>
+          <th>Region</th>
+          <th>Language / Veda Branch</th>
+          <th>Historical Role</th>
+          <th>Notable Traditions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="name-cell">Kashmiri Pandits</td>
+          <td>Kashmir Valley</td>
+          <td>Kashmiri / Atharva & Rigveda</td>
+          <td>Court scholars, royal advisors, temple priests; significant in Shaivite philosophy (Kashmir Shaivism)</td>
+          <td>Trika philosophy (Abhinavagupta's tradition), unique Shaivism, Bhat/Sapru/Zutshi gotras</td>
+        </tr>
+        <tr>
+          <td class="name-cell">Saraswat Brahmins</td>
+          <td>Konkan, Goa, Karnataka</td>
+          <td>Konkani/Tulu / Rigveda</td>
+          <td>Maritime traders, landholders, temple managers along western coast</td>
+          <td>Gauda Saraswats (GSBs) are Vaishnava; Chitrapur Saraswats are distinct; seafaring history</td>
+        </tr>
+        <tr>
+          <td class="name-cell">Maithil Brahmins</td>
+          <td>Bihar (Mithila region)</td>
+          <td>Maithili / Sama & Rigveda</td>
+          <td>Scholars, astronomers, legal experts; Mithila was a major Brahmin intellectual center</td>
+          <td>Janaka's court in Ramayana set in Mithila; Gangesa's Navya Nyaya philosophy; unique Panjis (genealogy records)</td>
+        </tr>
+        <tr>
+          <td class="name-cell">Kanyakubja Brahmins</td>
+          <td>Uttar Pradesh (Kannauj)</td>
+          <td>Hindi/Awadhi / Rigveda</td>
+          <td>Dominant priestly class of the Gangetic plain; advisors to medieval North Indian kingdoms</td>
+          <td>Spread widely by royal invitation; some migrated to Bengal (Rarhi Brahmins)</td>
+        </tr>
+        <tr>
+          <td class="name-cell">Bengali Brahmins</td>
+          <td>West Bengal, Bangladesh</td>
+          <td>Bengali / Rigveda & Atharvaveda</td>
+          <td>Land administrators, court scholars, Tantric specialists; major role in Bengal Renaissance</td>
+          <td>Rarhi and Vaidika subdivisions; Bengali Shakta and Vaishnava traditions; significant in colonial-era reform</td>
+        </tr>
+        <tr>
+          <td class="name-cell">Tamil Iyers</td>
+          <td>Tamil Nadu</td>
+          <td>Tamil / Sama & Rigveda</td>
+          <td>Temple priests (agama specialists), Vedic scholars, colonial-era administrators</td>
+          <td>Smartha tradition; follow Adi Shankaracharya's Advaita; deeply connected to Chidambaram, Madurai temples</td>
+        </tr>
+        <tr>
+          <td class="name-cell">Namboodiri Brahmins</td>
+          <td>Kerala</td>
+          <td>Malayalam / Rigveda (Aitareya)</td>
+          <td>Dominant landowning and priestly class of medieval Kerala; guardians of Rigvedic oral tradition</td>
+          <td>Extremely conservative ritual tradition; unique Soma Yaga performances; matrilineal inheritance in some sub-groups</td>
+        </tr>
+        <tr>
+          <td class="name-cell">Havyaka Brahmins</td>
+          <td>Karnataka (Malnad)</td>
+          <td>Kannada / Rigveda & Yajurveda</td>
+          <td>Temple priests and landowners in Malnad forest region; closely associated with Shaiva shrines</td>
+          <td>Known for rice cultivation, vegetarianism; distinct dialect of Kannada; linked to Mutt traditions</td>
+        </tr>
+        <tr>
+          <td class="name-cell">Telugu Brahmins</td>
+          <td>Andhra Pradesh, Telangana</td>
+          <td>Telugu / Yajurveda</td>
+          <td>Ritual specialists, royal advisors under Telugu Nayaka and Kakatiya kingdoms; Veda schools</td>
+          <td>Niyogi (non-priestly) and Vaidiki (priestly) subdivisions; major Tirupati temple Brahmin tradition</td>
+        </tr>
+        <tr>
+          <td class="name-cell">Maharashtrian Brahmins</td>
+          <td>Maharashtra</td>
+          <td>Marathi / Rigveda & Yajurveda</td>
+          <td>Chitpavan Brahmins rose to political dominance as Peshwas; Deshasthas were royal court Brahmins</td>
+          <td>Chitpavan, Deshastha, Koknastha subdivisions; Bal Gangadhar Tilak, Gokhale were Chitpavan; strong reformist tradition</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="highlight-box fade-in" style="margin-top: 2rem;">
+    <p><strong>Genetic note:</strong> Studies (Watkins et al., Metspalu et al., Moorjani et al.) show that different Brahmin communities — Kashmiri Pandits, Tamil Iyers, Namboodiris — cluster with their regional non-Brahmin neighbors in genome-wide analyses more than they cluster with each other. This means millennia of endogamy within regional populations has made regional identity a stronger genetic signal than pan-Brahmin identity.</p>
+  </div>
+</div>
+</div>
+
+<!-- ===== CONTRIBUTIONS ===== -->
+<div id="contributions" class="section-full band-saffron" style="padding: 6rem 0;">
+<div class="section-inner">
+  <div class="section-kicker fade-in">VII. Civilizational Contributions</div>
+  <h2 class="section-title fade-in">Brahmin Contributions to <em>Hindu Civilization</em></h2>
+  <div class="title-rule"></div>
+
+  <div class="contrib-grid fade-in">
+    <div class="contrib-card">
+      <span class="contrib-icon">📜</span>
+      <div class="contrib-name">Vedic Preservation</div>
+      <div class="contrib-desc">Oral transmission of four Vedas (~10,000+ mantras) across 3,000+ years without writing — one of history's greatest feats of oral culture. Vedic recitation (Ghana-patha, Krama-patha) preserved exact phonetics.</div>
+    </div>
+    <div class="contrib-card">
+      <span class="contrib-icon">🔢</span>
+      <div class="contrib-name">Mathematics</div>
+      <div class="contrib-desc">Brahmagupta formalized rules for zero and negative numbers (Brahmasphutasiddhanta, 628 CE). Aryabhata calculated pi to 4 decimal places and proposed Earth's rotation on its axis.</div>
+    </div>
+    <div class="contrib-card">
+      <span class="contrib-icon">⭐</span>
+      <div class="contrib-name">Astronomy</div>
+      <div class="contrib-desc">The Jyotisha Vedanga (oldest scientific texts in India) tracked astronomical cycles for Vedic ritual. Brahmagupta, Varahamihira, and Aryabhata produced systematic astronomical models that influenced Islamic and European science.</div>
+    </div>
+    <div class="contrib-card">
+      <span class="contrib-icon">🌿</span>
+      <div class="contrib-name">Ayurveda</div>
+      <div class="contrib-desc">Charaka (Charaka Samhita) and Sushruta (Sushruta Samhita) codified India's medical tradition. Brahmin physician-scholars systematized anatomy, surgery, pharmacology, and medical ethics.</div>
+    </div>
+    <div class="contrib-card">
+      <span class="contrib-icon">🏛️</span>
+      <div class="contrib-name">Philosophy</div>
+      <div class="contrib-desc">Adi Shankaracharya (Advaita Vedanta), Ramanuja (Vishishtadvaita), Madhva (Dvaita), Gautama (Nyaya), Kanada (Vaisheshika), Kapila (Samkhya) — six major schools systematized by Brahmin scholars.</div>
+    </div>
+    <div class="contrib-card">
+      <span class="contrib-icon">🗣️</span>
+      <div class="contrib-name">Sanskrit Grammar</div>
+      <div class="contrib-desc">Panini's Ashtadhyayi (c. 4th century BCE) — 3,959 rules describing Sanskrit — remains the most complete grammar of any language ever written. Patanjali's Mahabhashya further elaborated it.</div>
+    </div>
+    <div class="contrib-card">
+      <span class="contrib-icon">⚖️</span>
+      <div class="contrib-name">Law & Ethics</div>
+      <div class="contrib-desc">Dharmashastra texts (Manusmriti, Yajnavalkya Smriti, Arthashastra) codified civil and religious law. Brahmin scholars served as judges (Dharmadhikaris) in traditional kingdoms.</div>
+    </div>
+    <div class="contrib-card">
+      <span class="contrib-icon">🎭</span>
+      <div class="contrib-name">Literature & Drama</div>
+      <div class="contrib-desc">Kalidasa (Shakuntala, Meghaduta), Bharavi, Magha, Valmiki (Ramayana), and Vyasa (Mahabharata) — Sanskrit literary tradition was primarily sustained within Brahmin scholarly culture.</div>
+    </div>
+    <div class="contrib-card">
+      <span class="contrib-icon">🕌</span>
+      <div class="contrib-name">Temple Architecture</div>
+      <div class="contrib-desc">The Manasara and Mayamata (Vastu Shastra texts), primarily Brahmin compilations, guided temple architecture. Agama texts by Brahmin Shaiva scholars specified iconography, ritual, and temple layout.</div>
+    </div>
+  </div>
+
+  <div class="scholar-quote fade-in" style="margin-top: 3rem;">
+    <p>The Brahmin intellectual tradition produced one of the most remarkable continuous scholarly cultures in human history — spanning grammar, logic, mathematics, astronomy, law, ritual, and philosophy over more than two millennia without interruption.</p>
+    <cite>— Sheldon Pollock, "The Language of the Gods in the World of Men" (2006)</cite>
+  </div>
+</div>
+</div>
+
+<!-- ===== MISCONCEPTIONS ===== -->
+<div class="section-full band-dark" style="padding: 6rem 0;">
+<div class="section-inner">
+  <div class="section-kicker fade-in">VIII. Clarifications</div>
+  <h2 class="section-title fade-in">Common <em>Misconceptions</em></h2>
+  <div class="title-rule"></div>
+
+  <div class="misc-grid fade-in">
+    <div class="misc-card">
+      <div class="misc-myth">Misconception</div>
+      <div class="misc-claim">"Brahmins are genetically a distinct, pure race from Central Asia."</div>
+      <div class="misc-reality-label">Reality</div>
+      <div class="misc-reality">All Brahmin communities are significantly mixed populations with multiple ancestry streams. They carry elevated steppe ancestry compared to lower castes, but also carry substantial ancient South Asian and Iranian farmer ancestry. Different Brahmin communities are more genetically similar to their regional non-Brahmin neighbors than to Brahmins in other regions.</div>
+    </div>
+    <div class="misc-card">
+      <div class="misc-myth">Misconception</div>
+      <div class="misc-claim">"The Varna system was always birth-based and the Brahmins designed it to oppress."</div>
+      <div class="misc-reality-label">Reality</div>
+      <div class="misc-reality">Early Vedic texts contain evidence for both birth-based and quality-based varna. The system's rigidification was a historical process over centuries. The Mahabharata (Shanti Parva) explicitly debates whether Brahmin status is determined by birth or character. The modern caste system's rigidity also owes much to medieval and colonial processes.</div>
+    </div>
+    <div class="misc-card">
+      <div class="misc-myth">Misconception</div>
+      <div class="misc-claim">"The Aryan Invasion wiped out the Harappan civilization."</div>
+      <div class="misc-reality-label">Reality</div>
+      <div class="misc-reality">The Harappan civilization collapsed c. 1900–1700 BCE, likely due to climate change (drought) and river course changes — before the main steppe migration. Modern scholars prefer "migration" to "invasion." The Harappan collapse was not caused by Indo-Aryan peoples; the evidence does not support a violent invasion narrative.</div>
+    </div>
+    <div class="misc-card">
+      <div class="misc-myth">Misconception</div>
+      <div class="misc-claim">"All Brahmins are vegetarian priests."</div>
+      <div class="misc-reality-label">Reality</div>
+      <div class="misc-reality">Many Brahmin communities historically ate meat — Kashmiri Pandits, Bengali Brahmins, Saraswat Brahmins, and many others. Strict vegetarianism is not universally mandated by scripture and varies significantly by region. Historically, Brahmins served as administrators, warriors, merchants, farmers, and politicians — not only priests.</div>
+    </div>
+    <div class="misc-card">
+      <div class="misc-myth">Misconception</div>
+      <div class="misc-claim">"R1a haplogroup = Brahmin identity or Aryan heritage."</div>
+      <div class="misc-reality-label">Reality</div>
+      <div class="misc-reality">R1a is found in high frequencies in diverse populations — Poles, Russians, Ukrainians, Iranians, and Central Asians — with no connection to Brahmin identity. Within India, R1a occurs in non-Brahmin communities too. Haplogroups track population movements, not cultural or social identity. Equating genetic markers with cultural superiority has no scientific basis.</div>
+    </div>
+    <div class="misc-card">
+      <div class="misc-myth">Misconception</div>
+      <div class="misc-claim">"The Vedas and Sanskrit originated outside India."</div>
+      <div class="misc-reality-label">Reality</div>
+      <div class="misc-reality">The Vedas — in their composed, transmitted, and culturally elaborated form — are a product of the Indian subcontinent. The linguistic ancestors of Vedic Sanskrit likely arrived with steppe migrants, but the Vedic textual tradition as we know it developed within India. The distinction between proto-language origin and textual tradition matters enormously.</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ===== FAQ ===== -->
+<div id="faq" class="section-full" style="padding: 6rem 0;">
+<div class="section-inner">
+  <div class="section-kicker fade-in">IX. FAQ</div>
+  <h2 class="section-title fade-in">Frequently Asked <em>Questions</em></h2>
+  <div class="title-rule"></div>
+
+  <div class="accordion fade-in">
+
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggleAcc(this)">
+        Were ancient Brahmins the same as modern Brahmins?
+        <span class="acc-icon">+</span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-content">No. The Rigvedic Rishis who composed the hymns were a diverse group of seer-poets — some of whom were not "Brahmin" in the later hereditary sense. Vishvamitra is the clearest example: he was born Kshatriya but through austerity and knowledge became a revered Rishi. The rigid hereditary Brahmin identity solidified over centuries through a combination of endogamy, land grants, and religious law codification. <strong>The social category of "Brahmin" has evolved significantly over 3,000 years.</strong></div>
+      </div>
+    </div>
+
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggleAcc(this)">
+        Is the Harappan Civilization Vedic or Brahminic?
+        <span class="acc-icon">+</span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-content">This remains one of the most contested questions in Indian archaeology. The Harappan script is undeciphered, making cultural identification impossible from texts. Archaeologically, Harappan material culture shows no confirmed evidence of horse sacrifice, fire altars of the Vedic type, or spoke-wheeled chariots — all key Rigvedic markers. Genetically, Harappan individuals (from Rakhigarhi) show no steppe ancestry and are distinct from the later population that carries Brahmin-associated steppe markers. <strong>Mainstream scholarship does not support identifying Harappan civilization as Vedic.</strong> However, significant cultural elements may have been absorbed from Harappan culture into later Vedic civilization — making it a contact story rather than a simple replacement.</div>
+      </div>
+    </div>
+
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggleAcc(this)">
+        Does genetics prove that Brahmins are superior?
+        <span class="acc-icon">+</span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-content"><strong>Absolutely not.</strong> This cannot be stated clearly enough. Genetics studies population movements, ancestry, and relatedness — it says nothing whatsoever about intellectual capacity, spiritual worth, or social entitlement. All human populations are mixtures. All haplogroups appear in multiple populations globally. Elevated steppe ancestry in Brahmin communities reflects a historical population event, not a mark of superiority. Any use of genetic data to argue for caste superiority is scientifically illiterate and ethically reprehensible.</div>
+      </div>
+    </div>
+
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggleAcc(this)">
+        What does "Aryan Migration Theory" actually claim?
+        <span class="acc-icon">+</span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-content">The academic theory states that Bronze Age steppe pastoralists — related to the Yamnaya and MLBA cultures of the Pontic-Caspian steppe — migrated into Central and South Asia between approximately 2000–1500 BCE. They brought Proto-Indo-Iranian languages ancestral to Sanskrit and Avestan. This was not a single event but a complex, multi-generational process. The theory does <strong>not</strong> claim that steppe migrants were "superior" or "civilized" compared to Harappans — the Harappan civilization was in fact far more urbanized. The theory is about language dispersal and population movement, not cultural hierarchy.</div>
+      </div>
+    </div>
+
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggleAcc(this)">
+        Why do Brahmin communities across India have different practices?
+        <span class="acc-icon">+</span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-content">Because "Brahmin" as a pan-Indian category is largely a textual and ideological construct that subsumes enormous historical diversity. Regional Brahmin communities developed in isolation from each other, adapted to local linguistic and cultural contexts, intermarried with local populations to varying degrees, followed different Vedic Shakhas (branches), aligned with different philosophical schools, and were reshaped by different rulers' patronage systems. A Namboodiri Brahmin's ritual practices have more in common with Kerala's temple traditions than with a Bengali Brahmin's, despite sharing the same Varna label.</div>
+      </div>
+    </div>
+
+    <div class="acc-item">
+      <button class="acc-trigger" onclick="toggleAcc(this)">
+        Was there ever a non-hereditary Brahmin system?
+        <span class="acc-icon">+</span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-content">Textual evidence suggests the very earliest Vedic period had more fluid boundaries. The Mahabharata, Bhagavata Purana, and various Smritis contain explicit statements that Brahmin status should be based on character and knowledge, not birth alone. However, it's difficult to determine whether this was ever the actual social practice or simply an idealized counter-narrative within a tradition that also strongly affirmed hereditary succession. The Bhakti movement (Kabir, Tukaram, Ramananda) explicitly challenged hereditary Brahmin authority. Ambedkar's conversion movement rejected the entire varna framework. <strong>The debate about what Brahmin identity should mean is as alive today as it was in the Mahabharata.</strong></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<!-- ===== GLOSSARY ===== -->
+<div class="section-full band-dark" style="padding: 6rem 0;">
+<div class="section-inner">
+  <div class="section-kicker fade-in">X. Reference</div>
+  <h2 class="section-title fade-in">Glossary of <em>Sanskrit & Scientific Terms</em></h2>
+  <div class="title-rule"></div>
+
+  <div class="glossary-grid fade-in">
+    <div class="glossary-entry">
+      <div class="glossary-term">Agama</div>
+      <div class="glossary-def">Temple ritual texts specifying architecture, iconography, worship procedures. Shaiva and Vaishnava Agamas are distinct traditions.</div>
+    </div>
+    <div class="glossary-entry">
+      <div class="glossary-term">AASI</div>
+      <div class="glossary-def">Ancient Ancestral South Indians — the hunter-gatherer populations of South Asia before agriculture and later migrations. A major ancestry component in all modern South Asians.</div>
+    </div>
+    <div class="glossary-entry">
+      <div class="glossary-term">ANI / ASI</div>
+      <div class="glossary-def">Ancestral North Indians (related to West Eurasians) and Ancestral South Indians (AASI). All modern Indians are mixtures of these two main lineages (Reich et al. 2009).</div>
+    </div>
+    <div class="glossary-entry">
+      <div class="glossary-term">Apaurusheya</div>
+      <div class="glossary-def">Literally "not of human authorship." The traditional Hindu view that the Vedas are eternal truths revealed (shruti) to Rishis, not composed by them.</div>
+    </div>
+    <div class="glossary-entry">
+      <div class="glossary-term">Brahmadeya</div>
+      <div class="glossary-def">Land grants made by kings to Brahmin communities, typically in exchange for ritual services. These settlements (agrahara) were important mechanisms of Brahmin migration across India.</div>
+    </div>
+    <div class="glossary-entry">
+      <div class="glossary-term">BMAC</div>
+      <div class="glossary-def">Bactria-Margiana Archaeological Complex — a Bronze Age culture in modern Afghanistan/Turkmenistan thought to be a contact zone between steppe migrants and South Asian populations.</div>
+    </div>
+    <div class="glossary-entry">
+      <div class="glossary-term">Dharmashastra</div>
+      <div class="glossary-def">Classical texts on religious law and social ethics — including Manusmriti, Yajnavalkya Smriti, and Naradasmriti. These texts codify caste duties, ritual obligations, and civil law.</div>
+    </div>
+    <div class="glossary-entry">
+      <div class="glossary-term">Endogamy</div>
+      <div class="glossary-def">The practice of marrying only within one's own social group (Jati). Endogamy is a defining characteristic of the Jati system and creates the genetic founder effects observed in modern studies.</div>
+    </div>
+    <div class="glossary-entry">
+      <div class="glossary-term">Founder Effect</div>
+      <div class="glossary-def">When a small founding population establishes a community that becomes genetically distinct from its source population. Relevant to understanding why some Brahmin communities show elevated frequencies of specific haplogroups.</div>
+    </div>
+    <div class="glossary-entry">
+      <div class="glossary-term">Gotra</div>
+      <div class="glossary-def">Patrilineal clan traced to a founding Vedic Rishi. Marriage within the same Gotra is prohibited. Partial correlate of Y-chromosome lineage.</div>
+    </div>
+    <div class="glossary-entry">
+      <div class="glossary-term">Haplogroup</div>
+      <div class="glossary-def">A group of similar haplotypes sharing a common ancestor — used to trace human migration patterns. Y-chromosome haplogroups trace paternal lineages; mtDNA haplogroups trace maternal lineages.</div>
+    </div>
+    <div class="glossary-entry">
+      <div class="glossary-term">Jati</div>
+      <div class="glossary-def">Birth-group; the endogamous community that is the actual unit of social organization in India. Thousands exist; each Varna contains many Jatis.</div>
+    </div>
+    <div class="glossary-entry">
+      <div class="glossary-term">MLBA</div>
+      <div class="glossary-def">Middle-to-Late Bronze Age. Refers to Steppe MLBA ancestry — the genetic component associated with Bronze Age steppe pastoralist migrations.</div>
+    </div>
+    <div class="glossary-entry">
+      <div class="glossary-term">Purusha Sukta</div>
+      <div class="glossary-def">Hymn 10.90 of the Rigveda. Describes the cosmos created from the sacrifice of a primordial being (Purusha). Contains the first reference to the fourfold social division.</div>
+    </div>
+    <div class="glossary-entry">
+      <div class="glossary-term">Sanskritization</div>
+      <div class="glossary-def">M.N. Srinivas's sociological term for the process by which lower castes adopted Brahmin customs, rituals, and language to improve their social position. A major mechanism of social mobility in traditional India.</div>
+    </div>
+    <div class="glossary-entry">
+      <div class="glossary-term">Shakha</div>
+      <div class="glossary-def">Branch or recension of the Veda. Different Brahmin communities specialize in different Shakhas — e.g., Namboodiris follow the Aitareya Shakha of the Rigveda; different Tamil Brahmin sub-groups follow Sama or Rigvedic Shakhas.</div>
+    </div>
+    <div class="glossary-entry">
+      <div class="glossary-term">Shruti / Smriti</div>
+      <div class="glossary-def">Shruti = "that which is heard" — the Vedas, considered directly revealed. Smriti = "that which is remembered" — secondary texts including epics, Puranas, and Dharmashastra. Brahmin scholars are custodians of both.</div>
+    </div>
+    <div class="glossary-entry">
+      <div class="glossary-term">Steppe Ancestry</div>
+      <div class="glossary-def">Genetic ancestry traced to Bronze Age pastoralist cultures of the Pontic-Caspian Steppe (modern Ukraine/Russia). Elevated in upper-caste, especially Brahmin, South Asian populations.</div>
+    </div>
+    <div class="glossary-entry">
+      <div class="glossary-term">Varna</div>
+      <div class="glossary-def">The fourfold social classification in Vedic thought. Distinct from Jati (birth-group). Originally a functional division; became increasingly hereditary over time.</div>
+    </div>
+    <div class="glossary-entry">
+      <div class="glossary-term">Yajna</div>
+      <div class="glossary-def">Vedic ritual sacrifice — the central religious act of the Rigvedic world. Brahmins were the technical specialists of yajna, with four distinct priestly roles.</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ===== SOURCES ===== -->
+<div class="section-full" style="padding: 4rem 0;">
+<div class="section-inner">
+  <div class="sources-box fade-in">
+    <div class="sources-title">Key Academic Sources & Further Reading</div>
+    <ul class="sources-list">
+      <li>Reich, D. et al. "Reconstructing Indian Population History." <em>Nature</em> 461 (2009)</li>
+      <li>Narasimhan, V. et al. "The Formation of Human Populations in South and Central Asia." <em>Science</em> 365 (2019)</li>
+      <li>Shinde, V. et al. "An Ancient Harappan Genome Lacks Ancestry from Steppe Pastoralists." <em>Cell</em> 179 (2019)</li>
+      <li>Moorjani, P. et al. "Genetic Evidence for Recent Population Mixture in India." <em>AJHG</em> 93 (2013)</li>
+      <li>Metspalu, M. et al. "Shared and Unique Components of Human Population Structure." <em>AJHG</em> 89 (2011)</li>
+      <li>Romila Thapar. <em>Early India: From the Origins to AD 1300.</em> Penguin, 2002</li>
+      <li>Romila Thapar. <em>The Aryan: Recasting Constructs.</em> Three Essays Press, 2008</li>
+      <li>Nicholas B. Dirks. <em>Castes of Mind: Colonialism and the Making of Modern India.</em> Princeton, 2001</li>
+      <li>Michael Witzel. "Substrate Languages in Old Indo-Aryan." <em>EJVS</em> 5(1) (1999)</li>
+      <li>Tony Joseph. <em>Early Indians: The Story of Our Ancestors.</em> Juggernaut, 2018</li>
+      <li>B.B. Lal. <em>The Homeland of the Aryans.</em> Aryan Books, 2005</li>
+      <li>K.A. Nilakanta Sastri. <em>A History of South India.</em> Oxford, 1955</li>
+      <li>Sheldon Pollock. <em>The Language of the Gods in the World of Men.</em> UC Press, 2006</li>
+      <li>David Anthony. <em>The Horse, the Wheel, and Language.</em> Princeton, 2007</li>
+      <li>Patrick Olivelle (trans.). <em>Manusmriti: Law Code of Manu.</em> Oxford, 2004</li>
+      <li>Wendy Doniger. <em>The Hindus: An Alternative History.</em> Penguin, 2009</li>
+      <li>Suniti Kumar Chatterji. <em>The Origin and Development of the Bengali Language.</em> 1926</li>
+      <li>M.N. Srinivas. <em>Social Change in Modern India.</em> UC Press, 1966</li>
+    </ul>
+  </div>
+</div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-om">ॐ</div>
+  <p class="footer-disclaimer">This archive is an educational research platform. It presents evidence-based scholarship from multiple disciplines while clearly distinguishing theology, mythology, historical reconstruction, and genetic science. It does not advocate any position of caste superiority and actively rejects any racial interpretation of the material presented. All scholarly debates are presented honestly, including mainstream academic consensus and dissenting views.</p>
+  <p class="footer-copy">Brahmin Origins Research Archive · Educational Use · Evidence-Based Scholarship</p>
+</footer>
+
+<script>
+// ===== ACCORDION =====
+function toggleAcc(btn) {
+  const item = btn.closest('.acc-item');
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.acc-item').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+
+// ===== SCROLL FADE =====
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// ===== NAV ACTIVE =====
+const sections = document.querySelectorAll('[id]');
+const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    if (window.scrollY >= section.offsetTop - 100) {
+      current = section.id;
+    }
+  });
+  navLinks.forEach(link => {
+    link.style.color = link.getAttribute('href') === '#' + current ? 'var(--gold-light)' : '';
+  });
+});
+</script>
+</body>
+</html>
